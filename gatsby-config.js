@@ -22,7 +22,6 @@ module.exports = {
         contentTypes: [
           "service"
         ],
-        queryLimit: 100, // I
       },
     },
   ],
