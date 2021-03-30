@@ -1,9 +1,9 @@
 {
   "name": "priest",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": true,
-  "description": "priest",
-  "author": "Riley Bathurst",
+  "description": "priest sheetmal website",
+  "author": "Riley Bathurst <riley@rileybathurst.com>",
   "keywords": [
     "gatsby"
   ],
@@ -17,6 +17,7 @@
   "dependencies": {
     "gatsby": "^3.1.2",
     "gatsby-plugin-image": "^1.1.2",
+    "gatsby-plugin-react-helmet": "^4.2.0",
     "gatsby-plugin-sass": "^4.1.0",
     "gatsby-plugin-sharp": "^3.1.2",
     "gatsby-source-filesystem": "^3.1.0",
@@ -24,6 +25,7 @@
     "gatsby-transformer-sharp": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "sass": "^1.32.8"
   }
 }
