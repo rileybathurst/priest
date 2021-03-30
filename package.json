@@ -1,8 +1,8 @@
 {
-  "name": "again",
+  "name": "priest",
   "version": "1.0.0",
   "private": true,
-  "description": "again",
+  "description": "priest",
   "author": "Riley Bathurst",
   "keywords": [
     "gatsby"
@@ -16,7 +16,14 @@
   },
   "dependencies": {
     "gatsby": "^3.1.2",
+    "gatsby-plugin-image": "^1.1.2",
+    "gatsby-plugin-sass": "^4.1.0",
+    "gatsby-plugin-sharp": "^3.1.2",
+    "gatsby-source-filesystem": "^3.1.0",
+    "gatsby-source-strapi": "^0.0.12",
+    "gatsby-transformer-sharp": "^3.1.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "sass": "^1.32.8"
   }
 }
