@@ -22,22 +22,23 @@ const ServicesPage = ({ data }) => (
 
     <HeaderContact />
 
+    {/* next I might need to redo this to get the images */}
     <main className="container">
       <div className="tasks__wrapper">
-        {data.allStrapiService.edges.map((document) => (
+        {/* {data.allStrapiServices.edges.map((document) => (
           <section className="tasks">
             <h4 className="tasks__title">
-              <Link to={`/services/${document.node.slug}`}>
+              <Link to={`/service/${document.node.slug}`}>
                 {document.node.title}
               </Link>
             </h4>
 
             <div className="tasks__background--upper shadow">
-              {/* stay gold */}
+              /* stay gold *
             </div>
 
             <div className="tasks__background--lower shadow">
-              {/* stay gold */}
+              /* stay gold *
             </div>
 
             <div className="tasks__info">
@@ -54,9 +55,9 @@ const ServicesPage = ({ data }) => (
             </div>
 
             <hr className="tasks__divider" />
-            <div className="tasks__divider--cross">{/* stay gold */}</div>
+            <div className="tasks__divider--cross">/* stay gold *</div>
           </section>
-        ))}
+        ))} */}
       </div>
       {/* tasks__wrapper */}
     </main>
@@ -75,6 +76,15 @@ export const pageQuery = graphql`
           Content
           byline
           slug
+          Cover {
+            childImageSharp {
+              gatsbyImageData(
+                width: 200
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
         }
       }
     }

@@ -8,6 +8,20 @@ export const query = graphql`
       id
       title
       slug
+      byline
+      Content
+      coverMedium
+      coverVideo
+
+      Cover {
+        childImageSharp {
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+      }
     }
   }
 `
