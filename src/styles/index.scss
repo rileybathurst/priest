@@ -1,762 +1,437 @@
-
-
 /* Contents
 -------------------------------------------------------------- */
 
-/*
-	1. full
-	2. Spacing
-	3. Sticky
-	4. Vimeo
-	5. Fixes
-	 5.2 Images
-	6. Off Canvas
-	7. Social Nav
-	8. Feature Cats
-	9. Comments
-	10. Genericons
-	11. Box
-	999. Required Worpess css
-	- 999.2 Gallery
+// I'm removing the contents until I have the pieces in order
+// splitting out sheets etc
 
--------------------------------------------------------------- */
+// 🚨 30th March 2021 running through the sheets as a lot seems pretty messy
 
-/*  1.
-	Full width coloured background
-	This is first incase after this it needs more classes
--------------------------------------------------------------- */
-
+// 🚨 what issue?
 /* Medium Up screens - fixes header issue
 @media only screen and (min-width: 40.063em) {
 	.full {
-	width: 100%;
+	  width: 100%;
 	}
 } */
 
-// orginal foundation
-/* $breakpoints: (
-  small: 0,
-  medium: 640px,
-  large: 1024px,
-  xlarge: 1200px,
-  xxlarge: 1440px,
-); */
-
-// custom priest
-// https://docs.google.com/spreadsheets/d/1mmnTlSNv-L8dyHRb33eE_pM3qVv-a5hz3q9WfTDlI4c/edit#gid=0
-
-
-/* $breakpoints: (
-	"small": "0",
-	"medium": "40em", // 640px
-	"medium__half-step": "54em", // 864px minor change 
-	"large": "90em", // 1440px // Im getting the feeling this is too small
-	"large__half-step": "120em", // 1920px minor change 
-	"full": "144em", // 2304px // this could just be large__half-step 
-	// Im doing quite a lot of work to get this to be different and nice
-	// but that would have to be there anyway
-); */
-
-/* BREAKPOINTS */
-// this was a sass map but I have problems with those so I'm skipping them
-$breakpoint__small: 0; // document this?
-$breakpoint__medium: 40em; // 640px
-$breakpoint__medium--half-step: 54em; // 864px minor change 
-$breakpoint__large: 90em; // 1440px // Im getting the feeling this is too small
-$breakpoint__large--half-step: 120em; // 1920px minor change 
-$breakpoint__full: 144em; // 2304px // this could just be large__half-step 
-// for the px surely I need the body size above?
-
-$print-breakpoint: large; //
-
-$primary-color: #1e93bd;
-$secondary-color: #006087; // document if this is a darken
-$warning-color: #ffae00;
-
-$black: #0a0a0a;
-$white: #fefefe;
-$light-gray: #e6e6e6;
-$medium-gray: #D1D1D1; // slightly adapted so the footer ratio is passing contrast guidelines
-$dark-gray: #8a8a8a;
-
-$global-margin: 1rem;
-$global-padding: 1rem;
-$global-grid-gap: $global-margin;
-
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
-$header-font-family: 'Roboto Slab', serif;
-
-$page-width: 77em; // this should probably meet up with breakpoints
-$general-measure: 30rem; // document this somewhere
-
 // this is a messy place to have this but until I get everything sorted it's here for now
-@import 'molecules';
+@import "variables";
+@import "base-typography.scss";
+@import "molecules";
 
-/* Reset */
+/*------------------------------------*\
+  #Reset
+\*------------------------------------*/
 body {
-    margin: 0; // browser reset
+  margin: 0; // browser reset // 📣 is this needed? whats the default
 }
 
 figure {
-	margin: 0; // browser reset
+  margin: 0; // 📣 browser reset whats the default
 }
 
-picture, img, h4 {
-	display: block;
+picture,
+img,
+h4 {
+  display: block; // 📣 are these inline?
 }
 /* Finish Reset */
 
-html {
-    font-family: $body-font-family;
-}
-
-header {
-	background: $secondary-color; // mobile menu background
-}
-
 main {
-	max-width: 100vw;
+  max-width: 100vw; // 📣 what is this overwriting?
 }
 
-// typescale.com 1.200 Minor Third
-
-html {font-size: 100%;} /*16px*/
-
-body {
-  background-color: $white;
-  font-weight: 400;
-  line-height: 1.65;
-  color: #333;
-}
-
-p {margin-bottom: 1.15rem;}
-
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  margin: 2.75rem 0 1.05rem;
-  font-family: $header-font-family;
-  font-weight: 400;
-  line-height: 1.15;
-}
-
-h1 {
-	margin-top: 0; // why am I crushing this in all situations
-	font-size: 2.488em; // 39.808
-}
-
-h2 {font-size: 2.074em;} // 33.184px
-
-h3 {
-	font-size: 1.728em; // 27.684px
-	margin-top: 1rem; // this seems like a bad place to have this even if the one use is nice
-}
-
-h4 {font-size: 1.44em;} // 23.04px
-
-h5 {font-size: 1.2em;} // 19.2px
-
-small, .text_small {font-size: 0.833em;}
-
-p {
-	// margin-bottom: $global-margin;
-	line-height: 1.6;
-	font-family: "Open Sans", sans-serif;
-}
-
-a {
-	color: $secondary-color; // passes contrast checks when primary does not
-	text-decoration: none;
-}
-
-a:hover {
-	// color: $secondary-color;
-	text-decoration: underline;
-}
-
-.text-center {
-    text-align: center;
-}
+/*------------------------------------*\
+  #Backgrounds
+\*------------------------------------*/
 
 .bg-primary {
-	background: $primary-color;
-	color: $white;
+  background: $primary-color;
+  color: $white;
 
-	a {
-		color: $white;
-		text-decoration: underline;
-	}
-	a:hover {
-		color: $black;
-	}
-	cite {
-		color: $medium-gray;
-	}
+  a {
+    color: $white;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: $black;
+  }
+  cite {
+    color: $medium-gray; // 📣 check the contrast on this
+  }
 }
 
 .bg-secondary {
-	background: $secondary-color;
-	color: $white;
+  background: $secondary-color;
+  color: $white;
 
-	a {
-		color: $white; // this is the same as the text color so I should fix that at some point
-		text-decoration: underline;
-	}
-	a:hover {
-		color: $light-gray;
-		background: darken($secondary-color, 10%);
-		transition: 0.5s ease;
-	}
+  a {
+    color: $white; // 📣 this is the same as the text color so I should fix that at some point
+    text-decoration: underline;
+  }
+  a:hover {
+    color: $light-gray;
+    background: darken($secondary-color, 10%); // 📣 set this as a variable
+    transition: 0.5s ease;
+  }
 }
 
 .bg-light-gray {
-	background: $light-gray;
+  background: $light-gray;
+  // 📣 check the contast with regular text
 }
 
 .bg-medium-gray {
-	background: $medium-gray;
-
-	.fake-a, // is this needed?
-	a {
-		color: $secondary-color;
-	}
-
-	.fake-a:hover,
-	a:hover {
-		color: $primary-color;
-	}
-
+  background: $medium-gray;
+  // 📣 check the contast with regular text
 }
 
 .bg-dark-gray {
-	background: $dark-gray;
+  background: $dark-gray;
+  // 📣 check the contast with regular text
 
-	a {
-		color: $white;
-		transition: 0.5s ease;
-		display: block;
-	}
+  a {
+    color: $white;
+    transition: 0.5s ease;
+    display: block;
+  }
 
-	a:hover { // I think this was just for the hero box which Im moving up a few levels to be able to do a few things at once
-		color: $black;
-	}
+  a:hover {
+    // I think this was just for the hero box
+    // which Im moving up a few levels to be able to do a few things at once
+    color: $black;
+  }
 }
 
 .bg-black {
-	background: $black;
-	color: $white;
-
-	.hidden-link {
-		color: $white;
-		text-decoration: underline;
-	}
-
-	.hidden-link:hover {
-		color: darken($white, 10%);
-	}
+  background: $black;
+  color: $white;
 }
 
-.primary-text {
-	color: $primary-color;
-}
-
-.white-a {
-	color: $white;
-}
-
-.white-a:hover {
-	color: $light-gray;
-	background: $black;
-}
-
-.hero-image img {
-	width: 100%;
-}
-
-.hidden-link {
-	color: $black;
-}
-
+// 📣 these needs to become variables
 .shadow {
-	// box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); // current, Im not sure why I was doing 2 shadows seems overly complicated
-	/* offset-x | offset-y | blur-radius | spread-radius | color */
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+  // box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  // current, Im not sure why I was doing 2 shadows seems overly complicated
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
 }
 
 .shadow-darker {
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.32),0 2px 10px 0 rgba(0,0,0,0.24);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.32), 0 2px 10px 0 rgba(0, 0, 0, 0.24);
 }
 
 .attachment-post-thumbnail {
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-}
-
-.excerpt {
-	color: blue; // really?
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 /*  2. Spacing
 	Used around the page for readability styling
 -------------------------------------------------------------- */
 
-// this is kinda scrappy I should tidy it all up
-
-.ngm-top { // negative global margin
-	margin-top: -$global-margin;
-}
-
-.ngm-bottom {
-	margin-bottom: -$global-margin;
-}
-
-.gm-top {
-	margin-top: $global-margin;
-}
-
-.gm-bottom {
-	margin-bottom: $global-margin;
-}
-
-.gm-tb {
-	margin-top: $global-margin;
-	margin-bottom: $global-margin;
-}
-
-.gp-top {
-	padding-top: $global-padding;
-}
-
-.gp2-top {
-	padding-top: $global-padding*2;
-}
-
-.gp-bottom {
-	padding-bottom: $global-padding;
-}
-
-.gp3-bottom {
-	padding-bottom: $global-padding*3;
-}
-
-.gp-tb {
-	padding-top: $global-margin;
-	padding-bottom: $global-margin;
-}
-
+// 📣 I dont like this but atleast it's used so work on it
 .gp2-tb {
-	padding-top: $global-margin*2;
-	padding-bottom: $global-margin*2;
+  padding-top: $global-margin * 2;
+  padding-bottom: $global-margin * 2;
 }
 
-.gp-tb-large {
-	@media (min-width:$breakpoint__large) {
-		padding-top: $global-margin;
-		padding-bottom: $global-margin;
-	}
-}
-
-.gm-4 {
-	margin: $global-margin;
-}
-
-.gm-3 {
-	margin: 0 $global-margin $global-margin $global-margin; // top | right | bottom | left
-}
-
-.gp-4 {
-	padding: $global-padding;
-}
-
+// 📣 used but could be done better
 .no-margin {
-	margin: 0;
+  margin: 0;
 }
 
-.no-margin-bottom {
-	margin-bottom: 0;
-}
-
-.no-padding-top {
-	padding-top: 0;
-}
-
-/*
-	3 - Sticky
-	Wordpress and foundation both have base classes called sticky so this gives pressedant to wordpress
---------------------------------------------------------------- */
-.sticky {
-	position: relative;
-}
-
-.sticky .featured-title {
-	background: $medium-gray;
-	display: block;
-	color: $white;
-}
-
-[type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"], textarea {
-	background: $light-gray;
-}
-
-// wordpress controls this in a way it should be hidden
-.featured-title {
-	display: none;
+// 📣 can I do something with *?
+[type="text"],
+[type="password"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="month"],
+[type="week"],
+[type="email"],
+[type="number"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="url"],
+[type="color"],
+textarea {
+  background: $light-gray;
 }
 
 /*  5 - Fixes - foundation 6 overwrite is written here so foundation can be updated
 -------------------------------------------------------------- */
 
-h1, h2, h3, h4, h5, h6 {
-	text-transform: uppercase;
-}
-
-.one-point-two-em { // why and where?
-	font-size: 1.2em;
-}
-
-/* p {
-	@include breakpoint(small) {
+/* 📣 this can be interesting but I need to define if I'm using it
+commented out as of March 30 2021
+p {
 	text-align: left;
-	}
+
 	@media (min-width:$breakpoint__large) {
 	text-align: justify;
 	}
 } */
 
-/* Im really not sure this is a great idea smaller text in bold doesnt look great
-.bold-big {
-	font-weight: normal;
+nav,
+.menu-primary-container {
+  font-size: 1.2em;
+  letter-spacing: 0.1rem;
 
-	@media (min-width:$breakpoint__large) {
-	font-weight: bold;
-	}
-} */
-
-nav, .menu-primary-container, .force-menu-style {
-	// font-weight: bold;
-	font-size: 1.2em;
-	letter-spacing: 0.1rem;
-
-	@media (min-width: $breakpoint__large) {
-		font-family: $header-font-family;
-	}
+  @media (min-width: $breakpoint__large) {
+    font-family: $major-font-family; // 🚨 what is this before and why?
+  }
 }
 
-.menu-primary-container > ul > a,
+.menu-primary-container > ul > a, // 🚨 this should never happen
 .menu-primary-container > ul > li > a {
-	border-bottom: 5px solid $secondary-color; // invisibile until hovered
+  border-bottom: 5px solid $secondary-color; // invisibile until hovered
 }
-
 
 .menu-primary-container > ul > a:hover,
 .menu-primary-container > ul > li > a:hover {
-	color: darken( $white, 10%);
-	background: darken( $secondary-color, 10% );
-	border-bottom: 5px solid darken( $secondary-color, 20% ); // playing around with an additional design style
+  color: darken($white, 10%);
+  background: darken($secondary-color, 10%);
+  border-bottom: 5px solid darken($secondary-color, 20%);
+  // playing around with an additional design style
+  // this needs documentation I'm using a bunch of blues
 }
 
 .menu {
-	justify-content: center;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	position: relative;
-	display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  display: flex;
 }
 
-.menu a {
-	text-decoration: none;
+.menu a { // does this conflict or add to above?
+  text-decoration: none;
 }
 
 .menu-primary-container a:hover {
-	background: #006087; // hack I need to make this from a variable
+  background: #006087; // 🚨 hack I need to make this from a variable
 }
 
 .menu li {
-	padding: $global-padding; // lets start setting a vertical rythm
+  padding: $global-padding; // lets start setting a vertical rythm
 }
 
-/* Fix for automatic last-child float right from foundation */
-.lastchildleft li:last-child {
-	float: left !important;
-}
-
-/* Block grid can also be used */
-.odd-clear li:nth-child(odd) {
-	clear: both;
-}
-
+// 📣 what is this?
 abbr[title] {
-	border-bottom: none;
+  border-bottom: none;
 }
 abbr {
-	font-size: 100%;
-	text-decoration: underline;
+  font-size: 100%;
+  text-decoration: underline;
 }
 
-/*
-	5.2 Images
------------------------------------------------- */
-
-.img-100, .img-100 img {
-	width: 100%;
-}
-
-.img-100-high {
-	overflow-x: hidden;
-}
-
-// sets the height cuts the side
-.img-100-high img {
-	height: 100%;
-}
+/*------------------------------------*\
+  #Images
+\*------------------------------------*/
 
 iframe {
-	max-width: 100%;
+  max-width: 100%;
 }
+
+/*------------------------------------*\
+  #Layout
+\*------------------------------------*/
 
 .hero {
-	display: grid;
-	max-width: 89.9em; // stops 3 or more columns
-	margin: $global-margin auto; // center float
-	padding: $global-padding; // small size never get to the edge
-	grid-gap: $global-margin;
+  display: grid;
+  max-width: 89.9em; // stops 3 or more columns
+  margin: $global-margin auto; // center float
+  padding: $global-padding; // small size never get to the edge
+  grid-gap: $global-margin;
 
-	// start doing columns once its bigger - slightly a hack
-	@media (min-width: $breakpoint__medium) {
-		// grid-template-columns: repeat(auto-fill, minmax(30em,1fr));
-		grid-template-columns: 1fr 1fr;
-	}
+  // start doing columns once its bigger - slightly a hack
+  @media (min-width: $breakpoint__medium) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-
-/*
-	grids
------------------------------------------------- */
 
 .footer-contact-areas {
-	max-width: 75rem;
-	margin: 0 auto;
-	display: flex;
-	justify-content: space-around;
-	padding: $global-padding;
-}
-
-
-.site {
-	display: grid; // this just for the 100 vh but there might be a smarter way
-	min-height: 100vh;
+  max-width: 75rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  padding: $global-padding;
 }
 
 footer {
-	align-self: end;
-	margin-bottom: 0; // browser reset
+  align-self: end;
+  margin-bottom: 0; // browser reset
 }
 
-/*
-	service grids
------------------------------------------------- */
-
 .hero-logo {
-	display: grid;
-	place-items: center;
+  display: grid;
+  place-items: center;
 
   z-index: 3; // sliding logo
   position: relative; // needed for z-index
-}
 
-.hero-logo svg {
-	fill: $white;
-	width: 100%; // needed for chrome
-}
+    svg {
+    fill: $white;
+    width: 100%; // needed for chrome
+  }
 
-.hero-logo a {
-	display: inline-block;
-	// max-width: 33%;
-	max-width: 50%;
-	margin: $global-margin auto;
-	padding: $global-padding; // start doing more with a type scale and vertical rythm
-	border-radius: 5px;
+  a {
+    display: inline-block;
+    // max-width: 33%;
+    max-width: 50%;
+    margin: $global-margin auto;
+    padding: $global-padding; // start doing more with a type scale and vertical rythm
+    border-radius: 5px;
 
-	@media (min-width: $breakpoint__medium) {
-		max-width: $general-measure;
-		margin-top: $global-margin*2;
-		margin-bottom: $global-margin*2;
-	}
-}
+    @media (min-width: $breakpoint__medium) {
+      max-width: $general-measure;
+      margin-top: $global-margin * 2;
+      margin-bottom: $global-margin * 2;
+    } // @media
+  } // a
+} // .hero-logo
 
 .hero-logo a:hover {
-	background: darken($primary-color, 10%);
-	transition: 0.5s ease;
+  background: darken($primary-color, 10%);
+  transition: 0.5s ease;
 
-	svg {
-	fill: darken($white, 10%);
-}
-}
-
-.service-grid { // well that name is now wrong
-	display: grid;
-	// grid-template-columns: 1;
-	// grid-template-rows: 1;
-	// background: $secondary-color; // this adds a color below the image if its smaller than the text field
+  svg {
+    fill: darken($white, 10%); // 📣 document this
+  }
 }
 
-.service-grid img, .service-grid h4 {
-	grid-column: 1;
-	grid-row: 1;
-}
-
-
-.service-grid a {
-	opacity: 1;
-	// mix-blend-mode: unset;
-	transition: 1s ease;
-}
-
-.service-grid a:hover {
-	// mix-blend-mode: multiply;
-	opacity: 0.8;
-	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.32);
-
-}
-
-.service-grid-bg {
-	background-color: rgba(10, 127, 189, 0.7); //rgba has alpha so not sure about how to have a variable
-	align-self: end;
-}
-
-.inline-block-100w { // hack to make the a all the way across
-	display: inline-block;
-	width: 100%;
-}
-
-.service-grid-bg a {
-	color: $white;
-}
-
-.service-grid-bg a:hover {
-	color: $light-gray;
+.inline-block-100w {
+  // hack to make the a all the way across
+  display: inline-block;
+  width: 100%;
 }
 
 /*
 	display grids
 ------------------------------------------------ */
 
-.display-grid { //terrible name
-	display: flex;
-	justify-items: center;
+.display-grid {
+  //terrible name
+  display: flex;
+  justify-items: center;
 }
 
-.grid-icon { //terrible names
-	grid-column: 1;
-	align-self: stretch;
+.grid-icon {
+  //terrible names
+  grid-column: 1;
+  align-self: stretch;
 }
 
 .header-contact--icon {
-	grid-column: 1;
-	align-self: stretch;
-	background: $black;
+  grid-column: 1;
+  align-self: stretch;
+  background: $black;
 
-	svg {
-		margin: $global-margin;
-		// padding: $global-padding;
-	}
+  svg {
+    margin: $global-margin;
+    // padding: $global-padding;
+  }
 }
 
-.grid-text { //terrible names
-	grid-column: 2;
-	align-self: center;
+.grid-text {
+  //terrible names
+  grid-column: 2;
+  align-self: center;
 }
 
 .header-contact--text {
-	grid-column: 2;
-	// align-self: center;
-	// margin: $global-margin;
-	width: 100%;
-	// background: $dark-gray;
-	// padding: $global-padding;
+  grid-column: 2;
+  // align-self: center;
+  // margin: $global-margin;
+  width: 100%;
+  // background: $dark-gray;
+  // padding: $global-padding;
 
-	p {
-		height: 100%; // fill the box
+  p {
+    height: 100%; // fill the box
 
-		b { // what is this?
-			display: inline-block;
-			height: 100%;
-			width: 100%;
+    b {
+      // what is this?
+      display: inline-block;
+      height: 100%;
+      width: 100%;
 
-			a {
-				// height: 100%;
-				width: calc(100% - 2rem);
-				height: calc(100% - 2rem);
-				display: flex;
-				align-items: center;
-				// color: darken($white, 10%); // overwrite the bg-dark-grey which is kinda messy anyway
-				color: $white; // overwrite the bg-dark-grey which is kinda messy anyway
-				padding: $global-padding;
-			}
-		}
-	}
+      a {
+        // height: 100%;
+        width: calc(100% - 2rem);
+        height: calc(100% - 2rem);
+        display: flex;
+        align-items: center;
+        // color: darken($white, 10%); // overwrite the bg-dark-grey which is kinda messy anyway
+        color: $white; // overwrite the bg-dark-grey which is kinda messy anyway
+        padding: $global-padding;
+      }
+    }
+  }
 }
 
 .header-contact--text__underline {
-	text-decoration: underline;
-	text-decoration-thickness: .125em; // not working on chrome yet https://caniuse.com/#search=text-decoration-thickness
+  text-decoration: underline;
+  text-decoration-thickness: 0.125em;
+  // not working on chrome yet https://caniuse.com/#search=text-decoration-thickness
 }
 
 .footer-icons {
-	/* display: grid;
+  /* display: grid;
 	justify-items: center; // I think this was the whole point but I can probably do it easier with a flex */
-	display: flex;
-	flex-direction: column;
-	// padding: 5px;
-	// padding: $global-padding; // move this down so the hover states work
-	border-radius: 5px;
-	// background: lighten($medium-gray, 2%);
+  display: flex;
+  flex-direction: column;
+  // padding: 5px;
+  // padding: $global-padding; // move this down so the hover states work
+  border-radius: 5px;
+  // background: lighten($medium-gray, 2%);
 
-	@media (min-width: $breakpoint__medium) {
+  @media (min-width: $breakpoint__medium) {
+  }
 
-	}
+  @media (min-width: $breakpoint__large) {
+    flex-direction: row;
+    // padding: $global-padding/2; // move this down so the hover states work
+  }
 
-	@media (min-width: $breakpoint__large) {
-		flex-direction: row;
-		// padding: $global-padding/2; // move this down so the hover states work
-	}
-
-	/* a {
+  /* a {
 		// padding: $global-padding;
 
  		@media (min-width: $breakpoint__large) {
 			padding: $global-padding/2;
 		} 
 	} */
-
 }
 
 .footer-icons:hover {
-	background: $white;
-	background: lighten($primary-color, 10%);
-	transition: ease 0.5s; // having this on the hover is needed not to load and then transform
+  background: $white;
+  background: lighten($primary-color, 10%);
+  transition: ease 0.5s; // having this on the hover is needed not to load and then transform
 
-	a {
-		color: $light-gray;
-	}
+  a {
+    color: $light-gray;
+  }
 
-	svg {
-		fill: $light-gray;
-	}
+  svg {
+    fill: $light-gray;
+  }
 }
 
-.footer-icon-icon { //terrible names
-	// fill: $white;
-	grid-column: 1;
-	grid-row: 1;
-	align-self: center;
+.footer-icon-icon {
+  //terrible names
+  // fill: $white;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
 
-
-	@media (min-width: $breakpoint__large) {
-	justify-self: end;
-	}
+  @media (min-width: $breakpoint__large) {
+    justify-self: end;
+  }
 }
 
 .footer-icon-icon svg {
-	// fill: $secondary-color; // moved away from primary to pass contrast guidelines
-	fill: $white; // moved away from primary to pass contrast guidelines
+  // fill: $secondary-color; // moved away from primary to pass contrast guidelines
+  fill: $white; // moved away from primary to pass contrast guidelines
 }
 
 /* .footer-icon-icon:hover {
@@ -770,140 +445,145 @@ footer {
 } */
 
 .footer-icon-text {
-	grid-column: 1;
-	grid-row: 2;
-	// align-self: center; // cant do this as we need to fill the space
-	display: block;
+  grid-column: 1;
+  grid-row: 2;
+  // align-self: center; // cant do this as we need to fill the space
+  display: block;
 
-	@media (min-width: $breakpoint__large) {
-	grid-column: 2;
-	grid-row: 1;
-	// justify-self: start;
-	}
+  @media (min-width: $breakpoint__large) {
+    grid-column: 2;
+    grid-row: 1;
+    // justify-self: start;
+  }
 
-	> p {
-		display: block;
-		height: 100%;
+  > p {
+    display: block;
+    height: 100%;
 
-		> a {
-			display: flex;
-			height: 100%;
-			align-items: center;
+    > a {
+      display: flex;
+      height: 100%;
+      align-items: center;
 
-			> span {
-				padding: $global-padding;
-			}
-		}
-	}
+      > span {
+        padding: $global-padding;
+      }
+    }
+  }
 }
 
 .footer-icons_fax {
-	display: flex;
-	flex-direction: column;
-	@media (min-width: $breakpoint__large) {
-		flex-direction: row;
-	}
+  display: flex;
+  flex-direction: column;
+  @media (min-width: $breakpoint__large) {
+    flex-direction: row;
+  }
 
-/* 	> .footer-icon-icon {
+  /* 	> .footer-icon-icon {
 
 	} */
 
-	> .footer-icon-text {
-		padding: $global-padding;
+  > .footer-icon-text {
+    padding: $global-padding;
 
-		@media (min-width: $breakpoint__large) {
-			padding: $global-padding/2;
-		}
+    @media (min-width: $breakpoint__large) {
+      padding: $global-padding/2;
+    }
 
-		p {
-			display: flex;
-			align-items: center;
-		}
-	}
+    p {
+      display: flex;
+      align-items: center;
+    }
+  }
 }
 
 .post-flex {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-	@media (min-width: $breakpoint__large) {
-	flex-direction: column-reverse;
-	}
+  @media (min-width: $breakpoint__large) {
+    flex-direction: column-reverse;
+  }
 }
 
 .crown {
-	display: grid;
-	margin: $global-margin 0;
+  display: grid;
+  margin: $global-margin 0;
 }
 
 .poster-thumbnail {
-	grid-row: 1;
-	grid-column: 1;
-	z-index: -1;
+  grid-row: 1;
+  grid-column: 1;
+  z-index: -1;
 
-	img, video {
-	width: 100%;
-	}
+  img,
+  video {
+    width: 100%;
+  }
 }
 
 .crown-title {
-	grid-row: 1;
-	grid-column: 1;
-	background: rgba(10,127,189,0.7);
-	padding: $global-padding;
-	align-self: end;
-	text-align: center;
-	color: $white;
-	margin-bottom: 6px; // guess and check
+  grid-row: 1;
+  grid-column: 1;
+  background: rgba(10, 127, 189, 0.7);
+  padding: $global-padding;
+  align-self: end;
+  text-align: center;
+  color: $white;
+  margin-bottom: 6px; // guess and check
 }
 
 .poster {
-	display: grid;
-	grid-template-areas:
-	"postcard"
-	"bg"
-	"title"
-	"textual"
-	"gallery";
-	grid-gap: $global-margin;
-	grid-template-columns: 1fr;
+  display: grid;
+  grid-template-areas:
+    "postcard"
+    "bg"
+    "title"
+    "textual"
+    "gallery";
+  grid-gap: $global-margin;
+  grid-template-columns: 1fr;
 
-	@media (min-width: $breakpoint__medium) {
-	grid-template-areas:
-	"postcard postcard"
-	"gallery  textual"
-	".        textual" // incase the text is longer than the images to stop things getting distored
-	;
+  @media (min-width: $breakpoint__medium) {
+    grid-template-areas:
+      "postcard postcard"
+      "gallery  textual"
+      ".        textual" // incase the text is longer than the images to stop things getting distored
+;
 
-	grid-template-columns: 1fr 1fr;
-	}
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-
-
-.poster p, .poster ul { // causing issues as the wp-block-gallery is also a ul
-grid-column: 1;
-	@media (min-width: $breakpoint__medium) {
-		grid-column: 2;
-	}
+.poster p,
+.poster ul {
+  // causing issues as the wp-block-gallery is also a ul
+  grid-column: 1;
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 2;
+  }
 }
 
 .over-flex {
-	grid-area: postcard;
-	align-self: end;
-	background-color: rgba(10, 127, 189, 0.7); //rgba has alpha so not sure about how to have a variable
-	color: $white;
+  grid-area: postcard;
+  align-self: end;
+  background-color: rgba(
+    10,
+    127,
+    189,
+    0.7
+  ); //rgba has alpha so not sure about how to have a variable
+  color: $white;
 }
 
 .poster-text {
-	grid-area: textual;
+  grid-area: textual;
 }
 
 .poster .wp-block-gallery {
-	// grid-area: gallery;
-	margin-left: 0;
+  // grid-area: gallery;
+  margin-left: 0;
 }
-
 
 // home page animation
 // http://css3.bradshawenterprises.com/cfimg/
@@ -917,59 +597,62 @@ ad = 4
 */
 
 .cfimg {
-	display: grid;
-	justify-items: stretch;
-	align-items: stretch;
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
 }
-.cfimg > picture { // make double sure to add the bracket as gatsby image does strange things here
-	grid-column: 1;
-	grid-row: 1;
-	animation-name: FadeInOut;
-	animation-duration: 16s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite;
+.cfimg > picture {
+  // make double sure to add the bracket as gatsby image does strange things here
+  grid-column: 1;
+  grid-row: 1;
+  animation-name: FadeInOut;
+  animation-duration: 16s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 /* Just do the link I dont understand the math */
 @keyframes FadeInOut {
-	0% { // always
-		opacity:1;
-	}
-	18.75% { // 3/16*100
-		opacity:1;
-	}
-	25% { // (3+1)/16*100 = 1/4*100
-		opacity:0;
-	}
-	93.75% { // 100-(1/16*100)
-		opacity:0;
-	}
-	100% { // always
-		opacity:1;
-	}
+  0% {
+    // always
+    opacity: 1;
+  }
+  18.75% {
+    // 3/16*100
+    opacity: 1;
+  }
+  25% {
+    // (3+1)/16*100 = 1/4*100
+    opacity: 0;
+  }
+  93.75% {
+    // 100-(1/16*100)
+    opacity: 0;
+  }
+  100% {
+    // always
+    opacity: 1;
+  }
 }
 
 .cfimg > picture:nth-of-type(1) {
-	animation-delay: 12s;
+  animation-delay: 12s;
 }
 .cfimg > picture:nth-of-type(2) {
-	animation-delay: 8s;
+  animation-delay: 8s;
 }
 .cfimg > picture:nth-of-type(3) {
-	animation-delay: 4s;
+  animation-delay: 4s;
 }
 .cfimg > picture:nth-of-type(4) {
-	animation-delay: 0s;
+  animation-delay: 0s;
 }
-
-
-
 
 /*  6 - Off Canvas
 --------------------------------------------------------------*/
 
 .off-canvas a {
-	color: $black; // this isnt a link color in my styling I don't like that
+  color: $black; // this isnt a link color in my styling I don't like that
 }
 
 /*
@@ -977,50 +660,51 @@ ad = 4
 ------------------------------------------------------------- */
 
 .wp-caption {
-	max-width: 100%;
+  max-width: 100%;
 }
 
-.wp-caption-text { // this is a wordpress thing
-	margin-top: $global-margin;
-	font-style: italic;
-}
-
-.screen-reader-text {
-	position: static !important;
+.wp-caption-text {
+  // this is a wordpress thing
+  margin-top: $global-margin;
+  font-style: italic;
 }
 
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	height: 1px;
-	overflow: hidden;
-	position: absolute !important;
-	width: 1px;
+  position: static !important;
 }
 
 .screen-reader-text {
-	position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+}
+
+.screen-reader-text {
+  position: absolute !important;
 }
 
 .gallery-caption {
-	font-style: italic;
+  font-style: italic;
 }
 
 img .alignleft {
-	padding-right: $global-padding;
+  padding-right: $global-padding;
 }
 
 .aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto;
+  clear: both;
+  display: block;
+  margin: 0 auto;
 }
 
 .alignright {
-	float: right;
+  float: right;
 }
 
 .bypostauthor {
-	display: block;
+  display: block;
 }
 
 /**
@@ -1028,171 +712,181 @@ img .alignleft {
  */
 
 .gallery-item {
-	display: inline-block;
-	text-align: center;
-	padding: $global-padding;
-	width: 100%;
-	vertical-align: bottom;
+  display: inline-block;
+  text-align: center;
+  padding: $global-padding;
+  width: 100%;
+  vertical-align: bottom;
 }
 
 /* Small Up screens */
 // this is not how I work on these anymore it should be updated
-@media only screen and (max-width: 40em) { /* min-width 1025px, large screens */
+@media only screen and (max-width: 40em) {
+  /* min-width 1025px, large screens */
 
-	.gallery-columns-2 .gallery-item, .gallery-columns-3 .gallery-item, .gallery-columns-4 .gallery-item, .gallery-columns-5 .gallery-item, .gallery-columns-6 .gallery-item, .gallery-columns-7 .gallery-item, .gallery-columns-8 .gallery-item, .gallery-columns-9 .gallery-item {
-	max-width: 100%;
-	}
+  .gallery-columns-2 .gallery-item,
+  .gallery-columns-3 .gallery-item,
+  .gallery-columns-4 .gallery-item,
+  .gallery-columns-5 .gallery-item,
+  .gallery-columns-6 .gallery-item,
+  .gallery-columns-7 .gallery-item,
+  .gallery-columns-8 .gallery-item,
+  .gallery-columns-9 .gallery-item {
+    max-width: 100%;
+  }
 }
 
 /* Medium Up screens */
-@media only screen and (min-width: 40.063em) { /* min-width 1025px, large screens */
+@media only screen and (min-width: 40.063em) {
+  /* min-width 1025px, large screens */
 
-	.gallery-columns-2 .gallery-item, .gallery-columns-3 .gallery-item, .gallery-columns-4 .gallery-item, .gallery-columns-5 .gallery-item, .gallery-columns-6 .gallery-item, .gallery-columns-7 .gallery-item, .gallery-columns-8 .gallery-item, .gallery-columns-9 .gallery-item {
-	max-width: 50%;
-	}
+  .gallery-columns-2 .gallery-item,
+  .gallery-columns-3 .gallery-item,
+  .gallery-columns-4 .gallery-item,
+  .gallery-columns-5 .gallery-item,
+  .gallery-columns-6 .gallery-item,
+  .gallery-columns-7 .gallery-item,
+  .gallery-columns-8 .gallery-item,
+  .gallery-columns-9 .gallery-item {
+    max-width: 50%;
+  }
 }
 
 /* Large Up screens */
-@media only screen and (min-width: 64.063em) { /* min-width 1025px, large screens */
+@media only screen and (min-width: 64.063em) {
+  /* min-width 1025px, large screens */
 
-	.gallery-columns-2 .gallery-item {
-	max-width: 50%;
-	}
+  .gallery-columns-2 .gallery-item {
+    max-width: 50%;
+  }
 
-	.gallery-columns-3 .gallery-item {
-	max-width: 33.33%;
-	}
+  .gallery-columns-3 .gallery-item {
+    max-width: 33.33%;
+  }
 
-	.gallery-columns-4 .gallery-item {
-	max-width: 25%;
-	}
+  .gallery-columns-4 .gallery-item {
+    max-width: 25%;
+  }
 
-	.gallery-columns-5 .gallery-item {
-	max-width: 20%;
-	}
+  .gallery-columns-5 .gallery-item {
+    max-width: 20%;
+  }
 
-	.gallery-columns-6 .gallery-item {
-	max-width: 16.66%;
-	}
+  .gallery-columns-6 .gallery-item {
+    max-width: 16.66%;
+  }
 
-	.gallery-columns-7 .gallery-item {
-	max-width: 14.28%;
-	}
+  .gallery-columns-7 .gallery-item {
+    max-width: 14.28%;
+  }
 
-	.gallery-columns-8 .gallery-item {
-	max-width: 12.5%;
-	}
+  .gallery-columns-8 .gallery-item {
+    max-width: 12.5%;
+  }
 
-	.gallery-columns-9 .gallery-item {
-	max-width: 11.11%;
-	}
+  .gallery-columns-9 .gallery-item {
+    max-width: 11.11%;
+  }
 }
 
 .gallery-icon img {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 .gallery-caption {
-	color: $medium-gray;
-	display: block;
-	font-size: 13px;
-	font-size: 0.8125rem;
-	font-style: italic;
-	line-height: 1.6153846154;
-	padding-top: 0.5384615385em;
+  color: $medium-gray;
+  display: block;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-style: italic;
+  line-height: 1.6153846154;
+  padding-top: 0.5384615385em;
 }
 
 .gallery-columns-6 .gallery-caption,
 .gallery-columns-7 .gallery-caption,
 .gallery-columns-8 .gallery-caption,
 .gallery-columns-9 .gallery-caption {
-	display: none;
+  display: none;
 }
 
 button {
-	border: none; // browser rest
-	padding: $global-padding/2 $global-padding;
-	background: $secondary-color;
-	color: $white;
-	font-family: $header-font-family;
-	font-weight: bold;
-	font-size: 1.44em;
+  border: none; // browser rest
+  padding: $global-padding/2 $global-padding;
+  background: $secondary-color;
+  color: $white;
+  font-family: $major-font-family;
+  font-weight: bold;
+  font-size: 1.44em;
 }
 
 .button {
-	display: inline-block;
-	padding: 0.85em 1em;
-	font-family: $header-font-family;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+  display: inline-block;
+  padding: 0.85em 1em;
+  font-family: $major-font-family;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .button.hollow {
-	// font-weight: bold;
-	background-color: transparent;
-	border: 2px solid $secondary-color;
-	color: $secondary-color;
-	transition: 0.5s ease;
+  // font-weight: bold;
+  background-color: transparent;
+  border: 2px solid $secondary-color;
+  color: $secondary-color;
+  transition: 0.5s ease;
 }
 
 .button.hollow:hover {
-	background: $secondary-color;
-	color: $light-gray;
-	border-color: $secondary-color;
-
+  background: $secondary-color;
+  color: $light-gray;
+  border-color: $secondary-color;
 }
-
-.fake-a {
-	color: $white;
-}
-
-
-
 
 #header-contact-background {
-	background: $light-gray;
-	margin-bottom: $global-margin*2;
-	padding: $global-padding*2 $global-padding 0 $global-padding; // no bottom due to the contact boxes changing alignment is easier to have the bottom margin there
+  background: $light-gray;
+  margin-bottom: $global-margin * 2;
+  padding: $global-padding * 2 $global-padding 0 $global-padding;
+  // no bottom due to the contact boxes changing alignment is easier to have the bottom margin there
 }
 
 .header-contact {
-	max-width: 89.9em;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
+  max-width: 89.9em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
-	h3 {
-		margin-top: 0; // reset from type scale as we already have a break but sort this our
-	}
+  h3 {
+    margin-top: 0; // reset from type scale as we already have a break but sort this our
+  }
 
-	@media (min-width: $breakpoint__large) {
-		flex-direction: row;
+  @media (min-width: $breakpoint__large) {
+    flex-direction: row;
 
-		h3 { // once its in the row its a little different on the layout
-			margin-bottom: 0;
-			padding-right: $global-padding; // this is possibly causing the columns to be different sizes
-		}
-	}
+    h3 {
+      // once its in the row its a little different on the layout
+      margin-bottom: 0;
+      padding-right: $global-padding; // this is possibly causing the columns to be different sizes
+    }
+  }
 }
 
 .together {
-	display: inline-block;
-	width: 100%;
+  display: inline-block;
+  width: 100%;
 }
 
 #header-contact--phone,
 #header-contact--place {
-	margin-bottom: $global-margin*2;
-	display: flex;
-	background: $dark-gray;
+  margin-bottom: $global-margin * 2;
+  display: flex;
+  background: $dark-gray;
 }
-
 
 #header-contact--phone svg,
 #header-contact--place svg {
-	fill: $white;
-	// padding: 5px;
+  fill: $white;
+  // padding: 5px;
 }
 
 /* #header-contact--phone  svg:hover,
@@ -1202,231 +896,183 @@ button {
 	transition: 0.5s ease;
 } */
 
-#header-contact--phone:hover ,
+#header-contact--phone:hover,
 #header-contact--place:hover {
-	// background: darken($dark-gray, 10%);
-	background: darken($secondary-color, 10%);
-	color: darken($white, 10%);
-	transition: 0.5s ease;
+  // background: darken($dark-gray, 10%);
+  background: darken($secondary-color, 10%);
+  color: darken($white, 10%);
+  transition: 0.5s ease;
 
-	.header-contact--icon {
-		// background: $dark-gray;
-		background: darken($secondary-color, 15%);
+  .header-contact--icon {
+    // background: $dark-gray;
+    background: darken($secondary-color, 15%);
 
-		a {
-			display: inline-block;
-			color: darken($white, 10%) !important;
-		}
-	}
+    a {
+      display: inline-block;
+      color: darken($white, 10%) !important;
+    }
+  }
 
-	/* .header-contact--icon svg {
+  /* .header-contact--icon svg {
 		// fill: $black;
 		// fill: $white;
 	}  */
 
-/* 	.header-contact--text {
+  /* 	.header-contact--text {
 		color: $black;
 	} */
 }
 
 .service-info {
-	flex-direction: column;
+  flex-direction: column;
 
-	@media (min-width: $breakpoint__medium) {
-		flex-direction: row;
-	}
+  @media (min-width: $breakpoint__medium) {
+    flex-direction: row;
+  }
 }
 
-
-
-
-
-
 .grab {
-	grid-column: 1;
-	grid-row: 1;
+  grid-column: 1;
+  grid-row: 1;
 
-	@media (min-width: $breakpoint__medium) {
-	grid-column: 2;
-	grid-row: 1;
-	}
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 2;
+    grid-row: 1;
+  }
 }
 
 .wp-block-gallery {
-	grid-column: 1;
-	grid-row: 2;
+  grid-column: 1;
+  grid-row: 2;
 
-	@media (min-width: $breakpoint__medium) {
-		grid-column: 1 !important; // trying to keep this inline but also control the ul for other lists
-		grid-row: 1;
-	}
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 1 !important; // trying to keep this inline but also control the ul for other lists
+    grid-row: 1;
+  }
 }
-
 
 // test
 .is-style-box-title {
-	color: burlywood;
+  color: burlywood;
 }
 // end of test
 
 // gutenbery slider
 .is-style-slider-gallery ul {
-	display: grid;
-	justify-items: stretch;
-	align-items: stretch;
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
 
-	li {
-		grid-row: 1;
-		grid-column: 1;
-		animation-name: FadeInOut;
-		animation-duration: 16s;
-		animation-timing-function: ease-in-out;
-		animation-iteration-count: infinite;
-	}
+  li {
+    grid-row: 1;
+    grid-column: 1;
+    animation-name: FadeInOut;
+    animation-duration: 16s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
 }
 
 /* Just do the link I dont understand the math */
 @keyframes FadeInOut {
-	0% {
-	opacity:1;
-	}
-	18.75% {
-	opacity:1;
-	}
-	25% {
-	opacity:0;
-	}
-	93.75% {
-	opacity:0;
-	}
-	100% {
-	opacity:1;
-	}
+  0% {
+    opacity: 1;
+  }
+  18.75% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  93.75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .is-style-slider-gallery ul li:nth-of-type(1) {
-	animation-delay: 12s;
+  animation-delay: 12s;
 }
 .is-style-slider-gallery ul li:nth-of-type(2) {
-	animation-delay: 8s;
+  animation-delay: 8s;
 }
 .is-style-slider-gallery ul li:nth-of-type(3) {
-	animation-delay: 4s;
+  animation-delay: 4s;
 }
 .is-style-slider-gallery ul li:nth-of-type(4) {
-	animation-delay: 0;
+  animation-delay: 0;
 }
-
-
-
 
 .is-style-featured-media-text {
-	background: $light-gray;
-	margin-bottom: $global-margin*2;
-	grid-template-columns: 1fr !important;
+  background: $light-gray;
+  margin-bottom: $global-margin * 2;
+  grid-template-columns: 1fr !important;
 
-	> div {
-		padding: 0 !important; // overwrite .wp-block-media-text .wp-block-media-text__content
-		grid-row: 2 !important;
-		grid-column: 1 !important;
-	}
+  > div {
+    padding: 0 !important; // overwrite .wp-block-media-text .wp-block-media-text__content
+    grid-row: 2 !important;
+    grid-column: 1 !important;
+  }
 
-	h4 {
-		padding: $global-padding;
-		padding-left: $global-padding*2;
-		background-color: rgba(10, 127, 189, 0.7); //rgba has alpha so not sure about how to have a variable
-		a {
-			color: white; // remove this as its a link but testing
-		}
-	}
+  h4 {
+    padding: $global-padding;
+    padding-left: $global-padding * 2;
+    background-color: rgba(
+      10,
+      127,
+      189,
+      0.7
+    ); //rgba has alpha so not sure about how to have a variable
+    a {
+      color: white; // remove this as its a link but testing
+    }
+  }
 
-	p {
-		// padding: $global-padding;
-		padding-left: $global-padding*2;
-		padding-right: $global-padding;
-	}
-	
-	
+  p {
+    // padding: $global-padding;
+    padding-left: $global-padding * 2;
+    padding-right: $global-padding;
+  }
 }
-
-
-/*
-.service-grid { // well that name is now wrong
-	display: grid;
-	// grid-template-columns: 1;
-	// grid-template-rows: 1;
-}
-
-.service-grid img, .service-grid h4 {
-	grid-column: 1;
-	grid-row: 1;
-}
-
-.service-grid-bg {
-	background-color: rgba(10, 127, 189, 0.7); //rgba has alpha so not sure about how to have a variable
-	align-self: end;
-}
-
-.inline-block-100w { // hack to make the a all the way across
-	display: inline-block;
-	width: 100%;
-}
-
-.service-grid-bg a {
-	color: $white;
-}
-
-.service-grid-bg a:hover {
-	color: $light-gray;
-}
-*/
 
 .page-template-page-swiss article {
-	max-width: 75rem;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: $global-padding;
-	padding-right: $global-padding;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $global-padding;
+  padding-right: $global-padding;
 
-	video {
-		max-width: 100%;
-		margin-bottom: $global-margin*3;
-	}
+  video {
+    max-width: 100%;
+    margin-bottom: $global-margin * 3;
+  }
 
-	.attachment-post-thumbnail {
-		margin-bottom: $global-margin*2;
-	}
+  .attachment-post-thumbnail {
+    margin-bottom: $global-margin * 2;
+  }
 
-	/*
+  /*
 	.wp-block-column:not(:first-child) { this throws some design erros on small devices
-		// margin-left: $global-margin*2 !important; // overwrite default I would like to get down to as few important as possible I just need to work on the specificity
+		// margin-left: $global-margin*2 !important;
+  // overwrite default I would like to get down to as few important as possible
+  // I just need to work on the specificity
 	}
 	*/
 
-	.wp-block-media-text {
+  .wp-block-media-text {
+    .wp-block-media-text__content {
+      padding: 0 !important;
+    }
 
-		.wp-block-media-text__content {
-			padding: 0 !important;
-		}
-
-		@media (min-width: 600px) {
-			grid-template-columns: 1fr 1fr !important; // needs to be after a media query
-			grid-gap: $global-margin*2;
-			margin-bottom: $global-margin;
-		}
-	}
+    @media (min-width: 600px) {
+      grid-template-columns: 1fr 1fr !important; // needs to be after a media query
+      grid-gap: $global-margin * 2;
+      margin-bottom: $global-margin;
+    }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* 
 .is-style-swiss-separator:before {
@@ -1470,127 +1116,125 @@ button {
 } */
 
 .swiss::before {
-	@media (min-width: $breakpoint__medium) {
-		content: ''; // show up
-		width: calc(50% - 1em); // leave space for the gap
-		border: 0.5rem solid #e6e6e6;
-	}
+  @media (min-width: $breakpoint__medium) {
+    content: ""; // show up
+    width: calc(50% - 1em); // leave space for the gap
+    border: 0.5rem solid #e6e6e6;
+  }
 }
 
 .swiss {
-	margin-bottom: 1rem;
-	border: 0.5rem solid #e6e6e6;
-	// width: 100%; this overcooks the width on small devices
-	display: flex; // im not quite sure how this is working but its needed
+  margin-bottom: 1rem;
+  border: 0.5rem solid #e6e6e6;
+  // width: 100%; this overcooks the width on small devices
+  display: flex; // im not quite sure how this is working but its needed
 
-	@media (min-width: $breakpoint__medium) {
-		border: none;
-	}
+  @media (min-width: $breakpoint__medium) {
+    border: none;
+  }
 }
 
 .swiss::after {
-	@media (min-width: $breakpoint__medium) {
-		content: '';
-		width: calc(50% - 1em);
-		border: 0.5rem solid #e6e6e6;
-		margin-left: $global-margin*2;
-	}
+  @media (min-width: $breakpoint__medium) {
+    content: "";
+    width: calc(50% - 1em);
+    border: 0.5rem solid #e6e6e6;
+    margin-left: $global-margin * 2;
+  }
 }
 
-
-
 .grid-container {
-	padding-left: $global-padding;
-	padding-right: $global-padding;
-	max-width: 75rem;
-	margin-left: auto;
-	margin-right: auto;
+  padding-left: $global-padding;
+  padding-right: $global-padding;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .service {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: $global-margin*2;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $global-margin * 2;
 
-	@media (min-width: $breakpoint__medium) {
-		flex-direction: row;
-		margin: $global-margin;
-	}
+  @media (min-width: $breakpoint__medium) {
+    flex-direction: row;
+    margin: $global-margin;
+  }
 
-	@media (min-width: 75rem) { // this is a little hacky
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 73rem; // means it never quite hits the edges
-	}
+  @media (min-width: 75rem) {
+    // this is a little hacky
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 73rem; // means it never quite hits the edges
+  }
 }
 
 .service > div {
-	flex: 1;
+  flex: 1;
 
-	
-	/* @media (min-width: $breakpoint__medium) {
+  /* @media (min-width: $breakpoint__medium) {
 		margin: $global-padding;
 	} */
 }
 
 .grid-x {
-	display: flex;
+  display: flex;
 }
 
 .grid-x > .large-6 {
-	width: 50%;
+  width: 50%;
 }
 
 .grid-padding-x > .cell {
-	padding-left: $global-padding;
-	padding-right: $global-padding;
+  padding-left: $global-padding;
+  padding-right: $global-padding;
 }
 
 .hide-for-large {
-	@media (min-width: $breakpoint__large) {
-		display: none !important;
-	}
+  @media (min-width: $breakpoint__large) {
+    display: none !important;
+  }
 }
 
 .show-for-large {
-	display: none;
-	@media (min-width: $breakpoint__large) {
-		display: block; // not sure if this is exactly right
-	}
+  display: none;
+  @media (min-width: $breakpoint__large) {
+    display: block; // not sure if this is exactly right
+  }
 }
 
 .hide-for-full {
-	@media (min-width: $breakpoint__full) {
-		display: none !important;
-	}
+  @media (min-width: $breakpoint__full) {
+    display: none !important;
+  }
 }
 
 .show-for-full {
-	display: none;
-	@media (min-width: $breakpoint__full) {
-		display: block; // not sure if this is exactly right
-	}
+  display: none;
+  @media (min-width: $breakpoint__full) {
+    display: block; // not sure if this is exactly right
+  }
 }
 
 .footer-extra {
-	display: block;
-	margin-top: 0;
+  display: block;
+  margin-top: 0;
 }
 
 .wp-block-colum {
-	flex-basis: calc(50% - 16px);
-	flex-grow: 0;
+  flex-basis: calc(50% - 16px);
+  flex-grow: 0;
 }
 
 .copyright {
-	float: left; // needed to have the p margin inside of this
-	width: 100%;
-	padding-top: 1rem;
-	padding-bottom: $global-padding*2;
+  float: left; // needed to have the p margin inside of this
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: $global-padding * 2;
 
-	p {
-		padding: $global-padding;
-	}
+  p {
+    padding: $global-padding;
+  }
 }
 
 #menu_toggle {
@@ -1600,38 +1244,37 @@ button {
   display: grid;
 
   @media (min-width: $breakpoint__medium) {
-	display: none;
+    display: none;
   }
 }
 
 .menu-small > ul {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .small_menu--opener {
-	width: 100%;
-	height: 100%;
-	cursor: pointer;
-	padding-top: $global-padding;
-	padding-bottom: $global-padding;
-	transition: 1s ease;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding-top: $global-padding;
+  padding-bottom: $global-padding;
+  transition: 1s ease;
 }
 
 .small_menu--opener:hover {
-	// background: $primary-color; // this is just making it up as I go
-	// background: color.scale($secondary-color, lightness: -20%);
-	color: darken( $white, 10%);
-	background: darken( $secondary-color, 10% );
-
+  // background: $primary-color; // this is just making it up as I go
+  // background: color.scale($secondary-color, lightness: -20%);
+  color: darken($white, 10%);
+  background: darken($secondary-color, 10%);
 }
 
 #menu_small {
-	background: darken($secondary-color, 10%);
+  background: darken($secondary-color, 10%);
 
-	// sliding menu
-	display: inline-block;
-	transition: 3s ease; // sliding menu
+  // sliding menu
+  display: inline-block;
+  transition: 3s ease; // sliding menu
   position: absolute;
   z-index: 1; // check its above the gallery on the front page
   margin-bottom: 0;
@@ -1639,36 +1282,36 @@ button {
 }
 
 #menu_small ul {
-	padding-left: 0;
-	margin: 0;
-	// background: $secondary-color;
+  padding-left: 0;
+  margin: 0;
+  // background: $secondary-color;
 }
 
 #menu_small li {
-	list-style: none;
-	margin-left: 0;
+  list-style: none;
+  margin-left: 0;
 }
 
 #menu_small li:last-child {
-	padding-bottom: 0.1rem; // try match the default styling I should work on this
+  padding-bottom: 0.1rem; // try match the default styling I should work on this
 }
 
 #menu_small li:last-child a {
-	border-bottom: none;
+  border-bottom: none;
 }
 
 #menu_small a {
-	padding: $global-padding;
-	display: block;
-	// background: $primary-color;
-	border-bottom: darken($primary-color, 20%) 1px solid;
-	color: $white;
-	margin: 5px;
+  padding: $global-padding;
+  display: block;
+  // background: $primary-color;
+  border-bottom: darken($primary-color, 20%) 1px solid;
+  color: $white;
+  margin: 5px;
 }
 
 #menu_small a:hover {
-	background-color: $secondary-color;
-	// this would be good to have a js ripple
+  background-color: $secondary-color;
+  // this would be good to have a js ripple
 }
 
 .active {
@@ -1676,13 +1319,8 @@ button {
   margin-top: 4rem; // enough to show the home line
 }
 
-
-
-
-
-
 .inactive {
-	// display: none; // jump to version
+  // display: none; // jump to version
   margin-top: calc(-100% + 4rem); // this is too much
 }
 
@@ -1725,54 +1363,50 @@ button {
 
 .active ~ #menu_toggle > .small_menu--icon > .small_menu--icon-topline {
   transform: rotate(45deg);
-//   top: 0.35rem; // guess and check
-	grid-row: 1;
-	grid-column: 1;
-	align-self: center;
-	justify-self: center;
-	margin: 0;
+  //   top: 0.35rem; // guess and check
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+  margin: 0;
 }
 
 .active ~ #menu_toggle > .small_menu--icon > .small_menu--icon-bottomline {
   transform: rotate(-45deg);
-//   top: -0.35rem;
-	grid-row: 1;
-	grid-column: 1;
-	align-self: center;
-	justify-self: center;
-	margin: 0;
+  //   top: -0.35rem;
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+  margin: 0;
 }
 
-
-
-
-
 .hide-for-medium {
-	display: block;
-	@media (min-width: $breakpoint__medium) {
-		display: none;
-	}
+  display: block;
+  @media (min-width: $breakpoint__medium) {
+    display: none;
+  }
 }
 
 .show-for-medium {
-	display: none;
-	@media (min-width: $breakpoint__medium) {
-		display: block;
-	}
+  display: none;
+  @media (min-width: $breakpoint__medium) {
+    display: block;
+  }
 }
 
 .page-width {
-	max-width: 75rem;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: $global-padding;
-	padding-right: $global-padding;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $global-padding;
+  padding-right: $global-padding;
 }
 
 .gallery-width {
-	max-width: 75rem;
-	margin-left: auto;
-	margin-right: auto;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* .wp-block-gallery {
@@ -1794,21 +1428,20 @@ button {
 } */
 
 .services-title {
-	// margin: $global-margin/2 0; // dealt with by the card // this now needs to be changed as were filling the box
-    margin: 0; // get rid of the regular margins from the h4
+  // margin: $global-margin/2 0; // dealt with by the card // this now needs to be changed as were filling the box
+  margin: 0; // get rid of the regular margins from the h4
 
-    a {
-        padding: $global-padding;
-		display: block;
-		text-decoration: none;
-    }
-
+  a {
+    padding: $global-padding;
+    display: block;
+    text-decoration: none;
+  }
 }
 
 .services-text {
-	h5 {
-		margin-top: 0.75rem; // we already have 1rem padding so this is more in line
-	}
+  h5 {
+    margin-top: 0.75rem; // we already have 1rem padding so this is more in line
+  }
 }
 
 /* .blocks-gallery-grid {
@@ -1833,7 +1466,6 @@ button {
 	}
 } */
 
-
 /* -------------- /
 GALLERY 
 https://codepen.io/maxvoltar/pen/eYOPdMG
@@ -1842,33 +1474,31 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
 /* -------------- */
 
 .wp-block-gallery {
-	margin: 0;
-	overflow: hidden;
-	padding-left: 0; // gallery page
+  margin: 0;
+  overflow: hidden;
+  padding-left: 0; // gallery page
 }
 
 .blocks-gallery-grid {
-	display: flex;
-	flex-wrap: wrap;
-	list-style: none;
-	padding-left: 0;
-	// align-items: stretch;
-	justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  // align-items: stretch;
+  justify-content: space-between;
 
-	// sneaky little hack to give each item padding to use in the middle but pulled back to the sides
-	margin-left: -0.5rem;
-	margin-right: -0.5rem;
+  // sneaky little hack to give each item padding to use in the middle but pulled back to the sides
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 
 .blocks-gallery-item {
-
-//   flex-grow: 1;
-	flex: 1 1 15rem;
-//   margin-top: 1rem;
+  //   flex-grow: 1;
+  flex: 1 1 15rem;
+  //   margin-top: 1rem;
   padding: $global-padding/2;
 
-
-/*   @media (min-width: $breakpoint__medium) {
+  /*   @media (min-width: $breakpoint__medium) {
 	  max-width: 15rem;
 
 	  max-height: 20vh;
@@ -1881,239 +1511,224 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
 }
 
 .blocks-gallery-item:nth-child(even) {
-	@media (min-width: $breakpoint__large) { // this isnt the right number this still needs plenty of work but atleast were inline now
-		margin-left: 1rem;
-	}
+  @media (min-width: $breakpoint__large) {
+    // this isnt the right number this still needs plenty of work but atleast were inline now
+    margin-left: 1rem;
+  }
 }
 
 .blocks-gallery-item:last-child {
-	// There's no science in using "10" here. In all my testing, this delivered the best results.
-	flex-grow: 10;
-  }
+  // There's no science in using "10" here. In all my testing, this delivered the best results.
+  flex-grow: 10;
+}
 
 .blocks-gallery-item img {
-	max-height: 100%;
-	width: 100%; // needed for safari
-	min-width: 100%;
-	object-fit: cover;
-	vertical-align: bottom;
-  }
+  max-height: 100%;
+  width: 100%; // needed for safari
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
 
 /*   @media (max-aspect-ratio: 1/1) {
 	.blocks-gallery-item {
 	  height: 30vh;
 	}
   } */
-  
-  // Short screens
-  
+
+// Short screens
+
 /*   @media (max-height: 480px) {
 	.blocks-gallery-item {
 	  height: 80vh;
 	}
   } */
-  
-  // Smaller screens in portrait
-  
-  @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
-	.blocks-gallery-grid {
-	  flex-direction: row;
-	}
-  
-	.blocks-gallery-item {
-	  height: auto;
-	  width: 100%;
-	}
-	.blocks-gallery-item img {
-	  width: 100%;
-	  max-height: 75vh;
-	  min-width: 0;
-	}
+
+// Smaller screens in portrait
+
+@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+  .blocks-gallery-grid {
+    flex-direction: row;
   }
+
+  .blocks-gallery-item {
+    height: auto;
+    width: 100%;
+  }
+  .blocks-gallery-item img {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  }
+}
 
 /*   .blocks-gallery-item img {
 	object-fit: cover;
   } */
 
 .wp-block-media-text {
-	display: grid;
-	
-	grid-gap: 2rem;
-	margin-bottom: 1rem;
+  display: grid;
 
-	@media (min-width: $breakpoint__medium) {
-		grid-template-columns: 1fr 1fr;
-	}
+  grid-gap: 2rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: $breakpoint__medium) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .wp-block-media-text__media {
-
-
-	@media (min-width: $breakpoint__medium) {
-		grid-row: 1;
-		grid-column: 2;
-	}
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 1;
+    grid-column: 2;
+  }
 }
 
-
 .hero-order-image {
-	@media (min-width: $breakpoint__medium) {
-	  grid-row: 1;
-	  grid-column: 2;
-	}
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 1;
+    grid-column: 2;
+  }
 }
 
 .hero-order-text {
-	@media (min-width: $breakpoint__medium) {
-		grid-row: 1;
-		grid-column: 1;
-	}
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 1;
+    grid-column: 1;
+  }
 }
 
 .services-photogallery {
-	flex-direction: column;
-	@media (min-width: $breakpoint__medium) {
-		flex-direction: row;
-	}
+  flex-direction: column;
+  @media (min-width: $breakpoint__medium) {
+    flex-direction: row;
+  }
 }
 
 .gallerygallery {
-	margin: $global-margin;
-	width: 100%;
+  margin: $global-margin;
+  width: 100%;
 
-	@media (min-width: $breakpoint__medium) {
-		width: calc(50% - 2rem);
-	}
+  @media (min-width: $breakpoint__medium) {
+    width: calc(50% - 2rem);
+  }
 
-	@media (min-width: $breakpoint__large) {
-		width: calc(33% - 2rem);
-	}
+  @media (min-width: $breakpoint__large) {
+    width: calc(33% - 2rem);
+  }
 
-	li {
-		// display: flex;
-		padding-bottom: $global-margin;
-		max-height: 100%;
-	}
+  li {
+    // display: flex;
+    padding-bottom: $global-margin;
+    max-height: 100%;
+  }
 }
-
-.fake-a { // used for the fax number in the footer I can probably do this in a nicer way
-	color: $primary-color;
-}
-
 
 .hero {
-	// tone down the size of the hero text but stick to the type scale
-	h1 {
-		// font-size: 2.074em; // this would usually be an h2 but it's just too big on the smallest phone
-		font-size: 1.728em; // try even further down at an h3
-		line-height: 1.35em; // guess and check select some text to check its right
+  // tone down the size of the hero text but stick to the type scale
+  h1 {
+    // font-size: 2.074em; // this would usually be an h2 but it's just too big on the smallest phone
+    font-size: 1.728em; // try even further down at an h3
+    line-height: 1.35em; // guess and check select some text to check its right
 
-		@media (min-width: $breakpoint__medium) {
-			font-size: 2.074em; // h2 halfway back up
+    @media (min-width: $breakpoint__medium) {
+      font-size: 2.074em; // h2 halfway back up
+    }
 
-		}
+    @media (min-width: $breakpoint__large) {
+      font-size: 2.448em; // return to normal
+    }
+  }
 
-		@media (min-width: $breakpoint__large) {
-			font-size: 2.448em; // return to normal
+  h2 {
+    font-size: 1.728em;
+    line-height: 1.33em; // guess and check select some text to check its right
 
-		}
-
-	}
-
-	h2 {
-		font-size: 1.728em;
-		line-height: 1.33em; // guess and check select some text to check its right
-
-		@media (min-width: $breakpoint__medium) {
-			font-size: 2.074em;
-		}
-
-	}
+    @media (min-width: $breakpoint__medium) {
+      font-size: 2.074em;
+    }
+  }
 }
 
-
-// forms 
+// forms
 // working from this https://codepen.io/chicagoing/pen/XMXVvE
 // and then breaking it in all sorts of ways to be a grid
 
 .order-form-section {
   // position: relative; I think this is needed as its got to fill the whole space but I might just do that with grid
-  background: #E3F6FF;
+  background: #e3f6ff;
   display: grid;
   height: 4rem; // this maybe shouldnt be hard coded but its kinda needed for now
-  margin-bottom: $global-margin*2;
-	// width: calc(100% - 2rem);
-	// border: 2px solid #60BDE9;
-	border: 2px solid lighten($primary-color, 20%);
-	border-radius: 4px;
+  margin-bottom: $global-margin * 2;
+  // width: calc(100% - 2rem);
+  // border: 2px solid #60BDE9;
+  border: 2px solid lighten($primary-color, 20%);
+  border-radius: 4px;
 }
 
 .order-form-section.field--not-empty {
-	border-color: $primary-color;
+  border-color: $primary-color;
 }
 
-.order-form-section label { // base state is empty
+.order-form-section label {
+  // base state is empty
 
-    grid-row: 1;
-    grid-column: 1;
+  grid-row: 1;
+  grid-column: 1;
 
-    // box-sizing: border-box; // need to research this
-    // display: block;
-    padding: .5em 1em;
-    // pointer-events: none; // what is this?
-    // position: absolute; // this is causing first problems
+  // box-sizing: border-box; // need to research this
+  // display: block;
+  padding: 0.5em 1em;
+  // pointer-events: none; // what is this?
+  // position: absolute; // this is causing first problems
 
-    // top: 0;
-    transition: all .2s ease-out;
-    // user-select: none;
-    // white-space: nowrap; // this is useful but I dont understand it yet
-    width: calc(100% - 2rem);
-    // z-index: 1;
+  // top: 0;
+  transition: all 0.2s ease-out;
+  // user-select: none;
+  // white-space: nowrap; // this is useful but I dont understand it yet
+  width: calc(100% - 2rem);
+  // z-index: 1;
 
-    // opacity: 0; // start hidden? should we start the other way and then hide it?
+  // opacity: 0; // start hidden? should we start the other way and then hide it?
 
-	align-self: center;
-  }
+  align-self: center;
+}
 
-  .order-form-section.field--not-empty label { // no spaces so it only works with both selectors it's kinda overkill as thats the only place I use the not-empty class
-    align-self: start;
-  }
+.order-form-section.field--not-empty label {
+  // no spaces so it only works with both selectors it's kinda overkill as thats the only place I use the not-empty class
+  align-self: start;
+}
 
-
-    // this is really hacky and gross way of doing this
+// this is really hacky and gross way of doing this
 // https://stackoverflow.com/questions/36355486/is-there-a-css-selector-for-element-without-any-class
 
 // .order-form-section input[class=""] { // wierd hacky kinda way of doing this with no react
-	// https://caniuse.com/#search=attribute%20class
-	// 53% worldwide coverage
-	// background-color: pink; // only shows pink when there isnt a class
+// https://caniuse.com/#search=attribute%20class
+// 53% worldwide coverage
+// background-color: pink; // only shows pink when there isnt a class
 // 	align-self: center;
 
 //   }
 // needs a default of ""
 
-
-
-
-  .order-form-section input[type="text"],
-  .order-form-section input[type="email"],
-  .order-form-section input[type="number"] {
-
+.order-form-section input[type="text"],
+.order-form-section input[type="email"],
+.order-form-section input[type="number"] {
   grid-row: 1;
   grid-column: 1;
   z-index: 100;
 
   background: none; // remove the default styling as Im taking it up a level
-  border: none; 
+  border: none;
 
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   font-size: 1rem; // browser reset
   line-height: 1rem; // browser reset
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
   width: calc(100% - 2rem);
 
-//   align-self: center;
-/*   &:hover, &:focus {
+  //   align-self: center;
+  /*   &:hover, &:focus {
     // inset | offset-x | offset-y | blur-radius | spread-radius | color
     // box-shadow: inset 0 0 10px 0 rgba(85, 85, 85, .1);
     // outline: 0;
@@ -2123,193 +1738,190 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
 .order-form-section input[type="text"],
 .order-form-section input[type="email"],
 .order-form-section input[type="number"] {
-//   background: blueviolet; good test but becomes useless as it hides whats behind on the label layer
+  //   background: blueviolet; good test but becomes useless as it hides whats behind on the label layer
 
-align-self: stretch;
+  align-self: stretch;
 }
-
 
 // .order-form-section.field--not-empty input[type="text"],
 // .order-form-section.field--not-empty input[type="email"] {
 .order-form-section.field--not-empty input[type="text"],
 .order-form-section.field--not-empty input[type="email"],
 .order-form-section.field--not-empty input[type="number"] {
-//   background: blueviolet; good test but becomes useless as it hides whats behind on the label layer
+  //   background: blueviolet; good test but becomes useless as it hides whats behind on the label layer
 
-align-self: end;
+  align-self: end;
 }
 
 .order-form-select {
-	margin-bottom: $global-margin*2;
+  margin-bottom: $global-margin * 2;
 }
 
 .order-form-select label {
-	padding: $global-padding;
-	padding-top: 0; // sort of hacky
-	display: inline-block;
+  padding: $global-padding;
+  padding-top: 0; // sort of hacky
+  display: inline-block;
 }
 
 // https://www.filamentgroup.com/lab/select-css.html
 .select-css {
-	display: block;
-	font-size: 16px;
-	font-family: sans-serif;
-	font-weight: 700;
-	color: #444;
-	line-height: 1.3;
-	padding: $global-padding;
-	width: 100%;
-	max-width: 100%;
-	box-sizing: border-box;
-	margin: 0;
-	border: 2px solid lighten($primary-color, 20%);
-	// box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-	border-radius: 4px;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-	background: #E3F6FF;
-	// background-repeat: no-repeat, repeat;
-	// background-position: right .7em top 50%, 0 0;
-	// background-size: .65em auto, 100%;
+  display: block;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: $global-padding;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 2px solid lighten($primary-color, 20%);
+  // box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  border-radius: 4px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e3f6ff;
+  // background-repeat: no-repeat, repeat;
+  // background-position: right .7em top 50%, 0 0;
+  // background-size: .65em auto, 100%;
 }
 .select-css::-ms-expand {
-	display: none;
+  display: none;
 }
 .select-css:hover {
-	border-color: #888;
+  border-color: #888;
 }
 .select-css:focus {
-	border-color: #aaa;
-	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-	box-shadow: 0 0 0 3px -moz-mac-focusring;
-	color: #222;
-	outline: none;
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
 }
 .select-css option {
-	font-weight:normal;
+  font-weight: normal;
 }
 
 .order-form-slider {
-	margin-bottom: $global-margin*2;
+  margin-bottom: $global-margin * 2;
 }
 
 .order-form-slider label {
-	padding: $global-padding;
-	display: inline-block;
+  padding: $global-padding;
+  display: inline-block;
 }
 
 .order-form-slider input[type="range"] {
-	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 }
 
-  // this is probably dealt with by sass but I need to check on it
-  // ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  //   // color: #919293;
-  // }
-  // ::-moz-placeholder { /* Firefox 19+ */
-  //   // color: #919293;
-  // }
-  // :-ms-input-placeholder { /* IE 10+ */
-  //   // color: #919293;
-  // }
-  // :-moz-placeholder { /* Firefox 18- */
-    // color: #919293;
-  // }
+// this is probably dealt with by sass but I need to check on it
+// ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+//   // color: #919293;
+// }
+// ::-moz-placeholder { /* Firefox 19+ */
+//   // color: #919293;
+// }
+// :-ms-input-placeholder { /* IE 10+ */
+//   // color: #919293;
+// }
+// :-moz-placeholder { /* Firefox 18- */
+// color: #919293;
+// }
 
 /*   .field--not-empty {
     background: pink; // testing
   } */
 
 .order-form-submit input[type="submit"] {
-	margin-bottom: $global-margin*3;
-	border-radius: 2px; // should this be global
-	-webkit-appearance: none; // reset browser defaults
-	@extend button
+  margin-bottom: $global-margin * 3;
+  border-radius: 2px; // should this be global
+  -webkit-appearance: none; // reset browser defaults
+  @extend button;
 }
 
 #testimonials h3 {
-	max-width: 75rem;
-	margin: 0 auto;
-	padding: $global-padding;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: $global-padding;
 }
 
 #star {
-	display: grid;
-	grid-template-rows: 1fr 1.55fr;
-	// guess and check to get the middle to sit on the star line
+  display: grid;
+  grid-template-rows: 1fr 1.55fr;
+  // guess and check to get the middle to sit on the star line
 
-	> .bg-light-gray { // this isnt great as its linked to the name when it shouldnt be
-		grid-row: 1;
-		grid-column: 1;
-	}
+  > .bg-light-gray {
+    // this isnt great as its linked to the name when it shouldnt be
+    grid-row: 1;
+    grid-column: 1;
+  }
 
-	> #star-container {
-		grid-row: 1/3;
-		grid-column: 1;
-	}
+  > #star-container {
+    grid-row: 1/3;
+    grid-column: 1;
+  }
 
-	> .bg-medium-gray {
-		grid-row: 2;
-		grid-column: 1;
-	}
+  > .bg-medium-gray {
+    grid-row: 2;
+    grid-column: 1;
+  }
 }
 
 #star-container {
-	// width: 80%;
-	max-width: 75rem;
-	margin: 0 auto;
-	display: flex;
-	justify-content: space-around;
+  // width: 80%;
+  max-width: 75rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
 
-	> svg {
-		width: 100%;
-		// margin: 0 auto;
-		max-width: 5rem;
-		fill: $secondary-color;
-		margin-left: $global-margin;
-		margin-right: $global-margin;
-	}	
+  > svg {
+    width: 100%;
+    // margin: 0 auto;
+    max-width: 5rem;
+    fill: $secondary-color;
+    margin-left: $global-margin;
+    margin-right: $global-margin;
+  }
 }
 
 #quoted {
-	max-width: $general-measure;
-	margin: 0 auto;
-	padding: $global-padding;
+  max-width: $general-measure;
+  margin: 0 auto;
+  padding: $global-padding;
 
-	> p::before {
-		content: '"'; // left quote
-		font-size: 2.488rem;
-		font-weight: bold;
-		font-family: $header-font-family;
-		margin-right: $global-margin/2;
-	}
+  > p::before {
+    content: '"'; // left quote
+    font-size: 2.488rem;
+    font-weight: bold;
+    font-family: $major-font-family;
+    margin-right: $global-margin/2;
+  }
 
-	> footer {
-		font-size: 1.2rem;
-		font-weight: bold;
-	}
+  > footer {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 }
 
 #footer-logo {
-	max-width: 20rem;
-	margin: 0 auto;
-	fill: $white;
-	
-	> a {
-		display: block;
-		padding: $global-padding;
-		border-radius: 5px;
-	}
+  max-width: 20rem;
+  margin: 0 auto;
+  fill: $white;
 
-	svg {
-		fill: $white;
-	}
+  > a {
+    display: block;
+    padding: $global-padding;
+    border-radius: 5px;
+  }
+
+  svg {
+    fill: $white;
+  }
 }
-
-
-
 
 // home testimonial animation
 // http://css3.bradshawenterprises.com/cfimg/
@@ -2323,50 +1935,56 @@ ad = 4
 */
 
 #quotes {
-	display: grid;
-	justify-items: stretch;
-	align-items: stretch;
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
 }
-#quotes > blockquote { // make double sure to add the bracket as gatsby image does strange things here
-	grid-column: 1;
-	grid-row: 1;
-	animation-name: FadeInOut;
-	animation-duration: 16s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite;
+#quotes > blockquote {
+  // make double sure to add the bracket as gatsby image does strange things here
+  grid-column: 1;
+  grid-row: 1;
+  animation-name: FadeInOut;
+  animation-duration: 16s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 
-	background: $medium-gray;
-	width: calc(100% - 2rem);
+  background: $medium-gray;
+  width: calc(100% - 2rem);
 }
 
 /* Just do the link I dont understand the math */
 @keyframes FadeInOut {
-	0% { // always
-		opacity:1;
-	}
-	18.75% { // 3/16*100
-		opacity:1;
-	}
-	25% { // (3+1)/16*100 = 1/4*100
-		opacity:0;
-	}
-	93.75% { // 100-(1/16*100)
-		opacity:0;
-	}
-	100% { // always
-		opacity:1;
-	}
+  0% {
+    // always
+    opacity: 1;
+  }
+  18.75% {
+    // 3/16*100
+    opacity: 1;
+  }
+  25% {
+    // (3+1)/16*100 = 1/4*100
+    opacity: 0;
+  }
+  93.75% {
+    // 100-(1/16*100)
+    opacity: 0;
+  }
+  100% {
+    // always
+    opacity: 1;
+  }
 }
 
 #quotes > blockquote:nth-of-type(1) {
-	animation-delay: 12s;
+  animation-delay: 12s;
 }
 #quotes > blockquote:nth-of-type(2) {
-	animation-delay: 8s;
+  animation-delay: 8s;
 }
 #quotes > blockquote:nth-of-type(3) {
-	animation-delay: 4s;
+  animation-delay: 4s;
 }
 #quotes > blockquote:nth-of-type(4) {
-	animation-delay: 0s;
+  animation-delay: 0s;
 }

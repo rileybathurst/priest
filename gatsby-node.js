@@ -1,4 +1,4 @@
-const path = require(`path`);
+/* const path = require(`path`);
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }) => {
   reporter.info(`Your Gatsby site has been built!`)
@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-
+ */
 
 
 

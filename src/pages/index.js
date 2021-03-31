@@ -2,15 +2,19 @@ import * as React from "react"
 import { Link, graphql } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
 
+import Layout from '../components/layout'
+import SummitContact from '../components/summit-contact'
+
 import "../styles/index.scss";
 
-/* function Casper(props) {
-  if (props.doesit) {
-    return <>👻</>
+function Byline(props) {
+  if (props.byline) {
+    // console.log('byline');
+    return <h5>{props.byline}</h5>
   } else {
     return null
   }
-} */
+}
 
 function SummitImage() {
   return (
@@ -39,15 +43,26 @@ function TeamPhoto2() {
   )
 }
 
+/* 
+  lets start with a single page
+function BlogPost({ document }) {
+  const image = getImage(document.node.Cover)
+  return (
+    <>
+      <GatsbyImage image={image} />
+    </>
+  )
+ } */
+
 // markup
 const IndexPage = ({ data }) => {
   return (
-    <>
+    <Layout>
     {/* <div className="summit__wrapper"> */}
     <div className="summit__backer">
       <section id="summit">
         <div className="summit__info">
-          {" "}
+          
           {/* this has old naming and needs to be checked */}
           <h1>
             SPECIALIST WELDERS, SHEETMETAL ENGINEERS &amp; GENERAL FABRICATORS
@@ -104,7 +119,7 @@ const IndexPage = ({ data }) => {
         {/* can this be compressed moved to the footer? */}
 
         <div className="summit__videobacker hide-for-full">
-          <SummitImage />{" "}
+          <SummitImage />
           {/* this is a secondary version of the image until I figure out some magic */}
         </div>
 
@@ -121,7 +136,7 @@ const IndexPage = ({ data }) => {
         </div>
 
         <div className="summit__contact">
-          {/* <SummitContact /> */}
+          <SummitContact />
         </div>
       </section>
 
@@ -147,12 +162,18 @@ const IndexPage = ({ data }) => {
             {/* stay gold */}
           </div>
 
+          <Link to={`/services/${document.node.slug}`} className="tasks__image shadow">
+            {/* <StaticImage src={document.node.Cover.base} className="shadow"/> */}
+            {/* alt={document.node.title} */}
+            {/* <BlogPost /> */}
+          </Link>
+
           <div className="tasks__background--lower shadow">
             {/* stay gold */}
           </div>
 
           <div className="tasks__info">
-            {/* <Byline byline={document.node.byline} /> */}
+            <Byline byline={document.node.byline} />
             <p>{document.node.Content}</p>
             <Link
               to={`/services/${document.node.slug}`}
@@ -188,9 +209,9 @@ const IndexPage = ({ data }) => {
               ></iframe>
             </span>
           </div>
-        </div>{" "}
+        </div>
         {/* .grid-x */}
-      </div>{" "}
+      </div>
       {/* .grid-container */}
     </section>
 
@@ -199,18 +220,15 @@ const IndexPage = ({ data }) => {
         <h3>Testimonials</h3>
       </div>
       <div id="star">
-        {" "}
         {/* needed for grid */}
         <div className="bg-light-gray">{/* stay gold */}</div>
         <div className="bg-medium-gray">{/* stay gold */}</div>
         <div id="star-container">
           <svg title="star-1" className="star-1" viewBox="0 0 200 200">
-            {" "}
             {/* height="210" width="500" */}
-            <polygon points="100,10 40,198 190,78 10,78 160,198" />{" "}
+            <polygon points="100,10 40,198 190,78 10,78 160,198" />
             {/* width="100%" height="100%" */}
           </svg>
-
           <svg title="star-2" className="star-2" viewBox="0 0 200 200">
             <polygon points="100,10 40,198 190,78 10,78 160,198" />
           </svg>
@@ -223,20 +241,20 @@ const IndexPage = ({ data }) => {
           <svg title="star-5" className="star-5" viewBox="0 0 200 200">
             <polygon points="100,10 40,198 190,78 10,78 160,198" />
           </svg>
-        </div>{" "}
+        </div>
         {/* #star-container */}
-      </div>{" "}
+      </div>
       {/* #star */}
       <div id="quotes" className="bg-medium-gray">
-        {/* {data.allStrapiTestimonials.edges.map(document => (
+        {data.allStrapiTestimonials.edges.map(document => (
           <blockquote id="quoted" className="bg-medium-gray">
-            <p>{document.node.content}</p>{" "}
+            <p>{document.node.content}</p>
             <footer>{document.node.author}</footer>
           </blockquote>
-        ))} */}
+        ))}
       </div>
     </section>
-  </>
+  </Layout>
   )
 }
 
@@ -252,6 +270,25 @@ export const pageQuery = graphql`
           byline
           Content
           slug
+
+          Cover {
+            childImageSharp {
+              gatsbyImageData(
+                width: 200
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+        }
+      }
+    }
+
+    allStrapiTestimonials {
+      edges {
+        node {
+          content
+          author
         }
       }
     }

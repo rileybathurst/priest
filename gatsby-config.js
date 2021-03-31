@@ -20,9 +20,15 @@ module.exports = {
       options: {
         apiURL: "http://localhost:1338",
         contentTypes: [
-          "service"
+          "service",
+          `galleries`,
+          `videos`,
+          `testimonials`,
         ],
       },
     },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
   ],
 };

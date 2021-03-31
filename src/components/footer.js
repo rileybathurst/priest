@@ -119,7 +119,6 @@ const Footer = () => (
         {/* Priest Sheet Metal &amp; Plate Christchurch  */}
       </p>
     </div>
-    {/* .grid-x */}
   </footer>
 );
 

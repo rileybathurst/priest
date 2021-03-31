@@ -1,0 +1,50 @@
+// Variables
+
+// custom priest
+// https://docs.google.com/spreadsheets/d/1mmnTlSNv-L8dyHRb33eE_pM3qVv-a5hz3q9WfTDlI4c/edit#gid=0
+
+/* $breakpoints: (
+	"small": "0",
+	"medium": "40em", // 640px
+	"medium__half-step": "54em", // 864px minor change 
+	"large": "90em", // 1440px // Im getting the feeling this is too small
+	"large__half-step": "120em", // 1920px minor change 
+	"full": "144em", // 2304px // this could just be large__half-step 
+	// Im doing quite a lot of work to get this to be different and nice
+	// I wonder if some of these have to be specific to the piece
+); */
+
+/* BREAKPOINTS */
+// this was a sass map but I have problems with those so I'm skipping them
+$breakpoint__small: 0; // document this?
+$breakpoint__medium: 40em; // 640px
+$breakpoint__medium--half-step: 54em; // 864px minor change
+$breakpoint__large: 90em; // 1440px // Im getting the feeling this is too small
+$breakpoint__large--half-step: 120em; // 1920px minor change
+$breakpoint__full: 144em; // 2304px // this could just be large__half-step
+// for the px surely I need the body size above?
+// include something about measure in here
+
+$page-width: 77em; // this should probably meet up with breakpoints
+$general-measure: 30rem; // document this somewhere
+
+$print-breakpoint: large; // 🚨 check on print sheets
+
+$primary-color: #1e93bd;
+$secondary-color: #006087; // document if this is a darken
+// $warning-color: #ffae00; // currently not used
+
+$black: #0a0a0a;
+$white: #fefefe;
+$light-gray: #e6e6e6;
+$medium-gray: #d1d1d1; // slightly adapted so the footer ratio is passing contrast guidelines
+$dark-gray: #8a8a8a;
+
+// 1rem should be a horizontal margin and generally not vertical
+$global-margin: 1rem;
+$global-padding: 1rem;
+$global-grid-gap: $global-margin;
+
+$body-font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$major-font-family: "Roboto Slab", serif; // rename this it's also nav and buttons etc 
+
