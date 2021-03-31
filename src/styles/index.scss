@@ -267,10 +267,11 @@ footer {
   display: grid;
   place-items: center;
 
+  // 📣 these next parts are design not layout
   z-index: 3; // sliding logo
   position: relative; // needed for z-index
 
-    svg {
+  svg {
     fill: $white;
     width: 100%; // needed for chrome
   }
@@ -300,76 +301,43 @@ footer {
   }
 }
 
-.inline-block-100w {
-  // hack to make the a all the way across
-  display: inline-block;
-  width: 100%;
-}
-
-/*
-	display grids
------------------------------------------------- */
-
-.display-grid {
-  //terrible name
-  display: flex;
-  justify-items: center;
-}
-
-.grid-icon {
-  //terrible names
-  grid-column: 1;
-  align-self: stretch;
-}
-
+// 📣 this naming is off these are elements not modifiers
 .header-contact--icon {
   grid-column: 1;
   align-self: stretch;
-  background: $black;
+  background: $black; // 📣 this is design not layout
 
   svg {
     margin: $global-margin;
-    // padding: $global-padding;
   }
-}
-
-.grid-text {
-  //terrible names
-  grid-column: 2;
-  align-self: center;
 }
 
 .header-contact--text {
   grid-column: 2;
-  // align-self: center;
-  // margin: $global-margin;
   width: 100%;
-  // background: $dark-gray;
-  // padding: $global-padding;
 
   p {
     height: 100%; // fill the box
 
-    b {
-      // what is this?
+/*     b { 🚨 // this isnt a tag
       display: inline-block;
       height: 100%;
       width: 100%;
+ */
+    a {
+      // height: 100%;
+      width: calc(100% - 2rem);
+      height: calc(100% - 2rem);
+      display: flex;
+      align-items: center;
+      // color: darken($white, 10%); // overwrite the bg-dark-grey which is kinda messy anyway
+      color: $white; // overwrite the bg-dark-grey which is kinda messy anyway
+      padding: $global-padding;
+    } // a
+  } // p
+} // .header-contact--text
 
-      a {
-        // height: 100%;
-        width: calc(100% - 2rem);
-        height: calc(100% - 2rem);
-        display: flex;
-        align-items: center;
-        // color: darken($white, 10%); // overwrite the bg-dark-grey which is kinda messy anyway
-        color: $white; // overwrite the bg-dark-grey which is kinda messy anyway
-        padding: $global-padding;
-      }
-    }
-  }
-}
-
+// 📣 this naming is off
 .header-contact--text__underline {
   text-decoration: underline;
   text-decoration-thickness: 0.125em;
