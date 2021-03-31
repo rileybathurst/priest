@@ -10,8 +10,6 @@ const ServiceView = ({ service }) => {
   function Cover(props) {
     var medium = props.medium // query the cover if its has been set to video
     var video = props.video // the vimeo id
-    // var photo = props.photo // if there isnt a video cover insert a photo
-    var image = props.image // if there isnt a video cover insert a photo
 
     if (medium === 'video') {
       return  <div style={{
