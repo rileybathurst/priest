@@ -1,717 +1,627 @@
-/**
- * CONTENTS
- *
- * SUMMIT
- *
- * SERVICES
- *
- */
-
 /*------------------------------------*\
   #SUMMIT
 \*------------------------------------*/
 
-/* .summit__wrapper {
-
-} */
-
 .summit__backer {
-    // this is all under full so I remember it only displays at this size
-    @media (min-width: 144em) {
-        background: #EFEFEF;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding-bottom: 3em; // guess and check
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 128px), 0 100%); // guess and check
-    }
+  // this is all under full so I remember it only displays at this size
+  @media (min-width: 144em) {
+    background: #efefef; // 📣
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 3em; // guess and check
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 128px),
+      0 100%
+    ); // guess and check
+  }
 }
 
-/* .summit__backer--image {
-    // background: turquoise; // testing
-    grid-row: 2;
-    grid-column: 1;
-    display: none; // before I sort it out
-    clip-path: polygon(128px 0, 100% 0, 100% 100%, 0 100%);
-    height: calc(100% + 128px);
-    mix-blend-mode: luminosity;
-
-    @media (min-width:  $breakpoint__large) {
-        grid-row: 1;
-        grid-column: 2;
-
-        display: block;
-    }
-
-    > .gatsby-image-wrapper {
-        height: calc(100% + 128px);
-    }
-} */
-
-
 #summit {
-    background: #EFEFEF;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), 0 100%);
-    margin-bottom: 2rem;
+  background: #efefef; // 📣
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), 0 100%);
+  margin-bottom: 2rem;
+  grid-row: 1;
+  grid-column: 1/3; // float in the center
+  display: grid;
+  max-width: $breakpoint__full; // 🚨 this seems wrong
+  margin: 0 auto;
+  justify-self: center;
+  grid-template-columns: 1fr 2rem 1fr;
 
-    grid-row: 1;
-    grid-column: 1/3; // float in the center
+  @media (min-width: $breakpoint__medium) {
+    grid-template-columns: 1fr 2rem 1fr 2rem 1fr;
+    // 3 col - 2 gap
+  }
 
-    display: grid;
-    // max-width: $page-width; // I think these are all going to be nested
-    // max-width pulled to the center
-    // this doesnt quite work for the background behind the video
-    // margin: 0 auto;
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-template-columns: 1fr 2rem 1fr 2rem 1fr 2em 1fr;
+    // 4 col - 3 gap
+  }
 
-    max-width: $breakpoint__full; // 🚨 this seems wrong
-    margin: 0 auto;
-    justify-self: center;
+  @media (min-width: $breakpoint__large) {
+    grid-template-columns: 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr;
+    // 📣 I think this needs to be split up it doesnt all have to be in one grid
+    // 6 col - 5 gap
+    // this way is more cumbersome but less media queries further down
+    padding-bottom: 128px; // am I sure about this?
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 128px), 0 100%);
+  }
 
-    grid-template-columns: 1fr 2rem 1fr;
-    // 2 col - 1 gap
+  @media (min-width: $breakpoint__large--half-step) {
+    grid-template-columns: 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr;
+    // 8 col - 7 gap
+  }
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-template-columns: 1fr 2rem 1fr 2rem 1fr;
-        // 3 col - 2 gap
-    }
-
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-template-columns: 1fr 2rem 1fr 2rem 1fr 2em 1fr;
-        // 4 col - 3 gap
-    }
-
-    @media (min-width:  $breakpoint__large) {
-        grid-template-columns: 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr;
-        // 6 col - 5 gap
-        // this way is more cumbersome but less media queries further down
-        
-        padding-bottom: 128px; // am I sure about this?
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 128px), 0 100%);
-    }
-
-    @media (min-width: $breakpoint__large--half-step) {
-        grid-template-columns: 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr 2rem 1fr;
-        // 8 col - 7 gap
-    }
-
-    // this doesnt really change at full as the changes are at a higher level
-/*     @media (min-width: $breakpoint__large--half-step) {
-    } */
-    
-    @media (min-width:  $breakpoint__full) {
-        background: none; // not really needed but helps for testing
-        // #summit is nested at full
-        clip-path: none;
-        padding-bottom: 0;
-    }
+  @media (min-width: $breakpoint__full) {
+    background: none; // not really needed but helps for testing
+    // #summit is nested at full
+    clip-path: none;
+    padding-bottom: 0;
+  }
 }
 
 .summit__info {
-    grid-row: 1;
-    grid-column: 1/4;
-    padding: $global-padding;
-    max-width: 35em;
-    justify-self: center;
+  grid-row: 1;
+  grid-column: 1/4;
+  padding: $global-padding;
+  max-width: 35em;
+  justify-self: center;
 
-    h1 {
-        margin-top: 2.75rem; // back to type-scale
-        font-size: 1.728em;
-        line-height: 1.35em;
+  h1 {
+    margin-top: 2.75rem; // back to type-scale
+    font-size: 1.728em;
+    line-height: 1.35em;
 
-        @media (min-width:  $breakpoint__medium) {
-			font-size: 2.074em; // h2 halfway back up
-		}
+    @media (min-width: $breakpoint__medium) {
+      font-size: 2.074em; // h2 halfway back up
+    }
 
-		@media (min-width:  $breakpoint__large) {
-            // font-size: 2.448em; // return to normal
-            padding-left: $global-padding*2; // not a margin due to need to center
-            padding-right: $global-padding*2;
-		}
-    } // h1
+    @media (min-width: $breakpoint__large) {
+      padding-left: $global-padding * 2; // not a margin due to need to center
+      padding-right: $global-padding * 2;
+    }
+  } // h1
 
-    p {
-        @media (min-width:  $breakpoint__large) {
-            padding-left: $global-padding*2; // not a margin due to need to center
-            padding-right: $global-padding*2;
-        }
-    } // p
-}
+  p {
+    @media (min-width: $breakpoint__large) {
+      padding-left: $global-padding * 2; // not a margin due to need to center
+      padding-right: $global-padding * 2;
+    }
+  } // p
+} // .summit__info
 
 // this is messy it uses svg and clip-path at different sizes
 .summit__about {
-    grid-row: 3;
-    grid-column: 1/4;
-    margin-bottom: $global-margin;
-    justify-self: center;
-    background: $medium-gray;
-    width: 100%; // this shouldnt be needed but is around large to large__half-step
+  grid-row: 3;
+  grid-column: 1/4;
+  margin-bottom: $global-margin;
+  justify-self: center;
+  background: $medium-gray;
+  width: 100%; // this shouldnt be needed but is around large to large__half-step
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-column: 2/6;
-        grid-template-columns: 2em 1fr 2em;
-        clip-path: polygon(2em 0, 100% 0, 100% 100%, 0 100%);
-        margin-bottom: $global-margin*2;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 2/6;
+    grid-template-columns: 2em 1fr 2em;
+    clip-path: polygon(2em 0, 100% 0, 100% 100%, 0 100%);
+    margin-bottom: $global-margin * 2;
+  }
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 4/8;
-    }
-    
-    @media (min-width:  $breakpoint__large) {
-        grid-row: 2;
-        grid-column: 2/7;
-        clip-path: polygon(2em 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 4/8;
+  }
+
+  @media (min-width: $breakpoint__large) {
+    grid-row: 2;
+    grid-column: 2/7;
+    clip-path: polygon(2em 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+  }
+
+  @media (min-width: $breakpoint__large--half-step) {
+    grid-column: 4/8;
+  }
+
+  // still in .summit__about
+  h2 {
+    font-size: 1.728em;
+    line-height: 1.33em; // guess and check select some text to check its right
+    max-width: $general-measure;
+    margin: 2.75rem auto 1.05rem auto;
+
+    // use padding for the sides as we need margin to be center aligned
+    // or go to a flex?
+    @media (min-width: $breakpoint__medium) {
+      padding-left: $global-padding * 2;
+      padding-right: $global-padding * 2;
     }
 
     @media (min-width: $breakpoint__large--half-step) {
-        grid-column: 4/8;
+      font-size: 2.074em;
+      margin: 2.75rem auto 1.05rem auto;
     }
+  }
 
-/*     @media (min-width:  $breakpoint__full) {
-        width: calc(100% + 4rem); // This can flow off the screen
-        margin-left: -2rem; // the info cant flow off the screen
-    } */
+  p {
+    padding: $global-padding;
+    max-width: $general-measure;
 
-    h2 {
-        font-size: 1.728em;
-        line-height: 1.33em; // guess and check select some text to check its right
-        max-width: $general-measure;
-        margin: 2.75rem auto 1.05rem auto;
-
-        // use padding for the sides as we need margin to be center aligned
-        // or go to a flex?
-        @media (min-width:  $breakpoint__medium) {
-            padding-left: $global-padding*2;
-            padding-right: $global-padding*2;
-        }
-
-        @media (min-width: $breakpoint__large--half-step) {
-            font-size: 2.074em;
-            margin: 2.75rem auto 1.05rem auto;
-        }
+    @media (min-width: $breakpoint__medium) {
+      padding-left: $global-padding * 2;
+      padding-right: $global-padding * 2;
+      margin: $global-margin auto;
     }
-
-    p {
-        padding: $global-padding;
-        max-width: $general-measure;
-
-        @media (min-width:  $breakpoint__medium) {
-            padding-left: $global-padding*2;
-            padding-right: $global-padding*2;
-            margin: $global-margin auto;
-        }
-    }
-
-}
+  } // p
+} // .summit__about
 
 .summit__video {
-    grid-row: 2;
-    grid-column: 1/4;
-    margin: 1rem;
-    max-width: 60rem; // double the measure guess and check
+  grid-row: 2;
+  grid-column: 1/4;
+  margin: 1rem;
+  max-width: 60rem; // double the measure guess and check
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-column: 1/6;
-        width: calc(100% - 2rem);
-        margin: 2rem auto;
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 1/6;
+    width: calc(100% - 2rem);
+    margin: 2rem auto;
+  }
+
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 1/8;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $breakpoint__large) {
+    grid-row: 1/3;
+    grid-column: 7/12;
+  }
+
+  @media (min-width: $breakpoint__large--half-step) {
+    grid-column: 8/16;
+  }
+
+  iframe {
+    clip-path: polygon(32px 0%, 100% 0%, calc(100% - 32px) 100%, 0% 100%);
+
+    @media (min-width: $breakpoint__large) {
+      clip-path: polygon(64px 0%, 100% 0%, calc(100% - 64px) 100%, 0% 100%);
     }
-
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 1/8;
-        // width: 100%;
-        margin: 0 auto;
-    }
-
-    @media (min-width:  $breakpoint__large) {
-        grid-row: 1/3;
-        grid-column: 7/12;
-    }
-
-    @media (min-width: $breakpoint__large--half-step) {
-        grid-column: 8/16;
-    }
-
-    iframe {
-        clip-path: polygon(32px 0%, 100% 0%, calc(100% - 32px) 100%, 0% 100%);
-
-        @media (min-width:  $breakpoint__large) {
-            clip-path: polygon(64px 0%, 100% 0%, calc(100% - 64px) 100%, 0% 100%);
-        }
-    }
+  }
 }
 
 // .summit__videobacker & .summit__videobacker--color should have something for both
 
 .summit__videobacker {
-    grid-row: 2;
-    grid-column: 1/4;
-    z-index: -1;
-    clip-path: polygon(32px 0, 100% 0, 100% calc(100% - 32px), 0 100%);
-    mix-blend-mode: luminosity;
-    margin-bottom: $global-margin;
+  grid-row: 2;
+  grid-column: 1/4;
+  z-index: -1;
+  clip-path: polygon(32px 0, 100% 0, 100% calc(100% - 32px), 0 100%);
+  mix-blend-mode: luminosity;
+  margin-bottom: $global-margin;
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-column: 2/6;
-        margin-bottom: 3rem;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 2/6;
+    margin-bottom: 3rem;
+  }
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 3/8;
-    }
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 3/8;
+  }
 
-    @media (min-width:  $breakpoint__large) {
-        // display: none;
-        grid-row: 1/4;
-        grid-column: 7/12;
-        margin-bottom: 0;
-        clip-path: polygon(64px 0, 100% 0, 100% 100%, 0 100%);
-        height: calc(100% + 4rem);
-    }
+  @media (min-width: $breakpoint__large) {
+    // display: none;
+    grid-row: 1/4;
+    grid-column: 7/12;
+    margin-bottom: 0;
+    clip-path: polygon(64px 0, 100% 0, 100% 100%, 0 100%);
+    height: calc(100% + 4rem);
+  }
 
-    @media (min-width: $breakpoint__large--half-step) {
-        grid-column: 8/16;
-    }
+  @media (min-width: $breakpoint__large--half-step) {
+    grid-column: 8/16;
+  }
 
-    // this changes to a completley different grid 
-    @media (min-width:  $breakpoint__full) {
-        grid-row: 1;
-        grid-column: 2;
-        margin-bottom: 0;
+  // this changes to a completley different grid
+  @media (min-width: $breakpoint__full) {
+    grid-row: 1;
+    grid-column: 2;
+    margin-bottom: 0;
+  }
 
-    }
-
-    .gatsby-image-wrapper {
-        height: 100%;
-
-/*         @media (min-width:  $breakpoint__medium) {
-            height: calc(100% - 8rem);
-        } */
-    } // .gatsby-image-wrapper
-}
+  .gatsby-image-wrapper {
+    height: 100%;
+  } // .gatsby-image-wrapper
+} // .summit__videobacker
 
 .summit__videobacker--color {
-    grid-row: 2;
-    grid-column: 1/4;
-    z-index: -1;
-    clip-path: polygon(32px 0, 100% 0, 100% calc(100% - 32px), 0 100%);
-    background: $secondary-color;
-    mix-blend-mode: multiply;
-    margin-bottom: $global-margin;
+  grid-row: 2;
+  grid-column: 1/4;
+  z-index: -1;
+  clip-path: polygon(32px 0, 100% 0, 100% calc(100% - 32px), 0 100%);
+  background: $secondary-color;
+  mix-blend-mode: multiply;
+  margin-bottom: $global-margin;
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-column: 2/6;
-        margin-bottom: 3rem;
-        // height: calc(100% - 8rem);
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 2/6;
+    margin-bottom: 3rem;
+    // height: calc(100% - 8rem);
+  }
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 3/8;
-    }
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 3/8;
+  }
 
-    @media (min-width:  $breakpoint__large) {
-        grid-row: 1/4;
-        grid-column: 7/12;
-        margin-bottom: 0;
-        clip-path: polygon(64px 0, 100% 0, 100% 100%, 0 100%);
-        height: calc(100% + 4rem);
-    }
+  @media (min-width: $breakpoint__large) {
+    grid-row: 1/4;
+    grid-column: 7/12;
+    margin-bottom: 0;
+    clip-path: polygon(64px 0, 100% 0, 100% 100%, 0 100%);
+    height: calc(100% + 4rem);
+  }
 
-    @media (min-width: $breakpoint__large--half-step) {
-        grid-column: 8/16;
-    }
+  @media (min-width: $breakpoint__large--half-step) {
+    grid-column: 8/16;
+  }
 
-    // this changes to a completley different grid 
-    @media (min-width:  $breakpoint__full) {
-        grid-row: 1;
-        grid-column: 2;
-        // margin-bottom: 0;
-    }
+  // this changes to a completley different grid
+  @media (min-width: $breakpoint__full) {
+    grid-row: 1;
+    grid-column: 2;
+    // margin-bottom: 0;
+  }
 }
-
-/* .summit__video--crop-left {
-    grid-row: 1;
-    grid-column: 1;
-    z-index: 99; // above the video
-
-} */
-
-/* .summit__video--crop-right {
-    grid-row: 1;
-    grid-column: 3;
-} */
 
 .summit__team-photo_1 {
-    grid-row: 4;
+  grid-row: 4;
+  grid-column: 1/3;
+  clip-path: polygon(0 0, calc(100% - 1rem) 0, calc(100% - 3rem) 100%, 0 100%);
+  margin-right: 0.5rem;
+  margin-bottom: $global-margin;
+
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 3;
     grid-column: 1/3;
-    clip-path: polygon(0 0, calc(100% - 1rem) 0, calc(100% - 3rem) 100%, 0 100%);
-    margin-right: 0.5rem;
-    margin-bottom: $global-margin;
+    margin-bottom: $global-margin * 2;
+  }
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-row: 3;
-        grid-column: 1/3;
-        margin-bottom: $global-margin*2;
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 1/5;
+  }
+
+  @media (min-width: $breakpoint__large) {
+    grid-row: 2;
+    grid-column: 1/3;
+    // max-width: $general-measure;
+    // this is needed before full is it really needed here?
+    margin-left: 3rem;
+  }
+
+  @media (min-width: $breakpoint__large--half-step) {
+    grid-column: 1/5;
+  }
+
+  > .gatsby-image-wrapper {
+    @media (min-width: $breakpoint__medium) {
+      height: 100%; // match the box
+      margin-bottom: -5em; // guess and check
     }
-
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 1/5;
-    }
-
-    @media (min-width:  $breakpoint__large) {
-        grid-row: 2;
-        grid-column: 1/3;
-        // max-width: $general-measure;
-        // this is needed before full is it really needed here?
-        margin-left: 3rem;
-    }
-
-    @media (min-width: $breakpoint__large--half-step) {
-        grid-column: 1/5;
-    }
-
-    > .gatsby-image-wrapper {
-        @media (min-width:  $breakpoint__medium) {
-            // height: calc(100% - 5.75rem);
-            height: 100%; // match the box
-            margin-bottom: -5em; // guess and check
-        }
-    } // .gatsby-image-wrapper
-
-/*     img {
-        @media (min-width:  $breakpoint__medium) {
-            object-position: 20% center !important; // this image only guess and check
-        } 
-    } // img */
-}
+  } // .gatsby-image-wrapper
+} // .summit__team-photo_1
 
 .summit__team-photo_2 {
-    grid-row: 4;
-    grid-column: 2/4;
-    clip-path: polygon(32px 0, 100% 0, 100% 100%, 0 100%);
-    margin-left: 0.5rem;
-    margin-bottom: $global-margin;
+  grid-row: 4;
+  grid-column: 2/4;
+  clip-path: polygon(32px 0, 100% 0, 100% 100%, 0 100%);
+  margin-left: 0.5rem;
+  margin-bottom: $global-margin;
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-row: 1;
-        grid-column: 5;
-        margin-bottom: $global-margin*2;
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 1;
+    grid-column: 5;
+    margin-bottom: $global-margin * 2;
+  }
+
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 4/8;
+  }
+
+  @media (min-width: $breakpoint__large) {
+    grid-column: 4/7;
+    clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+  }
+
+  @media (min-width: $breakpoint__large--half-step) {
+    grid-column: 4/9;
+  }
+
+  > .gatsby-image-wrapper {
+    // start at medium when its beside text
+    @media (min-width: $breakpoint__medium) {
+      height: calc(100% - 5.75rem);
+      margin-top: 3.75rem; // match the h1 tag then guess and check
     }
 
     @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 4/8;
+      // height: calc(100% - 12.75rem); // guess and check
+      height: calc(100% - 4.75rem); // guess and check
     }
 
-    @media (min-width:  $breakpoint__large) {
-        grid-column: 4/7;
-        clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
-
+    @media (min-width: $breakpoint__large) {
+      height: calc(100% - 5.75rem); // guess and check
     }
-
-    @media (min-width: $breakpoint__large--half-step) {
-        grid-column: 4/9;
-    }
-
-    > .gatsby-image-wrapper {
-        // start at medium when its beside text
-        @media (min-width:  $breakpoint__medium) {
-            height: calc(100% - 5.75rem);
-            margin-top: 3.75rem; // match the h1 tag then guess and check
-        }
-
-        @media (min-width: $breakpoint__medium--half-step) {
-            // height: calc(100% - 12.75rem); // guess and check
-            height: calc(100% - 4.75rem); // guess and check
-        }
-
-        @media (min-width:  $breakpoint__large) {
-            height: calc(100% - 5.75rem); // guess and check
-        }
-    } // .gatsby-image-wrapper
-
-/*     img {
-        @media (min-width:  $breakpoint__medium) {
-            object-position: 20% center !important; // this image only guess and check
-        }
-    } // img */
-}
+  } // .gatsby-image-wrapper
+} // .summit__team-photo_2
 
 .summit__contact {
-    grid-row: 5;
-    grid-column: 1/4;
-    // max-width: 66rem; // guess and check
-    // justify-self: center;
-    margin-bottom: $global-margin*2;
+  grid-row: 5;
+  grid-column: 1/4;
+  margin-bottom: $global-margin * 2;
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-column: 1/6;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 1/6;
+  }
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-column: 1/8;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 1/8;
+  }
 
-    @media (min-width:  $breakpoint__large) {
-        grid-row: 3;
-        grid-column: 1/6;
-        // justify-self: end;
-    }
+  @media (min-width: $breakpoint__large) {
+    grid-row: 3;
+    grid-column: 1/6;
+    // justify-self: end;
+  }
 
-    @media (min-width: $breakpoint__large--half-step) {
-        grid-column: 1/8;
-    }
+  @media (min-width: $breakpoint__large--half-step) {
+    grid-column: 1/8;
+  }
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        flex-direction: row;
-        justify-content: space-around;
-    }
+  @media (min-width: $breakpoint__medium--half-step) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 
 .summit__contact--service {
-    // margin: 0 $global-margin $global-margin $global-margin;
-    padding: $global-padding; // I dont think I can have this for the hover state to work
-    display: grid;
+  // margin: 0 $global-margin $global-margin $global-margin;
+  padding: $global-padding; // I dont think I can have this for the hover state to work
+  display: grid;
 }
 
 .summit__contact--icon {
-    grid-row: 1;
-    grid-column: 1;
-    padding: $global-padding;
-    justify-self: end;
-    z-index: 2; // above the border
+  grid-row: 1;
+  grid-column: 1;
+  padding: $global-padding;
+  justify-self: end;
+  z-index: 2; // above the border
 
-    svg {
-        fill: $white;
-    }
+  svg {
+    fill: $white;
+  }
 }
 
 .summit__contact--text {
-    grid-row: 1;
-    grid-column: 2;
-    // align-self: center; // can't do this to get a block 
-    z-index: 2; // above the border
-    padding: $global-padding;
-    color: $white;
+  grid-row: 1;
+  grid-column: 2;
+  // align-self: center; // can't do this to get a block
+  z-index: 2; // above the border
+  padding: $global-padding;
+  color: $white;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    a {
-        text-decoration: underline;
-    }
+  a {
+    text-decoration: underline;
+  }
 }
 
 // I'm not 100% this is the best way to do it but it works
 .summit-contact--skew {
-    grid-row: 1;
-    grid-column: 1/3;
-    transform: skewX(-8deg); // guess and check
-    background: $secondary-color;
-    background: linear-gradient(180deg, rgba(30,141,183,1) 0%, rgba(0,96,135,1) 100%);
+  grid-row: 1;
+  grid-column: 1/3;
+  transform: skewX(-8deg); // guess and check
+  background: $secondary-color;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 141, 183, 1) 0%,
+    rgba(0, 96, 135, 1) 100%
+  ); // 📣
 
-    @media (min-width:  $breakpoint__large) {
-        transform: skewX(-4deg); // guess and check
-    }
+  @media (min-width: $breakpoint__large) {
+    transform: skewX(-4deg); // guess and check
+  }
 }
 
 // this might need a child hover
 .summit__contact--service:hover .summit-contact--skew {
-    background: $primary-color;
-    background: linear-gradient(180deg, rgba(30,141,183,0.75) 0%, rgba(0,96,135,0.75) 100%);
+  background: $primary-color;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 141, 183, 0.75) 0%,
+    rgba(0, 96, 135, 0.75) 100%
+  );
 }
-
-/* 
-.summit-contact--skew__border {
-    grid-row: 1;
-    grid-column: 1/3;
-    border: 2px solid $primary-color;
-    transform: skewX(-15deg); // guess and check
-} */
-
-/* .summit__contact--email {
-    .summit-contact--skew {
-        @media (min-width:  $breakpoint__large) {
-            background: $light-gray;
-            mix-blend-mode: screen;
-        }
-    }
-} */
 
 /*------------------------------------*\
   TASKS
 \*------------------------------------*/
 
 .tasks__wrapper {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-    max-width:  $breakpoint__full;
-    margin: 0 auto;
+  max-width: $breakpoint__full;
+  margin: 0 auto;
 }
 
 .tasks {
-    display: grid;
-    // overlays so it has to be a grid
-    // background: $medium-gray;
-    margin-bottom: $global-margin*2;
-    max-width: 70rem; // double measure enough space for the margins
-    margin: 0 auto;
-    margin-bottom: 2rem;
+  display: grid;
+  // overlays so it has to be a grid
+  margin-bottom: $global-margin * 2;
+  max-width: 70rem; // double measure enough space for the margins
+  margin: 0 auto;
+  margin-bottom: 2rem;
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-template-columns: 1fr 2em 1fr 2em 1fr;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-template-columns: 1fr 2em 1fr 2em 1fr;
+  }
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-template-columns: 1fr 2em 1fr 2em 1fr 2em 1fr;
-    }
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-template-columns: 1fr 2em 1fr 2em 1fr 2em 1fr;
+  }
 }
 
 .tasks__image {
-    grid-row: 1;
-    grid-column: 1;
-    clip-path: polygon(0 0, 100% 0, calc(100% - 32px) calc(100% - 32px), 0 100%);
-    z-index: 2;
+  grid-row: 1;
+  grid-column: 1;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 32px) calc(100% - 32px), 0 100%);
+  z-index: 2;
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-row: 1/3;
-        grid-column: 1/3;
-        clip-path: polygon(0 0, 100% 0, calc(100% - 64px) 100%, 0 100%);
-        margin-bottom: 2rem;
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 1/3;
+    grid-column: 1/3;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 64px) 100%, 0 100%);
+    margin-bottom: 2rem;
 
     @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 1/5;
+      grid-column: 1/5;
     }
 
-        > .gatsby-image-wrapper {
-            height: 100%;
-        }
+    > .gatsby-image-wrapper {
+      height: 100%;
     }
+  }
 }
 
 .tasks__title {
-    grid-row: 2;
-    grid-column: 1;
-    padding: $global-padding;
-    z-index: 3;
-    margin-top: $global-margin;
-    
-    @media (min-width:  $breakpoint__medium) {
-        grid-row: 1;
-        grid-column: 3/6;
-    }
+  grid-row: 2;
+  grid-column: 1;
+  padding: $global-padding;
+  z-index: 3;
+  margin-top: $global-margin;
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 5/8;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 1;
+    grid-column: 3/6;
+  }
 
-    a {
-        color: $white;
-    }
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 5/8;
+  }
 
+  a {
+    color: $white;
+  }
 }
 
 .tasks__info {
-    grid-row: 3/5;
-    grid-column: 1;
-    padding: $global-padding;
-    padding-bottom: 5rem; // build all this into the grids
+  grid-row: 3/5;
+  grid-column: 1;
+  padding: $global-padding;
+  padding-bottom: 5rem; // build all this into the grids
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-row: 2;
-        grid-column: 3/6;
-        clip-path: none;
-        margin-bottom: 2rem;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 2;
+    grid-column: 3/6;
+    clip-path: none;
+    margin-bottom: 2rem;
+  }
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 5/8;
-    }
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 5/8;
+  }
 
-    h5 {
-        margin-top: $global-margin;
-    }
+  h5 {
+    margin-top: $global-margin;
+  }
 
-    a {
-        display: block;
-    }
+  a {
+    display: block;
+  }
 }
 
 .tasks__background--upper {
-    background: $secondary-color;
-    background: linear-gradient(0deg, rgba(30,141,183,1) 0%, rgba(0,96,135,1) 100%);
-    grid-row: 1/3;
-    grid-column: 1;
-    z-index: 1;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), 0 100%);
+  background: $secondary-color;
+  background: linear-gradient(
+    0deg,
+    rgba(30, 141, 183, 1) 0%,
+    rgba(0, 96, 135, 1) 100%
+  );
+  grid-row: 1/3;
+  grid-column: 1;
+  z-index: 1;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), 0 100%);
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-row: 1;
-        grid-column: 2/6;
-        clip-path: none;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 1;
+    grid-column: 2/6;
+    clip-path: none;
+  }
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 3/8;
-    }
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 3/8;
+  }
 }
 
 .tasks__background--lower {
-    grid-row: 2/5;
-    grid-column: 1;
-    z-index: -1;
-    background: $medium-gray;
-    background: linear-gradient(0deg, rgba(254,254,254,1) 0%, rgba(230,230,230,1) 100%);
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), 0 100%);
-    margin-bottom: 2rem;
+  grid-row: 2/5;
+  grid-column: 1;
+  z-index: -1;
+  background: $medium-gray;
+  background: linear-gradient(
+    0deg,
+    rgba(254, 254, 254, 1) 0%,
+    rgba(230, 230, 230, 1) 100%
+  );
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), 0 100%);
+  margin-bottom: 2rem;
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-column: 1/6;
-        clip-path: none;
-        grid-row: 2;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 1/6;
+    clip-path: none;
+    grid-row: 2;
+  }
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 3/8;
-    }
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 3/8;
+  }
 }
 
 .tasks__divider {
-    border: none; // we overwrite this next
-    border-bottom: 2px solid $secondary-color;
-    width: calc(100% - 2rem);
-    grid-row: 5;
-    grid-column: 1/4;
+  border: none; // we overwrite this next
+  border-bottom: 2px solid $secondary-color;
+  width: calc(100% - 2rem);
+  grid-row: 5;
+  grid-column: 1/4;
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-column: 1/6;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 1/6;
+  }
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 1/8;
-    }
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 1/8;
+  }
 }
 
 .tasks__divider--cross {
-    border-left: 2px solid $secondary-color;
-    border-right: 2px solid $secondary-color;
-    width: 4px;
-    background: $white;
-    grid-row: 5;
-    grid-column: 1/4;
-    justify-self: center;
-    transform: skewX(-15deg); // guess and check
+  border-left: 2px solid $secondary-color;
+  border-right: 2px solid $secondary-color;
+  width: 4px;
+  background: $white;
+  grid-row: 5;
+  grid-column: 1/4;
+  justify-self: center;
+  transform: skewX(-15deg); // guess and check
 
-    @media (min-width:  $breakpoint__medium) {
-        grid-column: 1/6;
-    }
+  @media (min-width: $breakpoint__medium) {
+    grid-column: 1/6;
+  }
 
-    @media (min-width: $breakpoint__medium--half-step) {
-        grid-column: 1/8;
-    }
-}
-
-.test {
-    background: orangered;
+  @media (min-width: $breakpoint__medium--half-step) {
+    grid-column: 1/8;
+  }
 }

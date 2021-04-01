@@ -18,6 +18,7 @@
 @import "variables";
 @import "base-typography.scss";
 @import "molecules";
+@import "buttons";
 
 /*------------------------------------*\
   #Reset
@@ -345,39 +346,27 @@ footer {
 }
 
 .footer-icons {
-  /* display: grid;
-	justify-items: center; // I think this was the whole point but I can probably do it easier with a flex */
+  justify-items: center;
+  // I think this was the whole point but I can probably do it easier with a flex
   display: flex;
   flex-direction: column;
-  // padding: 5px;
-  // padding: $global-padding; // move this down so the hover states work
   border-radius: 5px;
-  // background: lighten($medium-gray, 2%);
-
-  @media (min-width: $breakpoint__medium) {
-  }
 
   @media (min-width: $breakpoint__large) {
     flex-direction: row;
-    // padding: $global-padding/2; // move this down so the hover states work
   }
-
-  /* a {
-		// padding: $global-padding;
-
- 		@media (min-width: $breakpoint__large) {
-			padding: $global-padding/2;
-		} 
-	} */
 }
 
+// im mixing the display and styling
+// this is on the div i might be able to avoid that with some blocks
 .footer-icons:hover {
   background: $white;
   background: lighten($primary-color, 10%);
   transition: ease 0.5s; // having this on the hover is needed not to load and then transform
+  // 📣 but that probably doesnt hover back
 
   a {
-    color: $light-gray;
+    color: $light-gray; // 📣 this isnt a link color
   }
 
   svg {
@@ -386,42 +375,28 @@ footer {
 }
 
 .footer-icon-icon {
-  //terrible names
-  // fill: $white;
+  // 🚨 terrible names
   grid-column: 1;
   grid-row: 1;
   align-self: center;
 
   @media (min-width: $breakpoint__large) {
-    justify-self: end;
+    justify-self: end; // why?
   }
 }
 
 .footer-icon-icon svg {
-  // fill: $secondary-color; // moved away from primary to pass contrast guidelines
   fill: $white; // moved away from primary to pass contrast guidelines
 }
-
-/* .footer-icon-icon:hover {
-	background: $light-gray;
-	border-radius: 5px;
-	transition: ease 0.5s; // having this on the hover is needed not to load and then transform
-} */
-
-/* .footer-icon-icon svg:hover {
-	fill: $secondary-color;
-} */
 
 .footer-icon-text {
   grid-column: 1;
   grid-row: 2;
-  // align-self: center; // cant do this as we need to fill the space
   display: block;
 
   @media (min-width: $breakpoint__large) {
     grid-column: 2;
     grid-row: 1;
-    // justify-self: start;
   }
 
   > p {
@@ -435,21 +410,18 @@ footer {
 
       > span {
         padding: $global-padding;
-      }
-    }
-  }
-}
+      } // > span
+    } // a
+  } // p
+} // .footer-icon-text
 
+// this needs extra love beacuse its not a link but im not sure this is right
 .footer-icons_fax {
   display: flex;
   flex-direction: column;
   @media (min-width: $breakpoint__large) {
     flex-direction: row;
   }
-
-  /* 	> .footer-icon-icon {
-
-	} */
 
   > .footer-icon-text {
     padding: $global-padding;
@@ -461,355 +433,9 @@ footer {
     p {
       display: flex;
       align-items: center;
-    }
-  }
-}
-
-.post-flex {
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: $breakpoint__large) {
-    flex-direction: column-reverse;
-  }
-}
-
-.crown {
-  display: grid;
-  margin: $global-margin 0;
-}
-
-.poster-thumbnail {
-  grid-row: 1;
-  grid-column: 1;
-  z-index: -1;
-
-  img,
-  video {
-    width: 100%;
-  }
-}
-
-.crown-title {
-  grid-row: 1;
-  grid-column: 1;
-  background: rgba(10, 127, 189, 0.7);
-  padding: $global-padding;
-  align-self: end;
-  text-align: center;
-  color: $white;
-  margin-bottom: 6px; // guess and check
-}
-
-.poster {
-  display: grid;
-  grid-template-areas:
-    "postcard"
-    "bg"
-    "title"
-    "textual"
-    "gallery";
-  grid-gap: $global-margin;
-  grid-template-columns: 1fr;
-
-  @media (min-width: $breakpoint__medium) {
-    grid-template-areas:
-      "postcard postcard"
-      "gallery  textual"
-      ".        textual" // incase the text is longer than the images to stop things getting distored
-;
-
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.poster p,
-.poster ul {
-  // causing issues as the wp-block-gallery is also a ul
-  grid-column: 1;
-  @media (min-width: $breakpoint__medium) {
-    grid-column: 2;
-  }
-}
-
-.over-flex {
-  grid-area: postcard;
-  align-self: end;
-  background-color: rgba(
-    10,
-    127,
-    189,
-    0.7
-  ); //rgba has alpha so not sure about how to have a variable
-  color: $white;
-}
-
-.poster-text {
-  grid-area: textual;
-}
-
-.poster .wp-block-gallery {
-  // grid-area: gallery;
-  margin-left: 0;
-}
-
-// home page animation
-// http://css3.bradshawenterprises.com/cfimg/
-
-/*
-n = 4
-a = 3
-b = 1
-t = 16
-ad = 4
-*/
-
-.cfimg {
-  display: grid;
-  justify-items: stretch;
-  align-items: stretch;
-}
-.cfimg > picture {
-  // make double sure to add the bracket as gatsby image does strange things here
-  grid-column: 1;
-  grid-row: 1;
-  animation-name: FadeInOut;
-  animation-duration: 16s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-/* Just do the link I dont understand the math */
-@keyframes FadeInOut {
-  0% {
-    // always
-    opacity: 1;
-  }
-  18.75% {
-    // 3/16*100
-    opacity: 1;
-  }
-  25% {
-    // (3+1)/16*100 = 1/4*100
-    opacity: 0;
-  }
-  93.75% {
-    // 100-(1/16*100)
-    opacity: 0;
-  }
-  100% {
-    // always
-    opacity: 1;
-  }
-}
-
-.cfimg > picture:nth-of-type(1) {
-  animation-delay: 12s;
-}
-.cfimg > picture:nth-of-type(2) {
-  animation-delay: 8s;
-}
-.cfimg > picture:nth-of-type(3) {
-  animation-delay: 4s;
-}
-.cfimg > picture:nth-of-type(4) {
-  animation-delay: 0s;
-}
-
-/*  6 - Off Canvas
---------------------------------------------------------------*/
-
-.off-canvas a {
-  color: $black; // this isnt a link color in my styling I don't like that
-}
-
-/*
-	Required Worpess css - adapted from Twenty Sixteen
-------------------------------------------------------------- */
-
-.wp-caption {
-  max-width: 100%;
-}
-
-.wp-caption-text {
-  // this is a wordpress thing
-  margin-top: $global-margin;
-  font-style: italic;
-}
-
-.screen-reader-text {
-  position: static !important;
-}
-
-.screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute !important;
-  width: 1px;
-}
-
-.screen-reader-text {
-  position: absolute !important;
-}
-
-.gallery-caption {
-  font-style: italic;
-}
-
-img .alignleft {
-  padding-right: $global-padding;
-}
-
-.aligncenter {
-  clear: both;
-  display: block;
-  margin: 0 auto;
-}
-
-.alignright {
-  float: right;
-}
-
-.bypostauthor {
-  display: block;
-}
-
-/**
- * 999.2 - Galleries
- */
-
-.gallery-item {
-  display: inline-block;
-  text-align: center;
-  padding: $global-padding;
-  width: 100%;
-  vertical-align: bottom;
-}
-
-/* Small Up screens */
-// this is not how I work on these anymore it should be updated
-@media only screen and (max-width: 40em) {
-  /* min-width 1025px, large screens */
-
-  .gallery-columns-2 .gallery-item,
-  .gallery-columns-3 .gallery-item,
-  .gallery-columns-4 .gallery-item,
-  .gallery-columns-5 .gallery-item,
-  .gallery-columns-6 .gallery-item,
-  .gallery-columns-7 .gallery-item,
-  .gallery-columns-8 .gallery-item,
-  .gallery-columns-9 .gallery-item {
-    max-width: 100%;
-  }
-}
-
-/* Medium Up screens */
-@media only screen and (min-width: 40.063em) {
-  /* min-width 1025px, large screens */
-
-  .gallery-columns-2 .gallery-item,
-  .gallery-columns-3 .gallery-item,
-  .gallery-columns-4 .gallery-item,
-  .gallery-columns-5 .gallery-item,
-  .gallery-columns-6 .gallery-item,
-  .gallery-columns-7 .gallery-item,
-  .gallery-columns-8 .gallery-item,
-  .gallery-columns-9 .gallery-item {
-    max-width: 50%;
-  }
-}
-
-/* Large Up screens */
-@media only screen and (min-width: 64.063em) {
-  /* min-width 1025px, large screens */
-
-  .gallery-columns-2 .gallery-item {
-    max-width: 50%;
-  }
-
-  .gallery-columns-3 .gallery-item {
-    max-width: 33.33%;
-  }
-
-  .gallery-columns-4 .gallery-item {
-    max-width: 25%;
-  }
-
-  .gallery-columns-5 .gallery-item {
-    max-width: 20%;
-  }
-
-  .gallery-columns-6 .gallery-item {
-    max-width: 16.66%;
-  }
-
-  .gallery-columns-7 .gallery-item {
-    max-width: 14.28%;
-  }
-
-  .gallery-columns-8 .gallery-item {
-    max-width: 12.5%;
-  }
-
-  .gallery-columns-9 .gallery-item {
-    max-width: 11.11%;
-  }
-}
-
-.gallery-icon img {
-  margin: 0 auto;
-}
-
-.gallery-caption {
-  color: $medium-gray;
-  display: block;
-  font-size: 13px;
-  font-size: 0.8125rem;
-  font-style: italic;
-  line-height: 1.6153846154;
-  padding-top: 0.5384615385em;
-}
-
-.gallery-columns-6 .gallery-caption,
-.gallery-columns-7 .gallery-caption,
-.gallery-columns-8 .gallery-caption,
-.gallery-columns-9 .gallery-caption {
-  display: none;
-}
-
-button {
-  border: none; // browser rest
-  padding: $global-padding/2 $global-padding;
-  background: $secondary-color;
-  color: $white;
-  font-family: $major-font-family;
-  font-weight: bold;
-  font-size: 1.44em;
-}
-
-.button {
-  display: inline-block;
-  padding: 0.85em 1em;
-  font-family: $major-font-family;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.button.hollow {
-  // font-weight: bold;
-  background-color: transparent;
-  border: 2px solid $secondary-color;
-  color: $secondary-color;
-  transition: 0.5s ease;
-}
-
-.button.hollow:hover {
-  background: $secondary-color;
-  color: $light-gray;
-  border-color: $secondary-color;
-}
+    } // p
+  } // > .footer-icon-text
+} // .footer-icons_fax
 
 #header-contact-background {
   background: $light-gray;
@@ -834,7 +460,7 @@ button {
     h3 {
       // once its in the row its a little different on the layout
       margin-bottom: 0;
-      padding-right: $global-padding; // this is possibly causing the columns to be different sizes
+      padding-right: $global-padding; // 📣 this is possibly causing the columns to be different sizes
     }
   }
 }
@@ -854,42 +480,23 @@ button {
 #header-contact--phone svg,
 #header-contact--place svg {
   fill: $white;
-  // padding: 5px;
 }
-
-/* #header-contact--phone  svg:hover,
-#header-contact--place svg:hover { // taregting the svg link
-	fill: $black;
-	background: $white;
-	transition: 0.5s ease;
-} */
 
 #header-contact--phone:hover,
 #header-contact--place:hover {
-  // background: darken($dark-gray, 10%);
-  background: darken($secondary-color, 10%);
-  color: darken($white, 10%);
-  transition: 0.5s ease;
+  background: darken($secondary-color, 10%); // 📣 document this
+  color: darken($white, 10%); // 📣 document this
+  transition: 0.5s ease; // this should be a variable
 
   .header-contact--icon {
-    // background: $dark-gray;
-    background: darken($secondary-color, 15%);
+    background: darken($secondary-color, 15%); // 📣 document this
 
     a {
       display: inline-block;
-      color: darken($white, 10%) !important;
-    }
-  }
-
-  /* .header-contact--icon svg {
-		// fill: $black;
-		// fill: $white;
-	}  */
-
-  /* 	.header-contact--text {
-		color: $black;
-	} */
-}
+      color: darken($white, 10%) !important; // 📣 document this
+    } // a
+  } // .header-contact--icon
+} // #header-contact--!
 
 .service-info {
   flex-direction: column;
@@ -899,195 +506,12 @@ button {
   }
 }
 
-.grab {
-  grid-column: 1;
-  grid-row: 1;
-
-  @media (min-width: $breakpoint__medium) {
-    grid-column: 2;
-    grid-row: 1;
-  }
-}
-
-.wp-block-gallery {
-  grid-column: 1;
-  grid-row: 2;
-
-  @media (min-width: $breakpoint__medium) {
-    grid-column: 1 !important; // trying to keep this inline but also control the ul for other lists
-    grid-row: 1;
-  }
-}
-
-// test
-.is-style-box-title {
-  color: burlywood;
-}
-// end of test
-
-// gutenbery slider
-.is-style-slider-gallery ul {
-  display: grid;
-  justify-items: stretch;
-  align-items: stretch;
-
-  li {
-    grid-row: 1;
-    grid-column: 1;
-    animation-name: FadeInOut;
-    animation-duration: 16s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-  }
-}
-
-/* Just do the link I dont understand the math */
-@keyframes FadeInOut {
-  0% {
-    opacity: 1;
-  }
-  18.75% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0;
-  }
-  93.75% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.is-style-slider-gallery ul li:nth-of-type(1) {
-  animation-delay: 12s;
-}
-.is-style-slider-gallery ul li:nth-of-type(2) {
-  animation-delay: 8s;
-}
-.is-style-slider-gallery ul li:nth-of-type(3) {
-  animation-delay: 4s;
-}
-.is-style-slider-gallery ul li:nth-of-type(4) {
-  animation-delay: 0;
-}
-
-.is-style-featured-media-text {
-  background: $light-gray;
-  margin-bottom: $global-margin * 2;
-  grid-template-columns: 1fr !important;
-
-  > div {
-    padding: 0 !important; // overwrite .wp-block-media-text .wp-block-media-text__content
-    grid-row: 2 !important;
-    grid-column: 1 !important;
-  }
-
-  h4 {
-    padding: $global-padding;
-    padding-left: $global-padding * 2;
-    background-color: rgba(
-      10,
-      127,
-      189,
-      0.7
-    ); //rgba has alpha so not sure about how to have a variable
-    a {
-      color: white; // remove this as its a link but testing
-    }
-  }
-
-  p {
-    // padding: $global-padding;
-    padding-left: $global-padding * 2;
-    padding-right: $global-padding;
-  }
-}
-
-.page-template-page-swiss article {
-  max-width: 75rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: $global-padding;
-  padding-right: $global-padding;
-
-  video {
-    max-width: 100%;
-    margin-bottom: $global-margin * 3;
-  }
-
-  .attachment-post-thumbnail {
-    margin-bottom: $global-margin * 2;
-  }
-
-  /*
-	.wp-block-column:not(:first-child) { this throws some design erros on small devices
-		// margin-left: $global-margin*2 !important;
-  // overwrite default I would like to get down to as few important as possible
-  // I just need to work on the specificity
-	}
-	*/
-
-  .wp-block-media-text {
-    .wp-block-media-text__content {
-      padding: 0 !important;
-    }
-
-    @media (min-width: 600px) {
-      grid-template-columns: 1fr 1fr !important; // needs to be after a media query
-      grid-gap: $global-margin * 2;
-      margin-bottom: $global-margin;
-    }
-  }
-}
-
-/* 
-.is-style-swiss-separator:before {
-	border-style: solid;
-	border-color: $light-gray;
-	border-bottom-width: $global-padding/2;
-	content: '';
-	width: calc(100% - 1em);
-	// display: inline-block;
-	margin: 0;
-	padding: 0;
-	float: left;
-
-	@media (min-width: 600px) {
-		width: calc(50% - 1em);
-	}
-}
-
-.is-style-swiss-separator {
-	margin: 0;
-	// display: flow-root; // doesnt work on ios
-	display: flex;
-	height: $global-padding/2;
-	margin-bottom: $global-margin;
-	border: none; // remove the original
-}
-
-.is-style-swiss-separator:after {
-	
-	@media (min-width: 600px) {
-		width: calc(50% - 1em);
-		content: '';
-		border-style: solid;
-		border-color: $light-gray;
-		border-bottom-width: $global-padding/2;
-		margin: 0;
-		padding: 0;
-		float: right;
-		margin-left: $global-margin*2;
-	}
-} */
-
+// can I do more of this with an @extend
 .swiss::before {
   @media (min-width: $breakpoint__medium) {
     content: ""; // show up
     width: calc(50% - 1em); // leave space for the gap
-    border: 0.5rem solid #e6e6e6;
+    border: 0.5rem solid #e6e6e6; // 📣 document this
   }
 }
 
@@ -1111,6 +535,7 @@ button {
   }
 }
 
+// poor naming
 .grid-container {
   padding-left: $global-padding;
   padding-right: $global-padding;
@@ -1119,6 +544,7 @@ button {
   margin-right: auto;
 }
 
+// poor naming
 .service {
   display: flex;
   flex-direction: column;
@@ -1129,6 +555,7 @@ button {
     margin: $global-margin;
   }
 
+  // 📣 this should be a variable
   @media (min-width: 75rem) {
     // this is a little hacky
     margin-left: auto;
@@ -1139,18 +566,11 @@ button {
 
 .service > div {
   flex: 1;
-
-  /* @media (min-width: $breakpoint__medium) {
-		margin: $global-padding;
-	} */
 }
 
+// 📣 I think this is a terrible old foundation name
 .grid-x {
   display: flex;
-}
-
-.grid-x > .large-6 {
-  width: 50%;
 }
 
 .grid-padding-x > .cell {
@@ -1160,7 +580,7 @@ button {
 
 .hide-for-large {
   @media (min-width: $breakpoint__large) {
-    display: none !important;
+    display: none !important; // does this need important?
   }
 }
 
@@ -1173,7 +593,7 @@ button {
 
 .hide-for-full {
   @media (min-width: $breakpoint__full) {
-    display: none !important;
+    display: none !important; // does this need the !
   }
 }
 
@@ -1184,11 +604,7 @@ button {
   }
 }
 
-.footer-extra {
-  display: block;
-  margin-top: 0;
-}
-
+// 📣 bad old naming
 .wp-block-colum {
   flex-basis: calc(50% - 16px);
   flex-grow: 0;
@@ -1205,6 +621,7 @@ button {
   }
 }
 
+// 🚨 I need more sheets
 #menu_toggle {
   z-index: 2; // sliding menu
   position: relative; // needed for z-index
@@ -1231,14 +648,12 @@ button {
 }
 
 .small_menu--opener:hover {
-  // background: $primary-color; // this is just making it up as I go
-  // background: color.scale($secondary-color, lightness: -20%);
-  color: darken($white, 10%);
-  background: darken($secondary-color, 10%);
+  color: darken($white, 10%); // 📣
+  background: darken($secondary-color, 10%); // 📣
 }
 
 #menu_small {
-  background: darken($secondary-color, 10%);
+  background: darken($secondary-color, 10%); // 📣
 
   // sliding menu
   display: inline-block;
@@ -1249,10 +664,10 @@ button {
   width: 100%;
 }
 
+// why are these not nested?
 #menu_small ul {
   padding-left: 0;
   margin: 0;
-  // background: $secondary-color;
 }
 
 #menu_small li {
@@ -1271,8 +686,7 @@ button {
 #menu_small a {
   padding: $global-padding;
   display: block;
-  // background: $primary-color;
-  border-bottom: darken($primary-color, 20%) 1px solid;
+  border-bottom: darken($primary-color, 20%) 1px solid; // 📣
   color: $white;
   margin: 5px;
 }
@@ -1283,13 +697,11 @@ button {
 }
 
 .active {
-  // display: inline; // jump to version
   margin-top: 4rem; // enough to show the home line
 }
 
 .inactive {
-  // display: none; // jump to version
-  margin-top: calc(-100% + 4rem); // this is too much
+  margin-top: calc(-100% + 4rem); // 🚨 this is too much
 }
 
 .small_menu--opener,
@@ -1331,7 +743,6 @@ button {
 
 .active ~ #menu_toggle > .small_menu--icon > .small_menu--icon-topline {
   transform: rotate(45deg);
-  //   top: 0.35rem; // guess and check
   grid-row: 1;
   grid-column: 1;
   align-self: center;
@@ -1341,19 +752,11 @@ button {
 
 .active ~ #menu_toggle > .small_menu--icon > .small_menu--icon-bottomline {
   transform: rotate(-45deg);
-  //   top: -0.35rem;
   grid-row: 1;
   grid-column: 1;
   align-self: center;
   justify-self: center;
   margin: 0;
-}
-
-.hide-for-medium {
-  display: block;
-  @media (min-width: $breakpoint__medium) {
-    display: none;
-  }
 }
 
 .show-for-medium {
@@ -1364,238 +767,16 @@ button {
 }
 
 .page-width {
-  max-width: 75rem;
+  max-width: 75rem; // this is way wider than a measure
   margin-left: auto;
   margin-right: auto;
   padding-left: $global-padding;
   padding-right: $global-padding;
 }
 
-.gallery-width {
-  max-width: 75rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* .wp-block-gallery {
-	display: flex;
-	flex-wrap: wrap;
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
-
-.blocks-gallery-item {
-	// width: calc((100% - 32px)/3);
-	margin-right: 16px;
-	margin-bottom: 16px;
-} */
-
-/* .blocks-gallery-item:nth-of-type(3n) {
-	margin-right: 0;
-} */
-
-.services-title {
-  // margin: $global-margin/2 0; // dealt with by the card // this now needs to be changed as were filling the box
-  margin: 0; // get rid of the regular margins from the h4
-
-  a {
-    padding: $global-padding;
-    display: block;
-    text-decoration: none;
-  }
-}
-
-.services-text {
-  h5 {
-    margin-top: 0.75rem; // we already have 1rem padding so this is more in line
-  }
-}
-
-/* .blocks-gallery-grid {
-	display: flex;
-	flex-wrap: wrap;
-	padding-left: 0;
-	align-items: flex-start;
-
-	 li {
-		//  flex: 1 1 14rem;
-		max-width: 15rem;
-		list-style-type: none;
-
-		figure {
-			max-width: 100%;
-			margin: 0;
-
-			img {
-				max-width: 100%;
-			}
-		}
-	}
-} */
-
-/* -------------- /
-GALLERY 
-https://codepen.io/maxvoltar/pen/eYOPdMG
-
-Im still having some issues adapting this from wordpress as a gallery to something custom and better
-/* -------------- */
-
-.wp-block-gallery {
-  margin: 0;
-  overflow: hidden;
-  padding-left: 0; // gallery page
-}
-
-.blocks-gallery-grid {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding-left: 0;
-  // align-items: stretch;
-  justify-content: space-between;
-
-  // sneaky little hack to give each item padding to use in the middle but pulled back to the sides
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
-}
-
-.blocks-gallery-item {
-  //   flex-grow: 1;
-  flex: 1 1 15rem;
-  //   margin-top: 1rem;
-  padding: $global-padding/2;
-
-  /*   @media (min-width: $breakpoint__medium) {
-	  max-width: 15rem;
-
-	  max-height: 20vh;
-  }
-
-  @media (min-width: $breakpoint__large) {
-	  max-width: 17rem;
-	  overflow: hidden;
-  } */
-}
-
-.blocks-gallery-item:nth-child(even) {
-  @media (min-width: $breakpoint__large) {
-    // this isnt the right number this still needs plenty of work but atleast were inline now
-    margin-left: 1rem;
-  }
-}
-
-.blocks-gallery-item:last-child {
-  // There's no science in using "10" here. In all my testing, this delivered the best results.
-  flex-grow: 10;
-}
-
-.blocks-gallery-item img {
-  max-height: 100%;
-  width: 100%; // needed for safari
-  min-width: 100%;
-  object-fit: cover;
-  vertical-align: bottom;
-}
-
-/*   @media (max-aspect-ratio: 1/1) {
-	.blocks-gallery-item {
-	  height: 30vh;
-	}
-  } */
-
-// Short screens
-
-/*   @media (max-height: 480px) {
-	.blocks-gallery-item {
-	  height: 80vh;
-	}
-  } */
-
-// Smaller screens in portrait
-
-@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
-  .blocks-gallery-grid {
-    flex-direction: row;
-  }
-
-  .blocks-gallery-item {
-    height: auto;
-    width: 100%;
-  }
-  .blocks-gallery-item img {
-    width: 100%;
-    max-height: 75vh;
-    min-width: 0;
-  }
-}
-
-/*   .blocks-gallery-item img {
-	object-fit: cover;
-  } */
-
-.wp-block-media-text {
-  display: grid;
-
-  grid-gap: 2rem;
-  margin-bottom: 1rem;
-
-  @media (min-width: $breakpoint__medium) {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.wp-block-media-text__media {
-  @media (min-width: $breakpoint__medium) {
-    grid-row: 1;
-    grid-column: 2;
-  }
-}
-
-.hero-order-image {
-  @media (min-width: $breakpoint__medium) {
-    grid-row: 1;
-    grid-column: 2;
-  }
-}
-
-.hero-order-text {
-  @media (min-width: $breakpoint__medium) {
-    grid-row: 1;
-    grid-column: 1;
-  }
-}
-
-.services-photogallery {
-  flex-direction: column;
-  @media (min-width: $breakpoint__medium) {
-    flex-direction: row;
-  }
-}
-
-.gallerygallery {
-  margin: $global-margin;
-  width: 100%;
-
-  @media (min-width: $breakpoint__medium) {
-    width: calc(50% - 2rem);
-  }
-
-  @media (min-width: $breakpoint__large) {
-    width: calc(33% - 2rem);
-  }
-
-  li {
-    // display: flex;
-    padding-bottom: $global-margin;
-    max-height: 100%;
-  }
-}
-
 .hero {
   // tone down the size of the hero text but stick to the type scale
   h1 {
-    // font-size: 2.074em; // this would usually be an h2 but it's just too big on the smallest phone
     font-size: 1.728em; // try even further down at an h3
     line-height: 1.35em; // guess and check select some text to check its right
 
@@ -1622,14 +803,13 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
 // working from this https://codepen.io/chicagoing/pen/XMXVvE
 // and then breaking it in all sorts of ways to be a grid
 
+// 🚨 these are for the quote page which isn't ready yet they should be split out till then
 .order-form-section {
   // position: relative; I think this is needed as its got to fill the whole space but I might just do that with grid
-  background: #e3f6ff;
+  background: #e3f6ff; // 📣
   display: grid;
   height: 4rem; // this maybe shouldnt be hard coded but its kinda needed for now
   margin-bottom: $global-margin * 2;
-  // width: calc(100% - 2rem);
-  // border: 2px solid #60BDE9;
   border: 2px solid lighten($primary-color, 20%);
   border-radius: 4px;
 }
@@ -1667,57 +847,30 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
   align-self: start;
 }
 
-// this is really hacky and gross way of doing this
-// https://stackoverflow.com/questions/36355486/is-there-a-css-selector-for-element-without-any-class
-
-// .order-form-section input[class=""] { // wierd hacky kinda way of doing this with no react
-// https://caniuse.com/#search=attribute%20class
-// 53% worldwide coverage
-// background-color: pink; // only shows pink when there isnt a class
-// 	align-self: center;
-
-//   }
-// needs a default of ""
-
 .order-form-section input[type="text"],
 .order-form-section input[type="email"],
 .order-form-section input[type="number"] {
   grid-row: 1;
   grid-column: 1;
   z-index: 100;
-
   background: none; // remove the default styling as Im taking it up a level
   border: none;
-
   padding: 0.5em 1em;
   font-size: 1rem; // browser reset
   line-height: 1rem; // browser reset
   transition: all 0.2s ease-out;
   width: calc(100% - 2rem);
-
-  //   align-self: center;
-  /*   &:hover, &:focus {
-    // inset | offset-x | offset-y | blur-radius | spread-radius | color
-    // box-shadow: inset 0 0 10px 0 rgba(85, 85, 85, .1);
-    // outline: 0;
-  } */
 }
 
 .order-form-section input[type="text"],
 .order-form-section input[type="email"],
 .order-form-section input[type="number"] {
-  //   background: blueviolet; good test but becomes useless as it hides whats behind on the label layer
-
   align-self: stretch;
 }
 
-// .order-form-section.field--not-empty input[type="text"],
-// .order-form-section.field--not-empty input[type="email"] {
 .order-form-section.field--not-empty input[type="text"],
 .order-form-section.field--not-empty input[type="email"],
 .order-form-section.field--not-empty input[type="number"] {
-  //   background: blueviolet; good test but becomes useless as it hides whats behind on the label layer
-
   align-self: end;
 }
 
@@ -1744,28 +897,24 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
   max-width: 100%;
   box-sizing: border-box;
   margin: 0;
-  border: 2px solid lighten($primary-color, 20%);
-  // box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  border: 2px solid lighten($primary-color, 20%); // 📣
   border-radius: 4px;
-  -moz-appearance: none;
+  -moz-appearance: none; // im pretty sure i can remove this
   -webkit-appearance: none;
   appearance: none;
-  background: #e3f6ff;
-  // background-repeat: no-repeat, repeat;
-  // background-position: right .7em top 50%, 0 0;
-  // background-size: .65em auto, 100%;
+  background: #e3f6ff; // 📣
 }
 .select-css::-ms-expand {
   display: none;
 }
 .select-css:hover {
-  border-color: #888;
+  border-color: #888; // 📣
 }
 .select-css:focus {
-  border-color: #aaa;
-  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
-  box-shadow: 0 0 0 3px -moz-mac-focusring;
-  color: #222;
+  border-color: #aaa; // 📣
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7); // 📣
+  box-shadow: 0 0 0 3px -moz-mac-focusring; // 📣
+  color: #222; // 📣
   outline: none;
 }
 .select-css option {
@@ -1786,24 +935,6 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
   width: 100%;
 }
 
-// this is probably dealt with by sass but I need to check on it
-// ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-//   // color: #919293;
-// }
-// ::-moz-placeholder { /* Firefox 19+ */
-//   // color: #919293;
-// }
-// :-ms-input-placeholder { /* IE 10+ */
-//   // color: #919293;
-// }
-// :-moz-placeholder { /* Firefox 18- */
-// color: #919293;
-// }
-
-/*   .field--not-empty {
-    background: pink; // testing
-  } */
-
 .order-form-submit input[type="submit"] {
   margin-bottom: $global-margin * 3;
   border-radius: 2px; // should this be global
@@ -1812,7 +943,7 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
 }
 
 #testimonials h3 {
-  max-width: 75rem;
+  max-width: 75rem; // should this be on the section
   margin: 0 auto;
   padding: $global-padding;
 }
@@ -1840,7 +971,6 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
 }
 
 #star-container {
-  // width: 80%;
   max-width: 75rem;
   margin: 0 auto;
   display: flex;
@@ -1848,7 +978,6 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
 
   > svg {
     width: 100%;
-    // margin: 0 auto;
     max-width: 5rem;
     fill: $secondary-color;
     margin-left: $global-margin;
@@ -1890,6 +1019,7 @@ Im still having some issues adapting this from wordpress as a gallery to somethi
     fill: $white;
   }
 }
+
 
 // home testimonial animation
 // http://css3.bradshawenterprises.com/cfimg/

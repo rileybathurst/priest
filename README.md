@@ -87,6 +87,7 @@ https://www.gatsbyjs.org/docs/add-page-metadata/
 - copyright year needs to be dynamic
 - theres a large amount of services on the index page that would be nice to simplify
 - testimonials on the home page needs a quote mark going the right direction
+- test on a screen reader
 
 
 
