@@ -1,50 +1,43 @@
-import * as React from "react"
+import * as React from "react";
+import { Link, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 
-/* import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import HeaderContact from "../components/header-contact"
-// import Img from 'gatsby-image'
-import Seo from "../components/seo"
-*/
-
-const GalleryPage = () => (
-  <>
-  {/* <Layout>
-  <Seo 
-    title="Gallery - Priest Sheet Metal &amp; Plate Christchurch"
-  />
-
-    <HeaderContact />
-    <main className="gallery-width">
-      <h1 className="text-center">Gallery</h1>
-
-      <ul className="blocks-gallery-grid" >
-        {data.allStrapiGalleries.edges.map(document => (
-          <li className="gallerygallery">
-            <Img fluid={document.node.galleryImage.childImageSharp.fluid} />
-          </li>
+const GalleryPage = ({ data }) => {
+  return (
+    <ul>
+        {data.allStrapiGalleries.edges.map((document) => (
+          <li>
+            <Link to={document.node.id}>
+              {document.node.alt}
+            </Link>
+            <GatsbyImage image={document.node.galleryImage.childImageSharp.gatsbyImageData} />
+            </li>
         ))}
       </ul>
+  );
+};
 
-    </main>
-
-  </Layout> */}
-
-  hey
-  </>
-)
-
-export default GalleryPage
-/*
-export const pageQuery = graphql`  
+export const query = graphql`
   query GalleryQuery {
     allStrapiGalleries {
       edges {
         node {
-          galleryImage
+          id
+          alt
+
+          galleryImage {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
         }
       }
     }
-
   }
-` */
+`;
+
+export default GalleryPage;

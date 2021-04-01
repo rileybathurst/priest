@@ -29,6 +29,7 @@ const Header = () => (
               {/* this is written kinda backwards to make the link be the full size but should be fixed */}
               <Link to="/"><li>Home</li></Link>
               <Link to="/services"><li>Services</li></Link>
+              <Link to="/gallery"><li>Gallery</li></Link>
               <Link to="/contact"><li>Contact</li></Link>
             </ul>
           </div>
