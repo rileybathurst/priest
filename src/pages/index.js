@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from 'gatsby'
-import { StaticImage } from "gatsby-plugin-image"
+import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from '../components/layout'
 import SummitContact from '../components/summit-contact'
@@ -163,9 +163,7 @@ const IndexPage = ({ data }) => {
           </div>
 
           <Link to={`/services/${document.node.slug}`} className="tasks__image shadow">
-            {/* <StaticImage src={document.node.Cover.base} className="shadow"/> */}
-            {/* alt={document.node.title} */}
-            {/* <BlogPost /> */}
+            <GatsbyImage image={document.node.Cover.childImageSharp.gatsbyImageData} className="shadow" />
           </Link>
 
           <div className="tasks__background--lower shadow">
@@ -274,7 +272,7 @@ export const pageQuery = graphql`
           Cover {
             childImageSharp {
               gatsbyImageData(
-                width: 200
+                width: 960
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
               )

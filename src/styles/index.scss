@@ -1086,3 +1086,119 @@ ad = 4
 #quotes > blockquote:nth-of-type(4) {
   animation-delay: 0s;
 }
+
+
+.page-template-page-swiss article {
+	max-width: 75rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $global-padding;
+	padding-right: $global-padding;
+
+	video {
+		max-width: 100%;
+		margin-bottom: $global-margin*3;
+	}
+
+	.attachment-post-thumbnail {
+		margin-bottom: $global-margin*2;
+	}
+
+	/*
+	.wp-block-column:not(:first-child) { this throws some design erros on small devices
+		// margin-left: $global-margin*2 !important; // overwrite default I would like to get down to as few important as possible I just need to work on the specificity
+	}
+	*/
+
+	.wp-block-media-text {
+
+		.wp-block-media-text__content {
+			padding: 0 !important;
+		}
+
+		@media (min-width: 600px) {
+			grid-template-columns: 1fr 1fr !important; // needs to be after a media query
+			grid-gap: $global-margin*2;
+			margin-bottom: $global-margin;
+		}
+	}
+}
+
+/*   .blocks-gallery-item img {
+	object-fit: cover;
+  } */
+
+.wp-block-media-text {
+  display: grid;
+  
+  grid-gap: 2rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: $breakpoint__medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.wp-block-media-text__media {
+
+
+  @media (min-width: $breakpoint__medium) {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}
+
+.gallery-width {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blocks-gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  // align-items: stretch;
+  justify-content: space-between;
+
+  // sneaky little hack to give each item padding to use in the middle but pulled back to the sides
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+// 📣 this is lots of really old things I dont want
+@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+	.blocks-gallery-grid {
+	  flex-direction: row;
+	}
+  
+	.blocks-gallery-item {
+	  height: auto;
+	  width: 100%;
+	}
+	.blocks-gallery-item img {
+	  width: 100%;
+	  max-height: 75vh;
+	  min-width: 0;
+	}
+}
+
+.gallerygallery {
+	margin: $global-margin;
+	width: 100%;
+
+	@media (min-width: $breakpoint__medium) {
+		width: calc(50% - 2rem);
+	}
+
+	@media (min-width: $breakpoint__large) {
+		width: calc(33% - 2rem);
+	}
+
+	li {
+		// display: flex;
+		padding-bottom: $global-margin;
+		max-height: 100%;
+	}
+}

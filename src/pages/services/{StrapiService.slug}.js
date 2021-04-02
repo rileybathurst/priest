@@ -22,6 +22,31 @@ export const query = graphql`
           )
         }
       }
+
+      hasGallery
+      gallery {
+        name
+        url
+        alternativeText
+
+        formats {
+          medium {
+            childImageSharp {
+              gatsbyImageData(
+                formats: AUTO
+                placeholder: BLURRED
+              )
+            }
+          }
+        }
+      }
+
+      hasVideo
+      videos {
+        title
+        content
+        vimeo
+      }
     }
   }
 `
