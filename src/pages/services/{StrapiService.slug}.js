@@ -31,7 +31,9 @@ export const query = graphql`
 
         formats {
           medium {
+            id
             childImageSharp {
+
               gatsbyImageData(
                 formats: AUTO
                 placeholder: BLURRED
