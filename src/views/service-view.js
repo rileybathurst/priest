@@ -52,19 +52,6 @@ const ServiceView = ({ service }) => {
   // END OF VIDEOS
 
   // START OF GALLERY
-  // Part of the gallery
-  // returns each photo as a list item
-/*   function Photos(props) {
-    return (
-      <li className="blocks-gallery-item">
-        {/* <img src={props.photoSrc} alt={props.photoAlt} loading="lazy" /> 
-        {/* <GatsbyImage image={props.photoSrc} alt={props.photoAlt} /> 
-        {props.name}
-        {/* {props.photoAlt} test 
-      </li>
-    );
-  } */
-
   function Gallery(props) {
     var hasGallery = props.hasGallery;
     if (hasGallery) {
@@ -72,6 +59,38 @@ const ServiceView = ({ service }) => {
         <>
           <hr className="swiss" />
 
+          <div
+          style={{
+            display: "flex",
+            marginBottom: "28px",
+            justifyContent: "space-between",
+          }}
+          className="services-photogallery"
+        >
+          <h3 className="wp-block-colum">Photo Gallery</h3>
+          <div className="wp-block-colum">
+            {/* 🚨 figure seems the wrong thing to be here */}
+            <figure className="wp-block-gallery columns-2 is-cropped">
+              <ul className="blocks-gallery-grid">
+                {service.gallery.map((photos) => (
+                  <>
+                    {/* <li>test{photos.formats.medium.id}</li> */}
+                    {/* I have had issues with null values this was fixed with removing and adding images */}
+                    {/* check it with localhost:8000/___graphql */}
+                    <li className="blocks-gallery-item">
+                      <GatsbyImage
+                        image={
+                          photos.formats.medium.childImageSharp.gatsbyImageData
+                        }
+                      />
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </figure>
+          </div>
+          {/* .wp-block-column */}
+        </div>
           {/* {props.loop} */}
         </>
       );
@@ -82,16 +101,6 @@ const ServiceView = ({ service }) => {
   }
   // END OF GALLERY
 
-  // warning  Unreachable code
-  // although i'm not sure why this is similar to the use in index
-  /*   function awsGallery(props) {
-      return 
-      (
-        <StaticImage src={props.name} />
-      )
-  } */
-
-  // Im unsure if this has to be below but currently it works so don't break it
   const cover = getImage(service.Cover);
   return (
     <>
@@ -181,38 +190,7 @@ const ServiceView = ({ service }) => {
         {/* this all used to be under the if gallery but it had a ridiculous double loop I can probably simplify now */}
         {/* I have had some problems with this */}
         {/* implemented the fix in here https://github.com/strapi/gatsby-source-strapi/issues/141 */}
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "28px",
-            justifyContent: "space-between",
-          }}
-          className="services-photogallery"
-        >
-          <h3 className="wp-block-colum">Photo Gallery</h3>
-          <div className="wp-block-colum">
-            {/* 🚨 figure seems the wrong thing to be here */}
-            <figure className="wp-block-gallery columns-2 is-cropped">
-              <ul className="blocks-gallery-grid">
-                {service.gallery.map((photos) => (
-                  <>
-                    {/* <li>test{photos.formats.medium.id}</li> */}
-                    {/* I have had issues with null values this was fixed with removing and adding images */}
-                    {/* check it with localhost:8000/___graphql */}
-                    <li>
-                      <GatsbyImage
-                        image={
-                          photos.formats.medium.childImageSharp.gatsbyImageData
-                        }
-                      />
-                    </li>
-                  </>
-                ))}
-              </ul>
-            </figure>
-          </div>
-          {/* .wp-block-column */}
-        </div>
+        
       </article>
       <Footer />
     </>
