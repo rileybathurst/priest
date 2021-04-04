@@ -2,12 +2,10 @@
   #Base Typography
 \*------------------------------------*/
 
+
+
 html {
   font-family: $body-font-family;
-}
-
-header {
-  background: $secondary-color; // mobile menu background
 }
 
 // typescale.com 1.200 Minor Third
@@ -89,8 +87,7 @@ small,
 p {
   // margin-bottom: $global-margin;
   line-height: 1.6; // 🚨 body { line-height: 1.65;
-  font-family: "Open Sans", sans-serif; // 🚨 this isn't even in the variables
-}
+  }
 
 a {
   color: $secondary-color; // passes contrast checks when primary does not

@@ -46,6 +46,8 @@ main {
   #Backgrounds
 \*------------------------------------*/
 
+
+
 .bg-primary {
   background: $primary-color;
   color: $white;
@@ -107,6 +109,11 @@ main {
 .bg-black {
   background: $black;
   color: $white;
+}
+
+
+header {
+  @extend .bg-secondary; // mobile menu background
 }
 
 // 📣 these needs to become variables
@@ -1140,8 +1147,6 @@ ad = 4
 }
 
 .wp-block-media-text__media {
-
-
   @media (min-width: $breakpoint__medium) {
     grid-row: 1;
     grid-column: 2;

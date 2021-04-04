@@ -30,5 +30,15 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Roboto Slab\:400`,
+          `Open Sans\:400,700`
+        ],
+        display: 'swap'
+      }
+    }
   ],
 };
