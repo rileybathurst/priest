@@ -89,8 +89,6 @@ https://www.gatsbyjs.org/docs/add-page-metadata/
 - testimonials on the home page needs a quote mark going the right direction
 - test on a screen reader
 
-
-
 ## Naming
 
 Summit is the new naming for hero.
