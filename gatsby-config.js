@@ -18,7 +18,8 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: "http://45.79.101.19:1338",
+        apiURL: "http://45.79.101.19:1338", // linode build
+        // apiURL: "http://localhost:1338", // local
         contentTypes: [
           "service",
           `galleries`,
