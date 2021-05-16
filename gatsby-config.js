@@ -40,6 +40,8 @@ module.exports = {
         ],
         display: 'swap'
       }
-    }
+    },
+    // helps with the CSP in a substatial way
+    "gatsby-plugin-netlify"
   ],
 };

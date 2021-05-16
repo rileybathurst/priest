@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import HeaderContact from "../components/header-contact"
 import Seo from "../components/seo"
 
+
 function Byline(props) {
   if (props.byline) {
     // console.log('byline');

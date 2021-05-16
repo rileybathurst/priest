@@ -1,4 +1,5 @@
 import * as React from "react"
+import SummitContact from './summit-contact'
 
 const HeaderContact = () => (
     <div id="header-contact-background" class="shadow">
@@ -6,7 +7,7 @@ const HeaderContact = () => (
             <h3>SPECIALIST WELDERS, SHEETMETAL ENGINEERS &amp; GENERAL FABRICATORS IN CHRISTCHURCH.</h3>
 
             <section class="together">
-                <div id="header-contact--phone">
+{/*                 <div id="header-contact--phone">
                 <div className="header-contact--icon">
                     <a href="tel:033669818">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" title="phone" >
@@ -17,7 +18,7 @@ const HeaderContact = () => (
                 <div className="header-contact--text">
                     <p className="one-point-two-em no-margin"><b><a href="tel:033669818">Call us today to discuss your project: 366 9818</a></b></p>
                 </div>
-                </div> {/* .header-contact--phone */}
+                </div> {/* .header-contact--phone
 
                 <div id="header-contact--place">
                 <div className="header-contact--icon">
@@ -29,6 +30,8 @@ const HeaderContact = () => (
                     <p className="one-point-two-em no-margin"><b><a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">Find us at 10 Barbour Street, Christchurch</a></b></p>
                 </div>
                 </div> {/* .header-contact--place */}
+
+                <SummitContact />
             </section>
         </div> 
     </div>

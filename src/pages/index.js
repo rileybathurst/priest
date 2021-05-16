@@ -17,10 +17,13 @@ function Byline(props) {
 }
 
 function SummitImage() {
+  // const grayscale = true
   return (
     <StaticImage
       src="https://priest.s3-ap-southeast-2.amazonaws.com/images/priest_sheetmetal-industrial-sheetmetal-christchurch_new_zealand-1920.jpg"
       alt="industrial sheetmetal christchurch"
+      // this is insane that this is the syntax with double brackets
+      transformOptions={{grayscale: "ture"}}
     />
   )
 }
@@ -91,16 +94,16 @@ const IndexPage = ({ data }) => {
         {/* Summit Videos */}
         <div
           className="summit__video"
-          style={{
+          /* style={{
             padding: "56.25% 0 0 0",
             position: "relative",
-          }}
+          }} */
         >
           <iframe
             title="hero video 1"
             src={"https://player.vimeo.com/video/431997968?background=1"}
             style={{
-              position: "absolute",
+              // position: "absolute",
               top: "0",
               left: "0",
               width: "100%",
@@ -121,11 +124,12 @@ const IndexPage = ({ data }) => {
         <div className="summit__videobacker hide-for-full">
           <SummitImage />
           {/* this is a secondary version of the image until I figure out some magic */}
+          <div className="blue-backer">{/* stay gold */}</div>
         </div>
 
-        <div className="summit__videobacker--color hide-for-full">
-          {/* stay gold */}
-        </div>
+{/*         <div className="summit__videobacker--color hide-for-full">
+          stay gold
+        </div> */}
 
         {/* Im not sure if I can do this without multiloading images but seems like it should be possible if not tricky */}
         <div className="summit__team-photo_1">
@@ -142,10 +146,11 @@ const IndexPage = ({ data }) => {
 
       <div className="summit__videobacker show-for-full">
         <SummitImage />
+        {/* <div className="blue-backer">stay gold</div> */}
       </div>
-      <div className="summit__videobacker--color show-for-full">
-        {/* stay gold */}
-      </div>
+{/*       <div className="summit__videobacker--color show-for-full">
+          stay gold
+      </div> */}
     </div>
     {/* .summit__wrapper */}
 

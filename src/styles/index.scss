@@ -452,13 +452,21 @@ footer {
 }
 
 .header-contact {
-  max-width: 89.9em;
+  // max-width: 89.9em;
+  max-width: 70rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 
   h3 {
     margin-top: 0; // reset from type scale as we already have a break but sort this our
+    max-width: 50rem; // guess and check // to save against orphans
+    text-align: center;
+    align-self: center;
+
+    @media (min-width: $breakpoint__large) {
+      text-align: left;
+    }
   }
 
   @media (min-width: $breakpoint__large) {
@@ -473,8 +481,11 @@ footer {
 }
 
 .together {
-  display: inline-block;
+  // display: inline-block;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 #header-contact--phone,
