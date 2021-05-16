@@ -31,17 +31,20 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
+    // helps with mozilla observatory in a substatial way
+    "gatsby-plugin-netlify",
     {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `Roboto Slab\:400`,
-          `Open Sans\:400,700`
-        ],
-        display: 'swap'
-      }
-    },
-    // helps with the CSP in a substatial way
-    "gatsby-plugin-netlify"
+      resolve: `gatsby-plugin-csp`,
+        options: {
+          mergeStyleHashes: false, // you can disable styles sha256 hashes
+          mergeScriptHashes: false,
+          directives: {
+            "style-src": "'self' 'unsafe-inline'",
+            "script-src": "'self' 'unsafe-inline'",
+            // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
+            "font-src": "'self' 'unsafe-inline'",
+          }
+        }
+      },
   ],
 };

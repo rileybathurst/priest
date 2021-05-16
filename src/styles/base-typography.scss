@@ -40,17 +40,19 @@ h6,
   margin: 2.75rem 0 1.05rem; // 🚨 this is really large for smaller h tags // 🚨 never use 3
   font-family: $major-font-family;
   font-weight: 400; // 📣 double check this
-  line-height: 1.15;
+  line-height: 1.5em;
 }
 
-h1,
+// https://practicaltypography.com/all-caps.html
+// All-caps text—meaning text with all the letters capitalized—is best used sparingly
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  text-transform: uppercase;
-}
+  // text-transform: uppercase; // I should remove this and bring it back in only when needed
+} */
 
 h1 {
   margin-top: 0; // why am I crushing this in all situations
