@@ -71,8 +71,7 @@ const IndexPage = ({ data }) => {
           
           {/* this has old naming and needs to be checked */}
           <h1>
-            SPECIALIST WELDERS, SHEETMETAL ENGINEERS &amp; GENERAL FABRICATORS
-            IN CHRISTCHURCH.
+            Specialist welders, sheetmetal engineers and generald fabricators in Christchurch
           </h1>
           <p>
             Our team of welders and engineers can tackle any welding or
