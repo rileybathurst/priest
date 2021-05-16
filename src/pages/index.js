@@ -5,10 +5,10 @@ import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import Layout from '../components/layout'
 import SummitContact from '../components/summit-contact'
 
-import "../styles/index.scss";
 import "@fontsource/roboto-slab/400.css"
 import "@fontsource/open-sans/400.css"
 import "@fontsource/open-sans/700.css"
+import "../styles/index.scss";
 
 function Byline(props) {
   if (props.byline) {
