@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import Logo from "./logo"
+import ProfileIcon from "./profile-icon"
 import SmallMenu from "./small-menu"
 
 const Header = () => (
@@ -15,6 +16,7 @@ const Header = () => (
           <li><Link to="/">Home</Link></li>
           <li><Link to="/services">Services</Link></li>
           <li><Link to="/contact">Contact</Link></li>
+          <li key="profile"><a href="https://priestprofile.co.nz/"><ProfileIcon />Profile Cutting and Laser</a></li>
         </ul>
       </nav>
 
@@ -22,15 +24,16 @@ const Header = () => (
         <SmallMenu />
       </div>
 
-      <div className="bg-secondary show-for-medium shadow"> {/* medium up navigation */}
+      <div className="bg-secondary shadow"> {/* medium up navigation */}
         <nav>
           <div className="menu-primary-container">
             <ul className="menu align-center">
               {/* this is written kinda backwards to make the link be the full size but should be fixed */}
-              <Link to="/"><li>Home</li></Link>
-              <Link to="/services"><li>Services</li></Link>
-              <Link to="/gallery"><li>Gallery</li></Link>
-              <Link to="/contact"><li>Contact</li></Link>
+              <li key="home"><Link to="/">Home</Link></li>
+              <li key="services"><Link to="/services">Services</Link></li>
+              <li key="gallery"><Link to="/gallery">Gallery</Link></li>
+              <li key="contact"><Link to="/contact">Contact</Link></li>
+              <li key="profile"><a href="https://priestprofile.co.nz/"><ProfileIcon />Profile Cutting and Laser</a></li>
             </ul>
           </div>
         </nav>

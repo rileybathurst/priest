@@ -46,7 +46,7 @@ const ServicesPage = ({ data }) => {
             <div className="tasks__info">
                 <Byline byline={document.node.byline} />
                 <p>{document.node.Content}</p>
-                <Link to={`/services/${document.node.slug}`}    className="tasks__more">
+                <Link to={`/services/${document.node.slug}`} className="tasks__more">
                     <span className="button hollow">More about {document.node.title}</span>
                 </Link>
             </div>

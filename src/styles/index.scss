@@ -179,13 +179,20 @@ p {
 	}
 } */
 
+$header-menu-size: 56rem;
+
 nav,
 .menu-primary-container {
   font-size: 1.2em;
   letter-spacing: 0.1rem;
 
-  @media (min-width: $breakpoint__large) {
+  // @media (min-width: $breakpoint__large) {
     font-family: $major-font-family; // 🚨 what is this before and why?
+  // }
+    display: none;
+
+  @media (min-width: $header-menu-size) { // never wrap
+    display: block;
   }
 }
 
@@ -204,12 +211,19 @@ nav,
 }
 
 .menu {
-  justify-content: center;
+  max-width: 70rem;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  justify-content: space-between;
   padding: 0;
-  margin: 0;
   list-style: none;
   position: relative;
   display: flex;
+  // place-items: flex-end;
+  place-items: space-between;
+  gap: 0.5rem;
 }
 
 .menu a { // does this conflict or add to above?
@@ -221,7 +235,22 @@ nav,
 }
 
 .menu li {
-  padding: $global-padding; // lets start setting a vertical rythm
+  
+  > a {
+    padding: $global-padding; // lets start setting a vertical rythm
+    display: flex; // the only one using this is with the icon but it doesnt hurt the rest
+    place-items: flex-end;
+    gap: 0.5rem;
+  }
+
+  svg {
+    max-height: 2.4rem; // guess and check
+
+    fill: $white;
+    margin-inline-end: 0.25rem;
+  }
+
+  // can I do something with is to get the svg and display it as a flex?
 }
 
 // 📣 what is this?
@@ -353,28 +382,31 @@ footer {
 }
 
 .footer-icons {
-  justify-items: center;
+  align-items: center;
   // I think this was the whole point but I can probably do it easier with a flex
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
 
-  @media (min-width: $breakpoint__large) {
-    flex-direction: row;
+  > * {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding: $global-padding;
+    border-radius: 5px;
   }
 }
 
 // im mixing the display and styling
 // this is on the div i might be able to avoid that with some blocks
-.footer-icons:hover {
+.footer-icons > a:hover {
   background: $white;
-  background: lighten($primary-color, 10%);
+  background: darken($secondary-color, 15%);
   transition: ease 0.5s; // having this on the hover is needed not to load and then transform
+
   // 📣 but that probably doesnt hover back
 
-  a {
     color: $light-gray; // 📣 this isnt a link color
-  }
 
   svg {
     fill: $light-gray;
@@ -383,8 +415,6 @@ footer {
 
 .footer-icon-icon {
   // 🚨 terrible names
-  grid-column: 1;
-  grid-row: 1;
   align-self: center;
 
   @media (min-width: $breakpoint__large) {
@@ -646,7 +676,7 @@ footer {
 
   display: grid;
 
-  @media (min-width: $breakpoint__medium) {
+  @media (min-width: $header-menu-size) {
     display: none;
   }
 }
@@ -675,23 +705,36 @@ footer {
 
   // sliding menu
   display: inline-block;
-  transition: 3s ease; // sliding menu
+  transition: 2s ease; // sliding menu
   position: absolute;
   z-index: 1; // check its above the gallery on the front page
   margin-bottom: 0;
   width: 100%;
-}
+  
+  > ul {
+    padding-left: 0;
+    margin: 0;
 
-// why are these not nested?
-#menu_small ul {
-  padding-left: 0;
-  margin: 0;
-}
+    > li {
+      list-style: none;
+      // margin-left: 0;
 
-#menu_small li {
-  list-style: none;
-  margin-left: 0;
-}
+      > a {
+        display: flex;
+        place-items: center; // vertical align
+        justify-content: center;
+        gap: 0.5rem;
+        text-decoration: none;
+      
+        > svg {
+          max-height: 3rem; // guess and check
+          fill: currentColor;
+        } // svg
+      } // a
+    } // li
+  } // ul
+} // #menu_small
+// 🚨 inception only 3 deep
 
 #menu_small li:last-child {
   padding-bottom: 0.1rem; // try match the default styling I should work on this
@@ -715,11 +758,12 @@ footer {
 }
 
 .active {
-  margin-top: 4rem; // enough to show the home line
+  margin-top: 3.9rem; // enough to show the home line but small enough to hide any gap
 }
 
 .inactive {
-  margin-top: calc(-100% + 4rem); // 🚨 this is too much
+  // margin-top: calc(-100% + 4rem); // 🚨 this is too much
+  margin-top: -100%;
 }
 
 .small_menu--opener,
@@ -1222,4 +1266,91 @@ ad = 4
 		padding-bottom: $global-margin;
 		max-height: 100%;
 	}
+}
+
+.footer-top {
+  background: $primary-color;
+  height: 0.5rem;
+}
+
+#footer-nav {
+  max-width: 75rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  padding-bottom: 3rem; // match above
+  gap: 1rem;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  @media (min-width: $breakpoint__medium) {
+    flex-direction: row;
+  }
+
+
+  > li {
+    flex: 1 1;
+    list-style: none;
+    padding-left: 0; // browser reset
+    letter-spacing: normal;
+    font-family: "Open Sans", sans-serif;
+
+    @media (min-width: $breakpoint__medium) {
+      max-width: min-content;
+    }
+   
+    > a {
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      display: block;
+
+      // theres a problem with the longest being too wide on the narrowest designs
+      @media (min-width: $breakpoint__medium) {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+.splitter {
+  display: grid;
+  // height: 4px;
+  place-items: center;
+  margin-bottom: 2rem;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  hr {
+    width: calc(100% - 2rem);
+    border: none;
+    border-bottom: 2px solid $secondary-color;
+    border-radius: 2px;
+  }
+
+  .cross {
+    border-left: 2px solid $secondary-color;
+    border-right: 2px solid $secondary-color;
+    border-radius: 2px;
+    width: 0.5rem;
+    height: 1rem;
+    background: $white;
+    transform: skewX(-15deg); // guess and check
+  }
+}
+
+footer {
+  hr, .cross {
+    border-color: $white !important; // overwrite the regular splitter
+  }
+
+  .cross {
+    background: $secondary-color !important; // overwrite the regular splitter
+  }
 }

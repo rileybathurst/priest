@@ -33,6 +33,17 @@ module.exports = {
     `gatsby-transformer-sharp`, // Needed for dynamic images
     // helps with mozilla observatory in a substatial way
     "gatsby-plugin-netlify",
+    "gatsby-plugin-sitemap",
+    // favicon support
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: `Priest Profile Cutting & Laser`,
+        short_name: `priestprofile`,
+        start_url: `/`,
+        icon: "src/images/icon.png",
+      },
+    },
     {
       resolve: `gatsby-plugin-csp`,
         options: {

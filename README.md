@@ -88,6 +88,7 @@ https://www.gatsbyjs.org/docs/add-page-metadata/
 - theres a large amount of services on the index page that would be nice to simplify
 - testimonials on the home page needs a quote mark going the right direction
 - test on a screen reader
+- should I still have something of a dropdown on the services?
 
 ## Naming
 
