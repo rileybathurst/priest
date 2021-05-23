@@ -10,29 +10,19 @@ I need a backup and netlify build until I get back to where I was and further ah
 
 #### gatsby-remark-responsive-iframe
 
-
-
 The website for https://priestsheetmetal.co.nz
-
-
 
 ## Built on
 
 - Strapi
 - Gatsby
 
-
-
 ## Development
 
 First get /priest-strapi running
 ``` yarn develop``` 
 
-
-
 ``` npm run develop ```
-
-
 
 ## Strapi Content Types
 
@@ -48,8 +38,6 @@ this needs way more documentation
 - featured
 - gallery
 - videos
-
-
 
 ### Meta 
 
@@ -89,14 +77,13 @@ https://www.gatsbyjs.org/docs/add-page-metadata/
 - testimonials on the home page needs a quote mark going the right direction
 - test on a screen reader
 - should I still have something of a dropdown on the services?
+- testimonials line height is fixed on profile not on sheetmetal
 
 ## Naming
 
 Summit is the new naming for hero.
 
 As I currently have both I can go back to hero once the original design is completly deprecated
-
-
 
 ## Layout
 
