@@ -16,11 +16,13 @@ const GalleryPage = ({ data }) => {
 
         <ul className="blocks-gallery-grid">
           {data.allStrapiGalleries.edges.map((document) => (
-            <li className="gallerygallery">
+            <li key="document.node.alt" className="gallerygallery">
               <GatsbyImage
                 image={
                   document.node.galleryImage.childImageSharp.gatsbyImageData
                 }
+                alt={
+                  document.node.id}
               />
             </li>
           ))}

@@ -2,11 +2,11 @@ import * as React from "react"
 import SummitContact from './summit-contact'
 
 const HeaderContact = () => (
-    <div id="header-contact-background" class="shadow">
-        <div class="header-contact">
+    <div id="header-contact-background" className="shadow">
+        <div className="header-contact">
             <h3>SPECIALIST WELDERS, SHEETMETAL ENGINEERS &amp; GENERAL FABRICATORS IN CHRISTCHURCH.</h3>
 
-            <section class="together">
+            <section className="together">
 {/*                 <div id="header-contact--phone">
                 <div className="header-contact--icon">
                     <a href="tel:033669818">

@@ -45,7 +45,10 @@ const ServiceView = ({ service }) => {
   function Sec(props) {
     // seperator between the secondary videos
     if (props.hasVideo === true) {
-      return <hr className="swiss" />;
+      return <div className="splitter">
+          <hr />
+          <div className="cross">{/* stay gold */}</div>
+        </div>;
     }
     return null;
   }
@@ -57,13 +60,17 @@ const ServiceView = ({ service }) => {
     if (hasGallery) {
       return (
         <>
-          <hr className="swiss" />
+          <div className="splitter">
+            <hr />
+            <div className="cross">{/* stay gold */}</div>
+          </div>
 
           <div
           style={{
             display: "flex",
             marginBottom: "28px",
             justifyContent: "space-between",
+            flexDirection: "column"
           }}
           className="services-photogallery"
         >
@@ -73,18 +80,16 @@ const ServiceView = ({ service }) => {
             <figure className="wp-block-gallery columns-2 is-cropped">
               <ul className="blocks-gallery-grid">
                 {service.gallery.map((photos) => (
-                  <>
+                    <li key={photos.hash} className="blocks-gallery-item">
                     {/* <li>test{photos.formats.medium.id}</li> */}
                     {/* I have had issues with null values this was fixed with removing and adding images */}
                     {/* check it with localhost:8000/___graphql */}
-                    <li className="blocks-gallery-item">
                       <GatsbyImage
                         image={
                           photos.formats.medium.childImageSharp.gatsbyImageData
                         }
                       />
                     </li>
-                  </>
                 ))}
               </ul>
             </figure>
@@ -124,7 +129,10 @@ const ServiceView = ({ service }) => {
 
         {/* <GatsbyImage image={cover} /> test for as a single image */}
 
-        <hr className="swiss" />
+        <div className="splitter">
+          <hr />
+          <div className="cross">{/* stay gold */}</div>
+        </div>
 
         {/* title and content area open */}
         <div

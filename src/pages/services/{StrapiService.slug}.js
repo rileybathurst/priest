@@ -28,6 +28,7 @@ export const query = graphql`
         name
         url
         alternativeText
+        hash
 
         formats {
           medium {

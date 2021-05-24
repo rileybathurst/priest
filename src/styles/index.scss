@@ -224,6 +224,7 @@ nav,
   // place-items: flex-end;
   place-items: space-between;
   gap: 0.5rem;
+  white-space: nowrap; // don't let lines break
 }
 
 .menu a { // does this conflict or add to above?
@@ -244,6 +245,7 @@ nav,
   }
 
   svg {
+    min-width: 1rem; // safari and edge need a width
     max-height: 2.4rem; // guess and check
 
     fill: $white;
@@ -587,7 +589,7 @@ footer {
 .grid-container {
   padding-left: $global-padding;
   padding-right: $global-padding;
-  max-width: 75rem;
+  max-width: 70rem;
   margin-left: auto;
   margin-right: auto;
 }
