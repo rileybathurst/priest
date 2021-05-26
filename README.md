@@ -55,6 +55,7 @@ https://www.gatsbyjs.org/docs/add-page-metadata/
 - smallmenu.js has been renamed small-menu.js
 - summitcontact.js has been renamed summit-contact.js
 - SEO in general
+- CAD gallery is breaking
 
 ### Workarounds 
 
