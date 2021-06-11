@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { Link, StaticQuery, graphql } from "gatsby";
 export default function FooterNav() {
   return (
     <StaticQuery
@@ -26,9 +26,9 @@ export default function FooterNav() {
           <ul id="footer-nav">
             {data.allStrapiService.edges.map(document => (
               <li key={document.node.slug}>
-                <a href={`https://priestsheetmetal.co.nz/services/${document.node.slug}`} target="_blank" rel="noreferrer">
+                <Link to={`/services/${document.node.slug}`} target="_blank" rel="noreferrer">
                   {document.node.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

@@ -1356,3 +1356,79 @@ footer {
     background: $secondary-color !important; // overwrite the regular splitter
   }
 }
+
+.summit__contact--service {
+  // margin: 0 $global-margin $global-margin $global-margin;
+  margin: $global-margin;
+  display: grid;
+
+  > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  > a {
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+    background: $secondary-color;
+    background: linear-gradient(
+      184deg,
+      rgba(30, 141, 183, 1) 0%,
+      rgba(0, 96, 135, 1) 50%
+    ); // gradient has to be from 50% to get a pass on wave.webaim.org
+    // 5/23/21 the firefox wave plugin was calling an error on any text over a gradient background
+    z-index: 1; // above the background
+    display: flex;
+    flex-direction: row;
+    color: $white;
+    clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+  }
+}
+
+.summit__contact--icon {
+  padding: $global-padding;
+  justify-self: end;
+
+  svg {
+    fill: $white;
+  }
+}
+
+.summit__contact--text {
+  // align-self: center; // can't do this to get a block
+  padding: $global-padding;
+  display: flex;
+  align-items: center;
+}
+
+// I'm not 100% this is the best way to do it but it works
+.summit-contact--skew {
+  transform: skewX(-8deg); // guess and check
+  background: $secondary-color;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 141, 183, 1) 0%,
+    rgba(0, 96, 135, 1) 100%
+  ); // 📣
+
+  @media (min-width: $breakpoint__large) {
+    transform: skewX(-4deg); // guess and check
+  }
+}
+
+// this might need a child hover
+.summit__contact--service:hover .summit-contact--skew {
+  background: $primary-color;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 141, 183, 0.75) 0%,
+    rgba(0, 96, 135, 0.75) 100%
+  );
+}
+
+.together {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

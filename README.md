@@ -19,8 +19,7 @@ The website for https://priestsheetmetal.co.nz
 
 ## Development
 
-First get /priest-strapi running
-``` yarn develop``` 
+First get /priest-cms running this is hosted on Linode
 
 ``` npm run develop ```
 
