@@ -46,9 +46,9 @@ const ServiceView = ({ service }) => {
     // seperator between the secondary videos
     if (props.hasVideo === true) {
       return <div className="splitter">
-          <hr />
-          <div className="cross">{/* stay gold */}</div>
-        </div>;
+        <hr />
+        <div className="cross">{/* stay gold */}</div>
+      </div>;
     }
     return null;
   }
