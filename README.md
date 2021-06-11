@@ -1,4 +1,4 @@
-# Priest - rebuild
+# Priest
 
 I need a backup and netlify build until I get back to where I was and further ahead
 
