@@ -1,16 +1,12 @@
 # Priest
 
-I need a backup and netlify build until I get back to where I was and further ahead
-
-#### Image is the main rebuild needed
-
-#### Google font
-
-#### sitemap
-
-#### gatsby-remark-responsive-iframe
-
 The website for https://priestsheetmetal.co.nz
+
+## Gallery Cache issue.
+I've got some problems with netlify / strapi / gatsby dealing with the massive image galleries
+So maybe I just pull that in from AWS and deal with it all in code and then strapi the most.
+
+I could do something with specific galleries to each but with this many images everything keeps breaking
 
 ## Built on
 
@@ -23,25 +19,6 @@ First get /priest-cms running this is hosted on Linode
 
 ``` npm run develop ```
 
-## Strapi Content Types
-
-this needs way more documentation
-
-### Services
-
-- user, default setup
-- page
-- service
-- sliderone
-- nextslider, this should get renamed
-- featured
-- gallery
-- videos
-
-### Meta 
-
-https://www.gatsbyjs.org/docs/add-page-metadata/
-
 # Issues
 
 - when coming from a service where I dont have video it shows as null which breaks things as opposed to being empty [] which is fine
@@ -53,15 +30,6 @@ https://www.gatsbyjs.org/docs/add-page-metadata/
 - headercontact.js has been renamed header-contact.js
 - smallmenu.js has been renamed small-menu.js
 - summitcontact.js has been renamed summit-contact.js
-- SEO in general
-- CAD gallery is breaking
-
-### Workarounds 
-
-- hasVideo | hasGallery etc I was having problems with booleans so I used numbers with 0 and 1 instead - test some booleans on a new build and implement them where I can
-- The Uploads are not coming across properly manually copy the uploads dir from /backend/public/uploads/ to /frontend/public/uploads this also has to happen on upload where the directory is moved to .com/uploads this all needs to be done better but for right now i'll get through
-
-
 
 ## To Do
 
@@ -84,33 +52,3 @@ https://www.gatsbyjs.org/docs/add-page-metadata/
 Summit is the new naming for hero.
 
 As I currently have both I can go back to hero once the original design is completly deprecated
-
-## Layout
-
-[Math for sizes](https://docs.google.com/spreadsheets/d/1mmnTlSNv-L8dyHRb33eE_pM3qVv-a5hz3q9WfTDlI4c/edit#gid=0)
-
-I think these might need to be a little bigger for more spacing
-
-| small             |      |                           |
-| ----------------- | ---- | ------------------------- |
-| medium            | 40   |                           |
-| medium__half-step | 54   | minor change              |
-| large             | 80   |                           |
-| large__half-step  | 105  | minor change              |
-| full              | 144  | start floating everything |
-
-## Styling
-
-### SCSS
-
-using scss for nesting, colors, etc
-
-### Naming
-
-I like the naming of BEM but im not 100% on it so I'm using a modified version of this I should document this with my style guide
-
-.block__elem--mod { }
-
-### Print
-
-Have I done anything with this? or get rid of anything for it

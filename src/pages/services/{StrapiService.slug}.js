@@ -1,3 +1,6 @@
+// this was but now I kinda want to build each individually
+// {StrapiService.slug}.js
+
 import * as React from "react"
 import { graphql } from "gatsby"
 import ServiceView from "../../views/service-view"

@@ -88,6 +88,7 @@ const ServiceView = ({ service }) => {
                         image={
                           photos.formats.medium.childImageSharp.gatsbyImageData
                         }
+                        alt={photos.hash}
                       />
                     </li>
                 ))}
