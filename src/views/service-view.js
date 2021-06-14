@@ -56,6 +56,8 @@ const ServiceView = ({ service }) => {
 
   // START OF GALLERY
   function Gallery(props) {
+    // const image = getImage(service.gallery.formats.medium) // this might not work because of being in the map
+    
     var hasGallery = props.hasGallery;
     if (hasGallery) {
       return (
@@ -84,12 +86,15 @@ const ServiceView = ({ service }) => {
                     {/* <li>test{photos.formats.medium.id}</li> */}
                     {/* I have had issues with null values this was fixed with removing and adding images */}
                     {/* check it with localhost:8000/___graphql */}
-                      <GatsbyImage
+                      {/* <GatsbyImage
                         image={
                           photos.formats.medium.childImageSharp.gatsbyImageData
                         }
                         alt={photos.hash}
-                      />
+                      /> 
+                      theres an image cache issue with this */}
+                      {/* <GatsbyImage image={image} alt={photos.hash} /> */}
+                      <GatsbyImage image={photos.formats.small.childImageSharp.gatsbyImageData} alt={photos.hash} /> 
                     </li>
                 ))}
               </ul>

@@ -34,7 +34,7 @@ export const query = graphql`
         hash
 
         formats {
-          medium {
+          small {
             id
             childImageSharp {
 
