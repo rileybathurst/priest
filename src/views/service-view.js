@@ -94,7 +94,7 @@ const ServiceView = ({ service }) => {
                       /> 
                       theres an image cache issue with this */}
                       {/* <GatsbyImage image={image} alt={photos.hash} /> */}
-                      <GatsbyImage image={photos.formats.small.childImageSharp.gatsbyImageData} alt={photos.hash} /> 
+                      <GatsbyImage image={photos.formats.thumbnail.childImageSharp.gatsbyImageData} alt={photos.hash} /> 
                     </li>
                 ))}
               </ul>
