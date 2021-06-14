@@ -83,6 +83,7 @@ const ServiceView = ({ service }) => {
               <ul className="blocks-gallery-grid">
                 {service.gallery.map((photos) => (
                     <li key={photos.hash} className="blocks-gallery-item">
+                      <p>{photos.formats.thumbnail.id}</p>
                     {/* <li>test{photos.formats.medium.id}</li> */}
                     {/* I have had issues with null values this was fixed with removing and adding images */}
                     {/* check it with localhost:8000/___graphql */}
