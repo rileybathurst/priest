@@ -20,7 +20,7 @@ module.exports = {
       options: {
         apiURL: "http://45.79.101.19:1338", // linode build
         // apiURL: "http://localhost:1338", // local
-        contentTypes: [
+        collectionTypes: [
           "service",
           `galleries`,
           `videos`,

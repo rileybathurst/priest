@@ -17,13 +17,7 @@ export const query = graphql`
       coverVideo
 
       Cover {
-        childImageSharp {
-          gatsbyImageData(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
-        }
+        url
       }
 
       hasGallery
@@ -35,14 +29,8 @@ export const query = graphql`
 
         formats {
           thumbnail {
-            id
-            childImageSharp {
-
-              gatsbyImageData(
-                formats: AUTO
-                placeholder: BLURRED
-              )
-            }
+            name
+            url
           }
         }
       }

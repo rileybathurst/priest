@@ -41,7 +41,7 @@ const ServicesPage = ({ data }) => {
                 className="tasks__image shadow"
               >
                 <GatsbyImage
-                  image={document.node.Cover.childImageSharp.gatsbyImageData}
+                  image={document.node.Cover.url}
                   className="shadow"
                 />
                 {/* alt={document.node.title} */}
@@ -87,13 +87,7 @@ export const query = graphql`
           slug
 
           Cover {
-            childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
+            url
           }
         }
       }

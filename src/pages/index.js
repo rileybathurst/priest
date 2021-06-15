@@ -171,7 +171,8 @@ const IndexPage = ({ data }) => {
           </div>
 
           <Link to={`/services/${document.node.slug}`} className="tasks__image shadow">
-            <GatsbyImage image={document.node.Cover.childImageSharp.gatsbyImageData} className="shadow" />
+            <p>{document.node.Cover.url}</p>
+            <GatsbyImage image={document.node.Cover.localFile.childImageSharp.gatsbyImageData} className="shadow" />
           </Link>
 
           <div className="tasks__background--lower shadow">
@@ -240,12 +241,10 @@ export const pageQuery = graphql`
           slug
 
           Cover {
-            childImageSharp {
-              gatsbyImageData(
-                width: 960
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }

@@ -19,7 +19,7 @@ const GalleryPage = ({ data }) => {
             <li key="document.node.alt" className="gallerygallery">
               <GatsbyImage
                 image={
-                  document.node.galleryImage.childImageSharp.gatsbyImageData
+                  document.node.galleryImage.url
                 }
                 alt={
                   document.node.id}
@@ -41,13 +41,7 @@ export const query = graphql`
           alt
 
           galleryImage {
-            childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
+            url
           }
         }
       }
