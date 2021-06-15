@@ -10,13 +10,15 @@ const ServiceView = ({ service }) => {
   function Cover(props) {
     var medium = props.medium; // query the cover if its has been set to video
     var video = props.video; // the vimeo id
+    var imageAlt = props.imageAlt; // the vimeo id
 
     if (medium === "video") {
       return (
         <div
           style={{
             padding: "56.25% 0 0 0",
-            position: "relative"
+            position: "relative",
+            marginBottom: "2rem",
           }}
         >
           <iframe
@@ -36,7 +38,7 @@ const ServiceView = ({ service }) => {
         </div>
       );
     } else {
-      return <GatsbyImage image={cover} />;
+      return <GatsbyImage image={cover} alt={imageAlt} style={{marginBottom: "2rem"}} />;
     }
   }
   // END OF COVER
@@ -58,8 +60,6 @@ const ServiceView = ({ service }) => {
 
   // START OF GALLERY
   function Gallery(props) {
-    // const image = getImage(service.gallery.formats.medium) // this might not work because of being in the map
-
     var hasGallery = props.hasGallery;
     if (hasGallery) {
       return (
@@ -85,18 +85,6 @@ const ServiceView = ({ service }) => {
                 <ul className="blocks-gallery-grid">
                   {service.gallery.map(photos => (
                     <li key={photos.hash} className="blocks-gallery-item">
-                      {/* <li>test{photos.formats.medium.id}</li> */}
-                      {/* I have had issues with null values this was fixed with removing and adding images */}
-                      {/* check it with localhost:8000/___graphql */}
-                      {/* <GatsbyImage
-                        image={
-                          photos.formats.medium.childImageSharp.gatsbyImageData
-                        }
-                        alt={photos.hash}
-                      /> 
-                      theres an image cache issue with this */}
-                      {/* <GatsbyImage image={image} alt={photos.hash} /> */}
-                      {/* <GatsbyImage image={photos.formats.thumbnail.url} alt={photos.name} />  */}
                       <GatsbyImage
                         image={
                           photos.localFile?.childImageSharp?.gatsbyImageData
@@ -137,6 +125,7 @@ const ServiceView = ({ service }) => {
           medium={service.coverMedium}
           video={service.coverVideo}
           image={service.Cover?.localfile?.childImageData?.GatsbyImageData}
+          imageAlt={service.Cover.alternativeText}
         />
 
         {/* <GatsbyImage image={cover} /> test for as a single image */}
@@ -164,7 +153,7 @@ const ServiceView = ({ service }) => {
         {/* title and content area close */}
 
         {service.videos.map(vids => (
-          <>
+          <section key={vids.id}>
             <Sec hasVideo={service.hasVideo} />
 
             <div className="wp-block-media-text">
@@ -201,7 +190,7 @@ const ServiceView = ({ service }) => {
                 {vids.content}
               </div>
             </div>
-          </>
+          </section>
         ))}
         {/* close out the videos area */}
 

@@ -1,6 +1,6 @@
 button {
     border: none; // browser rest
-    padding: $global-padding/2 $global-padding;
+    padding: calc(var(--global-padding) / 2) $global-padding;
     background: $secondary-color;
     color: $white;
     font-family: $major-font-family;

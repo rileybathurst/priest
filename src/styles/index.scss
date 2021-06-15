@@ -46,8 +46,6 @@ main {
   #Backgrounds
 \*------------------------------------*/
 
-
-
 .bg-primary {
   background: $primary-color;
   color: $white;
@@ -110,7 +108,6 @@ main {
   background: $black;
   color: $white;
 }
-
 
 header {
   @extend .bg-secondary; // mobile menu background
@@ -187,11 +184,12 @@ nav,
   letter-spacing: 0.1rem;
 
   // @media (min-width: $breakpoint__large) {
-    font-family: $major-font-family; // 🚨 what is this before and why?
+  font-family: $major-font-family; // 🚨 what is this before and why?
   // }
-    display: none;
+  display: none;
 
-  @media (min-width: $header-menu-size) { // never wrap
+  @media (min-width: $header-menu-size) {
+    // never wrap
     display: block;
   }
 }
@@ -227,7 +225,8 @@ nav,
   white-space: nowrap; // don't let lines break
 }
 
-.menu a { // does this conflict or add to above?
+.menu a {
+  // does this conflict or add to above?
   text-decoration: none;
 }
 
@@ -236,7 +235,6 @@ nav,
 }
 
 .menu li {
-  
   > a {
     padding: $global-padding; // lets start setting a vertical rythm
     display: flex; // the only one using this is with the icon but it doesnt hurt the rest
@@ -358,7 +356,7 @@ footer {
   p {
     height: 100%; // fill the box
 
-/*     b { 🚨 // this isnt a tag
+    /*     b { 🚨 // this isnt a tag
       display: inline-block;
       height: 100%;
       width: 100%;
@@ -408,7 +406,7 @@ footer {
 
   // 📣 but that probably doesnt hover back
 
-    color: $light-gray; // 📣 this isnt a link color
+  color: $light-gray; // 📣 this isnt a link color
 
   svg {
     fill: $light-gray;
@@ -453,28 +451,6 @@ footer {
     } // a
   } // p
 } // .footer-icon-text
-
-// this needs extra love beacuse its not a link but im not sure this is right
-.footer-icons_fax {
-  display: flex;
-  flex-direction: column;
-  @media (min-width: $breakpoint__large) {
-    flex-direction: row;
-  }
-
-  > .footer-icon-text {
-    padding: $global-padding;
-
-    @media (min-width: $breakpoint__large) {
-      padding: $global-padding/2;
-    }
-
-    p {
-      display: flex;
-      align-items: center;
-    } // p
-  } // > .footer-icon-text
-} // .footer-icons_fax
 
 #header-contact-background {
   background: $light-gray;
@@ -712,7 +688,7 @@ footer {
   z-index: 1; // check its above the gallery on the front page
   margin-bottom: 0;
   width: 100%;
-  
+
   > ul {
     padding-left: 0;
     margin: 0;
@@ -727,7 +703,7 @@ footer {
         justify-content: center;
         gap: 0.5rem;
         text-decoration: none;
-      
+
         > svg {
           max-height: 3rem; // guess and check
           fill: currentColor;
@@ -1059,7 +1035,7 @@ footer {
     font-size: 2.488rem;
     font-weight: bold;
     font-family: $major-font-family;
-    margin-right: $global-margin/2;
+    margin-right: calc(var(--global-margin) / 2);
   }
 
   > footer {
@@ -1083,7 +1059,6 @@ footer {
     fill: $white;
   }
 }
-
 
 // home testimonial animation
 // http://css3.bradshawenterprises.com/cfimg/
@@ -1151,41 +1126,39 @@ ad = 4
   animation-delay: 0s;
 }
 
-
 .page-template-page-swiss article {
-	max-width: 75rem;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: $global-padding;
-	padding-right: $global-padding;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $global-padding;
+  padding-right: $global-padding;
 
-	video {
-		max-width: 100%;
-		margin-bottom: $global-margin*3;
-	}
+  video {
+    max-width: 100%;
+    margin-bottom: $global-margin * 3;
+  }
 
-	.attachment-post-thumbnail {
-		margin-bottom: $global-margin*2;
-	}
+  .attachment-post-thumbnail {
+    margin-bottom: $global-margin * 2;
+  }
 
-	/*
+  /*
 	.wp-block-column:not(:first-child) { this throws some design erros on small devices
 		// margin-left: $global-margin*2 !important; // overwrite default I would like to get down to as few important as possible I just need to work on the specificity
 	}
 	*/
 
-	.wp-block-media-text {
+  .wp-block-media-text {
+    .wp-block-media-text__content {
+      padding: 0 !important;
+    }
 
-		.wp-block-media-text__content {
-			padding: 0 !important;
-		}
-
-		@media (min-width: 600px) {
-			grid-template-columns: 1fr 1fr !important; // needs to be after a media query
-			grid-gap: $global-margin*2;
-			margin-bottom: $global-margin;
-		}
-	}
+    @media (min-width: 600px) {
+      grid-template-columns: 1fr 1fr !important; // needs to be after a media query
+      grid-gap: $global-margin * 2;
+      margin-bottom: $global-margin;
+    }
+  }
 }
 
 /*   .blocks-gallery-item img {
@@ -1194,7 +1167,7 @@ ad = 4
 
 .wp-block-media-text {
   display: grid;
-  
+
   grid-gap: 2rem;
   margin-bottom: 1rem;
 
@@ -1231,43 +1204,43 @@ ad = 4
 
 // 📣 this is lots of really old things I dont want
 @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
-	.blocks-gallery-grid {
-	  flex-direction: row;
-	}
-  
-	.blocks-gallery-item {
-	  height: auto;
-	  width: 100%;
-	}
-	.blocks-gallery-item img {
-	  width: 100%;
-	  max-height: 75vh;
-	  min-width: 0;
-	}
+  .blocks-gallery-grid {
+    flex-direction: row;
+  }
+
+  .blocks-gallery-item {
+    height: auto;
+    width: 100%;
+  }
+  .blocks-gallery-item img {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+  }
 }
 
 .blocks-gallery-item {
-    flex: 1 1 15rem;
-    padding: $global-padding/2;
+  flex: 1 1 15rem;
+  padding: calc(var(--global-padding) / 2);
 }
 
 .gallerygallery {
-	margin: $global-margin;
-	width: 100%;
+  margin: $global-margin;
+  width: 100%;
 
-	@media (min-width: $breakpoint__medium) {
-		width: calc(50% - 2rem);
-	}
+  @media (min-width: $breakpoint__medium) {
+    width: calc(50% - 2rem);
+  }
 
-	@media (min-width: $breakpoint__large) {
-		width: calc(33% - 2rem);
-	}
+  @media (min-width: $breakpoint__large) {
+    width: calc(33% - 2rem);
+  }
 
-	li {
-		// display: flex;
-		padding-bottom: $global-margin;
-		max-height: 100%;
-	}
+  li {
+    // display: flex;
+    padding-bottom: $global-margin;
+    max-height: 100%;
+  }
 }
 
 .footer-top {
@@ -1290,7 +1263,6 @@ ad = 4
     flex-direction: row;
   }
 
-
   > li {
     flex: 1 1;
     list-style: none;
@@ -1301,7 +1273,7 @@ ad = 4
     @media (min-width: $breakpoint__medium) {
       max-width: min-content;
     }
-   
+
     > a {
       border-radius: 8px;
       padding: 0.5rem 1rem;
@@ -1348,7 +1320,8 @@ ad = 4
 }
 
 footer {
-  hr, .cross {
+  hr,
+  .cross {
     border-color: $white !important; // overwrite the regular splitter
   }
 

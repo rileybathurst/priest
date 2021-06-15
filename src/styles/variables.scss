@@ -48,3 +48,7 @@ $global-grid-gap: $global-margin;
 $body-font-family: "Open Sans", sans-serif;
 $major-font-family: "Roboto Slab", serif; // rename this it's also nav and buttons etc 
 
+:root {
+	--global-margin: 1rem;
+	--global-padding: 1rem;
+}

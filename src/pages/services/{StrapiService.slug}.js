@@ -17,6 +17,7 @@ export const query = graphql`
       coverVideo
 
       Cover {
+        alternativeText
         localFile {
           childImageSharp {
             gatsbyImageData
@@ -38,6 +39,7 @@ export const query = graphql`
 
       hasVideo
       videos {
+        id
         title
         content
         vimeo

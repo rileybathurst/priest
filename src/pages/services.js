@@ -25,7 +25,7 @@ const ServicesPage = ({ data }) => {
       <main className="container">
         <div className="tasks__wrapper">
           {data.allStrapiService.edges.map(document => (
-            <section className="tasks">
+            <section key={document.node.id} className="tasks">
               <h4 className="tasks__title">
                 <Link to={`/services/${document.node.slug}`}>
                   {document.node.title}
@@ -42,6 +42,7 @@ const ServicesPage = ({ data }) => {
               >
                 <GatsbyImage
                   image={document.node.Cover?.localFile?.childImageSharp?.gatsbyImageData}
+                  alt={document.node.Cover?.alternativeText}
                   className="shadow"
                 />
                 {/* alt={document.node.title} */}
@@ -87,6 +88,7 @@ export const query = graphql`
           slug
 
           Cover {
+            alternativeText
             localFile {
               childImageSharp {
                 gatsbyImageData
