@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from 'gatsby'
-import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from '../components/layout'
 import SummitContact from '../components/summit-contact'
@@ -60,6 +60,10 @@ function BlogPost({ document }) {
     </>
   )
  } */
+
+ // this might be easier outside of a map
+// const image = getImage(data.localFile)
+// file?.childImageSharp?.gatsbyImageData
 
 // markup
 const IndexPage = ({ data }) => {
@@ -172,7 +176,7 @@ const IndexPage = ({ data }) => {
 
           <Link to={`/services/${document.node.slug}`} className="tasks__image shadow">
             <p>{document.node.Cover.url}</p>
-            <GatsbyImage image={document.node.Cover.localFile.childImageSharp.gatsbyImageData} className="shadow" />
+            <GatsbyImage image={document.node.Cover?.localFile?.childImageSharp?.gatsbyImageData} className="shadow" />
           </Link>
 
           <div className="tasks__background--lower shadow">
