@@ -466,26 +466,28 @@ footer {
   display: flex;
   flex-direction: column;
 
+  @media (min-width: $breakpoint__large) {
+    flex-flow: row wrap;
+  }
+
   h3 {
     margin-top: 0; // reset from type scale as we already have a break but sort this our
     max-width: 50rem; // guess and check // to save against orphans
-    text-align: center;
     align-self: center;
+    font-size: var(--h6-fs); // this is quite far down
+
+    @media (min-width: $breakpoint__medium) {
+      font-size: var(--h5-fs);
+    }
 
     @media (min-width: $breakpoint__large) {
-      text-align: left;
-    }
-  }
-
-  @media (min-width: $breakpoint__large) {
-    flex-direction: row;
-
-    h3 {
-      // once its in the row its a little different on the layout
-      margin-bottom: 0;
+      font-size: var(--h4-fs);
+      margin-bottom: 0; // this is due to switching to a flex row
       padding-right: $global-padding; // 📣 this is possibly causing the columns to be different sizes
     }
   }
+
+  
 }
 
 .together {

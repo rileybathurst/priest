@@ -17,15 +17,15 @@
 /* BREAKPOINTS */
 // this was a sass map but I have problems with those so I'm skipping them
 $breakpoint__small: 0; // document this?
-$breakpoint__medium: 40em; // 640px
-$breakpoint__medium--half-step: 54em; // 864px minor change
-$breakpoint__large: 90em; // 1440px // Im getting the feeling this is too small
-$breakpoint__large--half-step: 120em; // 1920px minor change
-$breakpoint__full: 144em; // 2304px // this could just be large__half-step
+$breakpoint__medium: 40rem; // 640px
+$breakpoint__medium--half-step: 54rem; // 864px minor change
+$breakpoint__large: 90rem; // 1440px // Im getting the feeling this is too small
+$breakpoint__large--half-step: 120rem; // 1920px minor change
+$breakpoint__full: 144rem; // 2304px // this could just be large__half-step
 // for the px surely I need the body size above?
 // include something about measure in here
 
-$page-width: 77em; // this should probably meet up with breakpoints
+$page-width: 77rem; // this should probably meet up with breakpoints
 $general-measure: 30rem; // document this somewhere
 
 $print-breakpoint: large; // 🚨 check on print sheets
@@ -51,4 +51,11 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
 :root {
 	--global-margin: 1rem;
 	--global-padding: 1rem;
+
+	--h1-fs:  2.488rem;
+	--h2-fs:  2.074rem;
+	--h3-fs:  1.728rem;
+	--h4-fs:  1.44rem;
+	--h5-fs:  1.2rem;
+	--h6-fs:  1rem;
 }
