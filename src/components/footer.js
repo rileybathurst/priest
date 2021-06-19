@@ -124,7 +124,6 @@ const Footer = () => (
       </div>
       <p className="text-center">
         &copy; 2021 {/* this needs to be dynamic */}
-        {/* Priest Sheet Metal &amp; Plate Christchurch  */}
       </p>
     </div>
   </footer>

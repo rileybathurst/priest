@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
+import Seo from "../components/seo";
 import SummitContact from "../components/summit-contact";
 import Testimonials from "../components/testimonials";
 
@@ -57,7 +58,8 @@ function TeamPhoto2() {
 // markup
 const IndexPage = ({ data }) => {
   return (
-    <Layout title="Priest Sheetmetal &amp; Plate">
+    <Layout>
+      <Seo title="Priest Sheetmetal &amp; Plate Christchurch" />
       {/* <div className="summit__wrapper"> */}
       <div className="summit__backer">
         <section id="summit">

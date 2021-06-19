@@ -9,7 +9,7 @@ import Seo from "../components/seo";
 const GalleryPage = ({ data }) => {
   return (
     <Layout>
-      <Seo title="Gallery - Priest Sheet Metal &amp; Plate Christchurch" />
+      <Seo title="Gallery - Priest Sheetmetal &amp; Plate Christchurch" />
       <HeaderContact />
       <main className="gallery-width">
         <h1 className="text-center">Gallery</h1>

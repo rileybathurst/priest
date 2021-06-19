@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Priest Sheet Metal & Plate Christchurch',
+    title: 'Priest Sheetmetal & Plate Christchurch',
     titleTemplate: "%s",
     description: 'Specialist Sheetmetal Engineers, Heavy Plate Workers and Metal Fabricators',
     url: 'https://priestsheetmetal.co.nz/',

@@ -246,7 +246,7 @@ class Reservation extends React.Component {
 
 const QuotePage = () => (
   <Layout>
-    <Seo title="Quote - Priest Sheet Metal &amp; Plate Christchurch" />
+    <Seo title="Quote - Priest Sheetmetal &amp; Plate Christchurch" />
     <HeaderContact />
     <main className="page-width">
       <h1>Quote</h1>

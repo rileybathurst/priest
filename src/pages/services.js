@@ -18,7 +18,7 @@ function Byline(props) {
 const ServicesPage = ({ data }) => {
   return (
     <Layout>
-      <Seo title="Services - Priest Sheet Metal &amp; Plate Christchurch" />
+      <Seo title="Services - Priest Sheetmetal &amp; Plate Christchurch" />
 
       <HeaderContact />
 
