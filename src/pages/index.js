@@ -14,7 +14,7 @@ import "../styles/index.scss";
 function Byline(props) {
   if (props.byline) {
     // console.log('byline');
-    return <h5>{props.byline}</h5>;
+    return <h4 className="h5">{props.byline}</h4>;
   } else {
     return null;
   }
@@ -57,7 +57,7 @@ function TeamPhoto2() {
 // markup
 const IndexPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout title="Home">
       {/* <div className="summit__wrapper"> */}
       <div className="summit__backer">
         <section id="summit">
@@ -152,51 +152,55 @@ const IndexPage = ({ data }) => {
 
       <div className="tasks__wrapper">
         {data.allStrapiService.edges.map(document => (
-          <section key={document.node.id} className="tasks">
-            <h4 className="tasks__title">
-              <Link to={`/services/${document.node.slug}`}>
-                {document.node.title}
-              </Link>
-            </h4>
+          <>
+            <section key={document.node.id} className="tasks">
+              <h3 className="tasks__title h4">
+                <Link to={`/services/${document.node.slug}`}>
+                  {document.node.title}
+                </Link>
+              </h3>
 
-            <div className="tasks__background--upper shadow">
-              {/* stay gold */}
-            </div>
+              <div className="tasks__background--upper shadow">
+                {/* stay gold */}
+              </div>
 
-            <Link
-              to={`/services/${document.node.slug}`}
-              className="tasks__image shadow"
-            >
-              <GatsbyImage
-                image={
-                  document.node.Cover?.localFile?.childImageSharp
-                    ?.gatsbyImageData
-                }
-                alt={document.node.Cover?.alternativeText}
-                className="shadow"
-              />
-            </Link>
-
-            <div className="tasks__background--lower shadow">
-              {/* stay gold */}
-            </div>
-
-            <div className="tasks__info">
-              <Byline byline={document.node.byline} />
-              <p>{document.node.Content}</p>
               <Link
                 to={`/services/${document.node.slug}`}
-                className="tasks__more"
+                className="tasks__image shadow"
+                title={document.node.title}
               >
-                <span className="button hollow">
-                  More about {document.node.title}
-                </span>
+                <GatsbyImage
+                  image={
+                    document.node.Cover?.localFile?.childImageSharp
+                      ?.gatsbyImageData
+                  }
+                  alt={document.node.Cover?.alternativeText}
+                  className="shadow"
+                />
               </Link>
-            </div>
 
-            <hr className="tasks__divider" />
-            <div className="tasks__divider--cross">{/* stay gold */}</div>
-          </section>
+{/*               <div className="tasks__background--lower shadow">
+                stay gold
+              </div> */}
+
+              <div className="tasks__info">
+                <Byline byline={document.node.byline} />
+                <p>{document.node.Content}</p>
+                <Link
+                  to={`/services/${document.node.slug}`}
+                  className="tasks__more"
+                >
+                  <span className="button hollow">
+                    More about {document.node.title}
+                  </span>
+                </Link>
+              </div>
+            </section>
+            <div class="tasks__cross cross__wrapper">
+              <hr class="cross__hr" />
+              <div class="cross__divider">{/* stay gold */}</div>
+            </div>
+          </>
         ))}
       </div>
       {/* tasks__wrapper */}

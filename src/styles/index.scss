@@ -687,7 +687,7 @@ footer {
   display: inline-block;
   transition: 2s ease; // sliding menu
   position: absolute;
-  z-index: 1; // check its above the gallery on the front page
+  z-index: 2; // check its above the gallery on the front page and contact info
   margin-bottom: 0;
   width: 100%;
 
@@ -1020,6 +1020,7 @@ footer {
 
   > svg {
     width: 100%;
+    height: 100%; // needed for safari
     max-width: 5rem;
     fill: $secondary-color;
     margin-left: $global-margin;
@@ -1035,6 +1036,7 @@ footer {
   > p::before {
     content: '"'; // left quote
     font-size: 2.488rem;
+    line-height: 1rem;
     font-weight: bold;
     font-family: $major-font-family;
     margin-right: calc(var(--global-margin) / 2);

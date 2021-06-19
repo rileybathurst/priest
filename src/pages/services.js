@@ -23,8 +23,9 @@ const ServicesPage = ({ data }) => {
       <HeaderContact />
 
       <main className="container">
-        <div className="tasks__wrapper">
-          {data.allStrapiService.edges.map(document => (
+      <div className="tasks__wrapper">
+        {data.allStrapiService.edges.map(document => (
+          <>
             <section key={document.node.id} className="tasks">
               <h4 className="tasks__title">
                 <Link to={`/services/${document.node.slug}`}>
@@ -41,16 +42,18 @@ const ServicesPage = ({ data }) => {
                 className="tasks__image shadow"
               >
                 <GatsbyImage
-                  image={document.node.Cover?.localFile?.childImageSharp?.gatsbyImageData}
+                  image={
+                    document.node.Cover?.localFile?.childImageSharp
+                      ?.gatsbyImageData
+                  }
                   alt={document.node.Cover?.alternativeText}
                   className="shadow"
                 />
-                {/* alt={document.node.title} */}
               </Link>
 
-              <div className="tasks__background--lower shadow">
-                {/* stay gold */}
-              </div>
+{/*               <div className="tasks__background--lower shadow">
+                stay gold
+              </div> */}
 
               <div className="tasks__info">
                 <Byline byline={document.node.byline} />
@@ -64,13 +67,15 @@ const ServicesPage = ({ data }) => {
                   </span>
                 </Link>
               </div>
-
-              <hr className="tasks__divider" />
-              <div className="tasks__divider--cross">{/* stay gold */}</div>
             </section>
-          ))}
-        </div>
-        {/* tasks__wrapper */}
+            <div class="tasks__cross cross__wrapper">
+              <hr class="cross__hr" />
+              <div class="cross__divider">{/* stay gold */}</div>
+            </div>
+          </>
+        ))}
+      </div>
+      {/* tasks__wrapper */}
       </main>
     </Layout>
   );

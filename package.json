@@ -35,5 +35,8 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "sass": "^1.32.8"
+  },
+  "devDependencies": {
+    "@netlify/plugin-lighthouse": "^2.1.2"
   }
 }
