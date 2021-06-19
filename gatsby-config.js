@@ -1,15 +1,14 @@
 module.exports = {
   siteMetadata: {
     title: 'Priest Sheetmetal & Plate Christchurch',
-    titleTemplate: "%s",
     description: 'Specialist Sheetmetal Engineers, Heavy Plate Workers and Metal Fabricators',
     url: 'https://priestsheetmetal.co.nz/',
     siteUrl: 'https://priestsheetmetal.co.nz/',
-    image: 'src/images/PriestSheetMetal&PlateChristchurch-blue.jpg', // this could probably be a specific image once I know if it works
+    image: 'https://priest.s3.ap-southeast-2.amazonaws.com/ogimages/priest-og-image.jpg',
     openingHours: 'Mo, Tu, We, Th, Fr 07:00-17:00',
     telephone: '(03) 366 9818',
     faxNumber: '(03) 366 9819',
-    logo: 'src/images/PriestSheetMetal&PlateChristchurch-blue.jpg',
+    logo: 'images/PriestSheetMetal&PlateChristchurch-blue.png',
     areaServed: 'Christchurch, New Zealand',
     author: 'Priest Sheetmetal'
   },
@@ -32,14 +31,15 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
     // helps with mozilla observatory in a substatial way
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-netlify",
     "gatsby-plugin-sitemap",
     // favicon support
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: `Priest Profile Cutting & Laser`,
-        short_name: `priestprofile`,
+        name: `Priest Sheetmetal &amp; Plate Christchurch`,
+        short_name: `priestsheetmetal`,
         start_url: `/`,
         icon: "src/images/icon.png",
       },

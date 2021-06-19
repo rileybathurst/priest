@@ -47,7 +47,7 @@ const ContactPage = () => (
           allowFullScreen
           className="lozad vimeo"
         ></iframe>
-      </div>{" "}
+      </div>
       {/* .grid-container */}
     </div>
   </Layout>

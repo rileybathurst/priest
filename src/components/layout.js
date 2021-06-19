@@ -3,12 +3,12 @@ import PropTypes from "prop-types"; // I want to check in on this
 import Header from "./header";
 import Footer from "./footer";
 
-import Seo from "./seo";
+// import Seo from "./seo";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Seo />
+      {/* <Seo /> */}
       <Header />
       <main>{children}</main>
       <Footer />
