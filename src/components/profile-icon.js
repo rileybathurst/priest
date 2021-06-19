@@ -3,7 +3,6 @@ import * as React from "react";
 const ProfileIcon = () => {
   return (
     <svg
-      id="Layer_1"
       title="priest profile cutting logo"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"

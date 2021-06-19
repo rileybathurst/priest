@@ -2,7 +2,7 @@ import * as React from "react";
 
 const ProfileLogo = () => {
   return (
-      <svg id="Layer_1" title="priest profile cutting logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410.86 101.52">
+      <svg title="priest profile cutting logo" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410.86 101.52">
         <path className="cls-1" d="M113.31,99.58l2.15-.37V84l-2.15-.37V82H128.1v4.63h-2.21L125.68,84h-7.63v6.64h7.4v2h-7.4v6.49l2.14.37v1.67h-6.88Z"/>
         <path className="cls-1" d="M129.9,83.66V82h6.87v1.68l-2.14.37V99.21l2.14.37v1.67H129.9V99.58l2.14-.37V84Z"/>
         <path className="cls-1" d="M138.48,101.25V99.58l2.14-.37V84l-2.14-.37V82h6.88v1.68l-2.15.37V99.21h6.65l.2-2.21h2.21v4.25Z"/>

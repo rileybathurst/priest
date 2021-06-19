@@ -57,7 +57,7 @@ function TeamPhoto2() {
 // markup
 const IndexPage = ({ data }) => {
   return (
-    <Layout title="Home">
+    <Layout title="Priest Sheetmetal &amp; Plate">
       {/* <div className="summit__wrapper"> */}
       <div className="summit__backer">
         <section id="summit">

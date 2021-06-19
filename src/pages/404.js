@@ -6,9 +6,8 @@ import Seo from "../components/seo"
 // markup
 const NotFoundPage = () => {
   return (
-    <Layout>
+    <Layout title="404: Not found - Priest Sheet Metal &amp; Plate Christchurch">
       <main className="page-width">
-        <Seo title="404: Not found - Priest Sheet Metal &amp; Plate Christchurch" />
         <h1>NOT FOUND</h1>
         <p>Sorry, You just hit a route that doesn&#39;t exist... the sadness.</p>
       </main>
