@@ -3,7 +3,7 @@
   data-name="Layer 1"
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 35.86 101.52"
-  fill="pink"
+  fill="#1e93bd"
 >
   <path
     className="cls-1"
@@ -13,7 +13,6 @@
   <polygon
     className="cls-1"
     points="35.86 0.96 33.91 0.96 30.12 0.96 20.3 0.96 19.9 0.96 14.21 0.96 9.74 0.96 5.95 0.96 4 0.96 4 12.66 35.86 12.66 35.86 0.96"
-    fill="yellow"
   />
   <polygon
     className="cls-1"
@@ -23,4 +22,4 @@
     className="cls-1"
     points="13.88 88.66 0 81.72 0 91.62 3.98 93.61 13.88 88.66"
   />
-</svg>;
+</svg>
