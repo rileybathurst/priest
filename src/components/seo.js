@@ -71,6 +71,9 @@ const SEO = ({ title, description, image, lang }) => {
       <meta name="logo" content={seo.logo} />
       <meta name="areaServed" content={seo.areaServed} />
 
+      <meta name="theme-color" content="#1e93bd" />
+      {/* <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black"></meta> */}
+
     </Helmet>
   );
 };

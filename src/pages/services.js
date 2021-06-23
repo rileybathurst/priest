@@ -68,9 +68,9 @@ const ServicesPage = ({ data }) => {
                 </Link>
               </div>
             </section>
-            <div class="tasks__cross cross__wrapper">
-              <hr class="cross__hr" />
-              <div class="cross__divider">{/* stay gold */}</div>
+            <div className="tasks__cross cross__wrapper">
+              <hr className="cross__hr" />
+              <div className="cross__divider">{/* stay gold */}</div>
             </div>
           </>
         ))}
