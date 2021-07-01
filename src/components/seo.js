@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet"; // I think this might change
 import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
 
-const SEO = ({ title, description, image, lang }) => {
+const SEO = ({ title, description, image }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
   const {
@@ -42,10 +42,12 @@ const SEO = ({ title, description, image, lang }) => {
     <Helmet 
       title={seo.title}
       titleTemplate={titleTemplate}
-      htmlAttributes={{
-        lang: 'en-US',
-      }}
+      // htmlAttributes={{
+      //   lang: 'en-US',
+      // }}
     >
+      <html lang="en" />
+
       <meta name="description" content={seo.description} />
       {seo.url && <meta property="og:url" content={seo.url} />}
       {/* {(article ? true : null) && (
