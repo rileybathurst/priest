@@ -119,15 +119,11 @@ const IndexPage = ({ data }) => {
           <script src="https://player.vimeo.com/api/player.js"></script>
           {/* can this be compressed moved to the footer? */}
 
-          <div className="summit__videobacker hide-for-full">
+          <div className="summit__videobacker">
             <SummitImage />
             {/* this is a secondary version of the image until I figure out some magic */}
             <div className="blue-backer">{/* stay gold */}</div>
           </div>
-
-          {/*         <div className="summit__videobacker--color hide-for-full">
-          stay gold
-        </div> */}
 
           {/* Im not sure if I can do this without multiloading images but seems like it should be possible if not tricky */}
           <div className="summit__team-photo_1">
@@ -141,14 +137,6 @@ const IndexPage = ({ data }) => {
             <SummitContact />
           </div>
         </section>
-
-        <div className="summit__videobacker show-for-full">
-          <SummitImage />
-          {/* <div className="blue-backer">stay gold</div> */}
-        </div>
-        {/*       <div className="summit__videobacker--color show-for-full">
-          stay gold
-      </div> */}
       </div>
       {/* .summit__wrapper */}
 
@@ -181,7 +169,7 @@ const IndexPage = ({ data }) => {
                 />
               </Link>
 
-{/*               <div className="tasks__background--lower shadow">
+              {/*               <div className="tasks__background--lower shadow">
                 stay gold
               </div> */}
 
@@ -206,6 +194,11 @@ const IndexPage = ({ data }) => {
         ))}
       </div>
       {/* tasks__wrapper */}
+
+      <div className="tasks__cross cross__wrapper">
+        <hr className="cross__hr" />
+        <div className="cross__divider">{/* stay gold */}</div>
+      </div>
 
       <section id="map" className="">
         {/* bg-primary shadow-darker */}

@@ -21,7 +21,7 @@ $breakpoint__medium: 40rem; // 640px
 $breakpoint__medium--half-step: 54rem; // 864px minor change
 $breakpoint__large: 90rem; // 1440px // Im getting the feeling this is too small
 $breakpoint__large--half-step: 120rem; // 1920px minor change
-$breakpoint__full: 144rem; // 2304px // this could just be large__half-step
+$breakpoint__full: 139rem; // 2304px // this could just be large__half-step
 // for the px surely I need the body size above?
 // include something about measure in here
 
@@ -51,6 +51,8 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
 :root {
 	--global-margin: 1rem;
 	--global-padding: 1rem;
+	--measure: 35rem;
+	--max-page: 90rem;
 
 	--h1-fs:  2.488rem;
 	--h2-fs:  2.074rem;

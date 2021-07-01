@@ -41,7 +41,7 @@ module.exports = {
         name: `Priest Sheetmetal &amp; Plate Christchurch`,
         short_name: `priestsheetmetal`,
         start_url: `/`,
-        icon: "https://priest.s3.ap-southeast-2.amazonaws.com/images/icon.svg",
+        icon: 'https://priest.s3.ap-southeast-2.amazonaws.com/images/icon.svg'
       },
     },
     {
