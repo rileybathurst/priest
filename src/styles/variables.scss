@@ -49,6 +49,15 @@ $body-font-family: "Open Sans", sans-serif;
 $major-font-family: "Roboto Slab", serif; // rename this it's also nav and buttons etc 
 
 :root {
+	--primary-color: hsl(196, 73%, 43%);
+	--secondary-color: hsl(197, 100%, 26%); // document if this is a darken
+
+	--black: hsl(0, 0%, 4%);
+	--dark-gray: hsl(0, 0%, 54%);
+	--medium-gray: hsl(0, 0%, 82%); // slightly adapted so the footer ratio is passing contrast guidelines
+	--light-gray: hsl(0, 0%, 90%);
+	--white: hsl(0, 0%, 96%);
+
 	--global-margin: 1rem;
 	--global-padding: 1rem;
 	--measure: 35rem;

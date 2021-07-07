@@ -142,7 +142,7 @@ const IndexPage = ({ data }) => {
 
       <div className="tasks__wrapper">
         {data.allStrapiService.edges.map(document => (
-          <>
+          <div>
             <section key={document.node.id} className="tasks">
               <h3 className="tasks__title h4">
                 <Link to={`/services/${document.node.slug}`}>
@@ -169,10 +169,6 @@ const IndexPage = ({ data }) => {
                 />
               </Link>
 
-              {/*               <div className="tasks__background--lower shadow">
-                stay gold
-              </div> */}
-
               <div className="tasks__info">
                 <Byline byline={document.node.byline} />
                 <p>{document.node.Content}</p>
@@ -186,19 +182,22 @@ const IndexPage = ({ data }) => {
                 </Link>
               </div>
             </section>
+
             <div className="tasks__cross cross__wrapper">
               <hr className="cross__hr" />
               <div className="cross__divider">{/* stay gold */}</div>
             </div>
-          </>
+          </div>
         ))}
       </div>
       {/* tasks__wrapper */}
 
-      <div className="tasks__cross cross__wrapper">
+{/*       <div className="tasks__cross cross__wrapper">
         <hr className="cross__hr" />
-        <div className="cross__divider">{/* stay gold */}</div>
-      </div>
+        <div className="cross__divider">
+          stay gold
+        </div>
+      </div> */}
 
       <section id="map" className="">
         {/* bg-primary shadow-darker */}

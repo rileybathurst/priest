@@ -13,6 +13,7 @@ export const query = graphql`
       slug
       byline
       Content
+      markdown
       coverMedium
       coverVideo
 

@@ -457,14 +457,19 @@
 
 .tasks__wrapper {
   display: flex;
-  flex-wrap: wrap;
-  max-width: $breakpoint__full;
-  margin: 0 auto;
+  flex-flow: row wrap;
+  margin-inline: auto;
+  justify-content: center;
+  column-gap: 2rem;
+
+  > * {
+    flex: 0 1 70rem;
+  }
 }
 
-.tasks__cross:last-child {
+/* .tasks__cross:last-child {
   display: none;
-}
+} */
 
 .tasks {
   display: grid;
@@ -667,4 +672,28 @@
   max-width: 70rem;
   margin-inline: auto;
   margin-block-end: 1.6rem;
+}
+
+
+.page {
+  max-width: 75rem;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  gap: 1rem;
+
+  > .block-gallery {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+
+    > * {
+      flex: 1 1 5rem;
+    }
+  }
 }

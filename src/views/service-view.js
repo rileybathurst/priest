@@ -1,6 +1,9 @@
 import * as React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+// import {render} from 'react-dom'
+import ReactMarkdown from "react-markdown";
+
 import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
@@ -18,7 +21,7 @@ const ServiceView = ({ service }) => {
           style={{
             padding: "56.25% 0 0 0",
             position: "relative",
-            marginBottom: "2rem",
+            marginBottom: "2rem"
           }}
         >
           <iframe
@@ -38,7 +41,13 @@ const ServiceView = ({ service }) => {
         </div>
       );
     } else {
-      return <GatsbyImage image={cover} alt={imageAlt} style={{marginBottom: "2rem"}} />;
+      return (
+        <GatsbyImage
+          image={cover}
+          alt={imageAlt}
+          style={{ marginBottom: "2rem" }}
+        />
+      );
     }
   }
   // END OF COVER
@@ -106,7 +115,9 @@ const ServiceView = ({ service }) => {
   }
   // END OF GALLERY
 
-  const cover = getImage(service.Cover?.localFile?.childImageSharp?.gatsbyImageData);
+  const cover = getImage(
+    service.Cover?.localFile?.childImageSharp?.gatsbyImageData
+  );
   return (
     <>
       <Header />
@@ -147,7 +158,8 @@ const ServiceView = ({ service }) => {
           <h2 className="wp-block-colum">{service.title}</h2>
           <div className="wp-block-colum">
             <h3>{service.byline}</h3>
-            <p>{service.Content}</p>
+            {/* <p>{service.markdown}</p> */}
+            <ReactMarkdown children={service.markdown} />
           </div>
         </div>
         {/* title and content area close */}
