@@ -178,22 +178,20 @@ p {
 
 $header-menu-size: 60rem;
 
-nav, // are we sure about this
-.menu-primary-container {
+nav {
   font-size: 1.2em;
   letter-spacing: 0.1rem;
-
-  // @media (min-width: $breakpoint__large) {
   font-family: $major-font-family; // 🚨 what is this before and why?
-  // }
-  display: none;
+}
 
+.menu-primary-container {
+  display: none; // this is breaking the footer
+  
   @media (min-width: $header-menu-size) {
     // never wrap
     display: block;
   }
 }
-
 
 
 .menu-primary-container > ul > li > a {

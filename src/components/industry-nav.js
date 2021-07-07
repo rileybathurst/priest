@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
-export default function FooterNav() {
+export default function IndustryNav() {
   return (
     <StaticQuery
       query={graphql`
-        query FooterQuery {
-          allStrapiService(sort: { fields: [order], order: ASC }) {
+        query IndustryNavQuery {
+          allStrapiIndustries(sort: { fields: [order], order: ASC }) {
             edges {
               node {
                 slug
@@ -24,9 +24,9 @@ export default function FooterNav() {
           </div> */}
 
           <ul id="footer-nav">
-            {data.allStrapiService.edges.map(document => (
+            {data.allStrapiIndustries.edges.map(document => (
               <li key={document.node.slug}>
-                <Link to={`/services/${document.node.slug}`} target="_blank" rel="noreferrer">
+                <Link to={`/industries/${document.node.slug}`} target="_blank" rel="noreferrer">
                   {document.node.title}
                 </Link>
               </li>

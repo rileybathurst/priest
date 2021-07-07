@@ -24,6 +24,7 @@ module.exports = {
           `galleries`,
           `videos`,
           `testimonials`,
+          `industries`,
         ],
       },
     },

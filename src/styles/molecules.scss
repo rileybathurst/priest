@@ -120,7 +120,7 @@
   grid-row: 2;
   grid-column: 1/4;
   margin: 1rem;
-  max-width: 60rem; // double the measure guess and check
+  max-width: 40rem; // double the measure guess and check
   aspect-ratio: 16 / 9;
 
   @media (min-width: $breakpoint__medium) {
@@ -161,7 +161,7 @@
   clip-path: polygon(2rem 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
   // mix-blend-mode: luminosity;
   // margin-bottom: $global-margin;
-  max-width: 60rem; // same as the video
+  max-width: 40rem; // same as the video
   justify-self: start;
   aspect-ratio: 16 / 9;
 
@@ -170,7 +170,7 @@
     // margin-bottom: 3rem;
   }
 
-  @media (min-width: 90rem) {
+  @media (min-width: 70rem) {
     clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) calc(100% - 2rem), 0 100%);
   }
 
@@ -277,11 +277,8 @@
     margin-bottom: $global-margin * 2;
   }
 
-  @media (min-width: var(--max-page)) {
-    background: blueviolet;
-  }
-  @media (min-width: 90rem) {
-    clip-path: polygon(3rem 0, 100% 0, calc(100% - 3rem) 100%, 0 100%);
+  @media (min-width: 70rem) {
+    clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
   }
 
   > .gatsby-image-wrapper {
@@ -295,7 +292,7 @@
 .summit__team-photo_2 {
   grid-row: 4;
   grid-column: 2/4;
-  clip-path: polygon(32px 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(2rem 0, 100% 0, 100% 100%, 0 100%);
   margin-left: 0.5rem;
   margin-bottom: $global-margin;
   max-width: var(--measure);
@@ -307,7 +304,7 @@
     margin-bottom: $global-margin * 2;
   }
 
-  @media (min-width: 90rem) {
+  @media (min-width: 70rem) {
     clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
   }
 
@@ -734,7 +731,7 @@
       padding-block-start: 3rem;
     }
 
-    > p {
+    > div {
       padding: 1rem;
     }
 

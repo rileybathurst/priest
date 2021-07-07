@@ -51,15 +51,6 @@ function TeamPhoto2() {
   );
 }
 
-function CivilCover() {
-  return (
-    <StaticImage
-      src="https://priest.s3.ap-southeast-2.amazonaws.com/cover-images/civil-cover.jpg"
-      alt="civil cover"
-    />
-  );
-}
-
 // this might be easier outside of a map
 // const image = getImage(data.localFile)
 // file?.childImageSharp?.gatsbyImageData
@@ -206,22 +197,32 @@ const IndexPage = ({ data }) => {
       </div>
 
       <div className="cards">
+        {data.allStrapiIndustries.edges.map(industry => (
         <section key="industries" className="card">
-          <CivilCover />
+          <GatsbyImage
+            image={
+              industry.node.cover?.localFile?.childImageSharp
+                ?.gatsbyImageData
+            }
+            alt={industry.node.cover?.alternativeText}
+            className="shadow"
+          />
           <div>
             <h3 className="tasks__title h4">
-              <Link to={`/industries/civil`}>Civil</Link>
+              <Link to={`/industries/${industry.node.slug}`}>
+                {industry.node.title}
+              </Link>
             </h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-              feugiat orci ut justo elementum, non pharetra ex pretium. Sed sed
-              consectetur mauris.
-            </p>
-            <Link to={`/industries/civil`} className="card__more button">
-              More about Civil
+            <div>
+              <h4>{industry.node.byline}</h4>
+              {industry.node.content}
+            </div>
+            <Link to={`/industries/${industry.node.slug}`} className="card__more button">
+              More about {industry.node.title}
             </Link>
           </div>
         </section>
+        ) )}
       </div>
 
       <div className="tasks__cross cross__wrapper">
@@ -271,6 +272,26 @@ export const pageQuery = graphql`
           slug
 
           Cover {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+
+    allStrapiIndustries(sort: { fields: [order], order: ASC }) {
+      edges {
+        node {
+          id
+          title
+          byline
+          content
+          slug
+          cover {
             alternativeText
             localFile {
               childImageSharp {

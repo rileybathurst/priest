@@ -1,6 +1,7 @@
 import * as React from "react";
 import Logo from "./logo";
 import FooterNav from "./footer-nav";
+import IndustryNav from "./industry-nav";
 import { Link } from "gatsby";
 
 const Footer = () => (
@@ -110,14 +111,18 @@ const Footer = () => (
         {/* .footer-icons  */}
       </div>
       <div className="page">
-      <h3 className="centered">
-        <Link to="/industries">Services</Link>
-      </h3>
-    </div>
+
+      <div className="splitter">
+        <hr />
+        <div className="cross">{/* stay gold */}</div>
+      </div>
+
+        <h3 className="centered">
+          <Link to="/industries">Services</Link>
+        </h3>
+      </div>
     </div>
     {/* .footer-contact-areas */}
-
-
 
     <FooterNav />
 
@@ -129,13 +134,11 @@ const Footer = () => (
 
       <div className="page">
         <h3 className="centered">
-          <Link to="/industries">Industries</Link>
+          <Link to="/industries">Industry Suppliers</Link>
         </h3>
 
-        <ul className="footer--industries"><li><h4><Link to="industries/civil">Civil</Link></h4></li></ul>
+        <IndustryNav />
       </div>
-
-
 
       <div className="bg-secondary">
         <div className="splitter">

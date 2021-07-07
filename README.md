@@ -21,15 +21,8 @@ First get /priest-cms running this is hosted on Linode
 
 # Issues
 
-- when coming from a service where I dont have video it shows as null which breaks things as opposed to being empty [] which is fine
 - firefox ios doesnt handle the form input
 - some of the strapi API has capital letters where it would be nicer to be camelCase no underscores, hypens or whatever else
-- footer links dont fill the space
-- on develop or build of Gatsby ERROR (node:9401) [DEP0066] DeprecationWarning: OutgoingMessage.prototype._headers is deprecated
-- .htaccess - there was a file for this but I'm really not sure it was useful
-- headercontact.js has been renamed header-contact.js
-- smallmenu.js has been renamed small-menu.js
-- summitcontact.js has been renamed summit-contact.js
 
 ## To Do
 

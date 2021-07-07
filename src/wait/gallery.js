@@ -1,4 +1,4 @@
-import * as React from "react";
+/* import * as React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -54,3 +54,4 @@ export const query = graphql`
 `;
 
 export default GalleryPage;
+ */
