@@ -225,9 +225,6 @@ const ServiceView = () => (
           <StaticImage
             src="https://priest.s3.ap-southeast-2.amazonaws.com/civil-testing/Steel-Tube-Fabrication-Welding.jpg"
             alt="civil cover"
-            style={{
-              marginBottom: "2rem"
-            }}
           />
         </div>
       </section>

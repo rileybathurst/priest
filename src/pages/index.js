@@ -51,6 +51,15 @@ function TeamPhoto2() {
   );
 }
 
+function CivilCover() {
+  return (
+    <StaticImage
+      src="https://priest.s3.ap-southeast-2.amazonaws.com/cover-images/civil-cover.jpg"
+      alt="civil cover"
+    />
+  );
+}
+
 // this might be easier outside of a map
 // const image = getImage(data.localFile)
 // file?.childImageSharp?.gatsbyImageData
@@ -142,7 +151,7 @@ const IndexPage = ({ data }) => {
 
       <div className="tasks__wrapper">
         {data.allStrapiService.edges.map(document => (
-          <div>
+          <div className="tasks--outer">
             <section key={document.node.id} className="tasks">
               <h3 className="tasks__title h4">
                 <Link to={`/services/${document.node.slug}`}>
@@ -192,12 +201,33 @@ const IndexPage = ({ data }) => {
       </div>
       {/* tasks__wrapper */}
 
-{/*       <div className="tasks__cross cross__wrapper">
+      <div className="page">
+        <h2 className="centered">Industries</h2>
+      </div>
+
+      <div className="cards">
+        <section key="industries" className="card">
+          <CivilCover />
+          <div>
+            <h3 className="tasks__title h4">
+              <Link to={`/industries/civil`}>Civil</Link>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+              feugiat orci ut justo elementum, non pharetra ex pretium. Sed sed
+              consectetur mauris.
+            </p>
+            <Link to={`/industries/civil`} className="card__more button">
+              More about Civil
+            </Link>
+          </div>
+        </section>
+      </div>
+
+      <div className="tasks__cross cross__wrapper">
         <hr className="cross__hr" />
-        <div className="cross__divider">
-          stay gold
-        </div>
-      </div> */}
+        <div className="cross__divider">{/* stay gold */}</div>
+      </div>
 
       <section id="map" className="">
         {/* bg-primary shadow-darker */}
