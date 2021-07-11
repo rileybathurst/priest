@@ -8,10 +8,12 @@ function SmallMenu() {
     if (menu_small.className === "firstload inactive") {
       console.log('🦄')
       menu_small.style.setProperty('height' , '100%');
+      let menu_offset = menu_small.offsetHeight;
       menu_small.style.setProperty('top' , '-' + menu_offset + 'px');
+      menu_small.style.setProperty('margin-top' , '-' + menu_offset + 'px');
       console.log('first ' + menu_small.offsetHeight);
+      menu_small.className = "inactive";
     }
-
 
     let menu_offset = menu_small.offsetHeight;
 
@@ -19,9 +21,11 @@ function SmallMenu() {
     if (menu_small.className === "active") {
       menu_small.className = "inactive"; // needed to adjust the open close icon
       menu_small.style.setProperty('top' , '0');
-
+      console.log('🦖');
     } else {
+    // } if(menu_small.className === "inactive") { // you cant do this as it now just runs both
       // this one triggers first
+      console.log('👻');
       menu_small.className = "active";
       menu_small.style.setProperty('top' , menu_offset + 'px');
       menu_small.style.setProperty('margin-top' , '-' + menu_offset + 'px');

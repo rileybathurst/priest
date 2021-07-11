@@ -62,6 +62,8 @@ nav {
   // sliding menu
   // display: inline-block;
   
+
+
   position: relative;
   z-index: 1; // check its above the gallery on the front page
   margin-bottom: 0;
@@ -97,16 +99,20 @@ nav {
 
 .active {
   height: 100%;
-  transition: top 10s ease; // sliding menu
+  transition: top 2s ease; // sliding menu
 }
 
 .inactive {
-  transition: top 10s ease; // sliding menu
+  transition: top 2s ease; // sliding menu
 }
 
 .firstload { // this just gets removed
   opacity: 0;
   height: 0; // this is needed but breaks all the things
+}
+
+.waiting {
+  transition: 2s ease;
 }
 
 // 🚨 I need more sheets
