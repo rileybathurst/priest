@@ -17,22 +17,14 @@
 
     > a {
       display: inline-block;
-      padding: 0.5rem 1rem;
-
       border-radius: 5px;
-      
-      @media (min-width: $breakpoint__medium) {
-        max-width: $general-measure;
-        margin-top: calc(var(--global-margin) * 2);
-        margin-bottom: calc(var(--global-margin) * 2);
-      } // @media
-      
+      margin-block: 2rem;
+
       > svg {
         display: block;
-        max-width: 50%;
-        margin: 2rem auto;
+        width: max(50vw, 20rem);
+        max-width: fit-content; // reset the basic svg
         fill: var(--white);
-        width: 100%; // needed for chrome
 
         @media (min-width: $breakpoint__medium) {
           margin-block: 0;

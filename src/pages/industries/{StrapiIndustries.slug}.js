@@ -19,6 +19,20 @@ export const query = graphql`
           }
         }
       }
+
+      industry_aspects {
+        id
+        title
+        content
+        images {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+              id
+            }
+          }
+        }
+      }
     }
   }
 `
