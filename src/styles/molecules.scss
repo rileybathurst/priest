@@ -12,6 +12,10 @@
       0 100%
     ); // guess and check
     margin-block-end: 3rem;
+
+    @media (prefers-color-scheme: dark) {
+      background: var(--blackish);
+    }
 }
 
 #summit {
@@ -236,31 +240,6 @@
     // margin-bottom: 3rem;
     // height: calc(100% - 8rem);
   }
-
-  /*   @media (min-width: $breakpoint__medium--half-step) {
-    grid-column: 3/8;
-  } */
-
-  /*   @media (min-width: $breakpoint__large) {
-    grid-row: 1/4;
-    grid-column: 7/12;
-    margin-bottom: 0;
-    clip-path: polygon(64px 0, 100% 0, 100% 100%, 0 100%);
-    height: calc(100% + 4rem);
-  } */
-
-  /*   @media (min-width: $breakpoint__large--half-step) {
-    grid-column: 8/16;
-  } */
-
-  /*   // this changes to a completley different grid
-  @media (min-width: $breakpoint__full) {
-    grid-row: 1;
-    grid-column: 2;
-    // margin-bottom: 0;
-  } */
-
-  display: none;
 }
 
 .summit__team-photo_1 {
@@ -308,34 +287,12 @@
     clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
   }
 
-  /*   @media (min-width: $breakpoint__medium--half-step) {
-    grid-column: 4/8;
-  } */
-
-  /*   @media (min-width: $breakpoint__large) {
-    grid-column: 4/7;
-    clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
-  } */
-
-  /*   @media (min-width: $breakpoint__large--half-step) {
-    grid-column: 4/9;
-  } */
-
   > .gatsby-image-wrapper {
     // start at medium when its beside text
     @media (min-width: $breakpoint__medium) {
       height: calc(100% - 5.75rem);
       margin-top: 3.75rem; // match the h1 tag then guess and check
     }
-
-    /*     @media (min-width: $breakpoint__medium--half-step) {
-      // height: calc(100% - 12.75rem); // guess and check
-      height: calc(100% - 4.75rem); // guess and check
-    } */
-
-    /*     @media (min-width: $breakpoint__large) {
-      height: calc(100% - 5.75rem); // guess and check
-    } */
   } // .gatsby-image-wrapper
 } // .summit__team-photo_2
 
@@ -353,30 +310,10 @@
     margin-block-end: calc(var(--global-margin) * 4);
   }
 
-  /*   @media (min-width: $breakpoint__medium) {
-    grid-column: 1/8;
-  } */
-
-  /*   @media (min-width: $breakpoint__large) {
-    grid-row: 3;
-    grid-column: 1/6;
-    // justify-self: end;
-  } */
-
-  /*   @media (min-width: $breakpoint__large--half-step) {
-    grid-column: 1/8;
-  } */
-
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  // flex-direction: column;
-
-  /*   @media (min-width: $breakpoint__medium--half-step) {
-    flex-direction: row;
-    justify-content: space-around;
-  } */
 }
 
 .summit__contact--service {
@@ -489,6 +426,10 @@
 
   @media (min-width: $breakpoint__medium--half-step) {
     grid-template-columns: 1fr 2em 1fr 2em 1fr 2em 1fr;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    background: var(--blackish);
   }
 }
 
@@ -645,47 +586,10 @@
   }
 }
 
-
-.cross__wrapper {
-  width: calc(100% - 2rem);
-  display: grid;
-  place-items: center;
-  margin-inline: auto;
-
-  > * {
-    grid-row: 1;
-    grid-column: 1;
-  }
-
-  .cross__hr {
-    width: 100%; // I dont know why but I have to double this
-  }
-
-  .cross__divider {
-    border-left: 2px solid $secondary-color;
-    border-right: 2px solid $secondary-color;
-    width: 0.8rem;
-    height: 1.6rem;
-    background: $white;
-    transform: skewX(-15deg); // guess and check
-  }
-}
-
 .tasks__cross {
   max-width: 70rem;
   margin-inline: auto;
   margin-block-end: 1.6rem;
-}
-
-
-.page {
-  max-width: 70rem;
-  margin-inline: auto;
-  padding: 1rem;
-
-  :is(h1, h2, h3, h4, h5, h6).centered {
-    text-align: center;
-  }
 }
 
 .block {
@@ -705,15 +609,20 @@
 }
 
 .cards {
-  @extend .page;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr)); // guess and check
   gap: 1rem;
 }
 
 .card {
+  background: var(--light-gray);
   background: linear-gradient(0deg, #e6e6e6 0%, #fefefe 100%);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--blackish);
+    background: linear-gradient(0deg, var(--blackish) 0%, var(--dark-gray) 100%);
+  }
   
   > .gatsby-image-wrapper {
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);

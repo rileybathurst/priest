@@ -7,12 +7,17 @@ import SmallMenu from "./small-menu";
 
 const Header = () => (
   <>
-    <header>
-      <div className="bg-primary hero-logo">
+    <header className="hero">
+      <div className="hero__logo">
         <Logo />
       </div>
 
-      <nav id="menu_small" className="menu-small hide-for-print inactive">
+      {/* this wants to be after so its over or do that with the z? */}
+      <div id="menu_toggle" className="bg-secondary shadow-darker text-center">
+        <SmallMenu />
+      </div>
+
+      <nav id="menu_small" className="firstload inactive">
         <ul className="text-center">
           <li key="home">
             <Link to="/">Home</Link>
@@ -35,13 +40,8 @@ const Header = () => (
         </ul>
       </nav>
 
-      <div id="menu_toggle" className="bg-secondary shadow-darker text-center">
-        <SmallMenu />
-      </div>
-
-      <div className="bg-secondary shadow">
         {/* medium up navigation */}
-        <nav>
+        <nav id="menu__big">
           <div className="menu-primary-container">
             <ul className="menu align-center">
               <li key="home">
@@ -71,7 +71,6 @@ const Header = () => (
             </ul> */}
           </div>
         </nav>
-      </div>
       {/* medium up nav */}
     </header>
   </>

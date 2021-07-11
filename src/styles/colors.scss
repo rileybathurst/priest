@@ -1,0 +1,77 @@
+/*------------------------------------*\
+    #COLORS
+\*------------------------------------*/
+
+/**
+ * In this file, we take the literal colors from our palette (defined in variables.scss)
+ * and define them against variables that we can utilise anywhere throughout the project.
+ */
+
+/*------------------------------------*\
+    #GLOBAL TEXT COLOR
+\*------------------------------------*/
+
+body {
+  background: var(--white);
+  color: var(--black);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--black);
+    color: var(--white);
+  }
+}
+
+/*------------------------------------*\
+    #LINKS
+\*------------------------------------*/
+
+a {
+  color: var(--secondary-color);
+  @media (prefers-color-scheme: dark) {
+    color: var(--primary-color);
+  }
+}
+
+a:where(:hover, :focus) {
+  color: var(--primary-color);
+}
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+button {
+  background: var(--secondary-color);
+  color: var(--white);
+}
+
+.hollow {
+  background-color: transparent;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+/*------------------------------------*\
+    #FORMS
+\*------------------------------------*/
+
+[type="text"],
+[type="password"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="month"],
+[type="week"],
+[type="email"],
+[type="number"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="url"],
+[type="color"],
+textarea {
+  background: var(--light-gray);
+  // color: var(--black); // 1:15:86 strong contrast
+}

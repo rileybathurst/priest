@@ -1,34 +1,39 @@
 button {
-    border: none; // browser rest
-    padding: calc(var(--global-padding) / 2) $global-padding;
-    background: $secondary-color;
-    color: $white;
-    font-family: $major-font-family;
-    font-weight: bold;
-    font-size: 1.44em;
+  border: none; // browser rest
+  padding: calc(var(--global-padding) / 2) $global-padding;
+  background: $secondary-color;
+  color: $white;
+  font-family: $major-font-family;
+  font-weight: bold;
+  font-size: 1.44em;
+}
+
+// why us this so different? only use once can I get rid of it?
+.button {
+  display: inline-block;
+  padding: 0.85em 1em;
+  font-family: $major-font-family;
+  font-weight: bold;
+  // text-transform: uppercase;
+  letter-spacing: 1px;
+}
+// where are the hover styles?
+
+.button.hollow {
+  // font-weight: bold;
+  background-color: transparent;
+  border: 2px solid $secondary-color;
+  color: $secondary-color;
+  transition: 0.5s ease;
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
   }
-  
-  // why us this so different? only use once can I get rid of it?
-  .button {
-    display: inline-block;
-    padding: 0.85em 1em;
-    font-family: $major-font-family;
-    font-weight: bold;
-    // text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  // where are the hover styles?
-  
-  .button.hollow {
-    // font-weight: bold;
-    background-color: transparent;
-    border: 2px solid $secondary-color;
-    color: $secondary-color;
-    transition: 0.5s ease;
-  }
-  
-  .button.hollow:hover {
-    background: $secondary-color;
-    color: $light-gray;
-    border-color: $secondary-color;
-  }
+}
+
+.button.hollow:hover {
+  background: $secondary-color;
+  color: $light-gray;
+  border-color: $secondary-color;
+}

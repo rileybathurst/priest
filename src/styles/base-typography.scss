@@ -11,13 +11,11 @@ html {
 // typescale.com 1.200 Minor Third
 html {
   font-size: 100%;
-} // 16px // 📣 is this just my systmem defaults?
+} // 16px
 
 body {
-  background-color: $white;
   font-weight: 400;
   line-height: 1.65;
-  color: #333; // 🚨 why is this not a variable?
 }
 
 p {
@@ -56,44 +54,34 @@ h6 {
 
 h1 {
   margin-top: 0; // why am I crushing this in all situations
-  font-size: 2.488em; // 39.808
+  font-size: 2.488rem; // 39.808
 }
 
 h2 {
-  font-size: 2.074em;
+  font-size: 2.074rem;
 } // 33.184px
 
 h3 {
-  font-size: 1.728em; // 27.684px
+  font-size: 1.728rem; // 27.684px
   margin-top: 1rem; // this seems like a bad place to have this even if the one use is nice
 }
 
 h4 {
-  font-size: 1.44em;
+  font-size: 1.44rem;
 } // 23.04px
 
 h5 {
-  font-size: 1.2em;
+  font-size: 1.2rem;
 } // 19.2px
-
-.one-point-two-em {
-  // h5 or a single step up
-  font-size: 1.2em;
-}
 
 small,
 .text_small {
-  font-size: 0.833em;
+  font-size: 0.833rem;
 }
 
 p {
   // margin-bottom: $global-margin;
   line-height: 1.6; // 🚨 body { line-height: 1.65;
-  }
-
-a {
-  color: $secondary-color; // passes contrast checks when primary does not
-  text-decoration: none;
 }
 
 a:hover {

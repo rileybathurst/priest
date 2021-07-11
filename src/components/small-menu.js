@@ -3,13 +3,32 @@ import * as React from "react";
 function SmallMenu() {
   function openUp() {
     var menu_small = document.getElementById("menu_small");
+    console.log(menu_small.offsetHeight);
+    
+    if (menu_small.className === "firstload inactive") {
+      console.log('🦄')
+      menu_small.style.setProperty('height' , '100%');
+      menu_small.style.setProperty('top' , '-' + menu_offset + 'px');
+      console.log('first ' + menu_small.offsetHeight);
+    }
 
+
+    let menu_offset = menu_small.offsetHeight;
+
+    
     if (menu_small.className === "active") {
-      menu_small.className = "inactive";
+      menu_small.className = "inactive"; // needed to adjust the open close icon
+      menu_small.style.setProperty('top' , '0');
+
     } else {
+      // this one triggers first
       menu_small.className = "active";
+      menu_small.style.setProperty('top' , menu_offset + 'px');
+      menu_small.style.setProperty('margin-top' , '-' + menu_offset + 'px');
     }
   }
+
+  // console.log(menu_small.offsetHeight); // there isnt a height yet
 
   return (
     <>

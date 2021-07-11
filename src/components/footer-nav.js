@@ -18,11 +18,6 @@ export default function FooterNav() {
       render={data => (
         <nav className="bg-secondary">
 
-{/*           <div className="splitter">
-            <hr />
-            <div className="cross">stay gold</div>
-          </div> */}
-
           <ul id="footer-nav">
             {data.allStrapiService.edges.map(document => (
               <li key={document.node.slug}>

@@ -1,0 +1,42 @@
+/*------------------------------------*\
+  #CROSS
+\*------------------------------------*/
+
+hr {
+  border-color: var(--secondary-color);
+}
+
+.cross__wrapper {
+  width: calc(100% - 2rem);
+  display: grid;
+  place-items: center;
+  max-width: var(--page-width);
+  margin-inline: auto;
+  margin-block-end: 3rem;
+
+  @media (prefers-color-scheme: dark) {
+    
+  }
+
+  > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .cross__hr {
+    width: 100%; // I dont know why but I have to double this
+  }
+
+  .cross__divider {
+    border-left: 2px solid var(--secondary-color);
+    border-right: 2px solid var(--secondary-color);
+    width: 0.8rem;
+    height: 1.6rem;
+    background: var(--white);
+    transform: skewX(-15deg); // guess and check
+
+    @media (prefers-color-scheme: dark) {
+      background: var(--black);
+    }
+  }
+}

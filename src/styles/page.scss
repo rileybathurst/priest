@@ -1,0 +1,68 @@
+/*------------------------------------*\
+  #MAP
+\*------------------------------------*/
+
+#map {
+  margin-block-end: 3rem;
+  padding: var(--global-padding);
+
+  > iframe {
+    margin-inline: var(--global-margin);
+    width: 100%;
+    max-width: var(--page-width);
+    margin-inline: auto;
+    display: block;
+  }
+}
+
+/*------------------------------------*\
+  #TESTIMONIALS
+\*------------------------------------*/
+
+#testimonials {
+  display: grid;
+  background: var(--light-gray);
+  @media (prefers-color-scheme: dark) {
+    background: var(--black);
+  }
+
+  svg {
+    fill: var(--secondary-color);
+  }
+
+  > .stars {
+    display: grid;
+    grid-template-rows: 1fr 1.55fr; // guess and check
+    // margin-block-end: 3rem;
+
+    > * {
+      grid-column: 1;
+    }
+
+    > .svgs {
+      grid-row: 1/3;
+      justify-self: center;
+      display: flex;
+      justify-content: space-around;
+      gap: var(--global-grid-gap);
+    }
+
+    > .star__back {
+      grid-row: 2;
+      background: var(--medium-gray);
+      
+      @media (prefers-color-scheme: dark) {
+        background: var(--blackish);
+      }
+    }
+  }
+
+  > blockquote {
+    padding-block: 3rem;
+    text-align: center;
+    background: var(--medium-gray);
+    @media (prefers-color-scheme: dark) {
+      background: var(--blackish);
+    }
+  }
+}

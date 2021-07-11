@@ -1,0 +1,118 @@
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
+
+footer {
+  background: var(--secondary-color);
+  color: var(--white);
+  border-top: 0.5rem solid var(--primary-color);
+  align-self: end;
+  margin-bottom: 0; // browser reset
+
+  svg {
+    fill: var(--white);
+  }
+
+  a {
+    color: var(--white);
+    text-decoration: underline;
+  }
+
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 75rem;
+    margin-inline: auto;
+    padding: 1rem 1rem 3rem;
+    justify-content: flex-start;
+    gap: var(--global-grid-gap);
+  
+    > * {
+      flex: 1 1;
+    }
+  }
+
+  // cross this is as clean as I can get it so far
+  .cross__wrapper {
+    .cross__hr {
+      border-color: var(--white);
+    }
+    .cross__divider {
+      border-color: var(--white);
+      background: var(--secondary-color);
+    }
+  }
+}
+
+// needs specificity of class
+:is(.footer__backed, .footer__services, .footer__industries, .footer__copyright, .footer__contact--method) a:where(:hover, :focus) {
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+}
+
+// this is split off as its not a nested <a> in the same way
+footer .backed__svg svg:hover {
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+}
+
+.footer__contacts {
+  max-width: var(--page-width);
+  padding-inline: var(--global-padding);
+  margin-inline: auto;
+  margin-block: 3rem;
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--global-grid-gap);
+  justify-content: space-around;
+
+  > .footer__contact--method a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    transition: .5s ease;
+    border-radius: var(--backed-radius);
+  }
+
+  svg {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+
+    @media (min-width: $breakpoint__large) {
+      justify-self: end;
+    }
+  }
+
+  p {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+
+    @media (min-width: $breakpoint__large) {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: start;
+    }
+  }
+}
+
+.footer__logo {
+  max-width: 50%;
+  margin-inline: auto;
+
+  svg {
+    display: block;
+    margin-inline: auto;
+    width: calc(100% - 2rem);
+    max-width: 20rem;
+    margin-block-end: 3rem;
+  }
+}
+
+.footer__copyright {
+  text-align: center;
+  a {
+    display: inline-block;
+    margin-block-end: 3rem;
+  }
+}

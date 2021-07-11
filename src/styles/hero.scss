@@ -1,0 +1,48 @@
+/*------------------------------------*\
+  #HERO
+\*------------------------------------*/
+
+.hero {
+  // @extend .bg-primary; // this isnt working
+  background: var(--secondary-color); // needed for wide menu
+  display: flex;
+  flex-direction: column;
+
+  > .hero__logo {
+    background: var(--primary-color);
+    display: grid;
+    place-items: center;
+    z-index: 3; // sliding logo
+    position: relative; // needed for z-index
+
+    > a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+
+      border-radius: 5px;
+      
+      @media (min-width: $breakpoint__medium) {
+        max-width: $general-measure;
+        margin-top: calc(var(--global-margin) * 2);
+        margin-bottom: calc(var(--global-margin) * 2);
+      } // @media
+      
+      > svg {
+        display: block;
+        max-width: 50%;
+        margin: 2rem auto;
+        fill: var(--white);
+        width: 100%; // needed for chrome
+      } // svg
+    } // a
+  } // .hero__logo
+}
+
+.hero__logo a:hover {
+  background: hsl(var(--primary-color-b), calc(var(--primary-color-l) - 10%));
+  transition: 0.5s ease;
+
+  svg {
+    fill: var(--light-gray);
+  }
+}

@@ -1,3 +1,5 @@
+// I need to variable the polygons of the stars
+
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 export default function Testimonials() {
@@ -16,16 +18,12 @@ export default function Testimonials() {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <section id="testimonials">
-          <div className="bg-light-gray">
-            <h3 className="text-center">Testimonials</h3>
-          </div>
-          <div id="star">
-            {/* needed for grid */}
-            <div className="bg-light-gray">{/* stay gold */}</div>
-            <div className="bg-medium-gray">{/* stay gold */}</div>
-            <div id="star-container">
+          <h3 className="text-center">Testimonials</h3>
+          <div className="stars">
+          <div className="star__back">{/* stay gold */}</div>
+            <div className="svgs">
               <svg title="star-1" className="star-1" viewBox="0 0 200 200">
                 {/* height="210" width="500" */}
                 <polygon points="100,10 40,198 190,78 10,78 160,198" />
@@ -46,10 +44,11 @@ export default function Testimonials() {
             </div>
             {/* #star-container */}
           </div>
-          {/* #star */}
-          <div id="quotes" className="bg-medium-gray">
-            {data.allStrapiTestimonials.edges.map(document => (
-              <blockquote className="quoted bg-medium-gray" key={document.node.id}>
+          {/* .star */}
+          <div id="quotes">
+            {/* used for animation */}
+            {data.allStrapiTestimonials.edges.map((document) => (
+              <blockquote className="quoted" key={document.node.id}>
                 <p>{document.node.content}</p>
                 <footer className="text-center">{document.node.author}</footer>
               </blockquote>

@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
+import Cross from "../components/cross";
 
 const ServiceView = ({ service }) => {
   // START OF COVER
@@ -57,10 +58,7 @@ const ServiceView = ({ service }) => {
     // seperator between the secondary videos
     if (props.hasVideo === true) {
       return (
-        <div className="splitter">
-          <hr />
-          <div className="cross">{/* stay gold */}</div>
-        </div>
+        <Cross />
       );
     }
     return null;
@@ -73,10 +71,7 @@ const ServiceView = ({ service }) => {
     if (hasGallery) {
       return (
         <>
-          <div className="splitter">
-            <hr />
-            <div className="cross">{/* stay gold */}</div>
-          </div>
+          <Cross />
 
           <div
             style={{
@@ -141,10 +136,7 @@ const ServiceView = ({ service }) => {
 
         {/* <GatsbyImage image={cover} /> test for as a single image */}
 
-        <div className="splitter">
-          <hr />
-          <div className="cross">{/* stay gold */}</div>
-        </div>
+        <Cross />
 
         {/* title and content area open */}
         <div

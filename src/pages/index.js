@@ -105,7 +105,7 @@ const IndexPage = ({ data }) => {
                 top: "0",
                 left: "0",
                 width: "100%",
-                height: "100%"
+                height: "100%",
                 // https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
                 // guess and check on the numbers
               }}
@@ -141,7 +141,7 @@ const IndexPage = ({ data }) => {
       {/* .summit__wrapper */}
 
       <div className="tasks__wrapper">
-        {data.allStrapiService.edges.map(document => (
+        {data.allStrapiService.edges.map((document) => (
           <div className="tasks--outer">
             <section key={document.node.id} className="tasks">
               <h3 className="tasks__title h4">
@@ -197,32 +197,34 @@ const IndexPage = ({ data }) => {
       </div>
 
       <div className="cards">
-        {data.allStrapiIndustries.edges.map(industry => (
-        <section key="industries" className="card">
-          <GatsbyImage
-            image={
-              industry.node.cover?.localFile?.childImageSharp
-                ?.gatsbyImageData
-            }
-            alt={industry.node.cover?.alternativeText}
-            className="shadow"
-          />
-          <div>
-            <h3 className="tasks__title h4">
-              <Link to={`/industries/${industry.node.slug}`}>
-                {industry.node.title}
-              </Link>
-            </h3>
+        {data.allStrapiIndustries.edges.map((industry) => (
+          <section key="industries" className="card">
+            <GatsbyImage
+              image={
+                industry.node.cover?.localFile?.childImageSharp?.gatsbyImageData
+              }
+              alt={industry.node.cover?.alternativeText}
+              className="shadow"
+            />
             <div>
-              <h4>{industry.node.byline}</h4>
-              {industry.node.content}
+              <h3 className="tasks__title h4">
+                <Link to={`/industries/${industry.node.slug}`}>
+                  {industry.node.title}
+                </Link>
+              </h3>
+              <div>
+                <h4>{industry.node.byline}</h4>
+                {industry.node.content}
+              </div>
+              <Link
+                to={`/industries/${industry.node.slug}`}
+                className="card__more button"
+              >
+                More about {industry.node.title}
+              </Link>
             </div>
-            <Link to={`/industries/${industry.node.slug}`} className="card__more button">
-              More about {industry.node.title}
-            </Link>
-          </div>
-        </section>
-        ) )}
+          </section>
+        ))}
       </div>
 
       <div className="tasks__cross cross__wrapper">
@@ -231,26 +233,15 @@ const IndexPage = ({ data }) => {
       </div>
 
       <section id="map" className="">
-        {/* bg-primary shadow-darker */}
-        <div className="grid-container">
-          <div className="grid-x">
-            <div className="cell gp2-tb">
-              <span className="iframe-100">
-                <iframe
-                  title="google maps"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.9573440490253!2d172.6515813562169!3d-43.544931066056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d3189f0816bfbed%3A0xc483fb0bb523cec9!2s10+Barbour+St%2C+Waltham%2C+Christchurch+8011%2C+New+Zealand!5e0!3m2!1sen!2sus!4v1473280636797"
-                  width="1200"
-                  height="450"
-                  frameBorder="0"
-                  allowFullScreen
-                  className="lozad vimeo"
-                ></iframe>
-              </span>
-            </div>
-          </div>
-          {/* .grid-x */}
-        </div>
-        {/* .grid-container */}
+        <iframe
+          title="google maps"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.9573440490253!2d172.6515813562169!3d-43.544931066056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d3189f0816bfbed%3A0xc483fb0bb523cec9!2s10+Barbour+St%2C+Waltham%2C+Christchurch+8011%2C+New+Zealand!5e0!3m2!1sen!2sus!4v1473280636797"
+          width="1200"
+          height="450"
+          frameBorder="0"
+          allowFullScreen
+          className="lozad vimeo"
+        />
       </section>
 
       <Testimonials />

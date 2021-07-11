@@ -1,8 +1,10 @@
 import * as React from "react";
+import { Link } from "gatsby";
+
 import Logo from "./logo";
 import FooterNav from "./footer-nav";
 import IndustryNav from "./industry-nav";
-import { Link } from "gatsby";
+import Cross from "./cross";
 
 const Footer = () => (
   <footer>
@@ -25,7 +27,7 @@ const Footer = () => (
             </div>
 
             <div className="footer-icon-text">
-              <p className="text-left one-point-two-em no-margin">
+              <p className="text-left  no-margin">
                 <span className="hide-for-large bold-big">Phone</span>
                 <span className="show-for-large">(03) 366 9818</span>
               </p>
@@ -51,7 +53,7 @@ const Footer = () => (
             </div>
 
             <div className="footer-icon-text">
-              <p className="text-left one-point-two-em no-margin">
+              <p className="text-left  no-margin">
                 <span className="hide-for-large">Map</span>
                 <span className="show-for-large">
                   10 Barbour Street, Waltham, Christchurch
@@ -75,7 +77,7 @@ const Footer = () => (
               </svg>
             </div>
             <div className="footer-icon-text">
-              <p className="text-left one-point-two-em no-margin">
+              <p className="text-left  no-margin">
                 <span className="hide-for-large">email</span>
                 <span className="show-for-large">
                   info@priestsheetmetal.co.nz
@@ -101,7 +103,7 @@ const Footer = () => (
               </svg>
             </div>
             <div className="footer-icon-text">
-              <p className="text-left one-point-two-em no-margin">
+              <p className="text-left  no-margin">
                 <span className="hide-for-large">Fax</span>
                 <span className="show-for-large">(03) 366 9819</span>
               </p>
@@ -110,44 +112,33 @@ const Footer = () => (
         </div>
         {/* .footer-icons  */}
       </div>
-      <div className="page">
 
-      <div className="splitter">
-        <hr />
-        <div className="cross">{/* stay gold */}</div>
-      </div>
+      <Cross />
 
-        <h3 className="centered">
-          <Link to="/industries">Services</Link>
+        <h3 className="centered footer__backed">
+          <Link to="/industries" className="backed">Services</Link>
         </h3>
       </div>
-    </div>
     {/* .footer-contact-areas */}
 
     <FooterNav />
 
     <div className="bg-secondary copyright">
-      <div className="splitter">
-        <hr />
-        <div className="cross">{/* stay gold */}</div>
-      </div>
+      <Cross />
 
       <div className="page">
-        <h3 className="centered">
-          <Link to="/industries">Industry Suppliers</Link>
+        <h3 className="centered footer__backed">
+          <Link to="/industries" className="backed">Industry Suppliers</Link>
         </h3>
 
         <IndustryNav />
       </div>
 
       <div className="bg-secondary">
-        <div className="splitter">
-          <hr />
-          <div className="cross">{/* stay gold */}</div>
-        </div>
+        <Cross />
       </div>
 
-      <div id="footer-logo">
+      <div className="footer__logo">
         <Logo />
       </div>
       <p className="text-center">

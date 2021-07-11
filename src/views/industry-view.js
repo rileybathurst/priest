@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
+import Cross from "../components/cross";
 
 const IndustryView = ({ industry }) => {
   return (
@@ -24,10 +25,7 @@ const IndustryView = ({ industry }) => {
         }}
       >
 
-        <div className="splitter">
-          <hr />
-          <div className="cross">{/* stay gold */}</div>
-        </div>
+        <Cross />
 
         {/* title and content area open */}
         <div
