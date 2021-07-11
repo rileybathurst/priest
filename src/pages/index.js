@@ -15,7 +15,7 @@ import Cross from "../components/cross";
 
 function Byline(props) {
   if (props.byline) {
-    return <h4 className="h5">{props.byline}</h4>;
+    return <h4>{props.byline}</h4>;
   } else {
     return null;
   }
@@ -76,7 +76,7 @@ const IndexPage = ({ data }) => {
           </div>
 
           <div className="summit__about">
-            <h2>Adding value through creftmanship.</h2>
+            <h2>Adding value through craftsmanship.</h2>
             <p>
               Our skilled team of tradesman, draftsman and general engineers
               offer a range of plate processing and metal fabrication services

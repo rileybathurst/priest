@@ -15,7 +15,8 @@ ul {
 }
 
 nav {
-  font-size: 1.2em;
+  // font-size: 4vw; // testing
+  font-size: clamp(1rem, 4vw, 1.2rem);
   font-family: var(--major-font-family);
   letter-spacing: 0.1rem;
 }
@@ -89,6 +90,7 @@ nav {
         padding-block: 0.5rem;
 
         > svg {
+          max-width: 3rem; // guess and check
           max-height: 3rem; // guess and check
           fill: currentColor;
         } // svg
@@ -137,7 +139,7 @@ nav {
   }
 }
 
-#menu_toggle.active {
+#menu_toggle.toggle__active {
   > .small_menu--icon > .small_menu--icon-topline {
     transform: rotate(45deg);
     grid-row: 1;
@@ -174,10 +176,10 @@ nav {
 
 .small_menu--opener {
   width: 100%;
-  height: 100%;
   cursor: pointer;
   padding-block: var(--global-padding);
   transition: 1s ease;
+  padding-block: 1rem;
 }
 
 .small_menu--opener:hover {

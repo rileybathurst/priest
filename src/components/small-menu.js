@@ -19,7 +19,7 @@ function SmallMenuToggle() {
       menu_small.style.setProperty('top' , '-' + menu_offset + 'px');
       // and remove the space it takes up
       menu_small.style.setProperty('margin-top' , '-' + menu_offset + 'px');
-      menu_small.className = "inactive";
+      menu_small.className = "toggle__inactive";
     }
 
     let menu_offset = menu_small.offsetHeight;
@@ -27,12 +27,12 @@ function SmallMenuToggle() {
     if (menu_small.className === "active") {
       menu_small.className = "inactive";
       menu_small.style.setProperty('top' , '0');
-      menu_toggle.className = "inactive";  // needed to adjust the open close icon
+      menu_toggle.className = "toggle__inactive";  // needed to adjust the open close icon
     } else {
       menu_small.className = "active";
       menu_small.style.setProperty('top' , menu_offset + 'px');
       menu_small.style.setProperty('margin-top' , '-' + menu_offset + 'px');
-      menu_toggle.className = "active";
+      menu_toggle.className = "toggle__active";
     }
   }
 

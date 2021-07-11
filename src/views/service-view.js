@@ -127,8 +127,6 @@ const ServiceView = ({ service }) => {
           />
         </div>
 
-        {/* <GatsbyImage image={cover} /> test for as a single image */}
-
         <Cross />
 
         {/* title and content area open */}
