@@ -16,16 +16,16 @@ export default function FooterNav() {
         }
       `}
       render={data => (
-        <nav className="bg-secondary">
-
-          <ul id="footer-nav">
+        <nav>
+          <ul class="footer__services">
             {data.allStrapiService.edges.map(document => (
               <li key={document.node.slug}>
-                <Link to={`/services/${document.node.slug}`} target="_blank" rel="noreferrer">
+                <Link to={`/services/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed">
                   {document.node.title}
                 </Link>
               </li>
             ))}
+            <li>{/* stay gold spacing */}</li>
           </ul>
         </nav>
       )}

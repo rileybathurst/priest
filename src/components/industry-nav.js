@@ -16,17 +16,11 @@ export default function IndustryNav() {
         }
       `}
       render={data => (
-        <nav className="bg-secondary">
-
-{/*           <div className="splitter">
-            <hr />
-            <div className="cross">stay gold</div>
-          </div> */}
-
-          <ul id="footer-nav">
+        <nav>
+          <ul className="footer__industries">
             {data.allStrapiIndustries.edges.map(document => (
               <li key={document.node.slug}>
-                <Link to={`/industries/${document.node.slug}`} target="_blank" rel="noreferrer">
+                <Link to={`/industries/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed">
                   {document.node.title}
                 </Link>
               </li>

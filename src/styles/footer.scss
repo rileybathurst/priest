@@ -26,9 +26,10 @@ footer {
     padding: 1rem 1rem 3rem;
     justify-content: flex-start;
     gap: var(--global-grid-gap);
-  
+
     > * {
       flex: 1 1;
+      white-space: nowrap;
     }
   }
 
@@ -45,13 +46,20 @@ footer {
 }
 
 // needs specificity of class
-:is(.footer__backed, .footer__services, .footer__industries, .footer__copyright, .footer__contact--method) a:where(:hover, :focus) {
-  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+:is(.footer__backed, .footer__services, .footer__industries, .footer__copyright, .footer__contact--method)
+  a:where(:hover, :focus) {
+  background: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 20%)
+  );
 }
 
 // this is split off as its not a nested <a> in the same way
 footer .backed__svg svg:hover {
-  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+  background: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 20%)
+  );
 }
 
 .footer__contacts {
@@ -64,12 +72,13 @@ footer .backed__svg svg:hover {
   gap: var(--global-grid-gap);
   justify-content: space-around;
 
-  > .footer__contact--method a {
+  > .footer__contact--method a,
+  > .footer__contact--method .no-link {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0.5rem 1rem;
-    transition: .5s ease;
+    transition: 0.5s ease;
     border-radius: var(--backed-radius);
   }
 
@@ -111,8 +120,7 @@ footer .backed__svg svg:hover {
 
 .footer__copyright {
   text-align: center;
-  a {
-    display: inline-block;
-    margin-block-end: 3rem;
-  }
+  display: inline-block;
+  margin-block-end: 3rem;
+  width: 100%;
 }

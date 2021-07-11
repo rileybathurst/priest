@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 const Logo = () => {
   return (
-    <Link to="/" >
+    <Link to="/" className="backed__svg">
       <svg
         title="priest sheetmetal logo"
         enableBackground="new 0 0 410 102"
