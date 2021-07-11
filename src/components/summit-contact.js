@@ -2,7 +2,7 @@ import * as React from "react";
 
 const SummitContact = () => (
   <>
-    <div className="summit__contact--service">
+    <div key="phone" className="summit__contact--service">
       {/* are these buttons? */}
       <a href="tel:033669818">
         <div className="summit__contact--icon">
@@ -24,7 +24,7 @@ const SummitContact = () => (
       </a>
     </div>
 
-    <div className="summit__contact--service">
+    <div key="address" className="summit__contact--service">
       <a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">
         <div className="summit__contact--icon">
           <svg

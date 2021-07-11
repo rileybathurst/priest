@@ -130,3 +130,37 @@
     } // footer
   } // blockquote
 } // #testimonials
+
+/*------------------------------------*/
+//  #single
+/*------------------------------------*/
+
+.single {
+  max-width: var(--page-width);
+  margin-inline: auto;
+}
+
+.single__cover {
+  margin-block-end: 3rem;
+  display: block;
+}
+
+.single__title {
+  margin-block-end: 3rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+
+  > * {
+    flex: 1 1;
+  }
+}
+
+.single__markdown {
+  ul {
+    list-style: disc;
+  }
+  li {
+    margin-block-end: 0.5rem;
+  }
+}

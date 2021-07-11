@@ -83,7 +83,6 @@ const SEO = ({ title, description, image }) => {
 export default SEO;
 
 SEO.propTypes = {
-  lang: `en`,
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,

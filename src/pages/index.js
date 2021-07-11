@@ -15,7 +15,6 @@ import Cross from "../components/cross";
 
 function Byline(props) {
   if (props.byline) {
-    // console.log('byline');
     return <h4 className="h5">{props.byline}</h4>;
   } else {
     return null;
@@ -29,7 +28,7 @@ function SummitImage() {
       src="https://priest.s3-ap-southeast-2.amazonaws.com/images/priest_sheetmetal-industrial-sheetmetal-christchurch_new_zealand-1920.jpg"
       alt="industrial sheetmetal christchurch"
       // this is insane that this is the syntax with double brackets
-      transformOptions={{ grayscale: "ture" }}
+      transformOptions={{ grayscale: "true" }}
     />
   );
 }
@@ -61,64 +60,51 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Seo title="Priest Sheetmetal &amp; Plate Christchurch" />
-      {/* <div className="summit__wrapper"> */}
       <div className="summit__backer">
         <section id="summit">
           <div className="summit__info">
             {/* this has old naming and needs to be checked */}
             <h1>
-              Specialist welders, sheetmetal engineers and generald fabricators
-              in Christchurch
+              Specialist laser cutting &amp; steel suppliers, fabricatiors and
+              welders in Chrirstchurch.
             </h1>
             <p>
-              Our team of welders and engineers can tackle any welding or
-              fabrication job. We specalise in TIG, MIG, ARC and resistance-Spot
-              Welding. We can weld alloy, mild steel, stainless and much more.
-              Our Fabricators can fold, stamp, punch, and cut to your
-              requirements with our specialized machinery and experience.
+              With over 67 years running experience, Priest Sheetmetal is an
+              established name as a manufacturer and supplier of profile cut and
+              fabricated steelwork to Christchurch businesses.
             </p>
           </div>
 
           <div className="summit__about">
-            <h2>We're Experienced Sheetmetal Engineers.</h2>
+            <h2>Adding value through creftmanship.</h2>
             <p>
-              Priest Sheetmetal &amp; Plate Ltd is a family run business that
-              has operated out of our 10 Barbour St address in Waltham,
-              Christchurch for over 63 years. Let our experience guide you from
-              design, manufacture, to assembly and installation of your
-              fabrication project.
+              Our skilled team of tradesman, draftsman and general engineers
+              offer a range of plate processing and metal fabrication services
+              to meet your metalwork needs. With the latest in CNC machinery,
+              CAD software and one of the largest selections of steel folding
+              press brakes in New Zealand we can be sure to assist you at every
+              stage; from design, prototyping though to production.
             </p>
           </div>
 
-          {/* Summit Videos */}
-          <div
-            className="summit__video"
-            /* style={{
-            padding: "56.25% 0 0 0",
-            position: "relative",
-          }} */
-          >
+          <div className="summit__video">
             <iframe
               title="hero video 1"
               src={"https://player.vimeo.com/video/431997968?background=1"}
               style={{
-                // position: "absolute",
+                // this probably needs an aspect ratio
                 top: "0",
                 left: "0",
                 width: "100%",
                 height: "100%",
-                // https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
-                // guess and check on the numbers
               }}
               frameBorder="0"
               allow="autoplay; fullscreen"
               allowFullScreen
               className="shadow"
-            ></iframe>
-            {/* this will feel better with the box below once it gets the image behind */}
+            />
           </div>
-          <script src="https://player.vimeo.com/api/player.js"></script>
-          {/* can this be compressed moved to the footer? */}
+          {/* <script src="https://player.vimeo.com/api/player.js" /> */}
 
           <div className="summit__videobacker">
             <SummitImage />
@@ -126,7 +112,6 @@ const IndexPage = ({ data }) => {
             <div className="blue-backer">{/* stay gold */}</div>
           </div>
 
-          {/* Im not sure if I can do this without multiloading images but seems like it should be possible if not tricky */}
           <div className="summit__team-photo_1">
             <TeamPhoto1 />
           </div>
@@ -139,12 +124,12 @@ const IndexPage = ({ data }) => {
           </div>
         </section>
       </div>
-      {/* .summit__wrapper */}
+      {/* .summit__backer */}
 
       <div className="tasks__wrapper">
         {data.allStrapiService.edges.map((document) => (
-          <div className="tasks--outer">
-            <section key={document.node.id} className="tasks">
+          <div key={document.node.id} className="tasks--outer">
+            <section className="tasks">
               <h3 className="tasks__title h4">
                 <Link to={`/services/${document.node.slug}`}>
                   {document.node.title}
@@ -184,57 +169,52 @@ const IndexPage = ({ data }) => {
               </div>
             </section>
 
-            <div className="tasks__cross cross__wrapper">
-              <hr className="cross__hr" />
-              <div className="cross__divider">{/* stay gold */}</div>
-            </div>
+            <Cross />
           </div>
         ))}
       </div>
       {/* tasks__wrapper */}
 
       <div className="page">
-        <h2 className="centered">Industries</h2>
+        <h2 className="centered">Industry Suppliers</h2>
       </div>
 
       <div className="industry__all">
         {data.allStrapiIndustries.edges.map((industry) => (
-          <>
-            <section key={industry.id} className="industry__wrapper">
-              <div className="industry">
+          <section key={industry.node.id} className="industry__wrapper">
+            <div className="industry">
+              <Link
+                to={`/industries/${industry.node.slug}`}
+                className="industry__image"
+              >
+                <GatsbyImage
+                  image={
+                    industry.node.cover?.localFile?.childImageSharp
+                      ?.gatsbyImageData
+                  }
+                  alt={industry.node.cover?.alternativeText}
+                  className="shadow"
+                />
+              </Link>
+
+              <h4 className="industry__title">
+                <Link to={`/industries/${industry.node.slug}`}>
+                  {industry.node.title}
+                </Link>
+              </h4>
+              <h5 className="industry__byline">{industry.node.byline}</h5>
+              <div className="industry__text">
+                <p>{industry.node.content}</p>
                 <Link
                   to={`/industries/${industry.node.slug}`}
-                  className="industry__image"
+                  className="button hollow"
                 >
-                  <GatsbyImage
-                    image={
-                      industry.node.cover?.localFile?.childImageSharp
-                        ?.gatsbyImageData
-                    }
-                    alt={industry.node.cover?.alternativeText}
-                    className="shadow"
-                  />
+                  More about {industry.node.title}
                 </Link>
-
-                <h4 className="industry__title">
-                  <Link to={`/industries/${industry.node.slug}`}>
-                    {industry.node.title}
-                  </Link>
-                </h4>
-                <h5 className="industry__byline">{industry.node.byline}</h5>
-                <div className="industry__text">
-                  <p>{industry.node.content}</p>
-                  <Link
-                    to={`/industries/${industry.node.slug}`}
-                    className="button hollow"
-                  >
-                    More about {industry.node.title}
-                  </Link>
-                </div>
               </div>
+            </div>
             <Cross />
-            </section>
-          </>
+          </section>
         ))}
       </div>
 

@@ -8,12 +8,10 @@ function ServicesCatchAll({ params }) {
   return (
     <Layout>
       <HeaderContact />
-      <header>
-      </header>
-      <main className="page">
+      <main className="page-width">
         <h1>Couldn't find the service</h1>
         <p>We couldn't locate the service "{params.name}"</p>
-        <Link to="/">Go back to "Home"</Link>
+        <p><Link to="/">Go back to "Home"</Link></p>
       </main>
     </Layout>
   )

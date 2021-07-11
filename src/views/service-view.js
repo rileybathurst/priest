@@ -22,7 +22,7 @@ const ServiceView = ({ service }) => {
           style={{
             padding: "56.25% 0 0 0",
             position: "relative",
-            marginBottom: "2rem"
+            marginBottom: "2rem",
           }}
         >
           <iframe
@@ -33,7 +33,7 @@ const ServiceView = ({ service }) => {
               top: 0,
               left: 0,
               width: "100%",
-              height: "100%"
+              height: "100%",
             }}
             frameBorder="0"
             allow="autoplay; fullscreen"
@@ -57,9 +57,7 @@ const ServiceView = ({ service }) => {
   function Sec(props) {
     // seperator between the secondary videos
     if (props.hasVideo === true) {
-      return (
-        <Cross />
-      );
+      return <Cross />;
     }
     return null;
   }
@@ -78,7 +76,7 @@ const ServiceView = ({ service }) => {
               display: "flex",
               marginBottom: "28px",
               justifyContent: "space-between",
-              flexDirection: "column"
+              flexDirection: "column",
             }}
             className="services-photogallery"
           >
@@ -87,7 +85,7 @@ const ServiceView = ({ service }) => {
               {/* 🚨 figure seems the wrong thing to be here */}
               <figure className="wp-block-gallery columns-2 is-cropped">
                 <ul className="blocks-gallery-grid">
-                  {service.gallery.map(photos => (
+                  {service.gallery.map((photos) => (
                     <li key={photos.hash} className="blocks-gallery-item">
                       <GatsbyImage
                         image={
@@ -113,50 +111,38 @@ const ServiceView = ({ service }) => {
   const cover = getImage(
     service.Cover?.localFile?.childImageSharp?.gatsbyImageData
   );
+
   return (
     <>
       <Header />
       <HeaderContact />
 
-      {/* get rid of this inline styline */}
-      <article
-        style={{
-          maxWidth: "75rem",
-          marginLeft: "auto",
-          marginRight: "auto",
-          padding: "1rem"
-        }}
-      >
-        <Cover
-          medium={service.coverMedium}
-          video={service.coverVideo}
-          image={service.Cover?.localfile?.childImageData?.GatsbyImageData}
-          imageAlt={service.Cover.alternativeText}
-        />
+      <article className="single">
+        <div className="single__cover">
+          <Cover
+            medium={service.coverMedium}
+            video={service.coverVideo}
+            image={service.Cover?.localfile?.childImageData?.GatsbyImageData}
+            imageAlt={service.Cover.alternativeText}
+          />
+        </div>
 
         {/* <GatsbyImage image={cover} /> test for as a single image */}
 
         <Cross />
 
         {/* title and content area open */}
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "28px",
-            justifyContent: "space-between"
-          }}
-          className="service-info"
-        >
-          <h2 className="wp-block-colum">{service.title}</h2>
-          <div className="wp-block-colum">
+        <div className="single__title">
+          <h2>{service.title}</h2>
+          <div>
             <h3>{service.byline}</h3>
-            {/* <p>{service.markdown}</p> */}
-            <ReactMarkdown children={service.markdown} />
+            <div className="single__markdown">
+              <ReactMarkdown children={service.markdown} />
+            </div>
           </div>
         </div>
-        {/* title and content area close */}
 
-        {service.videos.map(vids => (
+        {service.videos.map((vids) => (
           <section key={vids.id}>
             <Sec hasVideo={service.hasVideo} />
 
@@ -165,7 +151,7 @@ const ServiceView = ({ service }) => {
                 <div
                   style={{
                     padding: "56.25% 0 0 0",
-                    position: "relative"
+                    position: "relative",
                   }}
                 >
                   <iframe
@@ -180,7 +166,7 @@ const ServiceView = ({ service }) => {
                       top: 0,
                       left: 0,
                       width: "100%",
-                      height: "100%"
+                      height: "100%",
                     }}
                     frameBorder="0"
                     allow="autoplay; fullscreen"
