@@ -19,7 +19,7 @@ body {
 }
 
 p {
-  margin-bottom: 1.15rem; // document this
+  margin-bottom: 1.25rem;
 }
 
 // I don't love this syntax but it might be best on some way
@@ -39,6 +39,8 @@ h6,
   font-family: $major-font-family;
   font-weight: 400; // 📣 double check this
   line-height: 1.5em;
+  margin-block-start: 0; // browser reset
+  margin-block-end: 1.15em;
 }
 
 // https://practicaltypography.com/all-caps.html

@@ -612,6 +612,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr)); // guess and check
   gap: 1rem;
+  margin-inline: auto;
 }
 
 .card {

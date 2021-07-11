@@ -19,7 +19,7 @@
 \*------------------------------------*/
 @import "variables";
 @import "colors";
-@import "base-typography";
+@import "typography";
 /*------------------------------------*\
 #BASE
 \*------------------------------------*/
@@ -641,91 +641,11 @@ footer {
   }
 }
 
-// 🚨 I need more sheets
-#menu_toggle {
-  z-index: 2; // sliding menu
-  position: relative; // needed for z-index
-
-  display: grid;
-
-  @media (min-width: $header-menu-size) {
-    display: none;
-  }
-}
-
 .menu-small > ul {
   display: flex;
   flex-direction: column;
 }
 
-.small_menu--opener {
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  padding-top: $global-padding;
-  padding-bottom: $global-padding;
-  transition: 1s ease;
-}
-
-.small_menu--opener:hover {
-  color: darken($white, 10%); // 📣
-  background: darken($secondary-color, 10%); // 📣
-}
-
-.small_menu--opener,
-.small_menu--icon {
-  grid-row: 1;
-  grid-column: 1;
-  align-self: center;
-}
-
-.small_menu--icon {
-  justify-self: end;
-  margin-right: $global-margin;
-  transition: 2s ease; // the slide in on load is kinda nice but maybe overkill
-  // background: tomato;
-  cursor: pointer; // match the link
-
-  display: grid;
-}
-
-.small_menu--icon span {
-  transition: 0.5s ease; // the slide in on load is kinda nice but maybe overkill
-}
-
-.small_menu--icon-topline,
-.small_menu--icon-bottomline {
-  width: 1rem;
-  height: 0.25rem;
-  background: $white;
-  display: block;
-  transform: rotate(0deg);
-  top: 0;
-  position: relative;
-}
-
-.small_menu--icon-bottomline {
-  margin-top: 0.5rem;
-  // background: tomato; // which line is which
-}
-
-.active ~ #menu_toggle > .small_menu--icon > .small_menu--icon-topline {
-  transform: rotate(45deg);
-  grid-row: 1;
-  grid-column: 1;
-  align-self: center;
-  justify-self: center;
-  margin: 0;
-}
-
-.active ~ #menu_toggle > .small_menu--icon > .small_menu--icon-bottomline {
-  transform: rotate(-45deg);
-  grid-row: 1;
-  grid-column: 1;
-  align-self: center;
-  justify-self: center;
-  margin: 0;
-}
 
 .show-for-medium {
   display: none;
@@ -955,18 +875,22 @@ footer {
 }
 
 .quoted {
-  max-width: $general-measure;
-  margin: 0 auto;
-  padding: $global-padding;
-
+  margin: 0;
+  padding: var(--global-padding);
 
   > p::before {
+
     content: '"'; // left quote
     font-size: 2.488rem;
     line-height: 1rem;
     font-weight: bold;
     font-family: $major-font-family;
     margin-right: calc(var(--global-margin) / 2);
+  }
+
+  > p {
+    max-width: var(--general-measure);
+    margin-inline: auto;
   }
 
   > footer {

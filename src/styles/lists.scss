@@ -20,6 +20,10 @@ nav {
   letter-spacing: 0.1rem;
 }
 
+/*------------------------------------*/
+//  #check this
+/*------------------------------------*/
+
 .menu {
   max-width: --header-menu-size;
   margin-inline: auto;
@@ -54,15 +58,13 @@ nav {
   // can I do something with is to get the svg and display it as a flex?
 }
 
+/*------------------------------------*/
+//  #small menu
+/*------------------------------------*/
+
 #menu_small {
   width: 100%;
-  background: hsl(var(--primary-color-b), calc(var(--primary-color-l) - 10%));
-  // a little darker so it can be seen when slid down
-
-  // sliding menu
-  // display: inline-block;
-  
-
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
 
   position: relative;
   z-index: 1; // check its above the gallery on the front page
@@ -75,6 +77,7 @@ nav {
     > li {
       list-style: none;
       // margin-left: 0;
+      padding-inline: 0.5rem;
 
       > a {
         display: flex;
@@ -82,12 +85,19 @@ nav {
         justify-content: center;
         gap: 0.5rem;
         text-decoration: none;
+        border-bottom: 1px solid var(--secondary-color);
+        padding-block: 0.5rem;
 
         > svg {
           max-height: 3rem; // guess and check
           fill: currentColor;
         } // svg
       } // a
+
+      > a:hover {
+        background: var(--secondary-color);
+        color: var(--white);
+      }
     } // li
   } // ul
 
@@ -111,11 +121,11 @@ nav {
   height: 0; // this is needed but breaks all the things
 }
 
-.waiting {
-  transition: 2s ease;
-}
 
-// 🚨 I need more sheets
+/*------------------------------------*/
+//  #toggle
+/*------------------------------------*/
+
 #menu_toggle {
   z-index: 2; // sliding menu
   position: relative; // needed for z-index
@@ -127,7 +137,77 @@ nav {
   }
 }
 
-// 📣 this needs to be closer to the smaller nav to make sense
+#menu_toggle.active {
+  > .small_menu--icon > .small_menu--icon-topline {
+    transform: rotate(45deg);
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+  }
+
+  > .small_menu--icon > .small_menu--icon-bottomline {
+    transform: rotate(-45deg);
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+  }
+}
+
+.small_menu--opener,
+.small_menu--icon {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+}
+
+.small_menu--icon {
+  justify-self: end;
+  margin-right: var(--global-margin);
+  transition: 2s ease; // the slide in on load is kinda nice but maybe overkill
+  cursor: pointer; // match the link
+  display: grid;
+}
+
+.small_menu--opener {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding-block: var(--global-padding);
+  transition: 1s ease;
+}
+
+.small_menu--opener:hover {
+  color: var(--light-gray); // 📣
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
+}
+
+.small_menu--icon span {
+  transition: 0.5s ease; // the slide in on load is kinda nice but maybe overkill
+}
+
+.small_menu--icon-topline,
+.small_menu--icon-bottomline {
+  width: 1rem;
+  height: 0.25rem;
+  background: var(--white);
+  display: block;
+  transform: rotate(0deg);
+  top: 0;
+  position: relative;
+}
+
+.small_menu--icon-bottomline {
+  margin-top: 0.5rem;
+}
+
+/*------------------------------------*/
+//  #larger menu
+/*------------------------------------*/
+
 #menu__big {
   @extend nav;
   display: none;

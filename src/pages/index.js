@@ -11,6 +11,7 @@ import "@fontsource/roboto-slab/400.css";
 import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/700.css";
 import "../styles/index.scss";
+import Cross from "../components/cross";
 
 function Byline(props) {
   if (props.byline) {
@@ -196,40 +197,45 @@ const IndexPage = ({ data }) => {
         <h2 className="centered">Industries</h2>
       </div>
 
-      <div className="cards">
+      <div className="industry__all">
         {data.allStrapiIndustries.edges.map((industry) => (
-          <section key="industries" className="card">
-            <GatsbyImage
-              image={
-                industry.node.cover?.localFile?.childImageSharp?.gatsbyImageData
-              }
-              alt={industry.node.cover?.alternativeText}
-              className="shadow"
-            />
-            <div>
-              <h3 className="tasks__title h4">
-                <Link to={`/industries/${industry.node.slug}`}>
-                  {industry.node.title}
+          <>
+            <section key={industry.id} className="industry__wrapper">
+              <div className="industry">
+                <Link
+                  to={`/industries/${industry.node.slug}`}
+                  className="industry__image"
+                >
+                  <GatsbyImage
+                    image={
+                      industry.node.cover?.localFile?.childImageSharp
+                        ?.gatsbyImageData
+                    }
+                    alt={industry.node.cover?.alternativeText}
+                    className="shadow"
+                  />
                 </Link>
-              </h3>
-              <div>
-                <h4>{industry.node.byline}</h4>
-                {industry.node.content}
-              </div>
-              <Link
-                to={`/industries/${industry.node.slug}`}
-                className="card__more button"
-              >
-                More about {industry.node.title}
-              </Link>
-            </div>
-          </section>
-        ))}
-      </div>
 
-      <div className="tasks__cross cross__wrapper">
-        <hr className="cross__hr" />
-        <div className="cross__divider">{/* stay gold */}</div>
+                <h4 className="industry__title">
+                  <Link to={`/industries/${industry.node.slug}`}>
+                    {industry.node.title}
+                  </Link>
+                </h4>
+                <h5 className="industry__byline">{industry.node.byline}</h5>
+                <div className="industry__text">
+                  <p>{industry.node.content}</p>
+                  <Link
+                    to={`/industries/${industry.node.slug}`}
+                    className="button hollow"
+                  >
+                    More about {industry.node.title}
+                  </Link>
+                </div>
+              </div>
+            <Cross />
+            </section>
+          </>
+        ))}
       </div>
 
       <section id="map" className="">
