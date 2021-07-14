@@ -22,8 +22,7 @@
 
       > svg {
         display: block;
-        width: max(50vw, 20rem);
-        max-width: fit-content; // reset the basic svg
+        max-width: 20rem;
         fill: var(--white);
 
         @media (min-width: $breakpoint__medium) {

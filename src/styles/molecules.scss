@@ -27,7 +27,7 @@
   justify-self: center;
   grid-template-columns: 1fr 2rem 1fr;
   row-gap: 1rem;
-  max-width: var(--max-page);
+  max-width: var(--page-width);
 
   @media (min-width: $breakpoint__medium) {
     grid-template-columns: 1fr 2rem 1fr 2rem 1fr;
