@@ -12,7 +12,7 @@ import Seo from "../components/seo";
 
 const IndustryView = ({ industry }) => {
   return (
-    <>
+    <div id="IndustryView">
       <Seo
         title={industry.title}
         description={industry.excerpt}
@@ -74,7 +74,7 @@ const IndustryView = ({ industry }) => {
         ))}
       </article>
       <Footer />
-    </>
+    </div>
   );
 };
 

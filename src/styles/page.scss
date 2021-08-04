@@ -50,6 +50,11 @@
   }
 }
 
+// weird code seems to work
+#IndustryView .single section:last-child .cross__wrapper:last-child {
+    display: none;
+}
+
 /*------------------------------------*\
   #MAP
 \*------------------------------------*/
