@@ -385,6 +385,10 @@
   }
 }
 
+.tasks__cross:last-child {
+  display: none;
+}
+
 /* .tasks__cross:last-child {
   display: none;
 } */

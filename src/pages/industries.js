@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import ReactMarkdown from "react-markdown";
 
 import Layout from "../components/layout";
 import HeaderContact from "../components/header-contact";
@@ -18,7 +19,10 @@ function Byline(props) {
 const IndustriesPage = ({ data }) => {
   return (
     <Layout>
-      <Seo title="Industries - Priest Sheetmetal &amp; Plate Christchurch" />
+      <Seo
+        title="Industries - Priest Sheetmetal &amp; Plate Christchurch"
+        description="Adding value through craftsmanship. Our skilled team of tradesman, draftsman and general engineers offer a range of plate processing and metal fabrication services to meet your metalwork needs. With the latest in CNC machinery, CAD software and one of the largest selections of steel folding press brakes in New Zealand we can be sure to assist you at every stage; from design, prototyping though to production."
+      />
 
       <HeaderContact />
 
@@ -47,9 +51,10 @@ const IndustriesPage = ({ data }) => {
 
             <div className="tasks__info">
             <Byline />
-            {document.node.content}
+            {/* {document.node.content} */}
+            <ReactMarkdown children={document.node.content} />
               <Link to={`/industries/civil`} className="tasks__more">
-                <span className="button hollow">More about Civil</span>
+                <span className="button hollow">More about {document.node.title}</span>
               </Link>
             </div>
           </section>

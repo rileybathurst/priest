@@ -6,6 +6,16 @@ import FooterNav from "./footer-nav";
 import IndustryNav from "./industry-nav";
 import Cross from "./cross";
 
+function ThisYear() {
+  let today = new Date().getFullYear();
+  // console.log(today);
+  return (
+    <>
+      {today}
+    </>
+  );
+}
+
 const Footer = () => (
   <footer>
     {/* I could porbably loop these */}
@@ -124,7 +134,7 @@ const Footer = () => (
     </div>
 
     <div className="footer__copyright text-center">
-      <p>&copy; 2021 {/* this needs to be dynamic */}</p>
+      <p>&copy; <ThisYear /> {/* this needs to be dynamic */}</p>
     </div>
   </footer>
 );

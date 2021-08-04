@@ -8,10 +8,15 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
+import Seo from "../components/seo";
 
 const IndustryView = ({ industry }) => {
   return (
     <>
+      <Seo
+        title={industry.title}
+        description={industry.excerpt}
+        />
       <Header />
       <HeaderContact />
 
@@ -42,26 +47,27 @@ const IndustryView = ({ industry }) => {
           <section key={aspect.id}>
             <div className="single__title">
               <div>
-              <h4>{aspect.title}</h4>
-              <div className="single__markdown">
-                <ReactMarkdown children={aspect.content} />
-              </div>
+                <h4>{aspect.title}</h4>
+                <div className="single__markdown">
+                  <ReactMarkdown children={aspect.content} />
+                </div>
               </div>
 
-            <ul className="single__gallery">
-              {aspect.images.map((images) => (
-                <li
-                key={images.localFile?.childImageSharp?.id}
-                className=""
-                >
-                  <GatsbyImage
-                    image={images.localFile?.childImageSharp?.gatsbyImageData}
+              {/* this has a dumb name */}
+              <ul className="single__gallery">
+                {aspect.images.map((images) => (
+                  <li
+                    key={images.localFile?.childImageSharp?.id}
+                    className=""
+                  >
+                    <GatsbyImage
+                      image={images.localFile?.childImageSharp?.gatsbyImageData}
                     // alt={photos.name}
                     />
-                </li>
-              ))}
-            </ul>
-              </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <Cross />
           </section>

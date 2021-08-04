@@ -3,10 +3,12 @@ import { Link } from "gatsby"
 
 import Layout from "../../components/layout";
 import HeaderContact from "../../components/header-contact";
+import Seo from "../../components/seo";
 
 function ServicesCatchAll({ params }) {
   return (
     <Layout>
+      <Seo title="404" />
       <HeaderContact />
       <main className="page-width">
         <h1>Couldn't find the service</h1>

@@ -18,7 +18,10 @@ function Byline(props) {
 const ServicesPage = ({ data }) => {
   return (
     <Layout>
-      <Seo title="Services - Priest Sheetmetal &amp; Plate Christchurch" />
+      <Seo
+        title="Services - Priest Sheetmetal &amp; Plate Christchurch"
+        description="Specialist laser cutting &amp; steel suppliers, fabricatiors and welders in Chrirstchurch. With over 67 years running experience, Priest Sheetmetal is an established name as a manufacturer and supplier of profile cut and fabricated steelwork to Christchurch businesses."
+      />
 
       <HeaderContact />
 

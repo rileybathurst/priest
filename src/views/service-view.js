@@ -8,6 +8,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
+import Seo from "../components/seo";
 
 const ServiceView = ({ service }) => {
   // START OF COVER
@@ -114,6 +115,10 @@ const ServiceView = ({ service }) => {
 
   return (
     <>
+      <Seo
+        title={service.title}
+        description={service.excerpt}
+      />
       <Header />
       <HeaderContact />
 

@@ -6,12 +6,14 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 import SummitContact from "../components/summit-contact";
 import Testimonials from "../components/testimonials";
+import Cross from "../components/cross";
 
 import "@fontsource/roboto-slab/400.css";
+// at some point this can be a variable
 import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/700.css";
+
 import "../styles/index.scss";
-import Cross from "../components/cross";
 
 function Byline(props) {
   if (props.byline) {

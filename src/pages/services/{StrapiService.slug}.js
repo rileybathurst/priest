@@ -16,6 +16,7 @@ export const query = graphql`
       markdown
       coverMedium
       coverVideo
+      excerpt
 
       Cover {
         alternativeText

@@ -10,6 +10,7 @@ export const query = graphql`
       slug
       byline
       content
+      excerpt
 
       cover {
         alternativeText

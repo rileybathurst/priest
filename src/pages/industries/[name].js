@@ -3,10 +3,12 @@ import { Link } from "gatsby"
 
 import Layout from "../../components/layout";
 import HeaderContact from "../../components/header-contact";
+import Seo from "../../components/seo";
 
 function IndustriesCatchAll({ params }) {
   return (
     <Layout>
+      <Seo title="Industries" />
       <HeaderContact />
       <main className="page-width">
         <h1>Couldn't find Industry</h1>
