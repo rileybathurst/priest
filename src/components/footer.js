@@ -134,7 +134,7 @@ const Footer = () => (
     </div>
 
     <div className="footer__copyright text-center">
-      <p>&copy; <ThisYear /> {/* this needs to be dynamic */}</p>
+      <p>&copy; <ThisYear /></p>
     </div>
   </footer>
 );
