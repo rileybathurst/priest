@@ -81,6 +81,10 @@ footer .backed__svg svg:hover {
     padding: 0.5rem 1rem;
     transition: 0.5s ease;
     border-radius: var(--backed-radius);
+
+    p {
+      margin-block-end: 0;
+    }
   }
 
   svg {

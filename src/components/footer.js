@@ -43,30 +43,6 @@ const Footer = () => (
       {/* .footer__contact--method */}
 
       <div className="footer__contact--method">
-        <a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            title="find us"
-          >
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z" />
-
-            <circle cx="12" cy="9" r="2.5" />
-          </svg>
-
-          <p>
-            <span className="hide-for-large">Map</span>
-            <span className="show-for-large">
-              10 Barbour Street, Waltham, Christchurch
-            </span>
-          </p>
-        </a>
-      </div>
-      {/*  .footer__contact--method */}
-
-      <div className="footer__contact--method">
         <a href="mailto:info@priestsheetmetal.co.nz">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -105,6 +81,31 @@ const Footer = () => (
         </div>
       </div>
       {/* .footer-icons  */}
+
+      <div className="footer__contact--method">
+        <a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            title="find us"
+          >
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z" />
+
+            <circle cx="12" cy="9" r="2.5" />
+          </svg>
+
+          <p>
+            <span className="hide-for-large">Map</span>
+            <span className="show-for-large">
+              10 Barbour Street, Waltham, Christchurch
+            </span>
+          </p>
+        </a>
+      </div>
+      {/*  .footer__contact--method */}
+      
     </div>
     {/* .footer__contacts */}
 
