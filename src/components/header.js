@@ -3,7 +3,8 @@ import { Link } from "gatsby";
 import Logo from "./logo";
 import ProfileIcon from "./profile-icon";
 import SmallMenuToggle from "./small-menu";
-// import ServicesNav from "./services-nav";
+import ServicesNav from "./services-nav";
+import IndustryNav from "./industry-nav";
 
 const Header = () => (
   <>
@@ -48,14 +49,17 @@ const Header = () => (
               <Link to="/">Home</Link>
             </li>
             <li key="services">
-              <Link to="/services">Services</Link>
+              <Link to="/services" className="menu__over">Services</Link>
+              <ul className="menu__hover menu__hover--multiline">
+                <ServicesNav />
+              </ul>
             </li>
             <li key="industries">
-              <Link to="/industries">Industry Suppliers</Link>
+              <Link to="/industries" className="menu__over">Industry Suppliers</Link>
+              <ul className="menu__hover">
+                <IndustryNav />
+              </ul>
             </li>
-            {/* <li key="gallery">
-                <Link to="/gallery">Gallery</Link>
-              </li> */}
             <li key="contact">
               <Link to="/contact">Contact</Link>
             </li>

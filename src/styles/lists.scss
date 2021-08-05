@@ -38,6 +38,7 @@ nav {
   place-items: space-between;
   gap: 0.5rem;
   white-space: nowrap; // don't let lines break
+  background: var(--secondary-color);
 }
 
 .menu li {
@@ -213,6 +214,7 @@ nav {
 #menu__big {
   @extend nav;
   display: none;
+  z-index: 10;
 
   @media (min-width: $header-menu-size) {
     display: block;
@@ -230,3 +232,37 @@ nav {
     max-height: 1.2rem;
   }
 } // .menu-primary-container
+
+/*------------------------------------*/
+//  #HOVER MENU
+/*------------------------------------*/
+
+.menu__hover {
+  transform: translate3d(0, -100%, 0);
+  position: absolute;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  max-width: var(--page-width);
+  z-index: -1;
+  left: 0;
+  background: var(--secondary-color);
+  clip-path: polygon(1em 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  font-size: 1rem;
+  transition: transform 1s ease;
+
+  a {
+    border-radius: 0; // backed somewhere up the line
+  }
+}
+
+.menu__over:hover ~ .menu__hover,
+.menu__hover:hover {
+  transform: translate3d(0, 0, 0);
+}
+
+// this is kinda manual but it works
+.menu__hover--multiline {
+  transition: transform 2s ease;
+  clip-path: polygon(2em 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+}
