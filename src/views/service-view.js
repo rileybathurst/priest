@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 // import {render} from 'react-dom'
@@ -121,6 +122,8 @@ const ServiceView = ({ service }) => {
       />
       <Header />
       <HeaderContact />
+
+      <p className="breadcrumbs"><Link to="/">Home</Link> &gt; <Link to="/services">Services</Link> &gt; {service.title}</p>
 
       <article className="single">
         <div className="single__cover">

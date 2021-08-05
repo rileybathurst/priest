@@ -26,6 +26,8 @@ const ServicesPage = ({ data }) => {
       <HeaderContact />
 
       <main className="container">
+      <p className="breadcrumbs"><Link to="/">Home</Link>  &gt; Services</p>
+
       <div className="tasks__wrapper">
         {data.allStrapiService.edges.map(document => (
           <>

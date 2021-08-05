@@ -1,21 +1,19 @@
-/* Contents
--------------------------------------------------------------- */
-
-// I'm removing the contents until I have the pieces in order
-// splitting out sheets etc
+/*------------------------------------*\
+    #PRIEST
+\*------------------------------------*/
 
 // 🚨 30th March 2021 running through the sheets as a lot seems pretty messy
 
 // 🚨 what issue?
 /* Medium Up screens - fixes header issue
 @media only screen and (min-width: 40.063em) {
-	.full {
-	  width: 100%;
-	}
+  .full {
+    width: 100%;
+  }
 } */
 
 /*------------------------------------*\
-    #ABSTRACTS
+  #ABSTRACTS
 \*------------------------------------*/
 @import "variables";
 @import "colors";
@@ -459,22 +457,9 @@ footer {
 
   h3 {
     margin-top: 0; // reset from type scale as we already have a break but sort this our
-    // max-width: 50rem; // guess and check // to save against orphans
     align-self: center;
-    font-size: var(--h6-fs); // this is quite far down
-
-    @media (min-width: $breakpoint__medium) {
-      font-size: var(--h5-fs);
-    }
-
-    @media (min-width: $breakpoint__large) {
-      font-size: var(--h4-fs);
-      margin-bottom: 0; // this is due to switching to a flex row
-      padding-right: $global-padding; // 📣 this is possibly causing the columns to be different sizes
-    }
+    font-size: clamp(var(--h6-fs), var(--h5-fs), var(--h4-fs));
   }
-
-  
 }
 
 .together {
@@ -650,11 +635,9 @@ footer {
 }
 
 .page-width {
-  max-width: 75rem; // this is way wider than a measure
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: $global-padding;
-  padding-right: $global-padding;
+  max-width: var(--page-width); // this is way wider than a measure
+  margin-inline: auto;
+  padding-inline: $global-padding;
 }
 
 .hero {

@@ -381,7 +381,7 @@
   column-gap: 2rem;
 
   > * {
-    flex: 0 1 70rem;
+    flex: 0 1 var(--page-width);
   }
 }
 
@@ -396,9 +396,8 @@
 .tasks {
   display: grid;
   // overlays so it has to be a grid
-  margin-bottom: $global-margin * 2;
-  max-width: 70rem; // double measure enough space for the margins
-  margin: 0 auto;
+  max-width: var(--page-width);
+  margin-inline: auto;
   margin-bottom: 2rem;
   background: $medium-gray;
   background: linear-gradient(
@@ -579,9 +578,9 @@
 }
 
 .tasks__cross {
-  max-width: 70rem;
+  max-width: calc(var(--page-width) - 2rem);
   margin-inline: auto;
-  margin-block-end: 1.6rem;
+  margin-block-end: 1.6rem; // 📣 why
 }
 
 .block {
@@ -647,4 +646,29 @@
 
 .footer--industries {
   list-style: none;
+}
+
+/*------------------------------------*/
+//  #Breadcrumbs
+/*------------------------------------*/
+
+.breadcrumbs {
+  max-width: var(--page-width);
+  margin-inline: auto;
+
+  a,
+  span {
+    padding: 0.25rem 0.5rem;
+  }
+  
+  a {
+    text-decoration: none;
+    border-radius: var(--backed-radius);
+    background: hsl(0, 0%, 92%);
+    transition: 0.5s ease;
+  }
+}
+
+.breadcrumbs a:hover {
+  background: hsl(0, 0%, 82%);
 }

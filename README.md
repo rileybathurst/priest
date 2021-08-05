@@ -17,3 +17,7 @@ Theres a difference between npm start and npm run develop. Start let's you work,
 Once strapi is running get gatsby running.
 
 ``` npm start ```
+
+### To Do
+
+I've got a list running in Asana

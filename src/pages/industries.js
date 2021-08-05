@@ -27,6 +27,7 @@ const IndustriesPage = ({ data }) => {
       <HeaderContact />
 
       <main className="container">
+      <p className="breadcrumbs"><Link to="/">Home</Link> &gt; Industry Suppliers</p>
         <div className="tasks__wrapper">
         {data.allStrapiIndustries.edges.map(document => (
           <>

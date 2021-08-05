@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 // import {render} from 'react-dom'
@@ -19,6 +20,8 @@ const IndustryView = ({ industry }) => {
         />
       <Header />
       <HeaderContact />
+
+      <p className="breadcrumbs"><Link to="/">Home</Link> &gt; <Link to="/industries">Industry Suppliers</Link> &gt; {industry.title}</p>
 
       <article className="single">
         <div className="single__cover">
