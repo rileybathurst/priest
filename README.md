@@ -9,14 +9,11 @@ The website for https://priestsheetmetal.co.nz
 
 ## Development
 
-First get /priest-cms running this is hosted on Linode
+First get /priest-cms running this is hosted on Linode.
+Theres a difference between npm start and npm run develop. Start let's you work, develop lets you edit.
 
 ``` npm run develop ```
 
-# Issues
+Once strapi is running get gatsby running.
 
-- some of the strapi API has capital letters where it would be nicer to be camelCase no underscores, hypens or whatever else
-
-## To Do
-
-- I should be able to remove the logo from the src/images but need to be checked
+``` npm start ```

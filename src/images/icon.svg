@@ -1,25 +1,18 @@
-<svg
-  title="priest profile cutting logo"
-  data-name="Layer 1"
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 101.52 101.52"
-  fill="#1e93bd"
->
-  <path
-    className="cls-1"
-    d="M4,38.79,6,41H6v2.47l2.64,3v7.71h0L19.9,72.12v.08l0,0,0,0v-.08l11.28-17.9h0V46.51l2.64-3V41h0l2-2.23v-5H4Zm22.59,7.76h1.93v7.67H26.59Zm-4.19,0h2v7.67h-2Zm-3.45,0H20.9v7.67H19Zm-3.44,0h2v7.67h-2Zm-4.17,0h1.93v7.67H11.34Z"
-  />
-  <!-- <rect className="cls-1" x="4" y="17.55" width="31.86" height="6.36" /> -->
-  <polygon
-    className="cls-1"
-    points="35.86 0.96 33.91 0.96 30.12 0.96 20.3 0.96 19.9 0.96 14.21 0.96 9.74 0.96 5.95 0.96 4 0.96 4 12.66 35.86 12.66 35.86 0.96"
-  />
-  <polygon
-    className="cls-1"
-    points="19.8 91.62 19.8 91.61 9.89 96.56 19.8 101.52 39.61 91.62 39.61 81.72 19.8 91.62"
-  />
-  <polygon
-    className="cls-1"
-    points="13.88 88.66 0 81.72 0 91.62 3.98 93.61 13.88 88.66"
-  />
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 101.5 101.5" style="enable-background:new 0 0 101.5 101.5;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#1E8DB7;}
+</style>
+<g>
+	<path class="st0" d="M48.9,50.4c2,2.2,3,5,3,8.4c0,3.3-1,6-3,8.2c-0.5,0.5-1,1-1.6,1.3l3.4,3.4l4.7-4.7L55,66.6l7.4-7.4v-46l-3.5,0
+		l0-4.2l3.5,0l0-8.5H51.9v17h-3.5c0,0,0,28.2,0,32.4C48.5,50.1,48.7,50.2,48.9,50.4z"/>
+	<g>
+		<g>
+			<polygon class="st0" points="44.8,88.2 31,81.2 31,91.1 34.9,93.1 			"/>
+			<polygon class="st0" points="50.8,91.1 50.8,91.1 40.8,96.1 50.8,101 70.6,91.1 70.6,81.2 			"/>
+		</g>
+	</g>
+</g>
 </svg>
