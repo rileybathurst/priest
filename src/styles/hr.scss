@@ -25,6 +25,8 @@ hr {
 
   .cross__hr {
     width: 100%; // I dont know why but I have to double this
+    border: none;
+    border-bottom: 2px solid var(--secondary-color);
   }
 
   .cross__divider {

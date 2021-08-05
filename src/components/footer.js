@@ -2,7 +2,6 @@ import * as React from "react";
 import { Link } from "gatsby";
 
 import Logo from "./logo";
-import FooterNav from "./footer-nav";
 import IndustryNav from "./industry-nav";
 import Cross from "./cross";
 import ServicesNav from "./services-nav";

@@ -11,7 +11,7 @@ import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
 import Seo from "../components/seo";
 
-const IndustryView = ({ industry }) => {
+const IndustryView = ({ industry, other }) => {
   return (
     <div id="IndustryView">
       <Seo
@@ -76,6 +76,22 @@ const IndustryView = ({ industry }) => {
           </section>
         ))}
       </article>
+
+      <Cross />
+
+      <h4 className="page-width"><Link to="/services" className="backed">Other Industries</Link></h4>
+      <ul className="row">
+        {other.edges.map((other) => (
+          <li key={other?.node?.id}>
+            <Link to={`/services/${other.node.slug}`} className="backed">
+            {/* in theory I could only show the right one  */}
+            {other?.node?.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+
       <Footer />
     </div>
   );

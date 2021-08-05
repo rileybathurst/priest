@@ -25,6 +25,7 @@ button {
   border: 2px solid $secondary-color;
   color: $secondary-color;
   transition: 0.5s ease;
+  clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
 
   @media (prefers-color-scheme: dark) {
     color: var(--primary-color);
@@ -33,7 +34,14 @@ button {
 }
 
 .button.hollow:hover {
-  background: $secondary-color;
-  color: $light-gray;
-  border-color: $secondary-color;
+  background: var(--medium-gray);
+  color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+  border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+}
+
+.tasks__more {
+  background: var(--medium-gray);
+  // border: 2px solid var(--secondary-color);
+  clip-path: polygon(0.5rem 0, 100% 0, calc(100% - 0.5rem) 100%, 0 100%);
+  padding: 0.25rem 1.5rem;
 }

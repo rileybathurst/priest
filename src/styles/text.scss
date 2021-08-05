@@ -5,3 +5,8 @@
 .centered {
   text-align: center;
 }
+
+.page-width {
+  min-width: (calc(100% - 2rem), var(--page-width));
+  margin-inline: auto;
+}

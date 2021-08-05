@@ -35,13 +35,27 @@ export const query = graphql`
         }
       }
     }
+
+    allStrapiIndustries(filter: {title: {nin: [$slug] }}) {
+      edges {
+        node {
+          title
+          id
+          slug
+        }
+      }
+    }
   }
 `
 
 const IndustryPage = ({ data }) => {
   const industry = data.strapiIndustries;
+  const other = data.allStrapiIndustries;
   return (
-    <IndustryView industry={industry} />
+    <IndustryView
+      industry={industry}
+      other={other}
+    />
   );
 };
 

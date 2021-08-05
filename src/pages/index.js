@@ -53,6 +53,30 @@ function TeamPhoto2() {
   );
 }
 
+/* function SummitAbout() {
+  const sat = useRef(null);
+  var sat = document.querySelector("#summit__about--text").offsetHeight;
+  // console.log(sat);
+  var sas = document.querySelector("#summit__about--shape");
+  sas.style.height = sat + 'px';
+  return (
+  <div className="summit__about">
+    <div id="summit__about--shape"> stay gold </div>
+    <section id="summit__about--text">
+      <h2>Adding value through craftsmanship.</h2>
+      <p>
+        Our skilled team of tradesman, draftsman and general engineers
+        offer a range of plate processing and metal fabrication services
+        to meet your metalwork needs. With the latest in CNC machinery,
+        CAD software and one of the largest selections of steel folding
+        press brakes in New Zealand we can be sure to assist you at every
+        stage; from design, prototyping though to production.
+      </p>
+    </section>
+  </div>
+  );
+} */
+
 // this might be easier outside of a map
 // const image = getImage(data.localFile)
 // file?.childImageSharp?.gatsbyImageData
@@ -77,16 +101,20 @@ const IndexPage = ({ data }) => {
             </p>
           </div>
 
+          {/* <SummitAbout /> */}
           <div className="summit__about">
-            <h2>Adding value through craftsmanship.</h2>
-            <p>
-              Our skilled team of tradesman, draftsman and general engineers
-              offer a range of plate processing and metal fabrication services
-              to meet your metalwork needs. With the latest in CNC machinery,
-              CAD software and one of the largest selections of steel folding
-              press brakes in New Zealand we can be sure to assist you at every
-              stage; from design, prototyping though to production.
-            </p>
+            <div id="summit__about--shape">{/* stay gold */}</div>
+            <section id="summit__about--text">
+              <h2>Adding value through craftsmanship.</h2>
+              <p>
+                Our skilled team of tradesman, draftsman and general engineers
+                offer a range of plate processing and metal fabrication services
+                to meet your metalwork needs. With the latest in CNC machinery,
+                CAD software and one of the largest selections of steel folding
+                press brakes in New Zealand we can be sure to assist you at every
+                stage; from design, prototyping though to production.
+              </p>
+            </section>
           </div>
 
           <div className="summit__video">
@@ -159,14 +187,17 @@ const IndexPage = ({ data }) => {
 
               <div className="tasks__info">
                 <Byline byline={document.node.byline} />
-                <p>{document.node.Content}</p>
+                <div className="clipshaper">
+                  <div className="clipper">{/* stay gold*/}</div>
+                  <p>{document.node.Content}</p>
+                </div>
                 <Link
                   to={`/services/${document.node.slug}`}
                   className="tasks__more"
                 >
-                  <span className="button hollow">
-                    More about {document.node.title}
-                  </span>
+                  {/* <span className="button hollow"> */}
+                  More about {document.node.title}
+                  {/* </span> */}
                 </Link>
               </div>
             </section>

@@ -22,7 +22,7 @@
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);
   margin-block-end: 3rem;
   background: var(--light-gray);
-
+  
   @media (prefers-color-scheme: dark) {
     background: var(--blackish);
   }
@@ -60,16 +60,21 @@
 \*------------------------------------*/
 
 #map {
-  margin-block-end: 3rem;
   padding: var(--global-padding);
-
+  
   > iframe {
+    margin-block-end: 3rem;
     margin-inline: var(--global-margin);
     width: 100%;
     max-width: var(--page-width);
     margin-inline: auto;
     display: block;
+    background: lightslategray;
   }
+}
+
+.map__back {
+  background: var(--light-gray);
 }
 
 /*------------------------------------*\
@@ -182,3 +187,4 @@
     max-width: 15rem;
   }
 }
+

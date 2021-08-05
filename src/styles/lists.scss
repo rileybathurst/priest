@@ -91,8 +91,7 @@ nav {
         padding-block: 0.5rem;
 
         > svg {
-          max-width: 3rem; // guess and check
-          max-height: 3rem; // guess and check
+          max-height: 2rem; // guess and check
           fill: currentColor;
         } // svg
       } // a
@@ -100,6 +99,7 @@ nav {
       > a:hover {
         background: var(--secondary-color);
         color: var(--white);
+        clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
       }
     } // li
   } // ul
@@ -276,4 +276,23 @@ nav {
   padding: 0.5rem 1rem;
   transition: 0.5s ease;
   border-radius: var(--backed-radius);
+}
+
+/*------------------------------------*/
+//  #SIMPLE
+/*------------------------------------*/
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  width: calc(100% - 2rem);
+  max-width: var(--page-width);
+  margin-inline: auto;
+  padding-inline-start: 0;
+  line-height: 3rem;
+  gap: 1rem;
+
+  > * {
+    padding-inline-start: 0;
+  }
 }

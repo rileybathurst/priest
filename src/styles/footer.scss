@@ -81,10 +81,21 @@ footer .backed__svg svg:hover {
     padding: 0.5rem 1rem;
     transition: 0.5s ease;
     border-radius: var(--backed-radius);
+    background: hsl(
+      var(--secondary-color-b),
+      calc(var(--secondary-color-l) - 5%)
+    );
 
     p {
       margin-block-end: 0;
     }
+  }
+
+  > .footer__contact--method a:hover {
+    background: hsl(
+      var(--secondary-color-b),
+      calc(var(--secondary-color-l) - 20%)
+    );
   }
 
   svg {

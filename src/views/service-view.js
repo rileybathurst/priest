@@ -11,7 +11,7 @@ import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
 import Seo from "../components/seo";
 
-const ServiceView = ({ service }) => {
+const ServiceView = ({ service, other }) => {
   // START OF COVER
   function Cover(props) {
     var medium = props.medium; // query the cover if its has been set to video
@@ -196,6 +196,21 @@ const ServiceView = ({ service }) => {
         {/* I have had some problems with this */}
         {/* implemented the fix in here https://github.com/strapi/gatsby-source-strapi/issues/141 */}
       </article>
+
+      <Cross />
+
+      <h4 className="page-width"><Link to="/services" className="backed">Other Services</Link></h4>
+      <ul className="row">
+        {other.edges.map((other) => (
+          <li key={other?.node?.id}>
+            <Link to={`/services/${other.node.slug}`} className="backed">
+              {/* in theory I could only show the right one  */}
+              {other?.node?.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
       <Footer />
     </>
   );

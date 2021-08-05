@@ -438,6 +438,8 @@ footer {
   padding: $global-padding * 2 $global-padding 0 $global-padding;
   // no bottom due to the contact boxes changing alignment is easier to have the bottom margin there
   background: $light-gray;
+  z-index: -1;
+  position: relative;
   
   @media (prefers-color-scheme: dark) {
     background: var(--blackish);
@@ -663,6 +665,13 @@ footer {
       font-size: 2.074em;
     }
   }
+}
+
+#summit__about--shape {
+  width: 2rem;
+  shape-outside: polygon(0 0, 100% 0, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  float: left;
 }
 
 // forms
