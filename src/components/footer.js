@@ -5,6 +5,7 @@ import Logo from "./logo";
 import FooterNav from "./footer-nav";
 import IndustryNav from "./industry-nav";
 import Cross from "./cross";
+import ServicesNav from "./services-nav";
 
 function ThisYear() {
   let today = new Date().getFullYear();
@@ -115,7 +116,11 @@ const Footer = () => (
       </Link>
     </h3>
 
-    <FooterNav />
+    <nav>
+      <ul className="footer__nav footer__backed">
+        <ServicesNav />
+      </ul>
+    </nav>
 
     <Cross />
 
@@ -125,7 +130,11 @@ const Footer = () => (
       </Link>
     </h3>
 
-    <IndustryNav />
+    <nav>
+      <ul className="footer__nav footer__backed">
+        <IndustryNav />
+      </ul>
+    </nav>
 
     <Cross />
 

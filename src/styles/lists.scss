@@ -22,7 +22,7 @@ nav {
 }
 
 /*------------------------------------*/
-//  #check this
+//  #MENU
 /*------------------------------------*/
 
 .menu {
@@ -229,7 +229,7 @@ nav {
   }
 
   svg {
-    max-height: 1.2rem;
+    max-height: 1.65rem; // line height of the text
   }
 } // .menu-primary-container
 
@@ -265,4 +265,15 @@ nav {
 .menu__hover--multiline {
   transition: transform 2s ease;
   clip-path: polygon(2em 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+}
+
+
+/*------------------------------------*/
+//  #FOOTER NAV
+/*------------------------------------*/
+
+.footer__nav a {
+  padding: 0.5rem 1rem;
+  transition: 0.5s ease;
+  border-radius: var(--backed-radius);
 }
