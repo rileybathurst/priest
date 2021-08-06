@@ -476,26 +476,13 @@
     margin-top: $global-margin;
   }
 
-/*   .clipshaper {
-    display: grid;
-    
-    > * {
-      grid-row: 1;
-      grid-column: 1;
-    }
-  } */
-
   .clipper {
-    width: 2rem;
-    height: 10rem; // I dont like this Id prefer to do it with a grid
+    width: 1rem;
+    height: 10rem; // this is manual as oppposed to querying each and every time
     shape-outside: polygon(0 0, 100% 0, 0 100%);
     clip-path: polygon(0 0, 100% 0, 0 100%);
     float: left;
   }
-
-/*   a {
-    display: block;
-  } */
 }
 
 .tasks__background--upper {

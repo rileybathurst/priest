@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from 'react';
 import { Link, graphql } from "gatsby";
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 
@@ -53,16 +53,32 @@ function TeamPhoto2() {
   );
 }
 
-/* function SummitAbout() {
-  const sat = useRef(null);
-  var sat = document.querySelector("#summit__about--text").offsetHeight;
-  // console.log(sat);
-  var sas = document.querySelector("#summit__about--shape");
-  sas.style.height = sat + 'px';
+// queries the height of the text block to make the shapeoutside cut
+function SummitAbout() {
+
+  // useEffect doesn't like running this in the loop
+  function vanilla() {
+    const set = document.querySelector("#summit__about--text");
+    console.log(set);
+    setJump(set.offsetHeight);
+  }
+
+  const [jump, setJump] = useState(0);
+
+  // run after render
+  useEffect(() => {
+    vanilla();
+  });
+
+  const high = {
+    // background: "palegreen", // test
+    height: {jump}.jump
+  }
+
   return (
   <div className="summit__about">
-    <div id="summit__about--shape"> stay gold </div>
-    <section id="summit__about--text">
+    <div id="summit__about--shape" style={high}>{/* stay gold */}</div>
+    <section id="summit__about--text" >
       <h2>Adding value through craftsmanship.</h2>
       <p>
         Our skilled team of tradesman, draftsman and general engineers
@@ -75,13 +91,8 @@ function TeamPhoto2() {
     </section>
   </div>
   );
-} */
+}
 
-// this might be easier outside of a map
-// const image = getImage(data.localFile)
-// file?.childImageSharp?.gatsbyImageData
-
-// markup
 const IndexPage = ({ data }) => {
   return (
     <Layout>
@@ -101,21 +112,7 @@ const IndexPage = ({ data }) => {
             </p>
           </div>
 
-          {/* <SummitAbout /> */}
-          <div className="summit__about">
-            <div id="summit__about--shape">{/* stay gold */}</div>
-            <section id="summit__about--text">
-              <h2>Adding value through craftsmanship.</h2>
-              <p>
-                Our skilled team of tradesman, draftsman and general engineers
-                offer a range of plate processing and metal fabrication services
-                to meet your metalwork needs. With the latest in CNC machinery,
-                CAD software and one of the largest selections of steel folding
-                press brakes in New Zealand we can be sure to assist you at every
-                stage; from design, prototyping though to production.
-              </p>
-            </section>
-          </div>
+          <SummitAbout />
 
           <div className="summit__video">
             <iframe
