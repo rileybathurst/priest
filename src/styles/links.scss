@@ -26,6 +26,7 @@ a:where(:hover, :focus) {
 
 #menu__big {
   a {
+    color: var(--white);
     display: flex;
     text-decoration: none;
     border-bottom: 5px solid transparent;

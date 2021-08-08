@@ -267,6 +267,11 @@ nav {
   clip-path: polygon(2em 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
 }
 
+// doesnt work cos it cant go upwards
+// js this?
+/* .menu__hover:hover ~ .menu__over {
+  background: papayawhip;
+} */
 
 /*------------------------------------*/
 //  #FOOTER NAV

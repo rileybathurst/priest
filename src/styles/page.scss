@@ -88,6 +88,12 @@
     background: var(--black);
   }
 
+  h3 {
+    max-width: 75rem; // should this be on the section
+    margin: 0 auto;
+    padding: $global-padding;
+  }
+
   svg {
     fill: var(--secondary-color);
   }
@@ -142,6 +148,94 @@
   } // blockquote
 } // #testimonials
 
+.quoted {
+  margin: 0;
+  padding: var(--global-padding);
+
+  > p::before {
+
+    content: '"'; // left quote
+    font-size: 2.488rem;
+    line-height: 1rem;
+    font-weight: bold;
+    font-family: $major-font-family;
+    margin-right: calc(var(--global-margin) / 2);
+  }
+
+  > p {
+    max-width: var(--general-measure);
+    margin-inline: auto;
+  }
+
+  > footer {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
+#quotes {
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--blackish);
+  }
+
+  > blockquote {
+    // make double sure to add the bracket as gatsby image does strange things here
+    grid-column: 1;
+    grid-row: 1;
+    animation-name: FadeInOut;
+    animation-duration: 16s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+    width: calc(100% - 2rem);
+    background: $medium-gray;
+    @media (prefers-color-scheme: dark) {
+      background: var(--blackish);
+    }
+  }
+}
+
+/* Just do the link I dont understand the math */
+@keyframes FadeInOut {
+  0% {
+    // always
+    opacity: 1;
+  }
+  18.75% {
+    // 3/16*100
+    opacity: 1;
+  }
+  25% {
+    // (3+1)/16*100 = 1/4*100
+    opacity: 0;
+  }
+  93.75% {
+    // 100-(1/16*100)
+    opacity: 0;
+  }
+  100% {
+    // always
+    opacity: 1;
+  }
+}
+
+#quotes > blockquote:nth-of-type(1) {
+  animation-delay: 12s;
+}
+#quotes > blockquote:nth-of-type(2) {
+  animation-delay: 8s;
+}
+#quotes > blockquote:nth-of-type(3) {
+  animation-delay: 4s;
+}
+#quotes > blockquote:nth-of-type(4) {
+  animation-delay: 0s;
+}
+
 /*------------------------------------*/
 //  #single
 /*------------------------------------*/
@@ -188,3 +282,13 @@
   }
 }
 
+/*------------------------------------*/
+//  #SUMMIT
+/*------------------------------------*/
+
+#summit__about--shape {
+  width: 2rem;
+  shape-outside: polygon(0 0, 100% 0, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  float: left;
+}

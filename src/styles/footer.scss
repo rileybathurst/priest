@@ -46,6 +46,20 @@ footer {
   }
 }
 
+
+/* 
+I think this is now covered
+footer {
+  hr,
+  .cross {
+    border-color: $white !important;
+  }
+
+  .cross {
+    background: $secondary-color !important;
+  }
+} */
+
 // needs specificity of class
 :is(.footer__backed, .footer__services, .footer__industries, .footer__copyright, .footer__contact--method)
   a:where(:hover, :focus) {

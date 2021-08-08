@@ -79,7 +79,7 @@ const Footer = () => (
           </p>
         </div>
       </div>
-      {/* .footer-icons  */}
+      {/* .footer__contact--method  */}
 
       <div className="footer__contact--method">
         <a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">

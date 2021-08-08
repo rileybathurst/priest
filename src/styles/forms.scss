@@ -1,0 +1,147 @@
+/*------------------------------------*/
+//  #FORMS
+/*------------------------------------*/
+
+// this isnt linked on purpose as we are not using the quote page
+
+// working from this https://codepen.io/chicagoing/pen/XMXVvE
+// and then breaking it in all sorts of ways to be a grid
+
+// 🚨 these are for the quote page which isn't ready yet they should be split out till then
+.order-form-section {
+  // position: relative; I think this is needed as its got to fill the whole space but I might just do that with grid
+  background: #e3f6ff; // 📣
+  display: grid;
+  height: 4rem; // this maybe shouldnt be hard coded but its kinda needed for now
+  margin-bottom: $global-margin * 2;
+  border: 2px solid lighten($primary-color, 20%);
+  border-radius: 4px;
+}
+
+.order-form-section.field--not-empty {
+  border-color: $primary-color;
+}
+
+.order-form-section label {
+  // base state is empty
+
+  grid-row: 1;
+  grid-column: 1;
+
+  // box-sizing: border-box; // need to research this
+  // display: block;
+  padding: 0.5em 1em;
+  // pointer-events: none; // what is this?
+  // position: absolute; // this is causing first problems
+
+  // top: 0;
+  transition: all 0.2s ease-out;
+  // user-select: none;
+  // white-space: nowrap; // this is useful but I dont understand it yet
+  width: calc(100% - 2rem);
+  // z-index: 1;
+
+  // opacity: 0; // start hidden? should we start the other way and then hide it?
+
+  align-self: center;
+}
+
+.order-form-section.field--not-empty label {
+  // no spaces so it only works with both selectors it's kinda overkill as thats the only place I use the not-empty class
+  align-self: start;
+}
+
+.order-form-section input[type="text"],
+.order-form-section input[type="email"],
+.order-form-section input[type="number"] {
+  grid-row: 1;
+  grid-column: 1;
+  z-index: 100;
+  background: none; // remove the default styling as Im taking it up a level
+  border: none;
+  padding: 0.5em 1em;
+  font-size: 1rem; // browser reset
+  line-height: 1rem; // browser reset
+  transition: all 0.2s ease-out;
+  width: calc(100% - 2rem);
+}
+
+.order-form-section input[type="text"],
+.order-form-section input[type="email"],
+.order-form-section input[type="number"] {
+  align-self: stretch;
+}
+
+.order-form-section.field--not-empty input[type="text"],
+.order-form-section.field--not-empty input[type="email"],
+.order-form-section.field--not-empty input[type="number"] {
+  align-self: end;
+}
+
+.order-form-select {
+  margin-bottom: $global-margin * 2;
+}
+
+.order-form-select label {
+  padding: $global-padding;
+  padding-top: 0; // sort of hacky
+  display: inline-block;
+}
+
+// https://www.filamentgroup.com/lab/select-css.html
+.select-css {
+  display: block;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: $global-padding;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 2px solid lighten($primary-color, 20%); // 📣
+  border-radius: 4px;
+  -moz-appearance: none; // im pretty sure i can remove this
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e3f6ff; // 📣
+}
+.select-css::-ms-expand {
+  display: none;
+}
+.select-css:hover {
+  border-color: #888; // 📣
+}
+.select-css:focus {
+  border-color: #aaa; // 📣
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7); // 📣
+  box-shadow: 0 0 0 3px -moz-mac-focusring; // 📣
+  color: #222; // 📣
+  outline: none;
+}
+.select-css option {
+  font-weight: normal;
+}
+
+.order-form-slider {
+  margin-bottom: $global-margin * 2;
+}
+
+.order-form-slider label {
+  padding: $global-padding;
+  display: inline-block;
+}
+
+.order-form-slider input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+.order-form-submit input[type="submit"] {
+  margin-bottom: $global-margin * 3;
+  border-radius: 2px; // should this be global
+  -webkit-appearance: none; // reset browser defaults
+  @extend button;
+}

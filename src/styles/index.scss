@@ -41,168 +41,46 @@
     #UTILITIES
 \*------------------------------------*/
 @import "molecules";
-
-
-
-
+@import "visibillity";
 
 /*------------------------------------*\
   #Reset
 \*------------------------------------*/
-body {
-  margin: 0; // browser reset // 📣 is this needed? whats the default
-}
 
 figure {
-  margin: 0; // 📣 browser reset whats the default
+  margin: 0; // browser reset
 }
- 
-picture,
-img,
-h4 {
-  display: block; // 📣 are these inline?
-}
-/* Finish Reset */
 
-main {
-  max-width: 100vw; // 📣 what is this overwriting?
+img {
+  display: block; // browser reset from inline-block
 }
+
+/*------------------------------------*/
+//  #MAIN
+/*------------------------------------*/
+
+/* main {
+  max-width: 100vw; // I think this always has nested things controlling?
+} */
 
 /*------------------------------------*\
   #Backgrounds
 \*------------------------------------*/
 
-.bg-primary {
-  background: $primary-color;
-  color: $white;
-
-  a {
-    color: $white;
-    text-decoration: underline;
-  }
-  a:hover {
-    color: $black;
-  }
-  cite {
-    color: $medium-gray; // 📣 check the contrast on this
-  }
-}
-
-.bg-secondary {
-  background: $secondary-color;
-  color: $white;
-
-  a {
-    color: $white; // 📣 this is the same as the text color so I should fix that at some point
-    text-decoration: underline;
-  }
-  a:hover {
-    color: $light-gray;
-    background: darken($secondary-color, 10%); // 📣 set this as a variable
-    transition: 0.5s ease;
-  }
-}
-
-.bg-light-gray {
-  background: $light-gray;
-  // 📣 check the contast with regular text
-}
-
-.bg-medium-gray {
-  background: $medium-gray;
-  // 📣 check the contast with regular text
-}
-
-.bg-dark-gray {
-  background: $dark-gray;
-  // 📣 check the contast with regular text
-
-  a {
-    color: $white;
-    transition: 0.5s ease;
-    display: block;
-  }
-
-  a:hover {
-    // I think this was just for the hero box
-    // which Im moving up a few levels to be able to do a few things at once
-    color: $black;
-  }
-}
-
-.bg-black {
-  background: $black;
-  color: $white;
-}
-
-header {
-  @extend .bg-secondary; // mobile menu background
-}
-
-// 📣 these needs to become variables
 .shadow {
-  // box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  // current, Im not sure why I was doing 2 shadows seems overly complicated
   /* offset-x | offset-y | blur-radius | spread-radius | color */
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: var(--shadow);
 }
 
 .shadow-darker {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.32), 0 2px 10px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: var(--shadow__shape) rgba(var(--shadow__rgb), 0.32), 0 2px 10px 0 rgba(var(--shadow__rgb), 0.24);
 }
 
+/* 
+I think this is now out of use but check it
 .attachment-post-thumbnail {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
-
-/*  2. Spacing
-	Used around the page for readability styling
--------------------------------------------------------------- */
-
-// 📣 I dont like this but atleast it's used so work on it
-.gp2-tb {
-  padding-top: $global-margin * 2;
-  padding-bottom: $global-margin * 2;
-}
-
-// 📣 used but could be done better
-.no-margin {
-  margin: 0;
-}
-
-// 📣 can I do something with *?
-[type="text"],
-[type="password"],
-[type="date"],
-[type="datetime"],
-[type="datetime-local"],
-[type="month"],
-[type="week"],
-[type="email"],
-[type="number"],
-[type="search"],
-[type="tel"],
-[type="time"],
-[type="url"],
-[type="color"],
-textarea {
-  background: $light-gray;
-}
-
-/*  5 - Fixes - foundation 6 overwrite is written here so foundation can be updated
--------------------------------------------------------------- */
-
-/* 📣 this can be interesting but I need to define if I'm using it
-commented out as of March 30 2021
-p {
-	text-align: left;
-
-	@media (min-width:$breakpoint__large) {
-	text-align: justify;
-	}
+  box-shadow: var(--shadow), 0 2px 10px 0 rgba(var(----shadow__rgb), 0.12);
 } */
-
-$header-menu-size: 60rem;
 
 .menu-primary-container {
   display: none; // this is breaking the footer
@@ -213,225 +91,39 @@ $header-menu-size: 60rem;
   }
 }
 
-
 .menu-primary-container > ul > li > a {
-  border-bottom: 5px solid $secondary-color; // invisibile until hovered
+  border-bottom: 5px solid var(--secondary-color); // invisibile until hovered
   padding-inline: 1.5rem;
 }
 
 .menu-primary-container > ul > li:last-child > a {
   border-color: hsl(197, 100%, 16.5%);
+  border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) -10%));
 }
 
 .menu-primary-container > ul > li > a:hover {
-  color: darken($white, 10%);
+  color: var(--light-gray);
   background: darken($secondary-color, 10%);
-  border-bottom: 5px solid darken($secondary-color, 20%);
-  // playing around with an additional design style
-  // this needs documentation I'm using a bunch of blues
-  clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
-
+  border-bottom: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) -10%));
+  clip-path: var(--trapezoid-1);
 }
 
 // needs specificity
 #menu-primary-container__showcase > a {
-  background: hsl(197, 100%, 16.5%);
-  border-bottom: 5px solid hsl(197, 100%, 16.5%);
-  clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) -10%));
+  border-bottom: 5px solid hsl(var(--secondary-color-b), calc(var(--secondary-color-l) -10%));
+  clip-path: var(--trapezoid-1);
   padding-inline: 1.5rem;
 }
 
 :is(#menu-primary-container__showcase) a:hover, a:focus {
-  background: hsl(197, 100%, 10.5%);
-  border-bottom: 5px solid hsl(197, 100%, 6.5%);
-}
-
-
-// 📣 what is this?
-abbr[title] {
-  border-bottom: none;
-}
-abbr {
-  font-size: 100%;
-  text-decoration: underline;
-}
-
-/*------------------------------------*\
-  #Images
-\*------------------------------------*/
-
-iframe {
-  max-width: 100%;
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) -15%));
+  border-bottom: 5px solid hsl(var(--secondary-color-b), calc(var(--secondary-color-l) -20%));
 }
 
 /*------------------------------------*\
   #Layout
 \*------------------------------------*/
-
-.footer-contact-areas {
-  max-width: var(--page-width);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-  padding: $global-padding;
-}
-
-footer {
-  align-self: end;
-  margin-bottom: 0; // browser reset
-}
-
-.hero-logo {
-  display: grid;
-  place-items: center;
-
-  // 📣 these next parts are design not layout
-  z-index: 3; // sliding logo
-  position: relative; // needed for z-index
-
-  svg {
-    fill: $white;
-    width: 100%; // needed for chrome
-  }
-
-  a {
-    display: inline-block;
-    // max-width: 33%;
-    max-width: 50%;
-    margin: $global-margin auto;
-    padding: $global-padding; // start doing more with a type scale and vertical rythm
-    border-radius: 5px;
-
-    @media (min-width: $breakpoint__medium) {
-      max-width: $general-measure;
-      margin-top: $global-margin * 2;
-      margin-bottom: $global-margin * 2;
-    } // @media
-  } // a
-} // .hero-logo
-
-.hero-logo a:hover {
-  background: darken($primary-color, 10%);
-  transition: 0.5s ease;
-
-  svg {
-    fill: darken($white, 10%); // 📣 document this
-  }
-}
-
-// 📣 this naming is off these are elements not modifiers
-.header-contact--icon {
-  grid-column: 1;
-  align-self: stretch;
-  background: $black; // 📣 this is design not layout
-
-  svg {
-    margin: $global-margin;
-  }
-}
-
-.header-contact--text {
-  grid-column: 2;
-  width: 100%;
-
-  p {
-    height: 100%; // fill the box
-
-    /*     b { 🚨 // this isnt a tag
-      display: inline-block;
-      height: 100%;
-      width: 100%;
- */
-    a {
-      // height: 100%;
-      width: calc(100% - 2rem);
-      height: calc(100% - 2rem);
-      display: flex;
-      align-items: center;
-      // color: darken($white, 10%); // overwrite the bg-dark-grey which is kinda messy anyway
-      color: $white; // overwrite the bg-dark-grey which is kinda messy anyway
-      padding: $global-padding;
-    } // a
-  } // p
-} // .header-contact--text
-
-// 📣 this naming is off
-.header-contact--text__underline {
-  text-decoration: underline;
-  text-decoration-thickness: 0.125em;
-  // not working on chrome yet https://caniuse.com/#search=text-decoration-thickness
-}
-
-.footer-icons {
-  align-items: center;
-  // I think this was the whole point but I can probably do it easier with a flex
-  display: flex;
-  flex-direction: column;
-
-  > * {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-    padding: $global-padding;
-    border-radius: 5px;
-  }
-}
-
-// im mixing the display and styling
-// this is on the div i might be able to avoid that with some blocks
-.footer-icons > a:hover {
-  background: $white;
-  background: darken($secondary-color, 15%);
-  transition: ease 0.5s; // having this on the hover is needed not to load and then transform
-
-  // 📣 but that probably doesnt hover back
-
-  color: $light-gray; // 📣 this isnt a link color
-
-  svg {
-    fill: $light-gray;
-  }
-}
-
-.footer-icon-icon {
-  // 🚨 terrible names
-  align-self: center;
-
-  @media (min-width: $breakpoint__large) {
-    justify-self: end; // why?
-  }
-}
-
-.footer-icon-icon svg {
-  fill: $white; // moved away from primary to pass contrast guidelines
-}
-
-.footer-icon-text {
-  grid-column: 1;
-  grid-row: 2;
-  display: block;
-
-  @media (min-width: $breakpoint__large) {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  > p {
-    display: block;
-    height: 100%;
-
-    > a {
-      display: flex;
-      height: 100%;
-      align-items: center;
-
-      > span {
-        padding: $global-padding;
-      } // > span
-    } // a
-  } // p
-} // .footer-icon-text
 
 #header-contact-background {
   margin-bottom: $global-margin * 2;
@@ -459,7 +151,7 @@ footer {
 
   h3 {
     margin-top: 0; // reset from type scale as we already have a break but sort this our
-    align-self: center;
+    text-align: center;
     font-size: clamp(var(--h6-fs), var(--h5-fs), var(--h4-fs));
   }
 }
@@ -472,510 +164,13 @@ footer {
   justify-content: space-around;
 }
 
-#header-contact--phone,
-#header-contact--place {
-  margin-bottom: $global-margin * 2;
-  display: flex;
-  background: $dark-gray;
-}
-
-#header-contact--phone svg,
-#header-contact--place svg {
-  fill: $white;
-}
-
-#header-contact--phone:hover,
-#header-contact--place:hover {
-  background: darken($secondary-color, 10%); // 📣 document this
-  color: darken($white, 10%); // 📣 document this
-  transition: 0.5s ease; // this should be a variable
-
-  .header-contact--icon {
-    background: darken($secondary-color, 15%); // 📣 document this
-
-    a {
-      display: inline-block;
-      color: darken($white, 10%) !important; // 📣 document this
-    } // a
-  } // .header-contact--icon
-} // #header-contact--!
-
-.service-info {
-  flex-direction: column;
-
-  @media (min-width: $breakpoint__medium) {
-    flex-direction: row;
-  }
-}
-
-// can I do more of this with an @extend
-.swiss::before {
-  @media (min-width: $breakpoint__medium) {
-    content: ""; // show up
-    width: calc(50% - 1em); // leave space for the gap
-    border: 0.5rem solid #e6e6e6; // 📣 document this
-  }
-}
-
-.swiss {
-  margin-bottom: 1rem;
-  border: 0.5rem solid #e6e6e6;
-  // width: 100%; this overcooks the width on small devices
-  display: flex; // im not quite sure how this is working but its needed
-
-  @media (min-width: $breakpoint__medium) {
-    border: none;
-  }
-}
-
-.swiss::after {
-  @media (min-width: $breakpoint__medium) {
-    content: "";
-    width: calc(50% - 1em);
-    border: 0.5rem solid #e6e6e6;
-    margin-left: $global-margin * 2;
-  }
-}
-
-// poor naming
-.grid-container {
-  padding-left: $global-padding;
-  padding-right: $global-padding;
-  max-width: 70rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// poor naming
-.service {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: $global-margin * 2;
-
-  @media (min-width: $breakpoint__medium) {
-    flex-direction: row;
-    margin: $global-margin;
-  }
-
-  // 📣 this should be a variable
-  @media (min-width: 75rem) {
-    // this is a little hacky
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 73rem; // means it never quite hits the edges
-  }
-}
-
-.service > div {
-  flex: 1;
-}
-
-// 📣 I think this is a terrible old foundation name
-.grid-x {
-  display: flex;
-}
-
-.grid-padding-x > .cell {
-  padding-left: $global-padding;
-  padding-right: $global-padding;
-}
-
-.hide-for-large {
-  @media (min-width: $breakpoint__large) {
-    display: none !important; // does this need important?
-  }
-}
-
-.show-for-large {
-  display: none;
-  @media (min-width: $breakpoint__large) {
-    display: block; // not sure if this is exactly right
-  }
-}
-
-.hide-for-full {
-  @media (min-width: $breakpoint__full) {
-    display: none !important; // does this need the !
-  }
-}
-
-.show-for-full {
-  display: none;
-  @media (min-width: $breakpoint__full) {
-    display: block; // not sure if this is exactly right
-  }
-}
-
 // 📣 bad old naming
 .wp-block-colum {
   flex-basis: calc(50% - 16px);
   flex-grow: 0;
 }
 
-.copyright {
-  float: left; // needed to have the p margin inside of this
-  width: 100%;
-  padding-top: 1rem;
-  padding-bottom: $global-padding * 2;
-
-  p {
-    padding: $global-padding;
-  }
-}
-
-.menu-small > ul {
-  display: flex;
-  flex-direction: column;
-}
-
-
-.show-for-medium {
-  display: none;
-  @media (min-width: $breakpoint__medium) {
-    display: block;
-  }
-}
-
-.page-width {
-  max-width: var(--page-width); // this is way wider than a measure
-  margin-inline: auto;
-  padding-inline: $global-padding;
-}
-
-.hero {
-  // tone down the size of the hero text but stick to the type scale
-  h1 {
-    font-size: 1.728em; // try even further down at an h3
-    line-height: 1.35em; // guess and check select some text to check its right
-
-    @media (min-width: $breakpoint__medium) {
-      font-size: 2.074em; // h2 halfway back up
-    }
-
-    @media (min-width: $breakpoint__large) {
-      font-size: 2.448em; // return to normal
-    }
-  }
-
-  h2 {
-    font-size: 1.728em;
-    line-height: 1.33em; // guess and check select some text to check its right
-
-    @media (min-width: $breakpoint__medium) {
-      font-size: 2.074em;
-    }
-  }
-}
-
-#summit__about--shape {
-  width: 2rem;
-  shape-outside: polygon(0 0, 100% 0, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  float: left;
-}
-
-// forms
-// working from this https://codepen.io/chicagoing/pen/XMXVvE
-// and then breaking it in all sorts of ways to be a grid
-
-// 🚨 these are for the quote page which isn't ready yet they should be split out till then
-.order-form-section {
-  // position: relative; I think this is needed as its got to fill the whole space but I might just do that with grid
-  background: #e3f6ff; // 📣
-  display: grid;
-  height: 4rem; // this maybe shouldnt be hard coded but its kinda needed for now
-  margin-bottom: $global-margin * 2;
-  border: 2px solid lighten($primary-color, 20%);
-  border-radius: 4px;
-}
-
-.order-form-section.field--not-empty {
-  border-color: $primary-color;
-}
-
-.order-form-section label {
-  // base state is empty
-
-  grid-row: 1;
-  grid-column: 1;
-
-  // box-sizing: border-box; // need to research this
-  // display: block;
-  padding: 0.5em 1em;
-  // pointer-events: none; // what is this?
-  // position: absolute; // this is causing first problems
-
-  // top: 0;
-  transition: all 0.2s ease-out;
-  // user-select: none;
-  // white-space: nowrap; // this is useful but I dont understand it yet
-  width: calc(100% - 2rem);
-  // z-index: 1;
-
-  // opacity: 0; // start hidden? should we start the other way and then hide it?
-
-  align-self: center;
-}
-
-.order-form-section.field--not-empty label {
-  // no spaces so it only works with both selectors it's kinda overkill as thats the only place I use the not-empty class
-  align-self: start;
-}
-
-.order-form-section input[type="text"],
-.order-form-section input[type="email"],
-.order-form-section input[type="number"] {
-  grid-row: 1;
-  grid-column: 1;
-  z-index: 100;
-  background: none; // remove the default styling as Im taking it up a level
-  border: none;
-  padding: 0.5em 1em;
-  font-size: 1rem; // browser reset
-  line-height: 1rem; // browser reset
-  transition: all 0.2s ease-out;
-  width: calc(100% - 2rem);
-}
-
-.order-form-section input[type="text"],
-.order-form-section input[type="email"],
-.order-form-section input[type="number"] {
-  align-self: stretch;
-}
-
-.order-form-section.field--not-empty input[type="text"],
-.order-form-section.field--not-empty input[type="email"],
-.order-form-section.field--not-empty input[type="number"] {
-  align-self: end;
-}
-
-.order-form-select {
-  margin-bottom: $global-margin * 2;
-}
-
-.order-form-select label {
-  padding: $global-padding;
-  padding-top: 0; // sort of hacky
-  display: inline-block;
-}
-
-// https://www.filamentgroup.com/lab/select-css.html
-.select-css {
-  display: block;
-  font-size: 16px;
-  font-family: sans-serif;
-  font-weight: 700;
-  color: #444;
-  line-height: 1.3;
-  padding: $global-padding;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  border: 2px solid lighten($primary-color, 20%); // 📣
-  border-radius: 4px;
-  -moz-appearance: none; // im pretty sure i can remove this
-  -webkit-appearance: none;
-  appearance: none;
-  background: #e3f6ff; // 📣
-}
-.select-css::-ms-expand {
-  display: none;
-}
-.select-css:hover {
-  border-color: #888; // 📣
-}
-.select-css:focus {
-  border-color: #aaa; // 📣
-  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7); // 📣
-  box-shadow: 0 0 0 3px -moz-mac-focusring; // 📣
-  color: #222; // 📣
-  outline: none;
-}
-.select-css option {
-  font-weight: normal;
-}
-
-.order-form-slider {
-  margin-bottom: $global-margin * 2;
-}
-
-.order-form-slider label {
-  padding: $global-padding;
-  display: inline-block;
-}
-
-.order-form-slider input[type="range"] {
-  display: block;
-  width: 100%;
-}
-
-.order-form-submit input[type="submit"] {
-  margin-bottom: $global-margin * 3;
-  border-radius: 2px; // should this be global
-  -webkit-appearance: none; // reset browser defaults
-  @extend button;
-}
-
-#testimonials h3 {
-  max-width: 75rem; // should this be on the section
-  margin: 0 auto;
-  padding: $global-padding;
-}
-
-#star {
-  display: grid;
-  grid-template-rows: 1fr 1.55fr;
-  // guess and check to get the middle to sit on the star line
-
-  > .bg-light-gray {
-    // this isnt great as its linked to the name when it shouldnt be
-    grid-row: 1;
-    grid-column: 1;
-  }
-
-  > #star-container {
-    grid-row: 1/3;
-    grid-column: 1;
-  }
-
-  > .bg-medium-gray {
-    grid-row: 2;
-    grid-column: 1;
-  }
-}
-
-#star-container {
-  max-width: 75rem;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-
-  > svg {
-    width: 100%;
-    height: 100%; // needed for safari
-    max-width: 5rem;
-    fill: $secondary-color;
-    margin-left: $global-margin;
-    margin-right: $global-margin;
-  }
-}
-
-.quoted {
-  margin: 0;
-  padding: var(--global-padding);
-
-  > p::before {
-
-    content: '"'; // left quote
-    font-size: 2.488rem;
-    line-height: 1rem;
-    font-weight: bold;
-    font-family: $major-font-family;
-    margin-right: calc(var(--global-margin) / 2);
-  }
-
-  > p {
-    max-width: var(--general-measure);
-    margin-inline: auto;
-  }
-
-  > footer {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-}
-
-#footer-logo {
-  max-width: 20rem;
-  margin: 0 auto;
-  fill: $white;
-
-  > a {
-    display: block;
-    padding: $global-padding;
-    border-radius: 5px;
-  }
-
-  svg {
-    fill: $white;
-  }
-}
-
-// home testimonial animation
-// http://css3.bradshawenterprises.com/cfimg/
-
-/*
-n = 4
-a = 3
-b = 1
-t = 16
-ad = 4
-*/
-
-#quotes {
-  display: grid;
-  justify-items: stretch;
-  align-items: stretch;
-
-  @media (prefers-color-scheme: dark) {
-    background: var(--blackish);
-  }
-
-  > blockquote {
-    // make double sure to add the bracket as gatsby image does strange things here
-    grid-column: 1;
-    grid-row: 1;
-    animation-name: FadeInOut;
-    animation-duration: 16s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-
-    width: calc(100% - 2rem);
-    background: $medium-gray;
-    @media (prefers-color-scheme: dark) {
-      background: var(--blackish);
-    }
-  }
-}
-
-/* Just do the link I dont understand the math */
-@keyframes FadeInOut {
-  0% {
-    // always
-    opacity: 1;
-  }
-  18.75% {
-    // 3/16*100
-    opacity: 1;
-  }
-  25% {
-    // (3+1)/16*100 = 1/4*100
-    opacity: 0;
-  }
-  93.75% {
-    // 100-(1/16*100)
-    opacity: 0;
-  }
-  100% {
-    // always
-    opacity: 1;
-  }
-}
-
-#quotes > blockquote:nth-of-type(1) {
-  animation-delay: 12s;
-}
-#quotes > blockquote:nth-of-type(2) {
-  animation-delay: 8s;
-}
-#quotes > blockquote:nth-of-type(3) {
-  animation-delay: 4s;
-}
-#quotes > blockquote:nth-of-type(4) {
-  animation-delay: 0s;
-}
-
+// 📣 bad old naming
 .wp-block-media-text {
   display: grid;
 
@@ -995,22 +190,17 @@ ad = 4
 }
 
 .gallery-width {
-  max-width: 75rem;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: var(--page-width);
+  margin-inline: auto;
 }
 
 .blocks-gallery-grid {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  padding-left: 0;
-  // align-items: stretch;
+  padding-left: 0; // reset
   justify-content: space-between;
-
-  // sneaky little hack to give each item padding to use in the middle but pulled back to the sides
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
+  gap: 1rem;
 }
 
 // 📣 this is lots of really old things I dont want
@@ -1033,114 +223,6 @@ ad = 4
 .blocks-gallery-item {
   flex: 1 1 15rem;
   padding: calc(var(--global-padding) / 2);
-}
-
-.gallerygallery {
-  margin: $global-margin;
-  width: 100%;
-
-  @media (min-width: $breakpoint__medium) {
-    width: calc(50% - 2rem);
-  }
-
-  @media (min-width: $breakpoint__large) {
-    width: calc(33% - 2rem);
-  }
-
-  li {
-    // display: flex;
-    padding-bottom: $global-margin;
-    max-height: 100%;
-  }
-}
-
-.footer-top {
-  background: $primary-color;
-  height: 0.5rem;
-}
-
-#footer-nav {
-  max-width: 75rem;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 1rem;
-  padding-bottom: 3rem; // match above
-  gap: 1rem;
-  justify-content: flex-start;
-  flex-direction: column;
-
-
-  @media (min-width: $breakpoint__medium) {
-    flex-direction: row;
-  }
-
-  > li {
-    flex: 1 1;
-    list-style: none;
-    padding-left: 0; // browser reset
-    letter-spacing: normal;
-    font-family: "Open Sans", sans-serif;
-    font-size: 1.1rem; // two lines at max guess and check
-
-    @media (min-width: $breakpoint__medium) {
-      max-width: min-content;
-    }
-
-    > a {
-      border-radius: 8px;
-      padding: 0.5rem 1rem;
-      display: block;
-
-      // theres a problem with the longest being too wide on the narrowest designs
-      @media (min-width: $breakpoint__medium) {
-        white-space: nowrap;
-      }
-    }
-  }
-}
-
-.splitter {
-  display: grid;
-  // height: 4px;
-  place-items: center;
-  margin-bottom: 2rem;
-  max-width: 75rem;
-  margin-left: auto;
-  margin-right: auto;
-
-  > * {
-    grid-row: 1;
-    grid-column: 1;
-  }
-
-  hr {
-    width: calc(100% - 2rem);
-    border: none;
-    border-bottom: 2px solid $secondary-color;
-    border-radius: 2px;
-  }
-
-  .cross {
-    border-left: 2px solid $secondary-color;
-    border-right: 2px solid $secondary-color;
-    border-radius: 2px;
-    width: 0.5rem;
-    height: 1rem;
-    background: $white;
-    transform: skewX(-15deg); // guess and check
-  }
-}
-
-footer {
-  hr,
-  .cross {
-    border-color: $white !important; // overwrite the regular splitter
-  }
-
-  .cross {
-    background: $secondary-color !important; // overwrite the regular splitter
-  }
 }
 
 .summit__contact--service {
@@ -1185,36 +267,4 @@ footer {
   padding: $global-padding;
   display: flex;
   align-items: center;
-}
-
-// I'm not 100% this is the best way to do it but it works
-.summit-contact--skew {
-  transform: skewX(-8deg); // guess and check
-  background: $secondary-color;
-  background: linear-gradient(
-    180deg,
-    rgba(30, 141, 183, 1) 0%,
-    rgba(0, 96, 135, 1) 100%
-  ); // 📣
-
-  @media (min-width: $breakpoint__large) {
-    transform: skewX(-4deg); // guess and check
-  }
-}
-
-// this might need a child hover
-.summit__contact--service:hover .summit-contact--skew {
-  background: $primary-color;
-  background: linear-gradient(
-    180deg,
-    rgba(30, 141, 183, 0.75) 0%,
-    rgba(0, 96, 135, 0.75) 100%
-  );
-}
-
-.together {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }

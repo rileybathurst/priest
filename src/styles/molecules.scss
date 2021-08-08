@@ -348,7 +348,7 @@
 }
 
 /*------------------------------------*\
-  TASKS
+  TASKS // no I dont like this name 
 \*------------------------------------*/
 
 .tasks__wrapper {
@@ -366,10 +366,6 @@
 .tasks__cross:last-child {
   display: none;
 }
-
-/* .tasks__cross:last-child {
-  display: none;
-} */
 
 .tasks {
   display: grid;
@@ -559,55 +555,6 @@
       flex: 1 1 5rem;
     }
   }
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr)); // guess and check
-  gap: 1rem;
-  margin-inline: auto;
-}
-
-.card {
-  background: var(--light-gray);
-  background: linear-gradient(0deg, #e6e6e6 0%, #fefefe 100%);
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);
-
-  @media (prefers-color-scheme: dark) {
-    background: var(--blackish);
-    background: linear-gradient(0deg, var(--blackish) 0%, var(--dark-gray) 100%);
-  }
-  
-  > .gatsby-image-wrapper {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);
-    margin-block-end: 0;
-    z-index: 2;
-  }
-
-  > div {
-    
-    > h3 {
-      background: linear-gradient(0deg, #006087 0%, #1e8db7 100%);
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);
-      padding: 1rem;
-      margin-block-start: -2rem;
-      padding-block-start: 3rem;
-    }
-
-    > div {
-      padding: 1rem;
-    }
-
-    > a {
-      border: 2px solid #006087;
-      margin-inline: 1rem;
-      margin-block-end: 2rem;
-    }
-  }
-}
-
-.footer--industries {
-  list-style: none;
 }
 
 /*------------------------------------*/

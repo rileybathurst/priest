@@ -105,4 +105,21 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
 	//  #borders
 	/*------------------------------------*/
 	--backed-radius: 0.5rem;
+
+	/*------------------------------------*/
+	//  #SHADOW
+	/*------------------------------------*/
+	
+	--shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+
+	--shadow__shape: 0 2px 5px 0;
+	--shadow__color: rgba(0, 0, 0, 0.16);
+	--shadow__alpha: 0.16;
+	--shadow__rgb: 0, 0, 0;
+
+	/*------------------------------------*/
+	//  #SHAPES
+	/*------------------------------------*/
+	
+	--trapezoid-1: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%)
 }
