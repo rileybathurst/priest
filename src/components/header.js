@@ -1,4 +1,5 @@
-import * as React from "react";
+import React from "react";
+// import React, { useState } from "react";
 import { Link } from "gatsby";
 import Logo from "./logo";
 import ProfileIcon from "./profile-icon";
@@ -6,8 +7,24 @@ import SmallMenuToggle from "./small-menu";
 import ServicesNav from "./services-nav";
 import IndustryNav from "./industry-nav";
 
+/* this is what I will use to have the dropdown menus have the hover class when below
+
+function Count() {
+
+  const [count, setCount] = useState(0);
+
+  return (
+    <div onMouseOver={() => setCount(count + 1)}>
+      Services {count}
+    </div>
+  );
+} */
+
 const Header = () => (
   <>
+
+    {/* <Count /> */}
+
     <header className="hero">
       <div className="hero__logo">
         <Logo />
