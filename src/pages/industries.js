@@ -30,8 +30,8 @@ const IndustriesPage = ({ data }) => {
       <p className="breadcrumbs"><Link to="/">Home</Link> &gt; Industry Suppliers</p>
         <div className="tasks__wrapper">
         {data.allStrapiIndustries.edges.map(document => (
-          <>
-          <section key="industries" className="tasks">
+          <div key={document.node.title} >
+          <section  className="tasks">
             <h4 className="tasks__title">
               <Link to={`/industries/${document.node.slug}`}>{document.node.title}</Link>
             </h4>
@@ -64,7 +64,7 @@ const IndustriesPage = ({ data }) => {
             <hr className="cross__hr" />
             <div className="cross__divider">{/* stay gold */}</div>
           </div>
-        </>
+        </div>
 
         ))}
         </div>

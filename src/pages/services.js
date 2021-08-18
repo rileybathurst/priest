@@ -30,8 +30,8 @@ const ServicesPage = ({ data }) => {
 
       <div className="tasks__wrapper">
         {data.allStrapiService.edges.map(document => (
-          <>
-            <section key={document.node.id} className="tasks">
+          <div key={document.node.id} >
+            <section className="tasks">
               <h4 className="tasks__title">
                 <Link to={`/services/${document.node.slug}`}>
                   {document.node.title}
@@ -77,7 +77,7 @@ const ServicesPage = ({ data }) => {
               <hr className="cross__hr" />
               <div className="cross__divider">{/* stay gold */}</div>
             </div>
-          </>
+          </div>
         ))}
       </div>
       {/* tasks__wrapper */}
