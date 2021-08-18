@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, graphql } from "gatsby";
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 
@@ -55,30 +55,28 @@ function TeamPhoto2() {
 
 // queries the height of the text block to make the shapeoutside cut
 function SummitAbout() {
-
-  // useEffect doesn't like running this in the loop
-  function vanilla() {
-    const set = document.querySelector("#summit__about--text");
-    console.log(set);
-    setJump(set.offsetHeight);
-  }
-
+  // query the current box
+  const ref = useRef();
+  // set the height of the slice
+  // start at 0
   const [jump, setJump] = useState(0);
 
-  // run after render
   useEffect(() => {
-    vanilla();
-  });
-
+    // console.log(ref.current.clientHeight);
+    const height = ref.current.clientHeight;
+    setJump(height);
+    // adding the [] only re-renders on change
+  }, [jump]);
+  
   const high = {
-    // background: "palegreen", // test
-    height: {jump}.jump
+    // why does this have a second and not a pix
+    height: {jump}.jump,
   }
 
   return (
   <div className="summit__about">
     <div id="summit__about--shape" style={high}>{/* stay gold */}</div>
-    <section id="summit__about--text" >
+    <section id="summit__about--text" ref={ref} >
       <h2>Adding value through craftsmanship.</h2>
       <p>
         Our skilled team of tradesman, draftsman and general engineers
