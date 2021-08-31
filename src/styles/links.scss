@@ -40,6 +40,13 @@ a:where(:hover, :focus) {
   }
 }
 
+.cheese {
+  color: var(--light-gray);
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
+  clip-path: polygon(1rem 0,100% 0,calc(100% - 1rem) 100%,0 100%);
+  border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+}
+
 .current {
   background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 7.5%));;
 }

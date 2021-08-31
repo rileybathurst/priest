@@ -1,5 +1,4 @@
-import React from "react";
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "gatsby";
 import Logo from "./logo";
 import ProfileIcon from "./profile-icon";
@@ -7,24 +6,61 @@ import SmallMenuToggle from "./small-menu";
 import ServicesNav from "./services-nav";
 import IndustryNav from "./industry-nav";
 
-/* this is what I will use to have the dropdown menus have the hover class when below
+// is this enough to go to a new file?
+function Moused() {
 
-function Count() {
+  function cheese() {
+    setMouse("cheese");
+  }
 
-  const [count, setCount] = useState(0);
+  function cat() {
+    setMouse("cat");
+  }
+
+  const [mouse, setMouse] = useState("cat");
 
   return (
-    <div onMouseOver={() => setCount(count + 1)}>
-      Services {count}
-    </div>
+    <>
+      <Link to="/services" className={`menu__over ${mouse}`}>Services</Link> {/* state of the mouse */}
+      <ul
+        className="menu__hover menu__hover--multiline"
+        onMouseEnter={cheese}
+        onMouseLeave={cat}
+      >
+        <ServicesNav />
+      </ul>
+    </>
   );
-} */
+}
+
+function Id() {
+
+  function cheese() {
+    setMouse("cheese");
+  }
+
+  function cat() {
+    setMouse("cat");
+  }
+
+  const [mouse, setMouse] = useState("cat");
+
+  return (
+    <>
+      <Link to="/industries" className={`menu__over ${mouse}`}>Industry Suppliers</Link>
+      <ul
+        className="menu__hover"
+        onMouseEnter={cheese}
+        onMouseLeave={cat}
+      >
+        <IndustryNav />
+      </ul>
+    </>
+  );
+}
 
 const Header = () => (
   <>
-
-    {/* <Count /> */}
-
     <header className="hero">
       <div className="hero__logo">
         <Logo />
@@ -35,6 +71,7 @@ const Header = () => (
         <SmallMenuToggle />
       </div>
 
+      {/* more of this could be done in reactive ways */}
       <nav id="menu_small" className="firstload">
         <ul className="text-center">
           <li key="home">
@@ -66,16 +103,10 @@ const Header = () => (
               <Link to="/">Home</Link>
             </li>
             <li key="services">
-              <Link to="/services" className="menu__over">Services</Link>
-              <ul className="menu__hover menu__hover--multiline">
-                <ServicesNav />
-              </ul>
+              <Moused />
             </li>
             <li key="industries">
-              <Link to="/industries" className="menu__over">Industry Suppliers</Link>
-              <ul className="menu__hover">
-                <IndustryNav />
-              </ul>
+              <Id />
             </li>
             <li key="contact">
               <Link to="/contact">Contact</Link>
