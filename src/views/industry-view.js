@@ -11,6 +11,24 @@ import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
 import Seo from "../components/seo";
 
+function Current(props) {
+  const current = props.current;
+  // const lock = props.lock; // this is always service? might be a cache error
+  const slug = props.slug;
+  const page = props.page;
+  if (current === page) {
+    return null;
+  } else {
+    return (
+      <li key={slug}>{/* key={lock} className={slug} */}
+        <Link to={`/industries/${slug}`} className="backed">
+          {page}
+        </Link>
+      </li>
+    );
+  }
+}
+
 const IndustryView = ({ industry, other }) => {
   return (
     <div id="IndustryView">
@@ -65,7 +83,7 @@ const IndustryView = ({ industry, other }) => {
                   >
                     <GatsbyImage
                       image={images.localFile?.childImageSharp?.gatsbyImageData}
-                    // alt={photos.name}
+                      alt=""
                     />
                   </li>
                 ))}
@@ -82,17 +100,12 @@ const IndustryView = ({ industry, other }) => {
       <h4 className="page-width"><Link to="/services" className="backed">Other Industries</Link></h4>
       <ul className="row">
         {other.edges.map((other) => (
-          <li key={other?.node?.id}>
-            <Link to={`/services/${other.node.slug}`} className="backed">
-            {/* in theory I could only show the right one  */}
-            {other?.node?.title}
-            </Link>
-          </li>
+          <Current current={industry.title} lock={other?.node?.id} slug={other.node.slug} page={other?.node?.title} />
         ))}
       </ul>
 
 
-      <Footer />
+      <Footer current={industry.title} />
     </div>
   );
 };

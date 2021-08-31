@@ -5,6 +5,7 @@ import Logo from "./logo";
 import IndustryNav from "./industry-nav";
 import Cross from "./cross";
 import ServicesNav from "./services-nav";
+// import { servicesVersion } from "typescript";
 
 function ThisYear() {
   let today = new Date().getFullYear();
@@ -16,7 +17,7 @@ function ThisYear() {
   );
 }
 
-const Footer = () => (
+const Footer = (props) => (
   <footer>
     {/* I could porbably loop these */}
     <div className="footer__contacts">
@@ -118,7 +119,7 @@ const Footer = () => (
 
     <nav>
       <ul className="footer__nav footer__backed">
-        <ServicesNav />
+        <ServicesNav current={props.current} />
       </ul>
     </nav>
 
@@ -132,7 +133,7 @@ const Footer = () => (
 
     <nav>
       <ul className="footer__nav footer__backed">
-        <IndustryNav />
+        <IndustryNav current={props.current} />
       </ul>
     </nav>
 

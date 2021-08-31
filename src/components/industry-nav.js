@@ -1,6 +1,27 @@
 import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
-export default function IndustryNav() {
+
+function Current(props) {
+  const current = props.current;
+  const name = props.name;
+  const slug = props.slug;
+
+  if (current === name) {
+    return (
+      <Link to={`/industries/${slug}`} className="current">
+        {name}
+      </Link>
+    );
+  } else {
+    return (
+      <Link to={`/industries/${slug}`}>
+        {name}
+      </Link>
+    );
+  }
+}
+
+export default function IndustryNav(props) {
   return (
     <StaticQuery
       query={graphql`
@@ -21,9 +42,10 @@ export default function IndustryNav() {
           <>
             {data.allStrapiIndustries.edges.map(document => (
               <li key={document.node.slug}>
-                <Link to={`/industries/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed">
+{/*                 <Link to={`/industries/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed">
                   {document.node.title}
-                </Link>
+                </Link> */}
+                <Current current={props.current} name={document.node.title} slug={document.node.slug} />
               </li>
             ))}
           </>

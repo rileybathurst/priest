@@ -39,3 +39,7 @@ a:where(:hover, :focus) {
     border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
   }
 }
+
+.current {
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 7.5%));;
+}
