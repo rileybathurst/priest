@@ -292,3 +292,42 @@
   clip-path: polygon(0 0, 100% 0, 0 100%);
   float: left;
 }
+
+/*------------------------------------*/
+//  #VIDEOS
+/*------------------------------------*/
+
+.videos {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  margin-block-end: 3rem;
+
+  > * {
+    flex: 1 1 20rem;
+  }
+
+  @media (min-width: 20rem) {
+    flex-direction: row-reverse;
+  }
+}
+
+/*------------------------------------*/
+//  #GALLERY
+/*------------------------------------*/
+
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  margin-block-end: 3rem;
+  padding-inline-start: 0; // ul reset
+
+  > * {
+    flex: 1 1 15rem; // guess and check 4 columns at max width
+  }
+
+  > *:last-child {
+    max-width: 30rem;
+  }
+}

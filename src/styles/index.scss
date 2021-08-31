@@ -165,12 +165,6 @@ I think this is now out of use but check it
 }
 
 // 📣 bad old naming
-.wp-block-colum {
-  flex-basis: calc(50% - 16px);
-  flex-grow: 0;
-}
-
-// 📣 bad old naming
 .wp-block-media-text {
   display: grid;
 
@@ -187,42 +181,6 @@ I think this is now out of use but check it
     grid-row: 1;
     grid-column: 2;
   }
-}
-
-.gallery-width {
-  max-width: var(--page-width);
-  margin-inline: auto;
-}
-
-.blocks-gallery-grid {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding-left: 0; // reset
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-// 📣 this is lots of really old things I dont want
-@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
-  .blocks-gallery-grid {
-    flex-direction: row;
-  }
-
-  .blocks-gallery-item {
-    height: auto;
-    width: 100%;
-  }
-  .blocks-gallery-item img {
-    width: 100%;
-    max-height: 75vh;
-    min-width: 0;
-  }
-}
-
-.blocks-gallery-item {
-  flex: 1 1 15rem;
-  padding: calc(var(--global-padding) / 2);
 }
 
 .summit__contact--service {

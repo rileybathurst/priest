@@ -91,37 +91,17 @@ const ServiceView = ({ service, other }) => {
       return (
         <>
           <Cross />
-
-          <div
-            style={{
-              display: "flex",
-              marginBottom: "28px",
-              justifyContent: "space-between",
-              flexDirection: "column",
-            }}
-            className="services-photogallery"
-          >
-            <h3 className="wp-block-colum">Photo Gallery</h3>
-            <div className="wp-block-colum">
-              {/* 🚨 figure seems the wrong thing to be here */}
-              <figure className="wp-block-gallery columns-2 is-cropped">
-                <ul className="blocks-gallery-grid">
-                  {service.gallery.map((photos) => (
-                    <li key={photos.hash} className="blocks-gallery-item">
-                      <GatsbyImage
-                        image={
-                          photos.localFile?.childImageSharp?.gatsbyImageData
-                        }
-                        alt={photos.name}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </figure>
-            </div>
-            {/* .wp-block-column */}
-          </div>
-          {/* {props.loop} */}
+          <h3>Photo Gallery</h3>
+          <ul className="gallery">
+            {service.gallery.map((photos) => (
+              <li key={photos.hash}>
+                <GatsbyImage
+                  image={photos.localFile?.childImageSharp?.gatsbyImageData}
+                  alt={photos.name}
+                />
+              </li>
+            ))}
+          </ul>
         </>
       );
     } // else return
@@ -171,8 +151,8 @@ const ServiceView = ({ service, other }) => {
           <section key={vids.id}>
             <Sec hasVideo={service.hasVideo} />
 
-            <div className="wp-block-media-text">
-              <figure className="wp-block-media-text__media">
+            <div className="videos">
+              <figure className="">
                 <div
                   style={{
                     padding: "56.25% 0 0 0",
@@ -200,7 +180,7 @@ const ServiceView = ({ service, other }) => {
                 </div>
               </figure>
 
-              <div className="wp-block-media-text__content">
+              <div className="">
                 <h3>{vids.title}</h3>
                 {vids.content}
               </div>
