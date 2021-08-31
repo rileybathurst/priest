@@ -9,24 +9,24 @@
   flex-direction: column;
 
   h1 {
-    font-size: 1.728em; // try even further down at an h3
-    line-height: 1.35em; // guess and check select some text to check its right
+    font-size: 1.728rem; // try even further down at an h3
+    line-height: 1.35rem; // guess and check select some text to check its right
 
     @media (min-width: $breakpoint__medium) {
-      font-size: 2.074em; // h2 halfway back up
+      font-size: 2.074rem; // h2 halfway back up
     }
 
     @media (min-width: $breakpoint__large) {
-      font-size: 2.448em; // return to normal
+      font-size: 2.448rem; // return to normal
     }
   }
 
   h2 {
-    font-size: 1.728em;
-    line-height: 1.33em; // guess and check select some text to check its right
+    font-size: 1.728rem;
+    line-height: 1.33rem; // guess and check select some text to check its right
 
     @media (min-width: $breakpoint__medium) {
-      font-size: 2.074em;
+      font-size: 2.074rem;
     }
   }
 

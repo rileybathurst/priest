@@ -225,12 +225,12 @@ const IndexPage = ({ data }) => {
                 />
               </Link>
 
-              <h4 className="industry__title">
+              <h3 className="industry__title">
                 <Link to={`/industries/${industry.node.slug}`}>
                   {industry.node.title}
                 </Link>
-              </h4>
-              <h5 className="industry__byline">{industry.node.byline}</h5>
+              </h3>
+              <h4 className="industry__byline">{industry.node.byline}</h4>
               <div className="industry__text">
                 <p>{industry.node.content}</p>
                 <Link

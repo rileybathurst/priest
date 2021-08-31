@@ -37,20 +37,13 @@ export default function IndustryNav(props) {
         }
       `}
       render={data => (
-/*         <nav>
-          <ul className="footer__industries"> */
-          <>
-            {data.allStrapiIndustries.edges.map(document => (
-              <li key={document.node.slug}>
-{/*                 <Link to={`/industries/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed">
-                  {document.node.title}
-                </Link> */}
-                <Current current={props.current} name={document.node.title} slug={document.node.slug} />
-              </li>
-            ))}
-          </>
-/*           </ul>
-        </nav> */
+        <>
+          {data.allStrapiIndustries.edges.map(document => (
+            <li key={document.node.slug}>
+              <Current current={props.current} name={document.node.title} slug={document.node.slug} />
+            </li>
+          ))}
+        </>
       )}
     />
   );

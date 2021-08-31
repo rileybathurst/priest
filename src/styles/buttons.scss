@@ -5,12 +5,12 @@ button {
   color: $white;
   font-family: $major-font-family;
   font-weight: bold;
-  font-size: 1.44em;
+  font-size: 1.44rem;
 }
 
 // why us this so different? only use once can I get rid of it?
 .button {
-  display: inline-block;
+  display: inline-block; // 📣
   padding: 0.85em 1em;
   font-family: $major-font-family;
   font-weight: bold;

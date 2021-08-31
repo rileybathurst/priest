@@ -5,7 +5,6 @@ const Logo = () => {
   return (
     <Link to="/" className="backed__svg">
       <svg
-        title="priest sheetmetal logo"
         enableBackground="new 0 0 410 102"
         viewBox="0 0 410 102"
         xmlns="http://www.w3.org/2000/svg"
