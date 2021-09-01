@@ -2,14 +2,10 @@
   #Base Typography
 \*------------------------------------*/
 
-
-
 html {
   font-family: $body-font-family;
-}
 
-// typescale.com 1.200 Minor Third
-html {
+  // typescale.com 1.200 Minor Third
   font-size: 100%;
 } // 16px
 
@@ -89,6 +85,10 @@ p {
 a:hover {
   // color: $secondary-color; // 📣 needs more
   text-decoration: underline;
+}
+
+address {
+  font-style: normal;
 }
 
 .text-center {

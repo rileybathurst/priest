@@ -310,30 +310,38 @@ nav {
 // this is working on tables to get the alignment "correct"
 // so I don't love it but it works
 
-ol {
+.terms {
   list-style-type: none;
   counter-reset: item;
   margin: 0;
   padding: 0;
+  max-width: 45rem;
+  // margin-inline: auto;
 
   > li {
     display: table;
     counter-increment: item;
-    margin-bottom: 2rem;
+    margin-block-end: 2rem;
+    padding-block-start: 1rem;
+    border-block-start: 1px solid var(--primary-color);
   }
 
   > li:before {
     content: counters(item, ".") ". ";
     display: table-cell;
     padding-inline-end: 0.5rem;
+    color: var(--iron);
   }
 
   li > ul {
-    padding-inline-start: 1rem;
+    margin-block-start: 0.5rem;
+    padding-inline-start: 0.25rem;
+    color: var(--iron);
   }
 
   li > ol > li {
     margin: 0;
+    margin-block-start: 0.5rem;
   }
 
   li ol > li:before {
@@ -341,13 +349,13 @@ ol {
   }
 }
 
-
 .ol__alpha {
   > li {
     counter-increment: letter;
   }
 
   > li::before {
-    content: "("counter(letter, lower-alpha) ") ";
+    // content: "("counter(letter, lower-alpha) ") ";
+    content: counter(letter, lower-alpha);
   }
 }

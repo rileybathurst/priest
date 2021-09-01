@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import HeaderContact from "../components/header-contact";
 import Seo from "../components/seo";
+import Cross from "../components/cross";
 
 const ContactPage = () => (
   <Layout>
@@ -29,9 +30,11 @@ const ContactPage = () => (
         </a>
       </p>
 
+      <Cross />
+
       <h2>Or Come In And See Us At The Factory</h2>
 
-      <p>
+      <address>
         <a href="https://goo.gl/maps/oAXRnNknMU3vNg2r5">
           10 Barbour Street,
           <br />
@@ -41,7 +44,14 @@ const ContactPage = () => (
           <br />
           New Zealand
         </a>
-      </p>
+      </address>
+
+      <Cross />
+
+      <h2>Terms and Conditions</h2>
+      <p><Link to="/terms">Read our terms and conditions of purchase.</Link></p>
+
+      <Cross />
     </main>
 
     <section id="map" className="map__back">

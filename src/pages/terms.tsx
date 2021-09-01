@@ -16,8 +16,8 @@ const TermsPage = () => {
       <main className="page-width">
         <p><Link to="/">Home</Link> &gt; Terms and Conditions</p>
         <h1>Terms and Conditions of sale</h1>
-        <ol>
-          <li>
+        <ol className="terms">
+          <li id="interpretation">
             INTERPRETATION
             <ol>{/* depth 1.1 */}
               <li>in these terms and conditions:
@@ -46,7 +46,7 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="price-payment">
             PRICE AND PAYMENT
             <ol>
               <li>The price for goods shall be n accordance with the Company's current prices as at the date of the contract. Any difference between the price for goods at the date of the order or quotation and at the date of delivery due to circumstances beyond the control of the Company
@@ -56,28 +56,28 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="compliance">
             COMPLIANCE WITH LAWS
             <ol>
               <li>The Company shall only be responsible to comply with the regulations, bylaws, codes and standards specified in the contract and the Company shall be under no liability whatsoever for any failure to meet any other regulations, bylaws, codes and standards. h the event of there being any changes in any regulations, bylaws, codes or standards with which the Company is obliged to comply after the date of the contract, then any additional costs in meeting any such changes shall be to the buyer's account.</li>
             </ol>
           </li>
 
-          <li>
+          <li id="taxes-duties">
             TAXES AND DUTIES
             <ol>
               <li>Unless expressly included in any quotation given by the Company, Goods and Services Tax and other taxes and duties assessed or levied in connection with the supply of the goods to the buyer are not included in the price and shall be the responsibility of the buyer.</li>
             </ol>
           </li>
 
-          <li>
+          <li id="interest-late-payments">
             INTEREST FOR LATE PAYMENT
             <ol>
               <li>Interest at a rate a equal to 6% above the Company's bank's indicator lending rate from time to time calculated on a daily basis may be charged on any moneys outstanding under the contract. Such interest shall be payable from the date payment was due until the date payment Is received by the Company but without prejudice to the Company's other rights or remedies in respect of the buyer's default in failing to make payment on the due date.</li>
             </ol>
           </li>
 
-          <li>
+          <li id="delivery">
             DELIVERY
             <ol>
               <li>Delivery of goods shall be made at the Company's premises unless otherwise agreed in writing. f the buyer fails to take delivery, the goods shall be deemed to have been delivered when the Company was willing to deliver them. h this event any extra cost to the Company for transport and/or storage shall be to the buyer's account.</li>
@@ -86,7 +86,7 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="risk">
             RISK
             <ol>
               <li>Notwithstanding that property in any goods may remain with the Company, all risk in respect thereof shall pass to the buyer upon delivery.</li>
@@ -101,7 +101,7 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="property">
             PROPERTY
             <ol>
               <li>Property in the goods shall not pass from the Company to the buyer &#40;and the buyer shall be a bailee only n respect of such goods&#41; until the buyer has paid in full the contract price and all other monies payable under the contract for the goods.</li>
@@ -114,14 +114,14 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="mill-certificates">
             MILL CERTIFICATES
             <ol>
               <li>The Company shall supply a mill certificate in respect of the goods upon request of the buyer and may charge he buyer a fee n respect ol thereof&#41;.</li>
             </ol>
           </li>
 
-          <li>
+          <li id="return-of-goods-defective-goods">
             RETURN OF GOODS/DEFECTIVE GOODS
             <ol>
               <li>Except as provided in this clause, the buyer shall not be entitled to return the tO goods to the Company for any reason whatsoever. h respect n of defective goods which the buyer is entitled to reject, the Company's liability shall be limited to either lat the discretion ol the Company&#41; repairing or replacing the goods or refunding the sale price thereof PROVIDED THAT:
@@ -135,7 +135,7 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="liability">
             LIABILITY
             <ol>
               <li>
@@ -155,7 +155,7 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="default">
             DEFAULT
             <ol>
               <li>
@@ -165,7 +165,7 @@ const TermsPage = () => {
           </li>
 
 
-          <li>
+          <li id="patents-copyright">
             PATENTS AND COPYRIGHT
             <ol>
               <li>
@@ -175,7 +175,7 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="dimensions-specifications">
             DIMENSIONS AND SPECIFICATIONS
             <ol>
               <li>Dimensions and specifications contained or referred to in the contract or n any catalogues or other publications maintained or issued by the Company are estimates only. Unless otherwise expressly agreed in writing, it is not condition of the contract that the goods will correspond precisely with such dimensions and specifications, and customary tolerances or. of in the absence of customary tolerances, reasonable tolerances shall be allowed.
@@ -183,7 +183,7 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="contract">
             CONTRACT
             <ol>
               <li>
@@ -194,21 +194,23 @@ const TermsPage = () => {
             </ol>
           </li>
 
-          <li>
+          <li id="waiver">
             WAIVER
             <ol>
               <li>
                 All the original rights, powers exemptions and remedies of the Company shall remain n full force notwithstanding any neglect, forbearance or delay n the enforcement thereof. The Company shall not be deemed to have waived any condition unless such waiver shall be n writing under signature of the Company or an authorised officer thereof, and unless the contrary shall be expressly stated, such waiver shall apply to and operate only in the particular transaction, dealing or matter.</li>
             </ol>
           </li>
-          <li>
+
+          <li id="no-assignment">
             NO ASSIGNMENT
             <ul>
               <li>
                 The buyer may not assign all or any of his rights or obligations under the contract without the prior written consent of 1&#41;3 Company.</li>
             </ul>
           </li>
-          <li>
+
+          <li id="law-jurisdiction">
             LAW AND JURISDICTION
             <ol>
               <li>
