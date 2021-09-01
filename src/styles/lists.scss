@@ -306,23 +306,31 @@ nav {
 //  #OL
 /*------------------------------------*/
 
+// https://stackoverflow.com/questions/4098195/can-ordered-list-produce-result-that-looks-like-1-1-1-2-1-3-instead-of-just-1
+// this is working on tables to get the alignment "correct"
+// so I don't love it but it works
+
 ol {
   list-style-type: none;
   counter-reset: item;
   margin: 0;
   padding: 0;
-}
 
-ol > li {
-  display: table;
-  counter-increment: item;
-  margin-bottom: 0.6em;
+  > li {
+    display: table;
+    counter-increment: item;
+    margin-bottom: 2rem;
+  }
 }
 
 ol > li:before {
   content: counters(item, ".") ". ";
   display: table-cell;
-  padding-right: 0.6em;    
+  padding-inline-end: 0.5rem;
+}
+
+ol > li > ul {
+  padding-inline-start: 1rem;
 }
 
 li ol > li {
@@ -333,10 +341,12 @@ li ol > li:before {
   content: counters(item, ".") " ";
 }
 
-/* .ol__alpha {
-  list-style-type: lower-alpha;
-
-  > li:before {
-    content: a;
+.ol__alpha {
+  > li {
+    counter-increment: letter;
   }
-} */
+
+  > li::before {
+    content: "("counter(letter, lower-alpha) ") ";
+  }
+}

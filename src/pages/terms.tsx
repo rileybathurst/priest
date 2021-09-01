@@ -35,7 +35,7 @@ const TermsPage = () => {
                   {/* needs an a */}
                   <li>where the contract arises from an order placed by the buyer, the date of acceptance of the order by the Company&#59;</li>
                   {/* this doesnt have a pre on it */}
-                  <li>or</li>
+                  or
                   <li>where the contract arises from a quotation given by the Company, the date upon which written notification of acceptance of the quotation is received by the Company or where no written notification of acceptance of the quotation is received S by the Company, the date of such other form of acceptance as the Company in its discretion determines to treat as a valid acceptance&#59; "goods" means the goods being purchased by the buyer from the Company which are the subject of the contract.</li>
                 </ol>
               </li>
@@ -91,7 +91,7 @@ const TermsPage = () => {
             <ol>
               <li>Notwithstanding that property in any goods may remain with the Company, all risk in respect thereof shall pass to the buyer upon delivery.</li>
               <li>If any of the goods are damaged or destroyed prior to property therein passing to the buyer, the Company shall be entitled, without prejudice to any of its other rights or remedies under the contract &#40;including the right to receive payment of the balance of the contract price for the goods&#41;, to receive all insurance proceeds which are payable n respect of the goods &#40;whether or not the purchase price of such goods has become payable under the contract&#41; and the production of these terms and conditions by the Company shall be sutticient evidence of the Company's right to receive payment of such insurance proceeds without the need for further enquiry by any person dealing with the Company. Any such insurance proceeds shall be applied by the Company as follows:
-                <ol>{/* 📣vdepth 1.1.1 needs to be a letter */}
+                <ol className="ol__alpha">
                   <li>first, in payment of the contract price of the goods which are damaged or destroyed, if unpaid&#59;</li>
                   <li>second, n payment of the outstanding contract price of any other goods supplied to the buyer by the Company, whether under the contract or otherwise&#59;</li>
                   <li>third. in payment ol any other sums due and payable to the Company by the buyer on any account.</li>
@@ -125,9 +125,7 @@ const TermsPage = () => {
             RETURN OF GOODS/DEFECTIVE GOODS
             <ol>
               <li>Except as provided in this clause, the buyer shall not be entitled to return the tO goods to the Company for any reason whatsoever. h respect n of defective goods which the buyer is entitled to reject, the Company's liability shall be limited to either lat the discretion ol the Company&#41; repairing or replacing the goods or refunding the sale price thereof PROVIDED THAT:
-
-                {/* letters please */}
-                <ol>
+                <ol className="ol__alpha">
                   <li>the buyer shall notify the Company within 7 days of delivery that the goods are defeclive:</li>
                   <li>the Company shall be allowed a reasonable opportunity to investigate the buyer's claim&#59;</li>
                   <li>the Company shall not be liable in respect of goods which have been tampered with or modified without the of approval of the Company or which have not been stored or used in the proper manner&#59; and</li>
@@ -142,7 +140,7 @@ const TermsPage = () => {
             <ol>
               <li>
                 The Company shall not be liable for any reason whatsoever for any of the following:
-                <ol>
+                <ol className="ol__alpha">
                   <li>failure to deliver goods by a specified date&#59;</li>
                   <li>loss suffered by the buyer as a result of any event beyond the control of the Company&#59;</li>
                   <li>testing the goods&#59;</li>
