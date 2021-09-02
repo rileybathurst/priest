@@ -333,29 +333,43 @@ nav {
     color: var(--iron);
   }
 
-  li > ul {
+  > li > ul {
     margin-block-start: 0.5rem;
     padding-inline-start: 0.25rem;
     color: var(--iron);
+    // counter-reset: number;
+    // display: table;
   }
 
   li > ol > li {
     margin: 0;
     margin-block-start: 0.5rem;
+    // margin-inline-start: 1.5rem;
+    counter-increment: number;
   }
 
-  li ol > li:before {
-    content: counters(item, ".") " ";
+  li > ol > li::marker {
+    content: counters(item, ".") ". "; // needs work
+    // margin-left: -1rem; // no control here
+    width: 5rem;
+  }
+
+  li > ol > li:before {
+    content: counters(number, ".") ". ";
   }
 }
 
 .ol__alpha {
   > li {
-    counter-increment: letter;
+    counter-increment: letter !important;
+  }
+  
+  > li::marker {
+    // content: "("counter(letter, lower-alpha) ") ";
+    content: "("counter(letter, lower-alpha) ") " !important;
   }
 
-  > li::before {
-    // content: "("counter(letter, lower-alpha) ") ";
-    content: counter(letter, lower-alpha);
+  > li:before {
+    content: none !important;
   }
 }
