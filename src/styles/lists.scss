@@ -337,39 +337,39 @@ nav {
     margin-block-start: 0.5rem;
     padding-inline-start: 0.25rem;
     color: var(--iron);
-    // counter-reset: number;
-    // display: table;
+    counter-reset: item;
+    list-style-type: none;
+
   }
 
-  li > ol > li {
+  > li > ol {
+    counter-reset: item;
+    list-style: none;
+  }
+  
+  > li > ol > li {
     margin: 0;
     margin-block-start: 0.5rem;
-    // margin-inline-start: 1.5rem;
-    counter-increment: number;
+    counter-increment: item;
+    display: table;
   }
 
-  li > ol > li::marker {
-    content: counters(item, ".") ". "; // needs work
-    // margin-left: -1rem; // no control here
-    width: 5rem;
-  }
-
-  li > ol > li:before {
-    content: counters(number, ".") ". ";
+  > li > ol > li:before {
+    content: counters(item, ".") ". ";
+    display: table-cell;
+    padding-right: 1rem;
   }
 }
 
 .ol__alpha {
   > li {
     counter-increment: letter !important;
+    display: table;
   }
   
-  > li::marker {
-    // content: "("counter(letter, lower-alpha) ") ";
-    content: "("counter(letter, lower-alpha) ") " !important;
-  }
-
   > li:before {
-    content: none !important;
+    content: "("counter(letter, lower-alpha) ") " !important;
+    padding-right: 1rem;
+    display: table-cell;
   }
 }
