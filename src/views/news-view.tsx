@@ -29,7 +29,7 @@ const NewsView = ({ news }) => {
         <ReactMarkdown
           children={news.Content}
           transformImageUri={uri =>
-            uri.startsWith("http") ? uri : `http://45.79.101.19:1338${uri}`
+            uri.startsWith("http") ? uri : `${process.env.URI}${uri}`
           }
         />
       </article>
