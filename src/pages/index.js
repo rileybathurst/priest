@@ -44,12 +44,52 @@ function TeamPhoto1() {
   );
 }
 
-function TeamPhoto2() {
+function CutPhoto() {
+  return (
+    <StaticImage
+      src="https://priest.s3.ap-southeast-2.amazonaws.com/images/AdobeStock_196617088_Preview.jpg"
+      alt="welding sheetmetal christchurch"
+    />
+  );
+}
+
+/* function TeamPhoto2() {
   return (
     <StaticImage
       src="https://priest.s3-ap-southeast-2.amazonaws.com/images/Priest_2019_0078.jpg"
       alt="sheetmetal christchurch"
     />
+  );
+} */
+
+function SummitInfo() {
+  const ref = useRef();
+
+  const [jump, setJump] = useState(0);
+
+  useEffect(() => {
+    // console.log(ref.current.clientHeight);
+    const height = ref.current.clientHeight;
+    setJump(height);
+    // adding the [] only re-renders on change
+  }, [jump]);
+
+  const high = {
+    // why does this have a second and not a pix
+    height: { jump }.jump,
+  }
+
+  return (
+    <div className="summit__info">
+      <div id="summit__about--shape" style={high}>{/* stay gold */}</div>
+      <div className="summit__info--text" ref={ref}>
+        {/* this has old naming and needs to be checked */}
+        <h1>Specialist Laser Cutting &amp; Steel Suppliers, Fabricators and Welders in Christchurch.</h1>
+        <p>With over 67 years running experience, Priest Sheetmetal is an
+          established name as a manufacturer and supplier of profile cut and
+          fabricated steelwork to Christchurch businesses.</p>
+      </div>
+    </div>
   );
 }
 
@@ -67,27 +107,20 @@ function SummitAbout() {
     setJump(height);
     // adding the [] only re-renders on change
   }, [jump]);
-  
+
   const high = {
     // why does this have a second and not a pix
-    height: {jump}.jump,
+    height: { jump }.jump,
   }
 
   return (
-  <div className="summit__about">
-    <div id="summit__about--shape" style={high}>{/* stay gold */}</div>
-    <section id="summit__about--text" ref={ref} >
-      <h2>Adding value through craftsmanship.</h2>
-      <p>
-        Our skilled team of tradesman, draftsman and general engineers
-        offer a range of plate processing and metal fabrication services
-        to meet your metalwork needs. With the latest in CNC machinery,
-        CAD software and one of the largest selections of steel folding
-        press brakes in New Zealand we can be sure to assist you at every
-        stage; from design, prototyping though to production.
-      </p>
-    </section>
-  </div>
+    <div className="summit__about">
+      <div id="summit__about--shape" style={high}>{/* stay gold */}</div>
+      <section id="summit__about--text" ref={ref} >
+        <h2>Adding value through craftsmanship.</h2>
+        <p>Our skilled team of tradesman, draftsman and general engineers offer a range of plate processing and metal fabrication services to meet your engineering needs. With the latest in CNC machinery, CAD software and one of the largest selections of steel folding press brakes in New Zealand we can be sure to assist you at every stage; from design, prototyping through to production.<br /><b>Design for manufacturing, gets products built faster.</b></p>
+      </section>
+    </div>
   );
 }
 
@@ -97,25 +130,14 @@ const IndexPage = ({ data }) => {
       <Seo title="Priest Sheetmetal &amp; Plate Christchurch" />
       <div className="summit__backer">
         <section id="summit">
-          <div className="summit__info">
-            {/* this has old naming and needs to be checked */}
-            <h1>
-              Specialist laser cutting &amp; steel suppliers, fabricatiors and
-              welders in Chrirstchurch.
-            </h1>
-            <p>
-              With over 67 years running experience, Priest Sheetmetal is an
-              established name as a manufacturer and supplier of profile cut and
-              fabricated steelwork to Christchurch businesses.
-            </p>
-          </div>
+          <SummitInfo />
 
           <SummitAbout />
 
           <div className="summit__video">
             <iframe
               title="hero video 1"
-              src={"https://player.vimeo.com/video/431997968?background=1"}
+              src={"https://player.vimeo.com/video/597365161?background=1"}
               style={{
                 // this probably needs an aspect ratio
                 top: "0",
@@ -141,7 +163,7 @@ const IndexPage = ({ data }) => {
             <TeamPhoto1 />
           </div>
           <div className="summit__team-photo_2">
-            <TeamPhoto2 />
+            <CutPhoto />
           </div>
 
           <div className="summit__contact">

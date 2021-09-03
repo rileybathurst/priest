@@ -12,7 +12,7 @@ a:where(:hover, :focus) {
 
 :is(.backed, .backed__svg svg) {
   padding: 0.5rem 1rem;
-  transition: .5s ease;
+  transition: .25s ease;
   border-radius: var(--backed-radius);
 }
 
@@ -29,14 +29,15 @@ a:where(:hover, :focus) {
     color: var(--white);
     display: flex;
     text-decoration: none;
-    border-bottom: 5px solid transparent;
+    clip-path: polygon(1rem 0,100% 0,calc(100% - 1rem) 100%,0 100%);
+    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 5%));
+    border-bottom: 5px solid hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));;
   }
 
   a:where(:hover, :focus) {
     color: var(--light-gray);
-    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
-    clip-path: polygon(1rem 0,100% 0,calc(100% - 1rem) 100%,0 100%);
-    border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
+    border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 25%));
   }
 }
 

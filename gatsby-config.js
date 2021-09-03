@@ -25,7 +25,8 @@ module.exports = {
           `videos`,
           `testimonials`,
           `industries`,
-          `industry-aspect`
+          `industry-aspect`,
+          `news`
         ],
       },
     },

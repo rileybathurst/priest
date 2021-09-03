@@ -105,7 +105,7 @@ const Footer = (props) => (
         </a>
       </div>
       {/*  .footer__contact--method */}
-      
+
     </div>
     {/* .footer__contacts */}
 
@@ -139,13 +139,34 @@ const Footer = (props) => (
 
     <Cross />
 
-    <div className="footer__logo">
-      <Logo />
-    </div>
+    <nav>
+      <ul>
+        <li>
+          <div className="footer__logo">
+            <Logo />
+          </div>
+        </li>
+        <li>
+          <div className="footer__copyright text-center">
+            <p>&copy; <ThisYear /></p>
+          </div>
+        </li>
+        <li>
+          <Link to="/news" className="backed">
+            News
+          </Link>
+        </li>
+        <li>
+          <Link to="/terms" className="backed">
+            Terms &amp; Conditions
+          </Link>
+        </li>
+      </ul>
+    </nav>
 
-    <div className="footer__copyright text-center">
-      <p>&copy; <ThisYear /></p>
-    </div>
+
+
+
   </footer>
 );
 

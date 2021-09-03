@@ -253,6 +253,14 @@ nav {
 
   a {
     border-radius: 0; // backed somewhere up the line
+    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 2.5%)) !important;
+    border-bottom: 5px solid hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 5%)) !important;
+    margin: 0.25rem;
+  }
+
+  a:hover {
+    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 12.5%)) !important;
+    border-bottom: 5px solid hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%)) !important;
   }
 }
 
@@ -263,7 +271,7 @@ nav {
 
 // this is kinda manual but it works
 .menu__hover--multiline {
-  transition: transform 2s ease;
+  transition: transform 1s ease;
   clip-path: polygon(2em 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
 }
 
