@@ -21,3 +21,5 @@ Once strapi is running get gatsby running.
 ### To Do
 
 - I've got a list running in Asana
+
+🦄
