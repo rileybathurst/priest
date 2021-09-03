@@ -81,7 +81,7 @@ function SummitInfo() {
 
   return (
     <div className="summit__info">
-      <div id="summit__about--shape" style={high}>{/* stay gold */}</div>
+      <div id="summit__info--shape" className="summit--shape" style={high}>{/* stay gold */}</div>
       <div className="summit__info--text" ref={ref}>
         {/* this has old naming and needs to be checked */}
         <h1>Specialist Laser Cutting &amp; Steel Suppliers, Fabricators and Welders in Christchurch.</h1>
@@ -115,7 +115,7 @@ function SummitAbout() {
 
   return (
     <div className="summit__about">
-      <div id="summit__about--shape" style={high}>{/* stay gold */}</div>
+      <div id="summit__about--shape" className="summit--shape" style={high}>{/* stay gold */}</div>
       <section id="summit__about--text" ref={ref} >
         <h2>Adding value through craftsmanship.</h2>
         <p>Our skilled team of tradesman, draftsman and general engineers offer a range of plate processing and metal fabrication services to meet your engineering needs. With the latest in CNC machinery, CAD software and one of the largest selections of steel folding press brakes in New Zealand we can be sure to assist you at every stage; from design, prototyping through to production.<br /><b>Design for manufacturing, gets products built faster.</b></p>

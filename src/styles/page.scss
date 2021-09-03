@@ -293,6 +293,13 @@
   float: left;
 }
 
+.summit--shape {
+  width: 2rem;
+  shape-outside: polygon(0 0, 100% 0, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  float: left;
+}
+
 /*------------------------------------*/
 //  #VIDEOS
 /*------------------------------------*/
