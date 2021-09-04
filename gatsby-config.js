@@ -64,7 +64,7 @@ module.exports = {
             // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
             "font-src": "'self' 'unsafe-inline' data:",
             "frame-src": "'self' player.vimeo.com google.com www.google.com",
-            "img-src": "'self' 'unsafe-inline' https://priest.s3.ap-southeast-2.amazonaws.com/",
+            "img-src": "'self' data: https://priest.s3.ap-southeast-2.amazonaws.com/",
           }
         }
       },
