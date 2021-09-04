@@ -208,15 +208,17 @@ const IndexPage = ({ data }) => {
                   <div className="clipper">{/* stay gold*/}</div>
                   <p>{document.node.Content}</p>
                 </div>
-                <Link
-                  to={`/services/${document.node.slug}`}
-                  className="tasks__more"
-                >
-                  {/* <span className="button hollow"> */}
-                  More about {document.node.title}
-                  {/* </span> */}
-                </Link>
               </div>
+
+              <div className="service__more--back">{/* stay gold */}</div>
+              <Link
+                to={`/services/${document.node.slug}`}
+                className="service__more"
+              >
+                {/* <span className="button hollow"> */}
+                More about {document.node.title}
+                {/* </span> */}
+              </Link>
             </section>
 
             <Cross />

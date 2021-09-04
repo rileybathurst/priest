@@ -43,9 +43,10 @@ a:where(:hover, :focus) {
 
 .cheese {
   color: var(--light-gray);
-  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%)) !important;
+  // theres some problems with ID specificity I should fix up
   clip-path: polygon(1rem 0,100% 0,calc(100% - 1rem) 100%,0 100%);
-  border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+  border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 25%)) !important;
 }
 
 .current {

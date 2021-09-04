@@ -136,14 +136,15 @@ footer .backed__svg svg:hover {
 }
 
 .footer__logo {
-  max-width: 50%;
+  // max-width: 50%;
   margin-inline: auto;
 
   svg {
     display: block;
     margin-inline: auto;
     width: calc(100% - 2rem);
-    max-width: 20rem;
+    min-width: 5rem;
+    max-width: 10rem;
     margin-block-end: 3rem;
   }
 }
@@ -151,6 +152,11 @@ footer .backed__svg svg:hover {
 .footer__copyright {
   text-align: center;
   display: inline-block;
+  margin-block-start: 0;
   margin-block-end: 3rem;
   width: 100%;
+
+  p {
+    margin-block-start: 0;
+  }
 }

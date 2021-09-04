@@ -42,6 +42,7 @@ const SEO = ({ title, description, image }) => {
     <Helmet 
       title={seo.title}
       titleTemplate={titleTemplate}
+      // titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       // htmlAttributes={{
       //   lang: 'en-US',
       // }}
