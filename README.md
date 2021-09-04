@@ -1,6 +1,6 @@
 # Priest
 
-The website for https://priestsheetmetal.co.nz
+The website for [priestsheetmetal.co.nz](https://priestsheetmetal.co.nz)
 
 ## Built on
 
