@@ -47,7 +47,7 @@ function TeamPhoto1() {
 function CutPhoto() {
   return (
     <StaticImage
-      src="https://priest.s3.ap-southeast-2.amazonaws.com/images/AdobeStock_196617088_Preview.jpg"
+      src="https://priest.s3.ap-southeast-2.amazonaws.com/images/shutterstock_1047148825_1.jpg"
       alt="welding sheetmetal christchurch"
     />
   );
