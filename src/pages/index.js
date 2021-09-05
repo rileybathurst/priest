@@ -259,7 +259,7 @@ const IndexPage = ({ data }) => {
                 <p>{industry.node.content}</p>
                 <Link
                   to={`/industries/${industry.node.slug}`}
-                  className="button hollow"
+                  className=""
                 >
                   More about {industry.node.title}
                 </Link>

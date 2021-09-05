@@ -16,15 +16,16 @@
 
 .service__more {
   grid-row: 4;
+  grid-column: 1;
+  margin-block: 2rem;
+  margin-inline-start: 1rem;
+  text-decoration: underline;
 
   @media (min-width: $breakpoint__medium) {
     grid-row: 3;
     grid-column: 2;
-  }
-
-
-    margin-block: 2rem;
     margin-inline-start: 3rem;
+  }
 }
 
 /*------------------------------------*\
@@ -57,6 +58,7 @@
   }
 
   > .industry__title {
+    margin-block-start: 0;
     
     > a {
       display: block;
@@ -323,10 +325,15 @@
 }
 
 .summit--shape {
-  width: 2rem;
-  shape-outside: polygon(0 0, 100% 0, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  float: left;
+  position: absolute;
+
+  @media (min-width: $breakpoint__medium) {
+    position: relative;
+    shape-outside: polygon(0 0, 100% 0, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    float: left;
+    width: 2rem;
+  }
 }
 
 /*------------------------------------*/
