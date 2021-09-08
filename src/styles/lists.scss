@@ -319,7 +319,18 @@ nav {
 // so I don't love it but it works
 
 .terms {
-  list-style-type: none;
+
+  ol, ul, li {
+    // use both to deal with the borders
+    margin-block-end: 0.25rem;
+    padding-block-end: 0.25rem;
+  }
+
+  h2 {
+    font-size: 1.44rem; // h4
+  }
+
+  list-style-type: none; 
   counter-reset: item;
   margin: 0;
   padding: 0;
@@ -337,22 +348,45 @@ nav {
   > li:before {
     content: counters(item, ".") ". ";
     display: table-cell;
-    padding-inline-end: 0.5rem;
     color: var(--iron);
+    
+    @media (prefers-color-scheme: dark) {
+      color: var(--magnesium);
+    }
+
+    padding-inline-end: 0.25rem;
+
+    @media (min-width: $breakpoint__large) {
+      padding-inline-end: 0.5rem;
+    }
   }
 
   > li > ul {
-    margin-block-start: 0.5rem;
-    padding-inline-start: 0.25rem;
-    color: var(--iron);
     counter-reset: item;
     list-style-type: none;
+    color: var(--iron);
+    
+    @media (prefers-color-scheme: dark) {
+      color: var(--magnesium);
+    }
 
+    margin-block-start: 0.5rem;
+    padding-inline-start: 0.25rem;
+    
+    @media (min-width: $breakpoint__large) {
+      margin-block-start: 0.25rem;
+    }
   }
 
   > li > ol {
     counter-reset: item;
     list-style: none;
+    padding-block-start: 0.5rem;
+    padding-inline-start: 0.25rem;
+
+    @media (min-width: $breakpoint__large) {
+      padding-inline-start: 0.5rem;
+    }
   }
   
   > li > ol > li {
@@ -360,19 +394,53 @@ nav {
     margin-block-start: 0.5rem;
     counter-increment: item;
     display: table;
+    border-block-end: 1px solid var(--magnesium);
+
+    @media (prefers-color-scheme: dark) {
+      border-color: var(--iron);
+    }
+  }
+
+  > li > ol > li:last-child {
+    border: none;
   }
 
   > li > ol > li:before {
     content: counters(item, ".") ". ";
     display: table-cell;
     padding-right: 1rem;
+    color: var(--iron);
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--magnesium);
+    }
+  }
+
+  > li > ol > li > ul {
+    padding-block-start: 0.5rem;
+    padding-inline-start: 1.5rem;
+
+    @media (min-width: $breakpoint__large) {
+      padding-inline-start: 0.5rem;
+    }
   }
 }
 
 .ol__alpha {
+  padding-inline-start: 1.5rem;
+
   > li {
     counter-increment: letter !important;
     display: table;
+    border-block-end: 1px solid var(--silver);
+
+    @media (prefers-color-scheme: dark) {
+      border-color: var(--tungsten);
+    }
+  }
+
+  li:last-child {
+    border: none;
   }
   
   > li:before {

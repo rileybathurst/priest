@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import HeaderContact from "../components/header-contact";
 import Seo from "../components/seo";
 
-// markup
 const NotFoundPage = () => {
   return (
     <Layout>
