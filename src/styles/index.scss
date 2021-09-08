@@ -209,6 +209,10 @@ I think this is now out of use but check it
     color: $white;
     clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
   }
+
+  a:hover {
+    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
+  }
 }
 
 .summit__contact--icon {

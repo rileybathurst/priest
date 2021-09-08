@@ -180,6 +180,7 @@ nav {
   cursor: pointer;
   padding-block: var(--global-padding);
   transition: 1s ease;
+  margin-block: 0; // safari fix
   padding-block: 1rem;
 }
 
@@ -230,6 +231,7 @@ nav {
 
   svg {
     max-height: 1.65rem; // line height of the text
+    max-width: 3rem; // safari needs this
   }
 } // .menu-primary-container
 
