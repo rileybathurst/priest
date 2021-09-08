@@ -17,6 +17,7 @@ export const query = graphql`
       coverMedium
       coverVideo
       excerpt
+      og_image
 
       Cover {
         alternativeText
@@ -59,6 +60,8 @@ export const query = graphql`
     }
   }
 `
+
+// 
 
 // the $slug isnt working on the allStrapiService query
 

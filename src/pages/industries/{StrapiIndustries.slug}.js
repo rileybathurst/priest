@@ -11,6 +11,7 @@ export const query = graphql`
       byline
       content
       excerpt
+      og_image
 
       cover {
         alternativeText

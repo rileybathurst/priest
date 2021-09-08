@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet"; // I think this might change
 import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
 
-const SEO = ({ title, description, image }) => {
+const SEO = ({ title, description, image, ogImage }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
   const {
@@ -14,7 +14,6 @@ const SEO = ({ title, description, image }) => {
     titleTemplate,
     defaultDescription,
     defaultImage,
-    ogImage,
     twitterImage,
     siteUrl,
     openingHours,
@@ -28,8 +27,8 @@ const SEO = ({ title, description, image }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     url: `${siteUrl}${pathname || "/"}`,
-    image: `${siteUrl}${image || defaultImage}`,
-    ogImage: ogImage,
+    image: image || defaultImage,
+    ogImage: ogImage || ogImage,
     twitterImage: twitterImage,
     openingHours: openingHours,
     telephone: telephone,
@@ -42,18 +41,12 @@ const SEO = ({ title, description, image }) => {
     <Helmet 
       title={seo.title}
       titleTemplate={titleTemplate}
-      // titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      // htmlAttributes={{
-      //   lang: 'en-US',
-      // }}
     >
       <html lang="en" />
 
       <meta name="description" content={seo.description} />
+      
       {seo.url && <meta property="og:url" content={seo.url} />}
-      {/* {(article ? true : null) && (
-        <meta property="og:type" content="article" />
-      )} */}
       {seo.title && <meta property="og:title" content={seo.title} />}
       {seo.description && (
         <meta property="og:description" content={seo.description} />
@@ -64,6 +57,7 @@ const SEO = ({ title, description, image }) => {
       )}
 
       {seo.image && <meta property="og:image" content={seo.ogImage} />}
+      {seo.image && <meta property="og:image" content={seo.title} />}
 
       <meta name="twitter:card" content="summary_large_image" />
       {seo.image && <meta name="twitter:image" content={seo.twitterImage} />}

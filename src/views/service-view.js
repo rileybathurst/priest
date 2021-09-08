@@ -118,7 +118,9 @@ const ServiceView = ({ service, other }) => {
       <Seo
         title={service.title}
         description={service.excerpt}
+        ogImage={service.og_image}
       />
+
       <Header />
       <HeaderContact />
 

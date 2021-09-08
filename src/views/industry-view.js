@@ -35,6 +35,7 @@ const IndustryView = ({ industry, other }) => {
       <Seo
         title={industry.title}
         description={industry.excerpt}
+        ogImage={industry.og_image}
         />
       <Header />
       <HeaderContact />
