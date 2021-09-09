@@ -82,8 +82,9 @@ I think this is now out of use but check it
   box-shadow: var(--shadow), 0 2px 10px 0 rgba(var(----shadow__rgb), 0.12);
 } */
 
-.menu-primary-container {
-  display: none; // this is breaking the footer
+.menu-primary-container { // 📣 bad naming
+  // display: none; // this is breaking the footer
+  // this isnt in the footer that shouldnt be a concern anymore
   
   @media (min-width: $header-menu-size) {
     // never wrap

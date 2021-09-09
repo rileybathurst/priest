@@ -129,13 +129,109 @@ nav {
 //  #toggle
 /*------------------------------------*/
 
+// Im just going to put these specific variables here as I need them twice and I think only twice in context
+$header-menu-size: 70rem; // guess and check
+$header-profile-size: 60rem; // guess and check
+$header-contact-size: 50rem; // guess and check
+$header-industry-size: 40rem; // guess and check
+$header-service-size: 40rem; // guess and check
+
 #menu_toggle {
   z-index: 2; // sliding menu
   position: relative; // needed for z-index
 
   display: grid;
 
-  @media (min-width: $header-menu-size) {
+  @media (min-width: $header-service-size) {
+    display: none;
+  }
+}
+
+/*------------------------------------*/
+//  #services
+/*------------------------------------*/
+
+.menu__big--service {
+  display: none;
+  @media (min-width: $header-service-size) {
+    display: inline;
+  }
+}
+
+.more__service {
+  display: inline;
+  @media (min-width: $header-service-size) {
+    display: none;
+  }
+}
+
+/*------------------------------------*/
+//  #industry
+/*------------------------------------*/
+
+.menu__big--industry {
+  display: none;
+  @media (min-width: $header-industry-size) {
+    display: inline;
+  }
+}
+
+.more__industry {
+  display: inline;
+  @media (min-width: $header-industry-size) {
+    display: none;
+  }
+}
+
+/*------------------------------------*/
+//  #contact
+/*------------------------------------*/
+
+.menu__big--contact {
+  display: none;
+  @media (min-width: $header-contact-size) {
+    display: inline;
+  }
+}
+
+.more__contact {
+  display: inline;
+  @media (min-width: $header-contact-size) {
+    display: none;
+  }
+}
+
+/*------------------------------------*/
+//  #profile
+/*------------------------------------*/
+
+.menu__big--profile {
+  display: none;
+  @media (min-width: $header-profile-size) {
+    display: inline;
+  }
+}
+
+.more__profile {
+  display: inline;
+  @media (min-width: $header-profile-size) {
+    display: none;
+  }
+}
+
+/*------------------------------------*/
+//  #more
+/*------------------------------------*/
+
+.more__profile {
+  display: inline;
+  @media (min-width: $header-profile-size) {
+    display: none;
+  }
+}
+
+.menu__big--more {
+  @media (min-width: $header-profile-size) {
     display: none;
   }
 }
@@ -217,7 +313,7 @@ nav {
   display: none;
   z-index: 10;
 
-  @media (min-width: $header-menu-size) {
+  @media (min-width: $header-service-size) {
     display: block;
     width: 100%;
     max-width: var(--page-width);
@@ -277,11 +373,14 @@ nav {
   clip-path: polygon(2em 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
 }
 
-// doesnt work cos it cant go upwards
-// js this?
-/* .menu__hover:hover ~ .menu__over {
-  background: papayawhip;
-} */
+/*------------------------------------*/
+//  #menu more
+/*------------------------------------*/
+
+.menu__more {
+  position: relative;
+  // margin-top: -10rem; // testing only
+}
 
 /*------------------------------------*/
 //  #FOOTER NAV

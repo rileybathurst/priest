@@ -48,6 +48,8 @@
         max-width: 20rem;
         fill: var(--white);
         padding: 0; // overwrite the backed svg
+        border-radius: 0; //overwrite the backed svg
+        // maybe this shouldnt be backed
 
         @media (min-width: $breakpoint__medium) {
           margin-block: 0;

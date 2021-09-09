@@ -5,6 +5,7 @@ import ProfileIcon from "./profile-icon";
 import SmallMenuToggle from "./small-menu";
 import ServicesNav from "./services-nav";
 import IndustryNav from "./industry-nav";
+import MenuMore from "./menu-more";
 
 // is this enough to go to a new file?
 function Moused() {
@@ -22,7 +23,7 @@ function Moused() {
   return (
     <>
       <Link to="/services" className={`menu__over ${mouse}`}>Services</Link> {/* state of the mouse */}
-{/*      this might solve the A11y problem <Link onMouseEnter={cheese} onMouseLeave={cat}> */}
+      {/*      this might solve the A11y problem <Link onMouseEnter={cheese} onMouseLeave={cat}> */}
       <ul
         className="menu__hover menu__hover--multiline"
         onMouseEnter={cheese}
@@ -76,19 +77,19 @@ const Header = () => (
       {/* more of this could be done in reactive ways */}
       <nav id="menu_small" className="firstload">
         <ul className="text-center">
-          <li key="home">
+          <li key="small-home">
             <Link to="/">Home</Link>
           </li>
-          <li key="services">
+          <li key="small-services">
             <Link to="/services">Services</Link>
           </li>
-          <li key="industries">
+          <li key="small-industries">
             <Link to="/industries">Industries</Link>
           </li>
-          <li key="contact">
+          <li key="small-contact">
             <Link to="/contact">Contact</Link>
           </li>
-          <li key="profile">
+          <li key="small-profile">
             <a href="https://priestprofile.co.nz/">
               <ProfileIcon />
               Profile Cutting and Laser
@@ -99,30 +100,33 @@ const Header = () => (
 
       {/* medium up navigation */}
       <nav id="menu__big">
-        <div className="menu-primary-container">
+        <div className="menu-primary-container">{/* this should be removable */}
           <ul className="menu align-center">
             <li key="home">
               <Link to="/">Home</Link>
             </li>
-            <li key="services">
+            <li key="services" className="menu__big--services">
               <Moused />
             </li>
-            <li key="industries">
+            <li key="industries" className="menu__big--industries">
               <Id />
             </li>
-            <li key="contact">
+            <li key="contact" className="menu__big--contact">
               <Link to="/contact">Contact</Link>
             </li>
-            <li key="profile" id="menu-primary-container__showcase">
+            <li key="profile" id="menu-primary-container__showcase" className="menu__big--profile">
               <a href="https://priestprofile.co.nz/">
                 <ProfileIcon />
                 Profile Cutting and Laser
               </a>
             </li>
+            <li key="more" className="menu__big--more">
+              <button>More</button>
+              <MenuMore />
+            </li>
           </ul>
         </div>
       </nav>
-      {/* medium up nav */}
     </header>
   </>
 );
