@@ -2,59 +2,68 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "gatsby";
 import ProfileIcon from './profile-icon';
 
-// this is kinda confusing putting it behind the if means it cant be defined
-// not putting it behind typescript doesnt like it
-
 function MenuMore() {
-  const ref = useRef();
+  const refMore = useRef();
 
-  console.log("🦖 " + ref);
-  console.log("🍔 " + ref.current);
+  const [moreStyle, setMore] = useState('0px');
+  const [moreHeight, setMoreHeight] = useState('0');
+  // console.log("🍔 " + moreStyle);
 
-  // if (ref.current) { // tsx likes this
-    console.log("🦄 " + ref.current);
-    console.log(ref.current['clientHeight']); // tsx likes this
+  const moreMargin = {
+    marginTop: moreStyle,
+    // display: 'none',
+    // opacity: moreOpacity,
+  };
 
-    const ch: number = ref.current['clientHeight'];
+  function moreToggle() {
+    if (refMore.current) { // tsx likes this
+      // console.log(refMore.current['clientHeight']); // tsx likes this
+      const ch = refMore.current['clientHeight'];
+      // - 62 additional pixels? guess and check this probably depends on number of rows
+      const plus = ch + 80;
+      // check the syntax
+      const togethter = `-${plus}px`;
+      // console.log("🍔 " + togethter);
 
-    // const [more, setMore] = useState(6);
-    const [more, setMore] = useState(ch);
+      setMore(togethter);
+    } // else throw error?
+  }
 
-    const moreMargin = {
-      marginTop: more,
-    }
+  useEffect(() => {
+    moreToggle();
+  }, []);
 
-    return (
-      <ul className="menu__more" ref={ref} style={moreMargin}>
+  function moreRise() {
+    moreToggle();
+  }
+
+  function moreDrop() {
+    setMore('0px');
+    console.log("🦖 " + moreStyle);
+  }
+
+  return (
+    <>
+      <button className="more-button" onClick={moreDrop} onMouseOver={moreDrop} onMouseLeave={moreRise}>More</button>
+      <ul className="menu__more" ref={refMore} style={moreMargin} onMouseOver={moreDrop} >
         <li key="more-services" className="more__service">
-          <Link to="/services">🦄 Services</Link>
+          <Link to="/services">Services</Link>
         </li>
         <li key="more-industries" className="more__industry">
-          <Link to="/industries">🦄 Industries</Link>
+          <Link to="/industries">Industries</Link>
         </li>
         <li key="more-contact" className="more__contact">
-          <Link to="/contact">🦄 Contact</Link>
+          <Link to="/contact">Contact</Link>
         </li>
         <li key="more-profile" className="more__profile">
           <a href="https://priestprofile.co.nz/">
             <ProfileIcon />
-            🦄 Profile Cutting and Laser
+            Profile Cutting and Laser
           </a>
         </li>
       </ul>
-    );
-  /* } else {
-    return null;
-  } */
-}
-
-/* this defintley doesnt work with where the ref and style are
-function MenuMore2() {
-  return (
-    <ul className="menu__more" ref={ref} style={moreMargin}>
-
-    </ul>
+    </>
   );
-} */
+}
 
 export default MenuMore;

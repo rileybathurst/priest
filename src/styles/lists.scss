@@ -377,10 +377,31 @@ $header-service-size: 40rem; // guess and check
 //  #menu more
 /*------------------------------------*/
 
-.menu__more {
+.more-button {
+  padding: 1rem;
+  z-index: 2;
   position: relative;
-  // margin-top: -10rem; // testing only
+  clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+
 }
+
+.menu__more {
+  // height: 0;
+  position: relative;
+  transition: 1s ease;
+  z-index: 0;
+  margin-block: 1rem;
+  margin-inline-start: -100%; // guess and check
+
+  > li > a {
+    margin-block: 1rem;
+  }
+}
+
+// this is set inline so it doesnt work here
+/* .menu__big--more:hover .menu__more {
+  margin-top: 0;
+} */
 
 /*------------------------------------*/
 //  #FOOTER NAV

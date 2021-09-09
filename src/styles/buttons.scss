@@ -3,17 +3,21 @@ button {
   padding: calc(var(--global-padding) / 2) $global-padding;
   background: $secondary-color;
   color: $white;
-  font-family: $major-font-family;
-  font-weight: bold;
+  // font-family: $major-font-family;
+  // font-weight: bold;
   font-size: 1.44rem;
+}
+
+button:hover {
+  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
 }
 
 // why us this so different? only use once can I get rid of it?
 .button {
   display: inline-block; // 📣
   padding: 0.85em 1em;
-  font-family: $major-font-family;
-  font-weight: bold;
+  // font-family: $major-font-family;
+  // font-weight: bold;
   // text-transform: uppercase;
   letter-spacing: 1px;
 }
