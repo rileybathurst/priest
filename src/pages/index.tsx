@@ -231,13 +231,12 @@ const IndexPage = ({ data }) => {
         <h2 className="centered">Industry Suppliers</h2>
       </div>
 
-      <div className="industry__all">
+      <div className="diatomic-wrapper">
         {data.allStrapiIndustries.edges.map((industry) => (
-          <section key={industry.node.id} className="industry__wrapper">
-            <div className="industry">
+          <section key={industry.node.id} className="diatomic-card">
               <Link
                 to={`/industries/${industry.node.slug}`}
-                className="industry__image"
+                className="diatomic-card__image"
               >
                 <GatsbyImage
                   image={
@@ -245,30 +244,32 @@ const IndexPage = ({ data }) => {
                       ?.gatsbyImageData
                   }
                   alt={industry.node.cover?.alternativeText}
-                  className="shadow"
+                  className="diatomic-card__image"
                 />
               </Link>
 
-              <h3 className="industry__title">
-                <Link to={`/industries/${industry.node.slug}`}>
-                  {industry.node.title}
-                </Link>
-              </h3>
-              <h4 className="industry__byline">{industry.node.byline}</h4>
-              <div className="industry__text">
-                <p>{industry.node.content}</p>
-                <Link
-                  to={`/industries/${industry.node.slug}`}
-                  className=""
-                >
-                  More about {industry.node.title}
-                </Link>
-              </div>
-            </div>
-            <Cross />
+              <section className="diatomic-card__text">
+                <div className="diatomic-card__text--container">
+                  <h3 className="">
+                    <Link to={`/industries/${industry.node.slug}`}>
+                      {industry.node.title}
+                    </Link>
+                  </h3>
+                  <h4 className="industry__byline">{industry.node.byline}</h4>
+
+                  <p>{industry.node.content}</p>
+                  <Link
+                    to={`/industries/${industry.node.slug}`}
+                    className="diatomic-card__text--more"
+                  >
+                    More about {industry.node.title}
+                  </Link>
+                </div>{/* diatomic-card__text--container */}
+              </section>{/* diatomic-card__text */}
           </section>
         ))}
       </div>
+      <Cross />
 
       <section id="map" className="">
         <iframe

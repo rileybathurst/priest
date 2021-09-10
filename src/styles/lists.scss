@@ -154,12 +154,12 @@ $header-service-size: 40rem; // guess and check
 .menu__big--service {
   display: none;
   @media (min-width: $header-service-size) {
-    display: inline;
+    display: inline-block;
   }
 }
 
 .more__service {
-  display: inline;
+  display: inline-block;
   @media (min-width: $header-service-size) {
     display: none;
   }
@@ -172,12 +172,12 @@ $header-service-size: 40rem; // guess and check
 .menu__big--industry {
   display: none;
   @media (min-width: $header-industry-size) {
-    display: inline;
+    display: inline-block;
   }
 }
 
 .more__industry {
-  display: inline;
+  display: inline-block;
   @media (min-width: $header-industry-size) {
     display: none;
   }
@@ -190,12 +190,12 @@ $header-service-size: 40rem; // guess and check
 .menu__big--contact {
   display: none;
   @media (min-width: $header-contact-size) {
-    display: inline;
+    display: inline-block;
   }
 }
 
 .more__contact {
-  display: inline;
+  display: inline-block;
   @media (min-width: $header-contact-size) {
     display: none;
   }
@@ -208,12 +208,12 @@ $header-service-size: 40rem; // guess and check
 .menu__big--profile {
   display: none;
   @media (min-width: $header-profile-size) {
-    display: inline;
+    display: inline-block;
   }
 }
 
 .more__profile {
-  display: inline;
+  display: inline-block;
   @media (min-width: $header-profile-size) {
     display: none;
   }
@@ -224,7 +224,7 @@ $header-service-size: 40rem; // guess and check
 /*------------------------------------*/
 
 .more__profile {
-  display: inline;
+  display: inline-block;
   @media (min-width: $header-profile-size) {
     display: none;
   }

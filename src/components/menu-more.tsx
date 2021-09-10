@@ -25,7 +25,12 @@ function MenuMore() {
       const togethter = `-${plus}px`;
       // console.log("🍔 " + togethter);
 
-      setMore(togethter);
+      if (moreStyle === '0px') {
+        setMore(togethter);
+      } else {
+        setMore('0px');
+      }
+
     } // else throw error?
   }
 
@@ -39,12 +44,18 @@ function MenuMore() {
 
   function moreDrop() {
     setMore('0px');
-    console.log("🦖 " + moreStyle);
+    // console.log("🦖 " + moreStyle);
   }
 
   return (
     <>
-      <button className="more-button" onClick={moreDrop} onMouseOver={moreDrop} onMouseLeave={moreRise}>More</button>
+      <button
+        className="more-button"
+        onClick={moreToggle}
+        onMouseOver={moreToggle}
+        onMouseLeave={moreRise}
+      >More</button>
+      {/* onMouseOver={moreDrop} onMouseLeave={moreRise} */}
       <ul className="menu__more" ref={refMore} style={moreMargin} onMouseOver={moreDrop} >
         <li key="more-services" className="more__service">
           <Link to="/services">Services</Link>

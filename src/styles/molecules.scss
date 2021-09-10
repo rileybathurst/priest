@@ -359,6 +359,11 @@
   justify-content: center;
   column-gap: 2rem;
 
+  @media (min-width: 158rem) {
+    justify-content: flex-start;
+    max-width: 156rem;
+  }
+
   > * {
     flex: 0 1 var(--page-width);
   }
