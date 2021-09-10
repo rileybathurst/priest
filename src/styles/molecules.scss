@@ -589,11 +589,19 @@
   a {
     text-decoration: none;
     border-radius: var(--backed-radius);
-    background: hsl(0, 0%, 92%);
+    background: var(--mercury);
     transition: 0.5s ease;
+  
+    @media (prefers-color-scheme: dark) {
+      background: var(--lead);
+    }  
   }
 }
 
 .breadcrumbs a:hover {
-  background: hsl(0, 0%, 82%);
+  background: var(--silver);
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--tungsten);
+  }
 }

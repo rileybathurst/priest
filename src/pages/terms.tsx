@@ -16,7 +16,9 @@ const TermsPage = () => {
       />
       <HeaderContact />
       <main className="page-width">
-        <p><Link to="/">Home</Link> &gt; Terms and Conditions</p>
+
+        <p className="breadcrumbs"><Link to="/">Home</Link> &gt; Terms and Conditions</p>
+
         <h1>Terms and Conditions of Sale</h1>
         <ol className="terms">
           <li id="interpretation">

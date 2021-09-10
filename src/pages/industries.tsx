@@ -28,43 +28,59 @@ const IndustriesPage = ({ data }) => {
       <HeaderContact />
 
       <main className="container">
-      <p className="breadcrumbs"><Link to="/">Home</Link> &gt; Industry Suppliers</p>
+        <p className="breadcrumbs"><Link to="/">Home</Link> &gt; Industry Suppliers</p>
         <div className="tasks__wrapper">
-        {data.allStrapiIndustries.edges.map(document => (
-          <div key={document.node.title} >
-          <section  className="tasks">
-            <h4 className="tasks__title">
-              <Link to={`/industries/${document.node.slug}`}>{document.node.title}</Link>
-            </h4>
+          {data.allStrapiIndustries.edges.map(document => (
+            <div key={document.node.id} className="tasks--outer">
+              <section className="tasks">
+                <h3 className="tasks__title h4">
+                  <Link to={`/industries/${document.node.slug}`}>
+                    {document.node.title}
+                  </Link>
+                </h3>
 
-            <div className="tasks__background--upper shadow">
-              {/* stay gold */}
+                <div className="tasks__background--upper shadow">
+                  {/* stay gold */}
+                </div>
+
+                <Link
+                  to={`/industries/${document.node.slug}`}
+                  className="tasks__image shadow"
+                  title={document.node.title}
+                >
+                  <GatsbyImage
+                    image={
+                      document.node.cover?.localFile?.childImageSharp
+                        ?.gatsbyImageData
+                    }
+                    alt={document.node.Cover?.alternativeText}
+                    className="shadow"
+                  />
+                </Link>
+
+                <div className="tasks__info">
+                  <Byline byline={document.node.byline} />
+                  <div className="clipshaper">
+                    <div className="clipper">{/* stay gold*/}</div>
+                    <p>{document.node.content}</p>
+                  </div>
+                </div>
+
+                <div className="service__more--back">{/* stay gold */}</div>
+                <Link
+                  to={`/industries/${document.node.slug}`}
+                  className="service__more"
+                >
+                  {/* <span className="button hollow"> */}
+                  More about {document.node.title}
+                  {/* </span> */}
+                </Link>
+              </section>
+
+              <Cross />
             </div>
 
-            <Link to={`/industries/civil`} className="tasks__image shadow">
-            <GatsbyImage
-              image={
-                document.node.cover?.localFile?.childImageSharp
-                  ?.gatsbyImageData
-              }
-              alt={document.node.cover?.alternativeText}
-            />
-            </Link>
-
-            <div className="tasks__info">
-            <Byline />
-            {/* {document.node.content} */}
-            <ReactMarkdown children={document.node.content} />
-              <Link to={`/industries/civil`} className="tasks__more">
-                <span className="button hollow">More about {document.node.title}</span>
-              </Link>
-            </div>
-          </section>
-
-          <Cross />
-        </div>
-
-        ))}
+          ))}
         </div>
         {/* tasks__wrapper */}
       </main>
