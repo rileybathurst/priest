@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import Layout from "../components/layout";
 import HeaderContact from "../components/header-contact";
 import Seo from "../components/seo";
+import Cross from "../components/cross";
 
 function Byline(props) {
   if (props.byline) {
@@ -60,10 +61,7 @@ const IndustriesPage = ({ data }) => {
             </div>
           </section>
 
-          <div className="tasks__cross cross__wrapper">
-            <hr className="cross__hr" />
-            <div className="cross__divider">{/* stay gold */}</div>
-          </div>
+          <Cross />
         </div>
 
         ))}

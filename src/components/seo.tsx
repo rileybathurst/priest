@@ -1,4 +1,5 @@
 // https://www.gatsbyjs.com/docs/add-seo-component/
+// https://github.com/gatsbyjs/gatsby/blob/master/starters/default/src/components/seo.js
 
 import * as React from "react";
 import PropTypes from "prop-types";
@@ -38,12 +39,13 @@ const SEO = ({ title, description, image, ogImage }) => {
   };
 
   return (
-    <Helmet 
+    <Helmet
       title={seo.title}
       titleTemplate={titleTemplate}
     >
       <html lang="en" />
 
+      {/* <title>{seo.title}</title> */}
       <meta name="description" content={seo.description} />
       
       {seo.url && <meta property="og:url" content={seo.url} />}
@@ -126,5 +128,3 @@ const query = graphql`
     }
   }
 `;
-
-// titleTemplate // I pulled this out as it was breaking things but I should rebuild it

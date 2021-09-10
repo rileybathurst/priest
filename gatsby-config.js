@@ -25,7 +25,6 @@ module.exports = {
         // apiURL: "http://localhost:1338", // local
         collectionTypes: [
           "service",
-          `galleries`,
           `videos`,
           `testimonials`,
           `industries`,

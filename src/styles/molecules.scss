@@ -110,7 +110,12 @@
     grid-column: 8/16;
   } */
 
+  // 📣 this should become an aspect ratio
   iframe {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     clip-path: polygon(32px 0%, 100% 0%, calc(100% - 32px) 100%, 0% 100%);
 
     /*     @media (min-width: $breakpoint__large) {

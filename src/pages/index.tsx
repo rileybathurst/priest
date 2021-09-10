@@ -138,13 +138,6 @@ const IndexPage = ({ data }) => {
             <iframe
               title="hero video 1"
               src={"https://player.vimeo.com/video/597365161?background=1"}
-              style={{
-                // this probably needs an aspect ratio
-                top: "0",
-                left: "0",
-                width: "100%",
-                height: "100%",
-              }}
               frameBorder="0"
               allow="autoplay; fullscreen"
               allowFullScreen

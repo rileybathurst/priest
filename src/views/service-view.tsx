@@ -39,23 +39,10 @@ const ServiceView = ({ service, other }) => {
 
     if (medium === "video") {
       return (
-        <div
-          style={{
-            padding: "56.25% 0 0 0",
-            position: "relative",
-            marginBottom: "2rem",
-          }}
-        >
+        <div className="single__cover--video">
           <iframe
             src={"https://player.vimeo.com/video/" + video + "?background=1"}
             title="cover video"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-            }}
             frameBorder="0"
             allow="autoplay; fullscreen"
             allowFullScreen
@@ -67,7 +54,7 @@ const ServiceView = ({ service, other }) => {
         <GatsbyImage
           image={cover}
           alt={imageAlt}
-          style={{ marginBottom: "2rem" }}
+          className="single__cover--image"
         />
       );
     }
@@ -154,13 +141,8 @@ const ServiceView = ({ service, other }) => {
             <Sec hasVideo={service.hasVideo} />
 
             <div className="videos">
-              <figure className="">
-                <div
-                  style={{
-                    padding: "56.25% 0 0 0",
-                    position: "relative",
-                  }}
-                >
+              <figure>
+                <div>
                   <iframe
                     title={vids.title}
                     src={
@@ -168,13 +150,6 @@ const ServiceView = ({ service, other }) => {
                       vids.vimeo +
                       "?title=0&byline=0&portrait=0"
                     }
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                    }}
                     frameBorder="0"
                     allow="autoplay; fullscreen"
                     allowFullScreen
