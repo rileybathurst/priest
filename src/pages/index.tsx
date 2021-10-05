@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, graphql } from "gatsby";
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 
+import ReactMarkdown from "react-markdown";
+
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import SummitContact from "../components/summit-contact";
@@ -30,6 +32,7 @@ function SummitImage() {
       src="https://priest.s3-ap-southeast-2.amazonaws.com/images/priest_sheetmetal-industrial-sheetmetal-christchurch_new_zealand-1920.jpg"
       alt="industrial sheetmetal christchurch"
       // this is insane that this is the syntax with double brackets
+      // typescript also doesnt like this
       transformOptions={{ grayscale: "true" }}
     />
   );
@@ -67,12 +70,15 @@ function SummitInfo() {
 
   const [jump, setJump] = useState(0);
 
+  // trying to cleanup typescript warnings
+  if (ref.current) {
   useEffect(() => {
-    // console.log(ref.current.clientHeight);
-    const height = ref.current.clientHeight;
-    setJump(height);
-    // adding the [] only re-renders on change
-  }, [jump]);
+      // console.log(ref.current.clientHeight);
+      const height = ref.current.clientHeight;
+      setJump(height);
+      // adding the [] only re-renders on change
+    }, [jump]);
+  }
 
   const high = {
     // why does this have a second and not a pix
@@ -197,9 +203,13 @@ const IndexPage = ({ data }) => {
 
               <div className="tasks__info">
                 <Byline byline={document.node.byline} />
-                <div className="clipshaper">
-                  <div className="clipper">{/* stay gold*/}</div>
+                {/*                 <div className="clipshaper">
+                  <div className="clipper"> stay gold </div>
                   <p>{document.node.Content}</p>
+                </div> */}
+
+                <div className="single__markdown">
+                  <ReactMarkdown children={document.node.markdown} />
                 </div>
               </div>
 
@@ -227,38 +237,38 @@ const IndexPage = ({ data }) => {
       <div className="diatomic-wrapper">
         {data.allStrapiIndustries.edges.map((industry) => (
           <section key={industry.node.id} className="diatomic-card">
-              <Link
-                to={`/industries/${industry.node.slug}`}
+            <Link
+              to={`/industries/${industry.node.slug}`}
+              className="diatomic-card__image"
+            >
+              <GatsbyImage
+                image={
+                  industry.node.cover?.localFile?.childImageSharp
+                    ?.gatsbyImageData
+                }
+                alt={industry.node.cover?.alternativeText}
                 className="diatomic-card__image"
-              >
-                <GatsbyImage
-                  image={
-                    industry.node.cover?.localFile?.childImageSharp
-                      ?.gatsbyImageData
-                  }
-                  alt={industry.node.cover?.alternativeText}
-                  className="diatomic-card__image"
-                />
-              </Link>
+              />
+            </Link>
 
-              <section className="diatomic-card__text">
-                <div className="diatomic-card__text--container">
-                  <h3 className="">
-                    <Link to={`/industries/${industry.node.slug}`}>
-                      {industry.node.title}
-                    </Link>
-                  </h3>
-                  <h4 className="industry__byline">{industry.node.byline}</h4>
-
-                  <p>{industry.node.content}</p>
-                  <Link
-                    to={`/industries/${industry.node.slug}`}
-                    className="diatomic-card__text--more"
-                  >
-                    More about {industry.node.title}
+            <section className="diatomic-card__text">
+              <div className="diatomic-card__text--container">
+                <h3 className="">
+                  <Link to={`/industries/${industry.node.slug}`}>
+                    {industry.node.title}
                   </Link>
-                </div>{/* diatomic-card__text--container */}
-              </section>{/* diatomic-card__text */}
+                </h3>
+                <h4 className="industry__byline">{industry.node.byline}</h4>
+
+                <p>{industry.node.content}</p>
+                <Link
+                  to={`/industries/${industry.node.slug}`}
+                  className="diatomic-card__text--more"
+                >
+                  More about {industry.node.title}
+                </Link>
+              </div>{/* diatomic-card__text--container */}
+            </section>{/* diatomic-card__text */}
           </section>
         ))}
       </div>
@@ -292,6 +302,7 @@ export const pageQuery = graphql`
           title
           byline
           Content
+          markdown
           slug
 
           Cover {

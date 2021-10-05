@@ -60,6 +60,14 @@ footer {
   }
 } */
 
+.footer-lists {
+  @media (max-width: $breakpoint__medium) {
+    padding: 0 !important; // overwrites :is(.backed, .backed__svg svg) {
+    // normally it should have the padding but at this size its small enough its not needed
+    // cant be a # as its needed twice
+  }
+}
+
 // needs specificity of class
 :is(.footer__backed, .footer__services, .footer__industries, .footer__copyright, .footer__contact--method)
   a:where(:hover, :focus) {

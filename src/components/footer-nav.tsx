@@ -20,7 +20,7 @@ export default function FooterNav() {
           <ul class="footer__services">
             {data.allStrapiService.edges.map(document => (
               <li key={document.node.slug}>
-                <Link to={`/services/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed">
+                <Link to={`/services/${document.node.slug}`} target="_blank" rel="noreferrer" className="backed footer-lists">
                   {document.node.title}
                 </Link>
               </li>
