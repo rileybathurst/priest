@@ -13,9 +13,9 @@ const ContactPage = () => (
       description="Get in touch with Priest Sheetmetal"
     />
     <HeaderContact />
+    <p className="breadcrumbs"><Link to="/">Home</Link>  &gt; <span>Contact</span></p>
     <main className="page-width">
 
-      <p className="breadcrumbs"><Link to="/">Home</Link>  &gt; <span>Contact</span></p>
 
       <h1>Contact</h1>
 

@@ -2,20 +2,22 @@
   #Base Typography
 \*------------------------------------*/
 
+// typescale.com 1.200 Minor Third 19.2px?
+// line-height is 1.625 26px 
+
 html {
   font-family: $body-font-family;
-
-  // typescale.com 1.200 Minor Third
   font-size: 100%;
-} // 16px
+}
 
 body {
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.625; // 26px // this is really quite large
 }
 
 p {
-  margin-bottom: 1.25rem;
+  margin-block-start: 0; // browser reset
+  margin-block-end: 1.25rem; // 20px
 }
 
 // I don't love this syntax but it might be best on some way
@@ -31,50 +33,39 @@ h5,
 .h5,
 h6,
 .h6 {
-  margin: 2.75rem 0 1.05rem; // 🚨 this is really large for smaller h tags // 🚨 never use 3
   font-family: $major-font-family;
-  font-weight: 400; // 📣 double check this
-  line-height: 1.5em;
-  margin-block-start: 0; // browser reset
-  margin-block-end: 1.15em;
+  font-weight: 400;
 }
 
-// https://practicaltypography.com/all-caps.html
-// All-caps text—meaning text with all the letters capitalized—is best used sparingly
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  // text-transform: uppercase; // I should remove this and bring it back in only when needed
-} */
-
 h1 {
-  margin-top: 0; // why am I crushing this in all situations
-  font-size: 2.488rem; // 39.808
+  margin-top: 0; // browser reset
+  font-size: 2.5rem; // 40px // 2.448 rounded up
+  // line-height: ;
 }
 
 h2 {
-  font-size: 2.074rem;
-} // 33.184px
+  font-size: 2.065rem; // 33px // 2.074 rounded down
+}
 
 h3 {
-  font-size: 1.728rem; // 27.684px
-  margin-top: 1rem; // this seems like a bad place to have this even if the one use is nice
+  font-size: 1.75rem; // 28px // 1.728 rounded up
 }
 
 h4 {
-  font-size: 1.44rem;
-} // 23.04px
+  font-size: 1.5rem; // 24px // rounded up from 1.44
+}
 
 h5 {
-  font-size: 1.2rem;
-} // 19.2px
+  font-size: 1.1875rem; // 19px // rounded down from 1.2
+}
+
+h6 {
+  font-size: 1rem; // 16px
+}
 
 small,
 .text_small {
-  font-size: 0.833rem;
+  font-size: 0.8125rem; // 13px
 }
 
 p {

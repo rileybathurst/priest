@@ -127,20 +127,23 @@ I think this is now out of use but check it
 \*------------------------------------*/
 
 #header-contact-background {
-  margin-bottom: $global-margin * 2;
-  padding: $global-padding * 2 $global-padding 0 $global-padding;
-  // no bottom due to the contact boxes changing alignment is easier to have the bottom margin there
+  margin-block-end: $global-margin * 2;
+  padding-block-start: 1.625rem;
+  padding-inline: $global-padding;
   background: $light-gray;
   z-index: -1;
   position: relative;
-  
+
+  @media screen and (min-width: $breakpoint__medium) {
+
+  }
+
   @media (prefers-color-scheme: dark) {
-    background: var(--blackish);
+    background: var(--lead);
   }
 }
 
 .header-contact {
-  // max-width: 89.9em;
   max-width: 70rem;
   margin: 0 auto;
   display: flex;
@@ -153,7 +156,7 @@ I think this is now out of use but check it
   h3 {
     margin-top: 0; // reset from type scale as we already have a break but sort this our
     text-align: center;
-    font-size: clamp(var(--h6-fs), var(--h5-fs), var(--h4-fs));
+    font-size: clamp(var(--h6-fs), 1.5vm, var(--h4-fs));
   }
 }
 
@@ -163,6 +166,8 @@ I think this is now out of use but check it
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 1.625rem;
+  margin-block-end: 1.2rem;
 }
 
 // 📣 bad old naming
@@ -185,8 +190,6 @@ I think this is now out of use but check it
 }
 
 .summit__contact--service {
-  // margin: 0 $global-margin $global-margin $global-margin;
-  margin: $global-margin;
   display: grid;
 
   > * {
@@ -217,8 +220,12 @@ I think this is now out of use but check it
 }
 
 .summit__contact--icon {
-  padding: $global-padding;
   justify-self: end;
+  padding: 0.8125rem 0.5rem;
+
+  @media (min-width: $breakpoint__medium) {
+    padding: $global-padding;
+  }
 
   svg {
     fill: $white;
@@ -227,7 +234,12 @@ I think this is now out of use but check it
 
 .summit__contact--text {
   // align-self: center; // can't do this to get a block
-  padding: $global-padding;
   display: flex;
   align-items: center;
+
+  padding: 0.8125rem 0.5rem;
+
+  @media (min-width: $breakpoint__medium) {
+    padding: $global-padding;
+  }
 }

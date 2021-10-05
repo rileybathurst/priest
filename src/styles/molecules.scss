@@ -4,7 +4,7 @@
 
 .summit__backer {
   // this is all under full so I remember it only displays at this size
-    background: #efefef; // 📣
+    background: var(--mercury);
     clip-path: polygon(
       0 0,
       100% 0,
@@ -285,8 +285,6 @@
 }
 
 .summit__contact--service {
-  // margin: 0 $global-margin $global-margin $global-margin;
-  margin: $global-margin;
   display: grid;
   
   > * {
@@ -580,6 +578,10 @@
   width: calc(100% - 2rem);
   max-width: var(--page-width);
   margin-inline: auto;
+
+/*   @media (min-width: $breakpoint__medium) {
+
+  } */
 
   a,
   span {

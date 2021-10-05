@@ -93,6 +93,8 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
 	--global-padding: 1rem;
 	--global-grid-gap: var(--global-margin);
 
+	--inline-space: 0.8125rem;
+
 	/*------------------------------------*/
 	//  #layout
 	/*------------------------------------*/
@@ -105,12 +107,13 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
 	//  #typography
 	/*------------------------------------*/
 	
-	--h1-fs:  2.488rem;
-	--h2-fs:  2.074rem;
-	--h3-fs:  1.728rem;
-	--h4-fs:  1.44rem;
-	--h5-fs:  1.2rem;
+	--h1-fs:  2.5rem;
+	--h2-fs:  2.065rem;
+	--h3-fs:  1.75rem;
+	--h4-fs:  1.5rem;
+	--h5-fs:  1.1875rem;
 	--h6-fs:  1rem;
+	--small-fs: 0.8125rem;
 
 	/*------------------------------------*/
 	//  #borders

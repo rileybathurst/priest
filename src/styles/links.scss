@@ -24,6 +24,12 @@ a:where(:hover, :focus) {
   color: var(--black);
 }
 
+#menu_small {
+  a {
+    color: var(--white);
+  }
+}
+
 #menu__big {
   a {
     color: var(--white);

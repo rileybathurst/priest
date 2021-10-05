@@ -91,6 +91,7 @@ nav {
         padding-block: 0.5rem;
 
         > svg {
+          max-width: 2rem; // guess and check
           max-height: 2rem; // guess and check
           fill: currentColor;
         } // svg
