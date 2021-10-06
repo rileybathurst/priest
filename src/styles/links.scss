@@ -20,10 +20,6 @@ a:where(:hover, :focus) {
   background: hsla(0, 0%, 75%, 0.5);
 }
 
-.hidden-link {
-  color: var(--black);
-}
-
 #menu_small {
   a {
     color: var(--white);
@@ -41,14 +37,14 @@ a:where(:hover, :focus) {
   }
 
   a:where(:hover, :focus) {
-    color: var(--light-gray);
+    color: var(--mercury);
     background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
     border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 25%));
   }
 }
 
 .cheese {
-  color: var(--light-gray);
+  color: var(--mercury);
   background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%)) !important;
   // theres some problems with ID specificity I should fix up
   clip-path: polygon(1rem 0,100% 0,calc(100% - 1rem) 100%,0 100%);

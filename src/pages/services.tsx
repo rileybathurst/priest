@@ -68,7 +68,7 @@ const ServicesPage = ({ data }) => {
                   to={`/services/${document.node.slug}`}
                   className="tasks__more"
                 >
-                  <span className="button hollow">
+                  <span>
                     More about {document.node.title}
                   </span>
                 </Link>

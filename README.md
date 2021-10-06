@@ -18,14 +18,6 @@ Once strapi is running get gatsby running.
 
 ``` npm start ```
 
-
-
 ### Markdown Images
 
 I'm not sure if this is how I will do it forever but I'm importing into strapi but also running the live image from aws.
-
-### To Do
-
-- I've got a list running in Asana
-
-🦄

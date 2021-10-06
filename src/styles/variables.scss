@@ -36,11 +36,11 @@ $primary-color: #1e93bd;
 $secondary-color: #006087; // document if this is a darken
 // $warning-color: #ffae00; // currently not used
 
-$black: #0a0a0a;
-$white: #fefefe;
-$light-gray: #e6e6e6;
-$medium-gray: #d1d1d1; // slightly adapted so the footer ratio is passing contrast guidelines
-$dark-gray: #8a8a8a;
+// $black: #0a0a0a;
+// $white: #fefefe;
+// $light-gray: #e6e6e6;
+// $medium-gray: #d1d1d1; // slightly adapted so the footer ratio is passing contrast guidelines
+// $dark-gray: #8a8a8a;
 
 // 1rem should be a horizontal margin and generally not vertical
 $global-margin: 1rem;
@@ -68,10 +68,6 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
 	// gradient has to be from 50% to get a pass on wave.webaim.org
 
 	--black: hsl(0, 0%, 4%);
-	--blackish: hsl(0, 0%, 13%);
-	--dark-gray: hsl(0, 0%, 54%);
-	--medium-gray: hsl(0, 0%, 82%); // slightly adapted so the footer ratio is passing contrast guidelines
-	--light-gray: hsl(0, 0%, 90%);
 	--white: hsl(0, 0%, 96%);
 
 	/* apple pencils */
@@ -93,7 +89,9 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
 	--global-padding: 1rem;
 	--global-grid-gap: var(--global-margin);
 
-	--inline-space: 0.8125rem;
+	--block-spacing: 1.625rem; // 26px baseline grid
+	// if this is top and bottom its 3.25rem // 52px
+	--inline-spacing: 0.8125rem; // half the baselines on the widths
 
 	/*------------------------------------*/
 	//  #layout
@@ -107,13 +105,13 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
 	//  #typography
 	/*------------------------------------*/
 	
-	--h1-fs:  2.5rem;
-	--h2-fs:  2.065rem;
-	--h3-fs:  1.75rem;
-	--h4-fs:  1.5rem;
-	--h5-fs:  1.1875rem;
-	--h6-fs:  1rem;
-	--small-fs: 0.8125rem;
+	--h1-fs:  2.5rem; // 40px // 2.448 rounded up
+	--h2-fs:  2.065rem; // 33px // 2.074 rounded down
+	--h3-fs:  1.75rem; // 28px // 1.728 rounded up
+	--h4-fs:  1.5rem; // 24px // rounded up from 1.44
+	--h5-fs:  1.1875rem; // 19px // rounded down from 1.2
+	--h6-fs:  1rem; // 16px
+	--small-fs: 0.8125rem; // 13px
 
 	/*------------------------------------*/
 	//  #borders
@@ -131,9 +129,26 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
 	--shadow__alpha: 0.16;
 	--shadow__rgb: 0, 0, 0;
 
+	--drop-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+
 	/*------------------------------------*/
 	//  #SHAPES
 	/*------------------------------------*/
 	
-	--trapezoid-1: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%)
+	--trapezoid-1: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+
+	/*------------------------------------*/
+	//  #TIMING
+	/*------------------------------------*/
+	
+	--general-timing: 0.5s ease;
 }
+
+/*------------------------------------*/
+//	#BASELINES
+/*------------------------------------*/
+
+// block 26px
+// 3.25rem 52px
+// 4.875rem 78px
+// 6.5rem 104px

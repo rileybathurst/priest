@@ -1,15 +1,27 @@
+// I believe the only place we are currently using buttons
+// is opening and closing menus
+
 button {
   border: none; // browser rest
-  padding: calc(var(--global-padding) / 2) $global-padding;
+  // padding-block: calc(var(--block-spacing) - 0.125rem);
+  padding-block: 1.03125rem;
+  padding-inline: var(--inline-spacing);
   background: $secondary-color;
-  color: $white;
-  // font-family: $major-font-family;
-  // font-weight: bold;
-  font-size: 1.44rem;
+  color: var(--white);
+  font-size: var(--h5-fs);
+  // total height 1.1875rem + (2 * 1.625rem) = 5.125rem
+  // should be 4.875rem = 0.25rem / 2 = 0.125rem
+  // 5.125 - 4.875
+
+  // is it possible to get to 3.25rem
+  // 3.25 - 1.1875 = 2.0625 / 2 = 1.03125rem
 }
 
 button:hover {
-  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
+  background: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 10%)
+  );
 }
 
 // why us this so different? only use once can I get rid of it?
@@ -38,13 +50,16 @@ button:hover {
 }
 
 .button.hollow:hover {
-  background: var(--medium-gray);
+  background: var(--silver);
   color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
-  border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+  border-color: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 20%)
+  );
 }
 
 .tasks__more {
-  background: var(--medium-gray);
+  background: var(--silver);
   // border: 2px solid var(--secondary-color);
   clip-path: polygon(0.5rem 0, 100% 0, calc(100% - 0.5rem) 100%, 0 100%);
   padding: 0.25rem 1.5rem;

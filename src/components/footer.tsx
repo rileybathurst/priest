@@ -140,7 +140,7 @@ const Footer = (props) => (
     <Cross />
 
     <nav>
-      <ul className="footer__backed">
+      <ul className="footer__backed footer__base">
         <li>
           <div className="footer__logo">
             <Logo />

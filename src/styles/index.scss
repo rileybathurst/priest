@@ -103,7 +103,7 @@ I think this is now out of use but check it
 }
 
 .menu-primary-container > ul > li > a:hover {
-  color: var(--light-gray);
+  color: var(--mercury);
   background: darken($secondary-color, 10%);
   border-bottom: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
   clip-path: var(--trapezoid-1);
@@ -126,16 +126,22 @@ I think this is now out of use but check it
   #Layout
 \*------------------------------------*/
 
+.header-contact-background-wrap {
+  filter: drop-shadow(var(--drop-shadow));
+}
+
 #header-contact-background {
-  margin-block-end: $global-margin * 2;
+  margin-block-end: 3.25rem;
   padding-block-start: 1.625rem;
+  padding-block-end: 3.25rem;
   padding-inline: $global-padding;
-  background: $light-gray;
-  z-index: -1;
+  background: var(--mercury);
+  // z-index: -1; // this cant be here or it breaks links
   position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
 
-  @media screen and (min-width: $breakpoint__medium) {
-
+  @media (min-width: $breakpoint__medium) {
+    margin-block-end: 4.875rem;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -148,6 +154,8 @@ I think this is now out of use but check it
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  row-gap: var(--block-spacing);
+  column-gap: var(--line-spacing);
 
   @media (min-width: $breakpoint__large) {
     flex-flow: row wrap;
@@ -190,13 +198,6 @@ I think this is now out of use but check it
 }
 
 .summit__contact--service {
-  display: grid;
-
-  > * {
-    grid-row: 1;
-    grid-column: 1;
-  }
-
   > a {
     padding-inline-start: 1rem;
     padding-inline-end: 1rem;
@@ -210,8 +211,9 @@ I think this is now out of use but check it
     z-index: 1; // above the background
     display: flex;
     flex-direction: row;
-    color: $white;
+    color: var(--white);
     clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+    // transition: var(--general-timing); // because this goes from a gradient to not it cant have a transition
   }
 
   a:hover {
@@ -228,7 +230,7 @@ I think this is now out of use but check it
   }
 
   svg {
-    fill: $white;
+    fill: var(--white);
   }
 }
 

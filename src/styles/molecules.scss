@@ -2,6 +2,11 @@
   #SUMMIT
 \*------------------------------------*/
 
+.summit__backer--wrapper {
+  // var(--shadow) doesnt quite work here
+  filter: drop-shadow(var(--drop-shadow));
+}
+
 .summit__backer {
   // this is all under full so I remember it only displays at this size
     background: var(--mercury);
@@ -14,7 +19,7 @@
     margin-block-end: 3rem;
 
     @media (prefers-color-scheme: dark) {
-      background: var(--blackish);
+      background: var(--lead);
     }
 }
 
@@ -297,9 +302,9 @@
     padding-inline-end: 1rem;
     display: flex;
     flex-direction: row;
-    color: $white;
+    color: var(--white);
     background: $secondary-color;
-    background: $black;
+    background: var(--black);
       background: linear-gradient(
       184deg,
       rgba(30, 141, 183, 1) 0%,
@@ -382,11 +387,11 @@
   max-width: var(--page-width);
   margin-inline: auto;
   margin-bottom: 2rem;
-  background: $medium-gray;
+  background: var(--silver);
   background: linear-gradient(
     0deg,
-    rgb(230, 230, 230) 0%,
-    rgb(254, 254, 254) 100%
+    var(--mercury) 0%,
+    hsl(0, 0%, 100%) 100%
   ); // bottom up
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);
 
@@ -395,7 +400,7 @@
   }
   
   @media (prefers-color-scheme: dark) {
-    background: var(--blackish);
+    background: var(--lead);
   }
 }
 
@@ -437,7 +442,7 @@
   }
 
   a {
-    color: $white;
+    color: var(--white);
   }
 }
 
@@ -533,7 +538,7 @@
   border-left: 2px solid $secondary-color;
   border-right: 2px solid $secondary-color;
   width: 4px;
-  background: $white;
+  background: var(--white);
   grid-row: 5;
   grid-column: 1/4;
   justify-self: center;

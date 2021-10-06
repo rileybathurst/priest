@@ -56,15 +56,6 @@ function CutPhoto() {
   );
 }
 
-/* function TeamPhoto2() {
-  return (
-    <StaticImage
-      src="https://priest.s3-ap-southeast-2.amazonaws.com/images/Priest_2019_0078.jpg"
-      alt="sheetmetal christchurch"
-    />
-  );
-} */
-
 function SummitInfo() {
   const ref = useRef();
 
@@ -72,7 +63,7 @@ function SummitInfo() {
 
   // trying to cleanup typescript warnings
   if (ref.current) {
-  useEffect(() => {
+    useEffect(() => {
       // console.log(ref.current.clientHeight);
       const height = ref.current.clientHeight;
       setJump(height);
@@ -134,6 +125,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Seo title="Priest Sheetmetal &amp; Plate Christchurch" />
+      <div className="summit__backer--wrapper">
       <div className="summit__backer">
         <section id="summit">
           <SummitInfo />
@@ -170,7 +162,7 @@ const IndexPage = ({ data }) => {
           </div>
         </section>
       </div>
-      {/* .summit__backer */}
+      </div>
 
       <div className="tasks__wrapper">
         {data.allStrapiService.edges.map((document) => (

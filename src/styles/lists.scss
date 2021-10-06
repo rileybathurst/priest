@@ -275,14 +275,12 @@ $header-service-size: 40rem; // guess and check
 .small_menu--opener {
   width: 100%;
   cursor: pointer;
-  padding-block: var(--global-padding);
   transition: 1s ease;
   margin-block: 0; // safari fix
-  padding-block: 1rem;
 }
 
 .small_menu--opener:hover {
-  color: var(--light-gray); // 📣
+  color: var(--mercury);
   background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
 }
 
