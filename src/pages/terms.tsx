@@ -15,11 +15,9 @@ const TermsPage = () => {
         title="Terms and Conditions - Priest Sheetmetal &amp; Plate Christchurch"
       />
       <HeaderContact />
+      <p className="breadcrumbs"><Link to="/">Home</Link> &gt; Terms and Conditions</p>
       <main className="page-width">
-
-        <p className="breadcrumbs"><Link to="/">Home</Link> &gt; Terms and Conditions</p>
-
-        <h1>Terms and Conditions of Sale</h1>
+        <h1 className="page-title">Terms and Conditions of Sale</h1>
         <ol className="terms">
           <li id="interpretation">
             <h2>INTERPRETATION</h2>
@@ -189,10 +187,10 @@ const TermsPage = () => {
             <h2>CONTRACT</h2>
             <ol>
               <li>
-              The items mentioned in the quotation &#40;where the contract arises from a quotation by the Company&#41; or in the items contained in the Company's confirmation of order &#40;where the contract arises from an order by the buyer&#41; together with these terms and conditions shall be the conditions of the contract. The contract is subject to the Company having the goods in stock. All other conditions, warranties, guarantees, descriptions, representations, conditions as to fitness or suitability for any purpose, tolerance to any conditions, merchantability, appearance, safety, durability or otherwise &#40;whether of a like nature or not&#41; and whether expressly or implied by law, trade custom or otherwise are expressly excluded.</li>
-            <li>In the case of any conflict between an order submitted by the buyer and the Company's confirmation of order and these terms and of conditions, the Company's confirmation of order and these terms and conditions shall prevail.</li>
+                The items mentioned in the quotation &#40;where the contract arises from a quotation by the Company&#41; or in the items contained in the Company's confirmation of order &#40;where the contract arises from an order by the buyer&#41; together with these terms and conditions shall be the conditions of the contract. The contract is subject to the Company having the goods in stock. All other conditions, warranties, guarantees, descriptions, representations, conditions as to fitness or suitability for any purpose, tolerance to any conditions, merchantability, appearance, safety, durability or otherwise &#40;whether of a like nature or not&#41; and whether expressly or implied by law, trade custom or otherwise are expressly excluded.</li>
+              <li>In the case of any conflict between an order submitted by the buyer and the Company's confirmation of order and these terms and of conditions, the Company's confirmation of order and these terms and conditions shall prevail.</li>
 
-            <li>No agent or representative of the Company is authorised to make any representations, warranties or agreements not expressly confirmed by the Company in writing and the Company is not is any way bound by any such authorised statements nor can any such statements be taken to form a contract or part of contract with the Company collateral to the contract.</li>
+              <li>No agent or representative of the Company is authorised to make any representations, warranties or agreements not expressly confirmed by the Company in writing and the Company is not is any way bound by any such authorised statements nor can any such statements be taken to form a contract or part of contract with the Company collateral to the contract.</li>
             </ol>
           </li>
 
