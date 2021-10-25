@@ -6,7 +6,8 @@ import Seo from "../components/seo";
 
 import { StaticImage } from "gatsby-plugin-image"
 
-import '@google/model-viewer';
+// import '@google/model-viewer';
+await import('@google/model-viewer/dist/model-viewer-legacy');
 
 const ModelPage = () => {
   return (
