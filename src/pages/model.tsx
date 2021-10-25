@@ -4,10 +4,10 @@ import Layout from "../components/layout"
 import HeaderContact from "../components/header-contact";
 import Seo from "../components/seo";
 
-import { StaticImage } from "gatsby-plugin-image"
+// import { StaticImage } from "gatsby-plugin-image"
 
 // import '@google/model-viewer';
-await import('@google/model-viewer/dist/model-viewer-legacy');
+import '@google/model-viewer/dist/model-viewer';
 
 const ModelPage = () => {
   return (
