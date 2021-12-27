@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "gatsby";
 
 import Layout from "../components/layout";
-import HeaderContact from "../components/header-contact";
 import Seo from "../components/seo";
 import Cross from "../components/cross";
 
@@ -12,8 +11,7 @@ const ContactPage = () => (
       title="Contact - Priest Sheetmetal &amp; Plate Christchurch"
       description="Get in touch with Priest Sheetmetal"
     />
-    <HeaderContact />
-    <p className="breadcrumbs"><Link to="/">Home</Link>  &gt; <span>Contact</span></p>
+    <p className="breadcrumbs breadcrumbs__contact"><Link to="/">Home</Link>  &gt; <span>Contact</span></p>
     <main className="page-width">
 
 
