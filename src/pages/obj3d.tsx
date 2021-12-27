@@ -31,9 +31,6 @@ class App extends Component {
     // get container dimensions and use them for scene sizing
     const width = this.mount.clientWidth;
     const height = this.mount.clientHeight;
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
-    const scene = new THREE.Scene();
-    scene.background = null;
 
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
@@ -49,6 +46,9 @@ class App extends Component {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(width, height);
     this.mount.appendChild(this.renderer.domElement); // mount using React ref
+
+    this.renderer.setClearColor(0xf5f5f5); // white background - replace ffffff with any hex color
+
   };
 
   // Code below is taken from Three.js OBJ Loader example
