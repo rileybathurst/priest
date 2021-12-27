@@ -31,6 +31,9 @@ class App extends Component {
     // get container dimensions and use them for scene sizing
     const width = this.mount.clientWidth;
     const height = this.mount.clientHeight;
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    const scene = new THREE.Scene();
+    scene.background = null;
 
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
@@ -39,7 +42,7 @@ class App extends Component {
       0.1, // near plane
       1000 // far plane
     );
-    this.camera.position.z = 500; // is used here to set some distance from a cube that is located at z = 0
+    this.camera.position.z = 10; // is used here to set some distance from a cube that is located at z = 0
     // OrbitControls allow a camera to orbit around the object
     // https://threejs.org/docs/#examples/controls/OrbitControls
     this.controls = new OrbitControls(this.camera, this.mount);
