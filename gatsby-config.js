@@ -53,19 +53,20 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-csp`,
-        options: {
-          mergeStyleHashes: false, // you can disable styles sha256 hashes
-          mergeScriptHashes: false,
-          directives: {
-            "default-src": "'self' player.vimeo.com google.com",
-            "style-src": "'self' 'unsafe-inline'",
-            "script-src": "'self' 'unsafe-inline' player.vimeo.com google.com",
-            // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
-            "font-src": "'self' 'unsafe-inline' data:",
-            "frame-src": "'self' player.vimeo.com google.com www.google.com",
-            "img-src": "'self' data: https://priest.s3.ap-southeast-2.amazonaws.com/",
-          }
+      options: {
+        mergeStyleHashes: false, // you can disable styles sha256 hashes
+        mergeScriptHashes: false,
+        directives: {
+          "default-src": "'self' player.vimeo.com google.com",
+          "style-src": "'self' 'unsafe-inline'",
+          "script-src": "'self' 'unsafe-inline' player.vimeo.com google.com",
+          // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
+          "font-src": "'self' 'unsafe-inline' data:",
+          "frame-src": "'self' player.vimeo.com google.com www.google.com",
+          "img-src": "'self' data: https://priest.s3.ap-southeast-2.amazonaws.com/",
+          "connect-src": "'self' https://priest.s3.ap-southeast-2.amazonaws.com/",
         }
-      },
+      }
+    },
   ],
 };
