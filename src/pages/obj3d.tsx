@@ -3,6 +3,9 @@ import * as THREE from 'three';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 
+import Layout from "../components/layout"
+import HeaderContact from "../components/header-contact";
+
 const style = {
   height: 500 // we can control scene size by setting container dimensions
 };
@@ -66,7 +69,7 @@ class App extends Component {
 
         // change some custom props of the element: placement, color, rotation, anything that should be
         // done once the model was loaded and ready for display
-        el.position.set(0, -150, 0);
+        el.position.set(0, 150, 0);
         el.material.color.set(0x50C878);
         el.rotation.x = 23.5;
 
@@ -135,7 +138,7 @@ class App extends Component {
   };
 
   render() {
-    return <div style={style} ref={ref => (this.mount = ref)} />;
+    return <div className='model' style={style} ref={ref => (this.mount = ref)} />;
   }
 }
 
@@ -145,14 +148,15 @@ class Container extends React.Component {
   render() {
     const { isMounted = true, loadingPercentage = 0 } = this.state;
     return (
-      <>
+      <Layout>
+        <HeaderContact />
         <button onClick={() => this.setState(state => ({ isMounted: !state.isMounted }))}>
           {isMounted ? "Unmount" : "Mount"}
         </button>
         {isMounted && <App onProgress={loadingPercentage => this.setState({ loadingPercentage })} />}
         {isMounted && loadingPercentage === 100 && <div>Scroll to zoom, drag to rotate</div>}
         {isMounted && loadingPercentage !== 100 && <div>Loading Model: {loadingPercentage}%</div>}
-      </>
+      </Layout>
     )
   }
 }
