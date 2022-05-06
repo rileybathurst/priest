@@ -2,7 +2,7 @@
 
 import React from "react";
 import Layout from "../components/layout";
-import HeaderContact from "../components/headercontact";
+// import HeaderContact from "../components/headercontact";
 import Seo from "../components/seo";
 
 // Handling Multiple Inputs https://reactjs.org/docs/forms.html#handling-multiple-inputs
@@ -54,16 +54,16 @@ class Reservation extends React.Component {
     // window.open doesnt work on firefox ios
     window.open(
       "mailto:info@priestsheetmetal.co.nz?cc=" +
-        this.state.email +
-        "&subject=Priest Sheetmetal Quote Enquiry&body=Thanks for your enquiry " +
-        this.state.customer +
-        ",%0D%0AWe will get back you asap with your enquiry about" +
-        this.state.metal +
-        ",%0D%0A" +
-        this.state.thickness +
-        "mm thick%0D%0AWith a " +
-        this.state.finish +
-        "finish,%0D%0AThanks You"
+      this.state.email +
+      "&subject=Priest Sheetmetal Quote Enquiry&body=Thanks for your enquiry " +
+      this.state.customer +
+      ",%0D%0AWe will get back you asap with your enquiry about" +
+      this.state.metal +
+      ",%0D%0A" +
+      this.state.thickness +
+      "mm thick%0D%0AWith a " +
+      this.state.finish +
+      "finish,%0D%0AThanks You"
     );
     // location.href=('mailto:infor@priestsheetmetal.co.nz?cc=' + this.state.email + '&subject=Priest Sheetmetal Quote Enquiry&body=Thanks for your enquiry ' + this.state.customer + ',%0D%0AWe will get back you asap with your enquiry about ' + this.state.metal + ',%0D%0A' + this.state.thickness + 'mm thick%0D%0AWith a ' + this.state.finish + 'finish,%0D%0AThanks You');
     event.preventDefault();
@@ -247,7 +247,7 @@ class Reservation extends React.Component {
 const QuotePage = () => (
   <Layout>
     <Seo title="Quote - Priest Sheetmetal &amp; Plate Christchurch" />
-    <HeaderContact />
+    {/* <HeaderContact /> */}
     <main className="page-width">
       <h1>Quote</h1>
 

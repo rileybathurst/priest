@@ -15,7 +15,7 @@ import "@fontsource/roboto-slab/400.css";
 import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/700.css";
 
-import "../styles/index.scss";
+// import "../styles/index.scss";
 
 function Byline(props) {
   if (props.byline) {
@@ -126,42 +126,42 @@ const IndexPage = ({ data }) => {
     <Layout>
       <Seo title="Priest Sheetmetal &amp; Plate Christchurch" />
       <div className="summit__backer--wrapper">
-      <div className="summit__backer">
-        <section id="summit">
-          <SummitInfo />
+        <div className="summit__backer">
+          <section id="summit">
+            <SummitInfo />
 
-          <SummitAbout />
+            <SummitAbout />
 
-          <div className="summit__video">
-            <iframe
-              title="hero video 1"
-              src={"https://player.vimeo.com/video/597365161?background=1"}
-              frameBorder="0"
-              allow="autoplay; fullscreen"
-              allowFullScreen
-              className="shadow"
-            />
-          </div>
-          {/* <script src="https://player.vimeo.com/api/player.js" /> */}
+            <div className="summit__video">
+              <iframe
+                title="hero video 1"
+                src={"https://player.vimeo.com/video/597365161?background=1"}
+                frameBorder="0"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+                className="shadow"
+              />
+            </div>
+            {/* <script src="https://player.vimeo.com/api/player.js" /> */}
 
-          <div className="summit__videobacker">
-            <SummitImage />
-            {/* this is a secondary version of the image until I figure out some magic */}
-            <div className="blue-backer">{/* stay gold */}</div>
-          </div>
+            <div className="summit__videobacker">
+              <SummitImage />
+              {/* this is a secondary version of the image until I figure out some magic */}
+              <div className="blue-backer">{/* stay gold */}</div>
+            </div>
 
-          <div className="summit__team-photo_1">
-            <TeamPhoto1 />
-          </div>
-          <div className="summit__team-photo_2">
-            <CutPhoto />
-          </div>
+            <div className="summit__team-photo_1">
+              <TeamPhoto1 />
+            </div>
+            <div className="summit__team-photo_2">
+              <CutPhoto />
+            </div>
 
-          <div className="summit__contact">
-            <SummitContact />
-          </div>
-        </section>
-      </div>
+            <div className="summit__contact">
+              <SummitContact />
+            </div>
+          </section>
+        </div>
       </div>
 
       <div className="tasks__wrapper">

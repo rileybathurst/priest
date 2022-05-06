@@ -3,11 +3,11 @@ import * as React from "react";
 const ProfileIcon = () => {
   return (
     <svg
-      title="priest profile cutting logo"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 35.86 101.52"
     >
+      <title>priest profile cutting logo</title>
       <path
         className="cls-1"
         d="M4,38.79,6,41H6v2.47l2.64,3v7.71h0L19.9,72.12v.08l0,0,0,0v-.08l11.28-17.9h0V46.51l2.64-3V41h0l2-2.23v-5H4Zm22.59,7.76h1.93v7.67H26.59Zm-4.19,0h2v7.67h-2Zm-3.45,0H20.9v7.67H19Zm-3.44,0h2v7.67h-2Zm-4.17,0h1.93v7.67H11.34Z"
