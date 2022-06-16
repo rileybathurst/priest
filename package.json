@@ -3,7 +3,14 @@
   "version": "1.0.2",
   "private": true,
   "description": "priest sheetmal website",
-  "author": "Riley Bathurst <riley@rileybathurst.com>",
+  "author": {
+    "name": "Riley Bathurst",
+    "email": "riley@rileybathurst.com",
+    "url": "https://rileybathurst.com"
+  },
+  "homepage": "https://priest.netlify.app",
+  "repository": "github:rileybathurst/priest",
+  "license": "MIT",
   "keywords": [
     "gatsby"
   ],
