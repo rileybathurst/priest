@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../../components/layout";
-import HeaderContact from "../../components/header-contact";
-import Seo from "../../components/seo";
+import Layout from "../../src/components/layout";
+import HeaderContact from "../../src/components/header-contact";
+import Seo from "../../src/components/seo";
 
 function IndustriesCatchAll({ params }) {
   return (

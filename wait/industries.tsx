@@ -3,10 +3,10 @@ import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import ReactMarkdown from "react-markdown";
 
-import Layout from "../components/layout";
-import HeaderContact from "../components/header-contact";
-import Seo from "../components/seo";
-import Cross from "../components/cross";
+import Layout from "../src/components/layout";
+import HeaderContact from "../src/components/header-contact";
+import Seo from "../src/components/seo";
+import Cross from "../src/components/cross";
 
 function Byline(props) {
   if (props.byline) {

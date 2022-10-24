@@ -3,7 +3,9 @@
 
 import * as React from "react"
 import { graphql } from "gatsby"
-import ServiceView from "../../views/service-view"
+import ServiceView from "../../src/views/service-view"
+
+// TODO ArticleQuery is a bad name
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {

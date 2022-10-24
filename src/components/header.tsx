@@ -7,7 +7,8 @@ import ServicesNav from "./services-nav";
 import IndustryNav from "./industry-nav";
 import MenuMore from "./menu-more";
 
-// is this enough to go to a new file?
+// TODO fix the names
+// ? is this enough to go to a new file?
 function Moused() {
 
   function cheese() {
@@ -29,7 +30,7 @@ function Moused() {
         onMouseEnter={cheese}
         onMouseLeave={cat}
       >
-        <ServicesNav />
+        {/* <ServicesNav /> */}
       </ul>
     </>
   );
@@ -55,7 +56,7 @@ function Id() {
         onMouseEnter={cheese}
         onMouseLeave={cat}
       >
-        <IndustryNav />
+        {/* <IndustryNav /> */}
       </ul>
     </>
   );

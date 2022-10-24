@@ -3,8 +3,8 @@ import * as THREE from 'three';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 
-import Layout from "../components/layout"
-import HeaderContact from "../components/header-contact";
+import Layout from "../src/components/layout"
+import HeaderContact from "../src/components/header-contact";
 
 const style = {
   height: 500 // we can control scene size by setting container dimensions

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import IndustryView from "../../views/industry-view"
+import IndustryView from "../../src/views/industry-view"
 
 export const query = graphql`
   query IndustryQuery($slug: String!) {

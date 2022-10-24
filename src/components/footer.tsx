@@ -119,7 +119,7 @@ const Footer = (props) => (
 
     <nav>
       <ul className="footer__nav footer__backed">
-        <ServicesNav current={props.current} />
+        {/* <ServicesNav current={props.current} /> */}
       </ul>
     </nav>
 
@@ -133,7 +133,7 @@ const Footer = (props) => (
 
     <nav>
       <ul className="footer__nav footer__backed">
-        <IndustryNav current={props.current} />
+        {/* <IndustryNav current={props.current} /> */}
       </ul>
     </nav>
 

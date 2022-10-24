@@ -1,9 +1,9 @@
 // this was something that was worked on quickly but not implemented so should not go live in the site
 
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../src/components/layout";
 // import HeaderContact from "../components/headercontact";
-import Seo from "../components/seo";
+import Seo from "../src/components/seo";
 
 // Handling Multiple Inputs https://reactjs.org/docs/forms.html#handling-multiple-inputs
 class Reservation extends React.Component {

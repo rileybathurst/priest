@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import NewsView from "../../views/news-view"
+import NewsView from "../../src/views/news-view"
 
 export const query = graphql`
   query NewQuery($slug: String!) {

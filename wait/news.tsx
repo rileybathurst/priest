@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
-import Layout from "../components/layout";
-import HeaderContact from "../components/header-contact";
-import Seo from "../components/seo";
-import Cross from "../components/cross";
+import Layout from "../src/components/layout";
+import HeaderContact from "../src/components/header-contact";
+import Seo from "../src/components/seo";
+import Cross from "../src/components/cross";
 
 const NewsPage = ({ data }) => {
   return (
@@ -17,9 +17,9 @@ const NewsPage = ({ data }) => {
       <HeaderContact />
 
       <main className="container">
-      <p className="breadcrumbs"><Link to="/">Home</Link>  &gt; News</p>
+        <p className="breadcrumbs"><Link to="/">Home</Link>  &gt; News</p>
 
-      <Cross />
+        <Cross />
 
         {data.allStrapiNews.edges.map(document => (
           <div key={document.node.id} >
@@ -35,7 +35,7 @@ const NewsPage = ({ data }) => {
             <Cross />
           </div>
         ))}
-      {/* tasks__wrapper */}
+        {/* tasks__wrapper */}
       </main>
     </Layout>
   );

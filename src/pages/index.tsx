@@ -10,6 +10,7 @@ import SummitContact from "../components/summit-contact";
 import Testimonials from "../components/testimonials";
 import Cross from "../components/cross";
 
+// TODO these are in the wrong place
 import "@fontsource/roboto-slab/400.css";
 // at some point this can be a variable
 import "@fontsource/open-sans/400.css";
