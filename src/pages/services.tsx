@@ -2,19 +2,10 @@ import * as React from "react";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import Layout from "../src/components/layout";
-import HeaderContact from "../src/components/header-contact";
-import Seo from "../src/components/seo";
-import Cross from "../src/components/cross";
-
-function Byline(props) {
-  if (props.byline) {
-    // console.log('byline');
-    return <h5>{props.byline}</h5>;
-  } else {
-    return null;
-  }
-}
+import Layout from "../components/layout";
+import HeaderContact from "../components/header-contact";
+import Seo from "../components/seo";
+import Cross from "../components/cross";
 
 const ServicesPage = ({ data }) => {
   return (
@@ -49,10 +40,10 @@ const ServicesPage = ({ data }) => {
                 >
                   <GatsbyImage
                     image={
-                      document.node.Cover?.localFile?.childImageSharp
+                      document.node.cover?.localFile?.childImageSharp
                         ?.gatsbyImageData
                     }
-                    alt={document.node.Cover?.alternativeText}
+                    alt={document.node.cover?.alternativeText}
                     className="shadow"
                   />
                 </Link>
@@ -62,8 +53,8 @@ const ServicesPage = ({ data }) => {
               </div> */}
 
                 <div className="tasks__info">
-                  <Byline byline={document.node.byline} />
-                  <p>{document.node.Content}</p>
+                  {/* <Byline byline={document.node.byline} /> */}
+                  <p>{document.node.excerpt}</p>
                   <Link
                     to={`/services/${document.node.slug}`}
                     className="tasks__more"
@@ -91,11 +82,10 @@ export const query = graphql`
         node {
           id
           title
-          Content
-          byline
+          excerpt
           slug
 
-          Cover {
+          cover {
             alternativeText
             localFile {
               childImageSharp {
@@ -110,3 +100,11 @@ export const query = graphql`
 `;
 
 export default ServicesPage;
+
+/* 
+
+byline
+
+          content
+          
+ */

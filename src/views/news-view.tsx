@@ -15,7 +15,7 @@ const NewsView = ({ news }) => {
       <Seo
         title={news.title}
         description={news.excerpt}
-        />
+      />
       <Header />
       <HeaderContact />
 
@@ -24,10 +24,10 @@ const NewsView = ({ news }) => {
       <Cross />
 
       <article className="single">
-      <p>{news.createdAt}</p>
+        <p>{news.createdAt}</p>
         <h1>{news.title}</h1>
         <ReactMarkdown
-          children={news.Content}
+          children={news.content.data.content}
           transformImageUri={uri =>
             uri.startsWith("http") ? uri : `${process.env.URI}${uri}`
           }

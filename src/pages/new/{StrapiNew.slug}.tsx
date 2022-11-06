@@ -1,14 +1,18 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import NewsView from "../../src/views/news-view"
+import NewsView from "../../views/news-view"
 
 export const query = graphql`
   query NewQuery($slug: String!) {
-    strapiNews(slug: { eq: $slug }) {
+    strapiNew(slug: { eq: $slug }) {
       id
       title
       slug
-      Content
+      content {
+        data {
+          content
+        }
+      }
       excerpt
       createdAt(formatString: "D MMMM, YYYY")
     }
@@ -16,7 +20,7 @@ export const query = graphql`
 `
 
 const NewsPage = ({ data }) => {
-  const news = data.strapiNews;
+  const news = data.strapiNew;
   return (
     <NewsView
       news={news}

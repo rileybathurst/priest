@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
-import Layout from "../src/components/layout";
-import HeaderContact from "../src/components/header-contact";
-import Seo from "../src/components/seo";
-import Cross from "../src/components/cross";
+import Layout from "../components/layout";
+import HeaderContact from "../components/header-contact";
+import Seo from "../components/seo";
+import Cross from "../components/cross";
 
 const NewsPage = ({ data }) => {
   return (
@@ -21,16 +21,16 @@ const NewsPage = ({ data }) => {
 
         <Cross />
 
-        {data.allStrapiNews.edges.map(document => (
-          <div key={document.node.id} >
+        {data.allStrapiNew.edges.map(news => (
+          <div key={news.node.id} >
             <article className="single">
               <h4>
-                <Link to={`/news/${document.node.slug}`}>
-                  {document.node.title}
+                <Link to={`/new/${news.node.slug}`}>
+                  {news.node.title}
                 </Link>
               </h4>
-              <p>{document.node.createdAt}</p>
-              <p>{document.node.excerpt}</p>
+              <p>{news.node.createdAt}</p>
+              <p>{news.node.excerpt}</p>
             </article>
             <Cross />
           </div>
@@ -43,12 +43,11 @@ const NewsPage = ({ data }) => {
 
 export const query = graphql`
   query NewsQuery {
-    allStrapiNews {
+    allStrapiNew {
       edges {
         node {
           id
           title
-          Content
           slug
           excerpt
           createdAt(formatString: "D MMMM, YYYY")

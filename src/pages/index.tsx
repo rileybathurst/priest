@@ -16,16 +16,6 @@ import "@fontsource/roboto-slab/400.css";
 import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/700.css";
 
-// import "../styles/index.scss";
-
-function Byline(props) {
-  if (props.byline) {
-    return <h4>{props.byline}</h4>;
-  } else {
-    return null;
-  }
-}
-
 function SummitImage() {
   // const grayscale = true
   return (
@@ -101,6 +91,7 @@ function SummitAbout() {
 
   useEffect(() => {
     // console.log(ref.current.clientHeight);
+    // TODO needs an if ref statement
     const height = ref.current.clientHeight;
     setJump(height);
     // adding the [] only re-renders on change
@@ -166,12 +157,12 @@ const IndexPage = ({ data }) => {
       </div>
 
       <div className="tasks__wrapper">
-        {data.allStrapiService.edges.map((document) => (
-          <div key={document.node.id} className="tasks--outer">
+        {data.allStrapiService.edges.map((service) => (
+          <div key={service.node.id} className="tasks--outer">
             <section className="tasks">
               <h3 className="tasks__title h4">
-                <Link to={`/services/${document.node.slug}`}>
-                  {document.node.title}
+                <Link to={`/services/${service.node.slug}`}>
+                  {service.node.title}
                 </Link>
               </h3>
 
@@ -180,39 +171,40 @@ const IndexPage = ({ data }) => {
               </div>
 
               <Link
-                to={`/services/${document.node.slug}`}
+                to={`/services/${service.node.slug}`}
                 className="tasks__image shadow"
-                title={document.node.title}
+                title={service.node.title}
               >
                 <GatsbyImage
                   image={
-                    document.node.Cover?.localFile?.childImageSharp
+                    service.node.cover?.localFile?.childImageSharp
                       ?.gatsbyImageData
                   }
-                  alt={document.node.Cover?.alternativeText}
+                  alt={service.node.cover?.alternativeText}
                   className="shadow"
                 />
               </Link>
 
               <div className="tasks__info">
-                <Byline byline={document.node.byline} />
-                {/*                 <div className="clipshaper">
-                  <div className="clipper"> stay gold </div>
-                  <p>{document.node.Content}</p>
-                </div> */}
+                {/* <Byline byline={document.node.byline} /> */}
+                <div className="clipshaper">
+                  <div className="clipper">{/* stay gold */}</div>
+                  <p>{service.node.excerpt}</p>
+                </div>
 
+                {/* // ! testing off but this moght just be content now */}
                 <div className="single__markdown">
-                  <ReactMarkdown children={document.node.markdown} />
+                  {/* <ReactMarkdown children={document.node.markdown} /> */}
                 </div>
               </div>
 
               <div className="service__more--back">{/* stay gold */}</div>
               <Link
-                to={`/services/${document.node.slug}`}
+                to={`/services/${service.node.slug}`}
                 className="service__more"
               >
                 {/* <span className="button hollow"> */}
-                More about {document.node.title}
+                More about {service.node.title}
                 {/* </span> */}
               </Link>
             </section>
@@ -228,10 +220,10 @@ const IndexPage = ({ data }) => {
       </div>
 
       <div className="diatomic-wrapper">
-        {data.allStrapiIndustries.edges.map((industry) => (
+        {data.allStrapiIndustry.edges.map((industry) => (
           <section key={industry.node.id} className="diatomic-card">
             <Link
-              to={`/industries/${industry.node.slug}`}
+              to={`/industry/${industry.node.slug}`}
               className="diatomic-card__image"
             >
               <GatsbyImage
@@ -247,15 +239,15 @@ const IndexPage = ({ data }) => {
             <section className="diatomic-card__text">
               <div className="diatomic-card__text--container">
                 <h3 className="">
-                  <Link to={`/industries/${industry.node.slug}`}>
+                  <Link to={`/industry/${industry.node.slug}`}>
                     {industry.node.title}
                   </Link>
                 </h3>
                 <h4 className="industry__byline">{industry.node.byline}</h4>
 
-                <p>{industry.node.content}</p>
+                {/* <p>{industry.node.content}</p> */}
                 <Link
-                  to={`/industries/${industry.node.slug}`}
+                  to={`/industry/${industry.node.slug}`}
                   className="diatomic-card__text--more"
                 >
                   More about {industry.node.title}
@@ -293,31 +285,9 @@ export const pageQuery = graphql`
         node {
           id
           title
-          byline
-          Content
-          markdown
           slug
+          excerpt
 
-          Cover {
-            alternativeText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-    }
-
-    allStrapiIndustries(sort: { fields: [order], order: ASC }) {
-      edges {
-        node {
-          id
-          title
-          byline
-          content
-          slug
           cover {
             alternativeText
             localFile {
@@ -330,7 +300,27 @@ export const pageQuery = graphql`
       }
     }
 
-    allStrapiTestimonials {
+    allStrapiIndustry(sort: { fields: [order], order: ASC }) {
+      edges {
+        node {
+          id
+          title
+          byline
+          slug
+          
+          cover {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+
+    allStrapiTestimonial {
       edges {
         node {
           content
@@ -338,5 +328,30 @@ export const pageQuery = graphql`
         }
       }
     }
+
   }
 `;
+
+//           markdown
+
+/* // ! testing off
+
+
+service
+
+          content {
+            data {
+              content
+            }
+          }
+
+
+
+
+
+  industry
+
+
+          content
+
+   */

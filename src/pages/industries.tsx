@@ -3,10 +3,10 @@ import { Link, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import ReactMarkdown from "react-markdown";
 
-import Layout from "../src/components/layout";
-import HeaderContact from "../src/components/header-contact";
-import Seo from "../src/components/seo";
-import Cross from "../src/components/cross";
+import Layout from "../components/layout";
+import HeaderContact from "../components/header-contact";
+import Seo from "../components/seo";
+import Cross from "../components/cross";
 
 function Byline(props) {
   if (props.byline) {
@@ -30,11 +30,11 @@ const IndustriesPage = ({ data }) => {
       <main className="container">
         <p className="breadcrumbs"><Link to="/">Home</Link> &gt; Industry Suppliers</p>
         <div className="tasks__wrapper">
-          {data.allStrapiIndustries.edges.map(document => (
+          {data.allStrapiIndustry.edges.map(document => (
             <div key={document.node.id} className="tasks--outer">
               <section className="tasks">
                 <h3 className="tasks__title h4">
-                  <Link to={`/industries/${document.node.slug}`}>
+                  <Link to={`/industry/${document.node.slug}`}>
                     {document.node.title}
                   </Link>
                 </h3>
@@ -44,7 +44,7 @@ const IndustriesPage = ({ data }) => {
                 </div>
 
                 <Link
-                  to={`/industries/${document.node.slug}`}
+                  to={`/industry/${document.node.slug}`}
                   className="tasks__image shadow"
                   title={document.node.title}
                 >
@@ -53,7 +53,7 @@ const IndustriesPage = ({ data }) => {
                       document.node.cover?.localFile?.childImageSharp
                         ?.gatsbyImageData
                     }
-                    alt={document.node.Cover?.alternativeText}
+                    alt={document.node.cover?.alternativeText}
                     className="shadow"
                   />
                 </Link>
@@ -62,7 +62,7 @@ const IndustriesPage = ({ data }) => {
                   <Byline byline={document.node.byline} />
                   <div className="clipshaper">
                     <div className="clipper">{/* stay gold*/}</div>
-                    <p>{document.node.content}</p>
+                    {/* <p>{document.node.content}</p> */}
                   </div>
                 </div>
 
@@ -90,12 +90,12 @@ const IndustriesPage = ({ data }) => {
 
 export const query = graphql`
   query IndustriesQuery {
-    allStrapiIndustries(sort: { fields: [order], order: ASC }) {
+    allStrapiIndustry(sort: { fields: [order], order: ASC }) {
       edges {
         node {
           id
           title
-          content
+          
           byline
           slug
 
@@ -114,3 +114,9 @@ export const query = graphql`
 `;
 
 export default IndustriesPage;
+
+
+/* 
+content
+
+ */

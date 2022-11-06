@@ -7,7 +7,7 @@ export default function Testimonials() {
     <StaticQuery
       query={graphql`
         query TestimonialsQuery {
-          allStrapiTestimonials {
+          allStrapiTestimonial {
             edges {
               node {
                 id
@@ -22,14 +22,16 @@ export default function Testimonials() {
         <section id="testimonials">
           <h3 className="text-center">Testimonials</h3>
           <div className="stars">
-          <div className="star__back">{/* stay gold */}</div>
+            <div className="star__back">{/* stay gold */}</div>
             <div className="svgs">
               <svg title="star-1" className="star-1" viewBox="0 0 200 200">
                 {/* height="210" width="500" */}
                 <polygon points="100,10 40,198 190,78 10,78 160,198" />
                 {/* width="100%" height="100%" */}
               </svg>
-              <svg title="star-2" className="star-2" viewBox="0 0 200 200">
+              <svg className="star-2" viewBox="0 0 200 200">
+                {/* // TODO rename the titles like this */}
+                <title>star-2</title>
                 <polygon points="100,10 40,198 190,78 10,78 160,198" />
               </svg>
               <svg title="star-3" className="star-3" viewBox="0 0 200 200">
@@ -42,15 +44,13 @@ export default function Testimonials() {
                 <polygon points="100,10 40,198 190,78 10,78 160,198" />
               </svg>
             </div>
-            {/* .svgs */}
           </div>
-          {/* .star */}
           <div id="quotes">
             {/* used for animation */}
-            {data.allStrapiTestimonials.edges.map((document) => (
-              <blockquote className="quoted" key={document.node.id}>
-                <p>{document.node.content}</p>
-                <footer className="text-center">{document.node.author}</footer>
+            {data.allStrapiTestimonial.edges.map((Testimonial) => (
+              <blockquote className="quoted" key={Testimonial.node.id}>
+                <p>{Testimonial.node.content}</p>
+                <footer className="text-center">{Testimonial.node.author}</footer>
               </blockquote>
             ))}
           </div>

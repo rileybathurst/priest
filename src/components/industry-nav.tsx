@@ -8,13 +8,13 @@ function Current(props) {
 
   if (current === name) {
     return (
-      <Link to={`/industries/${slug}`} className="current">
+      <Link to={`/industry/${slug}`} className="current">
         {name}
       </Link>
     );
   } else {
     return (
-      <Link to={`/industries/${slug}`}>
+      <Link to={`/industry/${slug}`}>
         {name}
       </Link>
     );
@@ -26,7 +26,7 @@ export default function IndustryNav(props) {
     <StaticQuery
       query={graphql`
         query IndustryNavQuery {
-          allStrapiIndustries(sort: { fields: [order], order: ASC }) {
+          allStrapiIndustry(sort: { fields: [order], order: ASC }) {
             edges {
               node {
                 slug
@@ -38,7 +38,7 @@ export default function IndustryNav(props) {
       `}
       render={data => (
         <>
-          {data.allStrapiIndustries.edges.map(document => (
+          {data.allStrapiIndustry.edges.map(document => (
             <li key={document.node.slug}>
               <Current current={props.current} name={document.node.title} slug={document.node.slug} />
             </li>

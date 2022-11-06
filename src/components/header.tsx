@@ -30,7 +30,7 @@ function Moused() {
         onMouseEnter={cheese}
         onMouseLeave={cat}
       >
-        {/* <ServicesNav /> */}
+        <ServicesNav />
       </ul>
     </>
   );
@@ -56,7 +56,7 @@ function Id() {
         onMouseEnter={cheese}
         onMouseLeave={cat}
       >
-        {/* <IndustryNav /> */}
+        <IndustryNav />
       </ul>
     </>
   );

@@ -1,9 +1,6 @@
-// this was but now I kinda want to build each individually
-// {StrapiService.slug}.js
-
 import * as React from "react"
 import { graphql } from "gatsby"
-import ServiceView from "../../src/views/service-view"
+import ServiceView from "../../views/service-view"
 
 // TODO ArticleQuery is a bad name
 
@@ -13,15 +10,18 @@ export const query = graphql`
       id
       title
       slug
-      byline
-      Content
-      markdown
+
+      excerpt
+      content {
+        data {
+          content
+        }
+      }
+
       coverMedium
       coverVideo
-      excerpt
-      og_image
 
-      Cover {
+      cover {
         alternativeText
         localFile {
           childImageSharp {
@@ -63,25 +63,9 @@ export const query = graphql`
   }
 `
 
-// 
-
-// the $slug isnt working on the allStrapiService query
-
-/* 
-Trying to do some pagination but currently I have to take all
-allStrapiService {
-  edges {
-    node {
-      title
-    }
-    next {
-      title
-    }
-  }
-} */
-
 const Service = ({ data }) => {
   const service = data.strapiService;
+  // test
   // const next = data.allStrapiService;
   const other = data.allStrapiService;
   return (

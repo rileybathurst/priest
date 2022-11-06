@@ -1,15 +1,14 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import IndustryView from "../../src/views/industry-view"
+import IndustryView from "../../views/industry-view"
 
 export const query = graphql`
   query IndustryQuery($slug: String!) {
-    strapiIndustries(slug: { eq: $slug }) {
+    strapiIndustry(slug: { eq: $slug }) {
       id
       title
       slug
       byline
-      content
       excerpt
       og_image
 
@@ -22,11 +21,11 @@ export const query = graphql`
         }
       }
 
-      industry_aspects {
+      industry_aspect {
         id
         title
-        content
-        images {
+
+        gallery {
           localFile {
             childImageSharp {
               gatsbyImageData
@@ -37,7 +36,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiIndustries(filter: {title: {nin: [$slug] }}) {
+    allStrapiIndustry(filter: {title: {nin: [$slug] }}) {
       edges {
         node {
           title
@@ -50,8 +49,8 @@ export const query = graphql`
 `
 
 const IndustryPage = ({ data }) => {
-  const industry = data.strapiIndustries;
-  const other = data.allStrapiIndustries;
+  const industry = data.strapiIndustry;
+  const other = data.allStrapiIndustry;
   return (
     <IndustryView
       industry={industry}
@@ -61,3 +60,16 @@ const IndustryPage = ({ data }) => {
 };
 
 export default IndustryPage;
+
+
+
+/* 
+
+
+
+
+
+
+
+
+*/

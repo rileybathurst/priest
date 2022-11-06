@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-// import {render} from 'react-dom'
+import { render } from 'react-dom'
 import ReactMarkdown from "react-markdown";
 
 import Header from "../components/header";
@@ -73,6 +73,17 @@ const ServiceView = ({ service, other }) => {
 
   // START OF GALLERY
   function Gallery(props) {
+
+    // test
+    // console.log(service.gallery);
+
+    // test
+    /* {
+      service.gallery.map((photos) => (
+        console.log(photos.hash)
+      ))
+    } */
+
     var hasGallery = props.hasGallery;
     if (hasGallery) {
       return (
@@ -96,8 +107,9 @@ const ServiceView = ({ service, other }) => {
   }
   // END OF GALLERY
 
+  // ? why is this a const not a function?
   const cover = getImage(
-    service.Cover?.localFile?.childImageSharp?.gatsbyImageData
+    service.cover?.localFile?.childImageSharp?.gatsbyImageData
   );
 
   return (
@@ -118,8 +130,8 @@ const ServiceView = ({ service, other }) => {
           <Cover
             medium={service.coverMedium}
             video={service.coverVideo}
-            image={service.Cover?.localfile?.childImageData?.GatsbyImageData}
-            imageAlt={service.Cover.alternativeText}
+            image={service.cover?.localfile?.childImageData?.GatsbyImageData}
+            imageAlt={service.cover.alternativeText}
           />
         </div>
 
@@ -129,9 +141,14 @@ const ServiceView = ({ service, other }) => {
         <div className="single__title">
           <h2>{service.title}</h2>
           <div>
-            <h3>{service.byline}</h3>
+            {/* <h3>{service.byline}</h3> // ? is this needed anymore */}
             <div className="single__markdown">
-              <ReactMarkdown children={service.markdown} />
+              <ReactMarkdown
+                children={service.content.data.content}
+                transformImageUri={uri =>
+                  uri.startsWith("http") ? uri : `${process.env.URI}${uri}`
+                }
+              />
             </div>
           </div>
         </div>

@@ -37,6 +37,7 @@ const TermsPage = () => {
                   {/* needs an a */}
                   <li>where the contract arises from an order placed by the buyer, the date of acceptance of the order by the Company&#59;</li>
                   {/* this doesnt have a pre on it */}
+                  {/* // TODO this cant be here */}
                   or
                   <li>where the contract arises from a quotation given by the Company, the date upon which written notification of acceptance of the quotation is received by the Company or where no written, the date of such other form of acceptance as the Company in its discretion determines to treat as a valid acceptance&#59;</li>
                   <b>"goods"</b> means the goods being purchased by the buyer from the Company which are the subject of the contract.

@@ -21,15 +21,16 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: "http://45.79.101.19:1338", // linode build
-        // apiURL: "http://localhost:1338", // local
+        apiURL: process.env.STRAPI_API_URL,
+        accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: [
           "service",
           `videos`,
-          `testimonials`,
-          `industries`,
+          `testimonial`,
+          `industries`, // todo: this and below should not be here
+          `industry`,
           `industry-aspect`,
-          `news`
+          `new`
         ],
       },
     },

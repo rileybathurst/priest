@@ -169,8 +169,8 @@ footer .backed__svg svg:hover {
 
 .footer__base {
   flex-flow: column;
-  
-  > {
+
+  > * {
     flex: 1 1;
   }
 
