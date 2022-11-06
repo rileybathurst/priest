@@ -5,5 +5,5 @@
   [plugins.inputs.thresholds]
     performance = 0.6
     accessibility = 0.9
-    best-practices = 0.85
+    best-practices = 0.8
     seo = 1
