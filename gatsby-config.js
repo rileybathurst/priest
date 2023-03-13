@@ -58,14 +58,14 @@ module.exports = {
         mergeStyleHashes: false, // you can disable styles sha256 hashes
         mergeScriptHashes: false,
         directives: {
-          "default-src": "'self' player.vimeo.com google.com",
+          "default-src": "'self' 'blob:' player.vimeo.com google.com https://stream.mux.com/ https://inferred.litix.io/ https://image.mux.com/",
           "style-src": "'self' 'unsafe-inline'",
           "script-src": "'self' 'unsafe-inline' player.vimeo.com google.com",
           // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
           "font-src": "'self' 'unsafe-inline' data:",
           "frame-src": "'self' player.vimeo.com google.com www.google.com",
-          "img-src": "'self' data: https://priest.s3.ap-southeast-2.amazonaws.com/",
-          "connect-src": "'self' https://priest.s3.ap-southeast-2.amazonaws.com/",
+          "img-src": "'self' data: https://priest.s3.ap-southeast-2.amazonaws.com/ https://image.mux.com/ https://inferred.litix.io/",
+          "connect-src": "'self' https://priest.s3.ap-southeast-2.amazonaws.com/ https://stream.mux.com/ https://inferred.litix.io/",
         }
       }
     }
