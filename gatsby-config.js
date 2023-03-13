@@ -68,6 +68,6 @@ module.exports = {
           "connect-src": "'self' https://priest.s3.ap-southeast-2.amazonaws.com/",
         }
       }
-    },
+    }
   ],
 };
