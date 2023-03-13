@@ -58,7 +58,7 @@ module.exports = {
         mergeStyleHashes: false, // you can disable styles sha256 hashes
         mergeScriptHashes: false,
         directives: {
-          "default-src": "'self' 'blob:' player.vimeo.com google.com https://stream.mux.com/ https://inferred.litix.io/ https://image.mux.com/",
+          "default-src": "'self' blob: player.vimeo.com google.com https://stream.mux.com/ https://inferred.litix.io/ https://image.mux.com/",
           "style-src": "'self' 'unsafe-inline'",
           "script-src": "'self' 'unsafe-inline' player.vimeo.com google.com",
           // the unsafe-inline on script-src is a problem for https://observatory.mozilla.org but without it the images break
