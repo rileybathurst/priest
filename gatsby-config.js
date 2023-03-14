@@ -65,7 +65,7 @@ module.exports = {
           "font-src": "'self' 'unsafe-inline' data:",
           "frame-src": "'self' player.vimeo.com google.com www.google.com",
           "img-src": "'self' data: https://priest.s3.ap-southeast-2.amazonaws.com/ https://image.mux.com/ https://inferred.litix.io/",
-          "connect-src": "'self' https://priest.s3.ap-southeast-2.amazonaws.com/ https://stream.mux.com/ https://mux.com/ https://inferred.litix.io/",
+          "connect-src": "'self' https://priest.s3.ap-southeast-2.amazonaws.com/ https://stream.mux.com/ https://mux.com/ https://manifest-gcp-us-east4-vop1.fastly.mux.com/ https://inferred.litix.io/",
         }
       }
     }
