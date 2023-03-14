@@ -71,3 +71,13 @@ model-viewer {
     background-color: pink;
   }
 }
+
+/*------------------*/
+//  #MUX
+/*------------------*/
+
+// https://docs.mux.com/guides/player/customize-look-and-feel
+
+mux-player {
+  --controls: none;
+}
