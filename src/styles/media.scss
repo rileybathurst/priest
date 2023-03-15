@@ -65,10 +65,10 @@ model-viewer {
   max-width: 40rem;
   margin-inline: auto;
   height: 20rem;
-  background-color: peachpuff;
+  background-color: peachpuff; // ! testing only I hope
 
   canvas {
-    background-color: pink;
+    background-color: pink; // ! testing only I hope
   }
 }
 
@@ -78,6 +78,6 @@ model-viewer {
 
 // https://docs.mux.com/guides/player/customize-look-and-feel
 
-mux-player {
+.noco {
   --controls: none;
 }
