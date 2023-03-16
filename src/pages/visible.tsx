@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react"
 import Layout from "../components/layout";
 
 function UsePageVisibility() {
-  const [isVisible, setIsVisible] = useState(document.hidden)
+  // const [isVisible, setIsVisible] = useState(document.hidden)
 
   console.log(isVisible);
 
