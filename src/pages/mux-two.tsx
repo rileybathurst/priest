@@ -10,18 +10,21 @@ function MuxHome() {
   // const [isVisible, setIsVisible] = useState(document.hidden)
   const ref = useRef();
 
-  /*   document.addEventListener("visibilitychange", () => {
+  useEffect(() => {
+
+    document.addEventListener("visibilitychange", () => {
       if (document.visibilityState !== "visible") {
         let vid = ref.current;
         vid.removeAttribute('loop');
         vid.classList.remove("noco");
       }
-    }) */
+    })
 
-  useEffect(() => {
+
 
     console.log(ref.current);
-    console.log(document.hidden);
+    console.log(document);
+    console.log(window);
 
   }, [])
 

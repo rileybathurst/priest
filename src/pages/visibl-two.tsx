@@ -12,37 +12,37 @@ function UsePageVisibility() {
 
     console.log(document);
 
-    vid.addEventListener("visibilitychange", () => {
-      if (vid.visibilityState === "visible") {
-        console.log("🍔");
-      } else {
-        console.log("🍟");
-      }
-    });
+    /*     vid.addEventListener("visibilitychange", () => {
+          if (vid.visibilityState === "visible") {
+            console.log("🍔");
+          } else {
+            console.log("🍟");
+          }
+        });
+    
+      }, []); */
 
-  }, []);
+    /*   
+     */
+    return (
+      <h1
+        ref={ref}
+      >
+        Hey
+      </h1>
+    );
 
-  /*   
-   */
-  return (
-    <h1
-      ref={ref}
-    >
-      Hey
-    </h1>
-  );
-
-}
+  }
 
 const VisiblTwoPage = () => {
-  return (
-    <Layout>
-      <h1>Visible</h1>
-      Test
-      {/* <GetBrowserVisibilityProp /> */}
-      <UsePageVisibility />
-    </Layout >
-  )
-}
+    return (
+      <Layout>
+        <h1>Visible</h1>
+        Test
+        {/* <GetBrowserVisibilityProp /> */}
+        <UsePageVisibility />
+      </Layout >
+    )
+  }
 
-export default VisiblTwoPage
+  export default VisiblTwoPage

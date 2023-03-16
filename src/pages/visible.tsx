@@ -10,7 +10,7 @@ function UsePageVisibility() {
   const ref = useRef();
   // console.log(ref);
 
-  document.addEventListener("visibilitychange", () => {
+/*   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") {
       console.log("🍔");
       // setIsVisible(document.hidden);
@@ -26,7 +26,7 @@ function UsePageVisibility() {
 
 
     }
-  });
+  } */);
 
   return (
     <video
