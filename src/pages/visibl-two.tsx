@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 
 import Layout from "../components/layout";
-
+/* 
 function UsePageVisibility() {
   const ref = useRef();
 
@@ -20,10 +20,8 @@ function UsePageVisibility() {
           }
         });
     
-      }, []); */
+      }, []);
 
-    /*   
-     */
     return (
       <h1
         ref={ref}
@@ -32,17 +30,17 @@ function UsePageVisibility() {
       </h1>
     );
 
-  }
+  } */
 
 const VisiblTwoPage = () => {
-    return (
-      <Layout>
-        <h1>Visible</h1>
-        Test
-        {/* <GetBrowserVisibilityProp /> */}
-        <UsePageVisibility />
-      </Layout >
-    )
-  }
+  return (
+    <Layout>
+      <h1>Visible</h1>
+      Test
+      {/* <GetBrowserVisibilityProp /> */}
+      {/* <UsePageVisibility /> */}
+    </Layout >
+  )
+}
 
-  export default VisiblTwoPage
+export default VisiblTwoPage
