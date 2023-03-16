@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 function UsePageVisibility() {
   // const [isVisible, setIsVisible] = useState(document.hidden)
 
-  console.log(isVisible);
+  // console.log(isVisible);
 
   const ref = useRef();
   // console.log(ref);
