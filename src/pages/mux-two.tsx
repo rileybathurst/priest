@@ -1,3 +1,5 @@
+// this has document so it doesnt work which is why I was doing the whole useeffect thing
+
 import React, { useState, useEffect, useRef } from "react"
 
 import Layout from "../components/layout";
@@ -8,13 +10,21 @@ function MuxHome() {
   // const [isVisible, setIsVisible] = useState(document.hidden)
   const ref = useRef();
 
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState !== "visible") {
-      let vid = ref.current;
-      vid.removeAttribute('loop');
-      vid.classList.remove("noco");
-    }
-  })
+  /*   document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState !== "visible") {
+        let vid = ref.current;
+        vid.removeAttribute('loop');
+        vid.classList.remove("noco");
+      }
+    }) */
+
+  useEffect(() => {
+
+    console.log(ref.current);
+    console.log(document.hidden);
+
+  }, [])
+
 
   return (
     <MuxPlayer
