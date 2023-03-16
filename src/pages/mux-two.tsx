@@ -21,13 +21,42 @@ function MuxHome() {
     })
 
 
+    createObserver();
+    let prevRatio = 0.0;
 
-    console.log(ref.current);
-    console.log(document);
-    console.log(window);
+    function createObserver() {
+      let observer;
+
+      let options = {
+        threshold: 1.0
+      };
+
+      observer = new IntersectionObserver(handleIntersect, options);
+      observer.observe(ref.current);
+    }
+
+    function handleIntersect(entries) {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > prevRatio) {
+          setRatio(entry.intersectionRatio);
+          console.log(entry.intersectionRatio);
+        } else {
+          setRatio(entry.intersectionRatio);
+          console.log(entry.intersectionRatio);
+        }
+
+        prevRatio = entry.intersectionRatio;
+      });
+    }
+
+
+    // console.log(ref.current);
+    // console.log(document);
+    // console.log(window);
 
   }, [])
 
+  const [ratio, setRatio] = useState(0);
 
   return (
     <MuxPlayer
