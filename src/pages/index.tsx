@@ -9,14 +9,13 @@ import Seo from "../components/seo";
 import SummitContact from "../components/summit-contact";
 import Testimonials from "../components/testimonials";
 import Cross from "../components/cross";
+import MuxHome from '../components/mux-home';
 
 // ! these are in the wrong place
 import "@fontsource/roboto-slab/400.css";
 // at some point this can be a variable
 import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/700.css";
-
-import MuxPlayer from '@mux/mux-player-react';
 
 function SummitImage() {
   // const grayscale = true
@@ -135,15 +134,7 @@ const IndexPage = ({ data }) => {
                 allowFullScreen
                 className="shadow"
               /> */}
-              <MuxPlayer
-                streamType="on-demand"
-                playbackId="KX8WTyujaU9laFVeyL020000y8jDcyXgdLCXJc1G01mYXac"
-                autoPlay="muted"
-                loop
-                noHotKeys
-              // className='shadow' // TODO
-              // TODO: needs a poster image
-              />
+              <MuxHome />
             </div>
             {/* <script src="https://player.vimeo.com/api/player.js" /> */}
 
