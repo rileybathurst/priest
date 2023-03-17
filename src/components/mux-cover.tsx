@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import MuxPlayer from '@mux/mux-player-react';
 
-export default function MuxHome() {
+export default function MuxCover(props) {
   const ref = useRef();
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function MuxHome() {
   return (
     <MuxPlayer
       streamType="on-demand"
-      playbackId="OeY1FO2ABcb02H5RE01FmKPE7TLddWmv3yBOOx025PcV800"
+      playbackId={props.mux}
       autoPlay="muted"
       loop
       noHotKeys

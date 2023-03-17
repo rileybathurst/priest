@@ -20,6 +20,7 @@ export const query = graphql`
 
       coverMedium
       coverVideo
+      muxCover
 
       cover {
         alternativeText
@@ -48,6 +49,7 @@ export const query = graphql`
         title
         content
         vimeo
+        mux
       }
     }
 

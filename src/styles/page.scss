@@ -37,7 +37,6 @@
   }
 }
 
-
 .service__more:where(:hover, :focus) {
   background: var(--magnesium);
   color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
@@ -72,14 +71,14 @@
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);
   margin-block-end: 3rem;
   background: var(--mercury);
-  
+
   @media (prefers-color-scheme: dark) {
     background: var(--lead);
   }
 
   > .industry__title {
     margin-block-start: 0;
-    
+
     > a {
       display: block;
       background: var(--secondary-color);
@@ -87,7 +86,6 @@
       padding: 1rem;
       padding-block-end: 2rem;
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);
-
     }
   }
 
@@ -103,7 +101,7 @@
 
 // weird code seems to work
 #IndustryView .single section:last-child .cross__wrapper:last-child {
-    display: none;
+  display: none;
 }
 
 /*------------------------------------*\
@@ -112,7 +110,7 @@
 
 #map {
   padding: var(--global-padding);
-  
+
   > iframe {
     margin-block-end: 3rem;
     margin-inline: var(--global-margin);
@@ -173,7 +171,7 @@
     > .star__back {
       grid-row: 2;
       background: var(--silver);
-      
+
       @media (prefers-color-scheme: dark) {
         background: var(--lead);
       }
@@ -208,7 +206,6 @@
   padding: var(--global-padding);
 
   > p::before {
-
     content: '"'; // left quote
     font-size: var(--h1-fs);
     line-height: 1rem;
@@ -328,6 +325,11 @@
   > * {
     flex: 1 1 20rem;
   }
+
+  // TODO add a clamp to the type here
+  /* h2 {
+
+  } */
 }
 
 .single__markdown {
@@ -391,17 +393,24 @@
     flex: 1 1 20rem;
   }
 
-  > figure > div {
-    padding: 56.25% 0 0 0;
-    position: relative;
+  mux-player {
+    width: 100%;
+    aspect-ratio: 16/9;
   }
 
-  > figure > div > iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  @supports not (aspect-ratio: 16/9) {
+    > figure > div {
+      padding: 56.25% 0 0 0;
+      position: relative;
+    }
+
+    > figure > div > iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
@@ -496,14 +505,16 @@
       padding-block-start: 0;
     }
 
-    > h3, h4, p {
-    padding-inline: 1rem;
+    > h3,
+    h4,
+    p {
+      padding-inline: 1rem;
     }
   }
 }
 
 .diatomic-card__text--more {
-  background: linear-gradient(184deg,#1e8db7,#006087 50%); // 📣 var this
+  background: linear-gradient(184deg, #1e8db7, #006087 50%); // 📣 var this
   color: white;
   padding: 1rem;
   padding-block-end: 2rem;

@@ -10,6 +10,8 @@ import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
 import Seo from "../components/seo";
+import MuxVideo from "../components/mux-video";
+import MuxCover from "../components/mux-cover";
 
 // theres a problem with the key not working here
 function Current(props) {
@@ -34,19 +36,22 @@ const ServiceView = ({ service, other }) => {
   // START OF COVER
   function Cover(props) {
     var medium = props.medium; // query the cover if its has been set to video
-    var video = props.video; // the vimeo id
+    // var video = props.video; // the vimeo id
+    var muxCover = props.muxCover;
     var imageAlt = props.imageAlt; // the vimeo id
 
-    if (medium === "video") {
+    if (props.muxCover) {
       return (
         <div className="single__cover--video">
-          <iframe
+          {/*           <iframe
             src={"https://player.vimeo.com/video/" + video + "?background=1"}
             title="cover video"
             frameBorder="0"
             allow="autoplay; fullscreen"
             allowFullScreen
-          />
+          /> */}
+          {/* // TODO this is a */}
+          <MuxCover mux={props.muxCover} />
         </div>
       );
     } else {
@@ -129,9 +134,10 @@ const ServiceView = ({ service, other }) => {
         <div className="single__cover">
           <Cover
             medium={service.coverMedium}
-            video={service.coverVideo}
+            // video={service.coverVideo}
+            muxCover={service.muxCover}
             image={service.cover?.localfile?.childImageData?.GatsbyImageData}
-            imageAlt={service.cover.alternativeText}
+            imageAlt={service.cover?.alternativeText}
           />
         </div>
 
@@ -153,13 +159,20 @@ const ServiceView = ({ service, other }) => {
           </div>
         </div>
 
+        {/* // TODO this should be a function */}
         {service.videos.map((vids) => (
           <section key={vids.id}>
             <Sec hasVideo={service.hasVideo} />
 
             <div className="videos">
               <figure>
+                {/*
+                // TODO this is a relic from before aspect ratio css
+                wait for 2 versions of safari
+                */}
                 <div>
+                  {/*
+                  // * this was the old vimeo way saved incase we go back to it
                   <iframe
                     title={vids.title}
                     src={
@@ -170,7 +183,8 @@ const ServiceView = ({ service, other }) => {
                     frameBorder="0"
                     allow="autoplay; fullscreen"
                     allowFullScreen
-                  ></iframe>
+                  ></iframe> */}
+                  <MuxVideo mux={vids.mux} />
                 </div>
               </figure>
 
