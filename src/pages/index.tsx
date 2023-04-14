@@ -13,12 +13,6 @@ import IndustrialImage from '../images/industrail-image';
 import WeldingImage from '../images/welding-image';
 import CutImage from '../images/cut-image';
 
-// ! these are in the wrong place
-import "@fontsource/roboto-slab/400.css";
-// at some point this can be a variable
-import "@fontsource/open-sans/400.css";
-import "@fontsource/open-sans/700.css";
-
 function SummitInfo() {
   const ref = useRef();
 
@@ -97,17 +91,8 @@ const IndexPage = ({ data }) => {
             <SummitAbout />
 
             <div className="summit__video">
-              {/*               <iframe
-                title="hero video 1"
-                src={"https://player.vimeo.com/video/597365161?background=1"}
-                frameBorder="0"
-                allow="autoplay; fullscreen"
-                allowFullScreen
-                className="shadow"
-              /> */}
               <MuxHome />
             </div>
-            {/* <script src="https://player.vimeo.com/api/player.js" /> */}
 
             <div className="summit__videobacker">
               <IndustrialImage />
@@ -159,27 +144,21 @@ const IndexPage = ({ data }) => {
               </Link>
 
               <div className="tasks__info">
-                {/* <Byline byline={document.node.byline} /> */}
                 <div className="clipshaper">
                   <div className="clipper">{/* stay gold */}</div>
                   <p>{service.node.excerpt}</p>
                 </div>
 
-                {/* // ! testing off but this moght just be content now */}
-                <div className="single__markdown">
-                  {/* <ReactMarkdown children={document.node.markdown} /> */}
-                </div>
+                <div className="service__more--back">{/* stay gold */}</div>
+                <Link
+                  to={`/services/${service.node.slug}`}
+                  className="service__more"
+                >
+                  {/* <span className="button hollow"> */}
+                  More about {service.node.title}
+                  {/* </span> */}
+                </Link>
               </div>
-
-              <div className="service__more--back">{/* stay gold */}</div>
-              <Link
-                to={`/services/${service.node.slug}`}
-                className="service__more"
-              >
-                {/* <span className="button hollow"> */}
-                More about {service.node.title}
-                {/* </span> */}
-              </Link>
             </section>
 
             <Cross />
@@ -253,7 +232,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query MyQuery {
-    allStrapiService(sort: { fields: [order], order: ASC }) {
+    allStrapiService(sort: {order: ASC}) {
       edges {
         node {
           id
@@ -273,7 +252,7 @@ export const pageQuery = graphql`
       }
     }
 
-    allStrapiIndustry(sort: { fields: [order], order: ASC }) {
+    allStrapiIndustry(sort: {order: ASC}) {
       edges {
         node {
           id
@@ -304,27 +283,3 @@ export const pageQuery = graphql`
 
   }
 `;
-
-//           markdown
-
-/* // ! testing off
-
-
-service
-
-          content {
-            data {
-              content
-            }
-          }
-
-
-
-
-
-  industry
-
-
-          content
-
-   */

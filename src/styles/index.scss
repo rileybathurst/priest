@@ -2,9 +2,9 @@
     #PRIEST
 \*------------------------------------*/
 
-// 🚨 30th March 2021 running through the sheets as a lot seems pretty messy
+// TODO: 30th March 2021 running through the sheets as a lot seems pretty messy
 
-// 🚨 what issue?
+// TODO: what issue?
 /* Medium Up screens - fixes header issue
 @media only screen and (min-width: 40.063em) {
   .full {
@@ -73,7 +73,8 @@ img {
 }
 
 .shadow-darker {
-  box-shadow: var(--shadow__shape) rgba(var(--shadow__rgb), 0.32), 0 2px 10px 0 rgba(var(--shadow__rgb), 0.24);
+  box-shadow: var(--shadow__shape) rgba(var(--shadow__rgb), 0.32),
+    0 2px 10px 0 rgba(var(--shadow__rgb), 0.24);
 }
 
 /* 
@@ -82,10 +83,11 @@ I think this is now out of use but check it
   box-shadow: var(--shadow), 0 2px 10px 0 rgba(var(----shadow__rgb), 0.12);
 } */
 
-.menu-primary-container { // 📣 bad naming
+.menu-primary-container {
+  // 📣 bad naming
   // display: none; // this is breaking the footer
   // this isnt in the footer that shouldnt be a concern anymore
-  
+
   @media (min-width: $header-menu-size) {
     // never wrap
     display: block;
@@ -99,27 +101,42 @@ I think this is now out of use but check it
 
 .menu-primary-container > ul > li:last-child > a {
   border-color: hsl(197, 100%, 16.5%);
-  border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
+  border-color: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 10%)
+  );
 }
 
 .menu-primary-container > ul > li > a:hover {
   color: var(--mercury);
   background: darken($secondary-color, 10%);
-  border-bottom: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
+  border-bottom: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 10%)
+  );
   clip-path: var(--trapezoid-1);
 }
 
 // needs specificity
 #menu-primary-container__showcase > a {
-  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
-  border-bottom: 5px solid hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
+  background: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 15%)
+  );
+  border-bottom: 5px solid
+    hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
   clip-path: var(--trapezoid-1);
   padding-inline: 1.5rem;
 }
 
-:is(#menu-primary-container__showcase) a:hover, a:focus {
-  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 25%));
-  border-bottom: 5px solid hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
+:is(#menu-primary-container__showcase) a:hover,
+a:focus {
+  background: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 25%)
+  );
+  border-bottom: 5px solid
+    hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
 }
 
 /*------------------------------------*\
@@ -217,7 +234,10 @@ I think this is now out of use but check it
   }
 
   a:hover {
-    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));
+    background: hsl(
+      var(--secondary-color-b),
+      calc(var(--secondary-color-l) - 10%)
+    );
   }
 }
 

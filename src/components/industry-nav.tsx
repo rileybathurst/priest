@@ -26,7 +26,7 @@ export default function IndustryNav(props) {
     <StaticQuery
       query={graphql`
         query IndustryNavQuery {
-          allStrapiIndustry(sort: { fields: [order], order: ASC }) {
+          allStrapiIndustry(sort: {order: ASC}) {
             edges {
               node {
                 slug

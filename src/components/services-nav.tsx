@@ -26,7 +26,7 @@ export default function ServicesNav(props) {
     <StaticQuery
       query={graphql`
         query ServicesQuery {
-          allStrapiService(sort: { fields: [order], order: ASC }) {
+          allStrapiService(sort: {order: ASC}) {
             edges {
               node {
                 slug
@@ -38,11 +38,11 @@ export default function ServicesNav(props) {
       `}
       render={data => (
         <>
-        {data.allStrapiService.edges.map(document => (
-          <li key={document.node.slug} >
-            <Current current={props.current} name={document.node.title} slug={document.node.slug} />
-          </li>
-        ))}
+          {data.allStrapiService.edges.map(document => (
+            <li key={document.node.slug} >
+              <Current current={props.current} name={document.node.title} slug={document.node.slug} />
+            </li>
+          ))}
         </>
       )}
     />

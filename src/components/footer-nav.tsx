@@ -5,7 +5,7 @@ export default function FooterNav() {
     <StaticQuery
       query={graphql`
         query FooterQuery {
-          allStrapiService(sort: { fields: [order], order: ASC }) {
+          allStrapiService(sort: {order: ASC}) {
             edges {
               node {
                 slug

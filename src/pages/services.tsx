@@ -77,7 +77,7 @@ const ServicesPage = ({ data }) => {
 
 export const query = graphql`
   query ServiceQuery {
-    allStrapiService(sort: { fields: [order], order: ASC }) {
+    allStrapiService(sort: {order: ASC}) {
       edges {
         node {
           id

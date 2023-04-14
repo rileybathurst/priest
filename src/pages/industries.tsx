@@ -90,7 +90,7 @@ const IndustriesPage = ({ data }) => {
 
 export const query = graphql`
   query IndustriesQuery {
-    allStrapiIndustry(sort: { fields: [order], order: ASC }) {
+    allStrapiIndustry(sort: {order: ASC}) {
       edges {
         node {
           id
