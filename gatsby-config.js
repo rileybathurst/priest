@@ -27,7 +27,6 @@ module.exports = {
           "service",
           `videos`,
           `testimonial`,
-          `industries`, // todo: this and below should not be here
           `industry`,
           `industry-aspect`,
           `new`,

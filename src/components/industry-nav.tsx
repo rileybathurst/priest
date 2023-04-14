@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 
-function Current(props) {
+// TODO: Im not sure this is the right way to do this
+function Current(props: { current: any; name: any; slug: any; }) {
   const current = props.current;
   const name = props.name;
   const slug = props.slug;
@@ -21,30 +22,30 @@ function Current(props) {
   }
 }
 
-export default function IndustryNav(props) {
-  return (
-    <StaticQuery
-      query={graphql`
-        query IndustryNavQuery {
-          allStrapiIndustry(sort: {order: ASC}) {
-            edges {
-              node {
-                slug
-                title
-              }
-            }
+export default function IndustryNav(props: { current: any; }) {
+  const data = useStaticQuery(graphql`
+    query FooterQuery {
+      allStrapiIndustry(sort: {order: ASC}) {
+        edges {
+          node {
+            slug
+            title
           }
         }
-      `}
-      render={data => (
-        <>
-          {data.allStrapiIndustry.edges.map(document => (
-            <li key={document.node.slug}>
-              <Current current={props.current} name={document.node.title} slug={document.node.slug} />
-            </li>
-          ))}
-        </>
-      )}
-    />
-  );
+      }
+    }
+  `)
+
+  return (
+    <>
+      {data.allStrapiIndustry.nodes.map((document: {
+        slug: string;
+        title: string;
+      }) => (
+        <li key={document.slug}>
+          <Current current={props.current} name={document.title} slug={document.slug} />
+        </li>
+      ))}
+    </>
+  )
 }
