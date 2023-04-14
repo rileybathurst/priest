@@ -40,7 +40,7 @@ module.exports = {
     `gatsby-transformer-sharp`, // Needed for dynamic images
     // helps with mozilla observatory in a substatial way
     "gatsby-plugin-react-helmet",
-    // "gatsby-plugin-netlify",
+    "gatsby-plugin-netlify",
     "gatsby-plugin-sitemap",
     // favicon support
     {

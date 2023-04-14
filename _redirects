@@ -1,3 +1,3 @@
 # Redirects from what the browser requests to what we serve
-/services/profile_cutting                /services/laser-profile-cutting/
 
+/services/profile_cutting                /services/laser-profile-cutting
