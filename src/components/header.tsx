@@ -7,28 +7,26 @@ import ServicesNav from "./services-nav";
 import IndustryNav from "./industry-nav";
 import MenuMore from "./menu-more";
 
-// TODO fix the names
-// ? is this enough to go to a new file?
-function Moused() {
+function ServicesMenu() {
 
-  function cheese() {
-    setMouse("cheese");
+  function open() {
+    setWindow("open");
   }
 
-  function cat() {
-    setMouse("cat");
+  function close() {
+    setWindow("close");
   }
 
-  const [mouse, setMouse] = useState("cat");
+  const [window, setWindow] = useState("close");
 
   return (
     <>
-      <Link to="/services" className={`menu__over ${mouse}`}>Services</Link> {/* state of the mouse */}
-      {/* this might solve the A11y problem <Link onMouseEnter={cheese} onMouseLeave={cat}> */}
+      <Link to="/services" className={`menu__over ${window}`}>Services</Link>
+      {/* this might solve the A11y problem <Link onMouseEnter={open} onMouseLeave={close}> */}
       <ul
         className="menu__hover menu__hover--multiline"
-        onMouseEnter={cheese}
-        onMouseLeave={cat}
+        onMouseEnter={open}
+        onMouseLeave={close}
       >
         <ServicesNav />
       </ul>
@@ -38,23 +36,23 @@ function Moused() {
 
 function Id() {
 
-  function cheese() {
-    setMouse("cheese");
+  function open() {
+    setWindow("open");
   }
 
-  function cat() {
-    setMouse("cat");
+  function close() {
+    setWindow("close");
   }
 
-  const [mouse, setMouse] = useState("cat");
+  const [window, setWindow] = useState("close");
 
   return (
     <>
-      <Link to="/industries" className={`menu__over ${mouse}`}>Industry Suppliers</Link>
+      <Link to="/industries" className={`menu__over ${window}`}>Industry Suppliers</Link>
       <ul
         className="menu__hover"
-        onMouseEnter={cheese}
-        onMouseLeave={cat}
+        onMouseEnter={open}
+        onMouseLeave={close}
       >
         <IndustryNav />
       </ul>
@@ -105,7 +103,7 @@ const Header = () => (
             <Link to="/">Home</Link>
           </li>
           <li key="services" className="menu__big--services">
-            <Moused />
+            <ServicesMenu />
           </li>
           <li key="industries" className="menu__big--industries">
             <Id />
