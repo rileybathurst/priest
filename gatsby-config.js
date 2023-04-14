@@ -30,7 +30,8 @@ module.exports = {
           `industries`, // todo: this and below should not be here
           `industry`,
           `industry-aspect`,
-          `new`
+          `new`,
+          `image-grab`
         ],
       },
     },

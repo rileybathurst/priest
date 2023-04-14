@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, graphql } from "gatsby";
-import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -9,42 +9,15 @@ import Testimonials from "../components/testimonials";
 import Cross from "../components/cross";
 import MuxHome from '../components/mux-home';
 
+import IndustrialImage from '../images/industrail-image';
+import WeldingImage from '../images/welding-image';
+import CutImage from '../images/cut-image';
+
 // ! these are in the wrong place
 import "@fontsource/roboto-slab/400.css";
 // at some point this can be a variable
 import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/700.css";
-
-function SummitImage() {
-  // const grayscale = true
-  return (
-    <StaticImage
-      src="https://priest.s3-ap-southeast-2.amazonaws.com/images/priest_sheetmetal-industrial-sheetmetal-christchurch_new_zealand-1920.jpg"
-      alt="industrial sheetmetal christchurch"
-      // this is insane that this is the syntax with double brackets
-      // typescript also doesnt like this
-      transformOptions={{ grayscale: "true" }}
-    />
-  );
-}
-
-function TeamPhoto1() {
-  return (
-    <StaticImage
-      src="https://priest.s3-ap-southeast-2.amazonaws.com/images/Priest_2019_0514.jpg"
-      alt="welding sheetmetal christchurch"
-    />
-  );
-}
-
-function CutPhoto() {
-  return (
-    <StaticImage
-      src="https://priest.s3.ap-southeast-2.amazonaws.com/images/shutterstock_1047148825_1.jpg"
-      alt="welding sheetmetal christchurch"
-    />
-  );
-}
 
 function SummitInfo() {
   const ref = useRef();
@@ -137,16 +110,16 @@ const IndexPage = ({ data }) => {
             {/* <script src="https://player.vimeo.com/api/player.js" /> */}
 
             <div className="summit__videobacker">
-              <SummitImage />
+              <IndustrialImage />
               {/* this is a secondary version of the image until I figure out some magic */}
               <div className="blue-backer">{/* stay gold */}</div>
             </div>
 
             <div className="summit__team-photo_1">
-              <TeamPhoto1 />
+              <WeldingImage />
             </div>
             <div className="summit__team-photo_2">
-              <CutPhoto />
+              <CutImage />
             </div>
 
             <div className="summit__contact">
