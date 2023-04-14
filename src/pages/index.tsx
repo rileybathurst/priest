@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, graphql } from "gatsby";
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 
-import ReactMarkdown from "react-markdown";
-
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import SummitContact from "../components/summit-contact";

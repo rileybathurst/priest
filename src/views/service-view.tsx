@@ -2,7 +2,6 @@ import * as React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import { render } from 'react-dom'
 import ReactMarkdown from "react-markdown";
 
 import Header from "../components/header";
@@ -33,11 +32,9 @@ function Current(props) {
 }
 
 const ServiceView = ({ service, other }) => {
-  // START OF COVER
   function Cover(props) {
     var medium = props.medium; // query the cover if its has been set to video
     // var video = props.video; // the vimeo id
-    var muxCover = props.muxCover;
     var imageAlt = props.imageAlt; // the vimeo id
 
     if (props.muxCover) {
@@ -64,7 +61,6 @@ const ServiceView = ({ service, other }) => {
       );
     }
   }
-  // END OF COVER
 
   // START OF VIDEOS
   function Sec(props) {
