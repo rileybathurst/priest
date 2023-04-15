@@ -6,6 +6,7 @@ import IndustryNav from "./industry-nav";
 import Cross from "./cross";
 import ServicesNav from "./services-nav";
 
+// TODO: theres a quicker way to do this
 function ThisYear() {
   let today = new Date().getFullYear();
   // console.log(today);
@@ -16,7 +17,7 @@ function ThisYear() {
   );
 }
 
-const Footer = (props) => (
+const Footer = (props: { current?: any; }) => (
   <footer>
     {/* I could porbably loop these */}
     <div className="footer__contacts">
@@ -48,8 +49,8 @@ const Footer = (props) => (
             width="48"
             height="48"
             viewBox="0 0 24 24"
-            title="email us"
           >
+            <title>email us</title>
             <path d="M12 1.95c-5.52 0-10 4.48-10 10s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57v-1.43c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57v-1.43c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
           </svg>
           <p>
@@ -68,8 +69,8 @@ const Footer = (props) => (
             width="48"
             height="48"
             viewBox="0 0 24 24"
-            title="fax us"
           >
+            <title>fax us</title>
             <path d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 12v2H8v-4h8v2zm2-2v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4h-2z" />
             <circle cx="18" cy="11.5" r="1" />
           </svg>
@@ -88,16 +89,16 @@ const Footer = (props) => (
             width="48"
             height="48"
             viewBox="0 0 24 24"
-            title="find us"
           >
+            <title>find us</title>
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z" />
-
             <circle cx="12" cy="9" r="2.5" />
           </svg>
 
           <p>
             <span className="hide-for-large">Map</span>
             <span className="show-for-large">
+              {/* // TODO: this needs address html tags */}
               10 Barbour Street, Waltham, Christchurch
             </span>
           </p>

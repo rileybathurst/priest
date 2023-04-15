@@ -2,9 +2,9 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 
 function Current(props: {
-  current: string;
-  name: string;
-  slug: string;
+  current?: string;
+  name?: string;
+  slug?: string;
 }) {
   const current = props.current;
   const name = props.name;
@@ -25,9 +25,9 @@ function Current(props: {
   }
 }
 
-export default function ServicesNav(props: { current: any; }) {
+export default function ServicesNav(props: { current?: any; }) {
   const data = useStaticQuery(graphql`
-    query FooterQuery {
+    query ServicesNavQuery {
       allStrapiService(sort: {order: ASC}) {
         nodes {
           slug

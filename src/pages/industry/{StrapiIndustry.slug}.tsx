@@ -37,12 +37,10 @@ export const query = graphql`
     }
 
     allStrapiIndustry(filter: {title: {nin: [$slug] }}) {
-      edges {
-        node {
-          title
-          id
-          slug
-        }
+      nodes {
+        title
+        id
+        slug
       }
     }
   }

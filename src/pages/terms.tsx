@@ -1,21 +1,17 @@
 import * as React from "react"
-import { Link } from "gatsby" // I should add this back in as a simple link home
-import Layout from "../components/layout"
+import Header from "../components/header";
+import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
 import Seo from "../components/seo";
 
-// &#59; semicolon
-
-// I probably could do this in the CMS but it's kinda a pain with the different ul li ol so im leaving it here
-
 const TermsPage = () => {
   return (
-    <Layout>
+    <>
+      <Header />
       <Seo
         title="Terms and Conditions - Priest Sheetmetal &amp; Plate Christchurch"
       />
       <HeaderContact />
-      <p className="breadcrumbs"><Link to="/">Home</Link> &gt; Terms and Conditions</p>
       <main className="page-width">
         <h1 className="page-title">Terms and Conditions of Sale</h1>
         <ol className="terms">
@@ -221,7 +217,8 @@ const TermsPage = () => {
           </li>
         </ol>
       </main>
-    </Layout >
+      <Footer />
+    </>
   )
 }
 

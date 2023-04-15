@@ -1,7 +1,5 @@
-// I need to variable the polygons of the stars
-
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
 function Stars() {
   let stars: number[] = []
@@ -23,45 +21,42 @@ function Stars() {
 }
 
 export default function Testimonials() {
-  return (
-    <StaticQuery
-      query={graphql`
-        query TestimonialsQuery {
-          allStrapiTestimonial {
-              nodes {
-                id
-                content
-                author
-              }
-            }
+
+  const data = useStaticQuery(graphql`
+    query TestimonialsQuery {
+      allStrapiTestimonial {
+        nodes {
+          id
+          content
+          author
         }
-      `}
-      render={(data) => (
-        <section id="testimonials">
-          <h3 className="text-center">Testimonials</h3>
-          <div className="stars">
-            <div className="star__back">{/* stay gold */}</div>
-            <div className="svgs">
+      }
+    }
+  `)
 
-              <Stars />
+  return (
+    <section id="testimonials">
+      <h3 className="text-center">Testimonials</h3>
+      <div className="stars">
+        <div className="star__back">{/* stay gold */}</div>
+        <div className="svgs">
 
-            </div>
-          </div>
-          <div id="quotes">
-            {/* used for animation */}
-            {data.allStrapiTestimonial.nodes.map((Testimonial: {
-              id: string;
-              content: string;
-              author: string;
-            }) => (
-              <blockquote className="quoted" key={Testimonial.id}>
-                <p>{Testimonial.content}</p>
-                <footer className="text-center">{Testimonial.author}</footer>
-              </blockquote>
-            ))}
-          </div>
-        </section>
-      )}
-    />
-  );
+          <Stars />
+
+        </div>
+      </div>
+      <div id="quotes">
+        {data.allStrapiTestimonial.nodes.map((testimonial: {
+          id: string;
+          content: string;
+          author: string;
+        }) => (
+          <blockquote className="quoted" key={testimonial.id}>
+            <p>{testimonial.content}</p>
+            <footer className="text-center">{testimonial.author}</footer>
+          </blockquote>
+        ))}
+      </div>
+    </section>
+  )
 }

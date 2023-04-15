@@ -1,12 +1,15 @@
 import * as React from "react"
-import { Link } from "gatsby" // I should add this back in as a simple link home
-import Layout from "../components/layout"
+import { Link } from "gatsby"
 import HeaderContact from "../components/header-contact";
 import Seo from "../components/seo";
 
+import Header from "../components/header";
+import Footer from "../components/footer";
+
 const NotFoundPage = () => {
   return (
-    <Layout>
+    <>
+      <Header />
       {/* // TODO title is wrong */}
       <Seo title="404: Not found - Priest Sheetmetal &amp; Plate Christchurch" />
       <HeaderContact />
@@ -16,7 +19,8 @@ const NotFoundPage = () => {
         <p>Sorry, You just hit a route that doesn&#39;t exist....<br />
           Let's try take this back to the <Link to="/">home page</Link> and start again.</p>
       </main>
-    </Layout>
+      <Footer />
+    </>
   )
 }
 

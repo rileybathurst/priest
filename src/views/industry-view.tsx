@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 // import {render} from 'react-dom'
 // import ReactMarkdown from "react-markdown";
@@ -11,7 +11,8 @@ import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
 import Seo from "../components/seo";
 
-function Current(props) {
+function Current(props: { current: any; slug: any; page: any; }) {
+  // TODO: these arent needed just use props in the return
   const current = props.current;
   // const lock = props.lock; // this is always service? might be a cache error
   const slug = props.slug;
@@ -65,7 +66,7 @@ const IndustryView = ({ industry, other }) => {
 
         <Cross />
 
-        {industry.industry_aspect.map((aspect) => (
+        {industry.industry_aspect.map((aspect: { id: React.Key | null | undefined; title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; gallery: any[]; }) => (
           <section key={aspect.id}>
             <div className="single__title">
               <div>
@@ -78,7 +79,9 @@ const IndustryView = ({ industry, other }) => {
               {/* // todo this has a dumb name */}
               <ul className="single__gallery">
 
-                {aspect?.gallery?.map((image) => (
+                {aspect?.gallery?.map((
+                  image: { localFile: { childImageSharp: { id: React.Key; gatsbyImageData: IGatsbyImageData; }; }; }
+                ) => (
                   <li
                     key={image.localFile?.childImageSharp?.id}
                     className=""
@@ -101,8 +104,16 @@ const IndustryView = ({ industry, other }) => {
 
       <h4 className="page-width"><Link to="/industries" className="backed">Other Industries</Link></h4>
       <ul className="row">
-        {other.edges.map((other) => (
-          <Current current={industry.title} lock={other?.node?.id} slug={other.node.slug} page={other?.node?.title} />
+        {/* // map over other nodes */}
+        {other.nodes.map((other: {
+          id: React.Key;
+          title: string;
+          slug: any;
+        }) => (
+          <Current
+            current={industry.title}
+            slug={other.slug}
+            page={other.title} />
         ))}
       </ul>
 

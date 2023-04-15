@@ -2,7 +2,8 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 
 // TODO: Im not sure this is the right way to do this
-function Current(props: { current: any; name: any; slug: any; }) {
+// Sending a prop from the page might do a far nicer job
+function Current(props: { current?: any; name?: any; slug?: any; }) {
   const current = props.current;
   const name = props.name;
   const slug = props.slug;
@@ -22,15 +23,13 @@ function Current(props: { current: any; name: any; slug: any; }) {
   }
 }
 
-export default function IndustryNav(props: { current: any; }) {
+export default function IndustryNav(props: { current?: any; }) {
   const data = useStaticQuery(graphql`
-    query FooterQuery {
+    query IndustryNavQuery {
       allStrapiIndustry(sort: {order: ASC}) {
-        edges {
-          node {
-            slug
-            title
-          }
+        nodes {
+          slug
+          title
         }
       }
     }
@@ -38,12 +37,12 @@ export default function IndustryNav(props: { current: any; }) {
 
   return (
     <>
-      {data.allStrapiIndustry.nodes.map((document: {
+      {data.allStrapiIndustry.nodes.map((industry: {
         slug: string;
         title: string;
       }) => (
-        <li key={document.slug}>
-          <Current current={props.current} name={document.title} slug={document.slug} />
+        <li key={industry.slug}>
+          <Current current={props.current} name={industry.title} slug={industry.slug} />
         </li>
       ))}
     </>

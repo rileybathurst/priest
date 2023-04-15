@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import Layout from "../components/layout";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import Seo from "../components/seo";
 import Cross from "../components/cross";
 
 const ContactPage = () => (
-  <Layout>
+  <>
+    <Header />
     <Seo
       title="Contact - Priest Sheetmetal &amp; Plate Christchurch"
       description="Get in touch with Priest Sheetmetal"
@@ -60,10 +62,12 @@ const ContactPage = () => (
         height="450"
         frameBorder="0"
         allowFullScreen
-        className="lozad vimeo"
+        className="lozad"
+      // ? is this className doing anything?
       />
     </section>
-  </Layout>
+    <Footer />
+  </>
 );
 
 export default ContactPage;

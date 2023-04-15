@@ -1,14 +1,33 @@
 import * as React from "react";
-import { Link, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 
-import Layout from "../components/layout";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
 import Seo from "../components/seo";
 import Cross from "../components/cross";
 
-const NewsPage = ({ data }) => {
+const NewsPage = () => {
+
+  const data = useStaticQuery(graphql`
+    query NewsQuery {
+      allStrapiNew {
+        edges {
+          node {
+            id
+            title
+            slug
+            excerpt
+            createdAt(formatString: "D MMMM, YYYY")
+          }
+        }
+      }
+    }
+  `)
+
   return (
-    <Layout>
+    <>
+      <Header />
       <Seo
         title="News - Priest Sheetmetal &amp; Plate Christchurch"
         description="Recent happenings."
@@ -37,24 +56,9 @@ const NewsPage = ({ data }) => {
         ))}
         {/* tasks__wrapper */}
       </main>
-    </Layout>
+      <Footer />
+    </>
   );
 };
-
-export const query = graphql`
-  query NewsQuery {
-    allStrapiNew {
-      edges {
-        node {
-          id
-          title
-          slug
-          excerpt
-          createdAt(formatString: "D MMMM, YYYY")
-        }
-      }
-    }
-  }
-`;
 
 export default NewsPage;
