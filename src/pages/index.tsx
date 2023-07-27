@@ -283,7 +283,7 @@ const IndexPage = () => {
       </section>
 
       <Testimonials />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
