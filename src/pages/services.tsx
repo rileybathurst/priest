@@ -5,8 +5,9 @@ import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
-import Seo from "../components/seo";
+import SEO from "../components/seo";
 import Cross from "../components/cross";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const ServicesPage = () => {
 
@@ -35,15 +36,9 @@ const ServicesPage = () => {
   return (
     <>
       <Header />
-      <Seo
-        title="Services - Priest Sheetmetal &amp; Plate Christchurch"
-        description="Specialist laser cutting &amp; steel suppliers, fabricatiors and welders in Chrirstchurch. With over 67 years running experience, Priest Sheetmetal is an established name as a manufacturer and supplier of profile cut and fabricated steelwork to Christchurch businesses."
-      />
-
       <HeaderContact />
 
       <main className="container">
-        <p className="breadcrumbs"><Link to="/">Home</Link>  &gt; Services</p>
 
         <div className="tasks__wrapper">
           {data.allStrapiService.nodes.map((service: {
@@ -102,3 +97,9 @@ const ServicesPage = () => {
 };
 
 export default ServicesPage;
+
+export const Head = () => (
+  <SEO
+    title={`Services | ${useSiteMetadata().title}`}
+  />
+)

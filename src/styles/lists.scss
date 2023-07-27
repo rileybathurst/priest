@@ -38,7 +38,7 @@ nav {
   place-items: space-between;
   gap: 0.5rem;
   white-space: nowrap; // don't let lines break
-  background: var(--secondary-color);
+  // background: var(--secondary-color);
 }
 
 .menu li {
@@ -313,8 +313,17 @@ $header-service-size: 40rem; // guess and check
 //  #larger menu
 /*------------------------------------*/
 
+.menu__wrapper {
+  background-color: var(--secondary-color);
+  padding-block: 2rem;
+  margin-block-start: -2rem;
+  z-index: 222;
+  clip-path: polygon(0 2rem, 100% 0, 100% calc(100% - 2rem), 0 100%);
+}
+
 #menu__big {
   @extend nav;
+  font-family: $major-font-family; // TODO css variable
   display: none;
   z-index: 10;
 
@@ -323,7 +332,6 @@ $header-service-size: 40rem; // guess and check
     width: 100%;
     max-width: var(--page-width);
     margin-inline: auto;
-    background: var(--secondary-color);
   }
 
   a {
@@ -477,7 +485,7 @@ $header-service-size: 40rem; // guess and check
     counter-increment: item;
     margin-block-end: 2rem;
     padding-block-start: 1rem;
-    border-block-start: 1px solid var(--primary-color);
+    border-block-start: 1px solid var(--priest-blue);
   }
 
   > li:before {

@@ -44,8 +44,8 @@ button:hover {
   clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
 
   @media (prefers-color-scheme: dark) {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
+    color: var(--priest-blue);
+    border-color: var(--priest-blue);
   }
 }
 

@@ -55,10 +55,10 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
   //  #colors
   /*------------------------------------*/
 
-  --primary-color-b: 195.8, 72.6%;
-  --primary-color-l: 42.9%;
-  // --primary-color: hsl(var(--primary-color-b), var(--primary-color-l));
-  --primary-color: hsl(195.8, 72.6%, 42.9%); // #1e93bd
+  --priest-blue-hs: 195.8, 72.6%;
+  --priest-blue-l: 42.9%;
+  // --priest-blue: hsl(var(--priest-blue-hs), var(--priest-blue-l));
+  --priest-blue: hsl(195.8, 72.6%, 42.9%); // #1e93bd
 
   --secondary-color-b: 197.3, 100%;
   --secondary-color-l: 26.5%;
@@ -146,6 +146,17 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
   /*------------------------------------*/
 
   --general-timing: 0.5s ease;
+
+  /*------------------*/
+  //  #SHADOWS
+  /*------------------*/
+
+  --mesosphere: 0 5px 12px hsla(0, 0%, 0%, 0.4),
+    0 18px 32px hsla(0, 0%, 0%, 0.16);
+  --stratosphere: 0 2px 3px hsla(0, 0%, 0%, 0.12),
+    0 3px 6px hsla(0, 0%, 0%, 0.14);
+  --troposphere: 0 2px 3px hsla(0, 0%, 0%, 0.12),
+    0 3px 6px hsla(0, 0%, 0%, 0.14);
 }
 
 /*------------------------------------*/

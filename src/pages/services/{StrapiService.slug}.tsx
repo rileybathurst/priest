@@ -1,6 +1,8 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import ServiceView from "../../views/service-view"
+import SEO from "../../components/seo"
+import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 // TODO ArticleQuery is a bad name
 
@@ -80,3 +82,13 @@ const Service = ({ data }) => {
 };
 
 export default Service;
+
+export const Head = ({ data }) => (
+  // export const Head = (service) => (
+  <SEO
+    title={`${data.strapiService.title} | ${useSiteMetadata().title}`}
+    description={data.strapiService.excerpt}
+    // TODO: this probably needs regular image as well
+    ogImage={data.strapiService.og_image}
+  />
+);

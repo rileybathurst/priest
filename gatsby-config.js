@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Priest Sheetmetal & Plate Christchurch',
+    title: 'Priest Metal',
     description: 'Specialist Sheetmetal Engineers, Heavy Plate Workers and Metal Fabricators',
     url: 'https://priestsheetmetal.co.nz/',
     siteUrl: 'https://priestsheetmetal.co.nz',
@@ -13,8 +13,8 @@ module.exports = {
     telephone: '(03) 366 9818',
     faxNumber: '(03) 366 9819',
     logo: 'images/PriestSheetMetal&PlateChristchurch-blue.png',
+    // TODO: add a geo fence to this
     areaServed: 'Christchurch, New Zealand',
-    author: 'Priest Sheetmetal'
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -38,7 +38,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
     // helps with mozilla observatory in a substatial way
-    "gatsby-plugin-react-helmet",
     "gatsby-plugin-netlify",
     "gatsby-plugin-sitemap",
     // favicon support

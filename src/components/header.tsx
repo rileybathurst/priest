@@ -1,3 +1,5 @@
+// TODO: turn the menu items into variables
+
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import Logo from "./logo";
@@ -5,7 +7,6 @@ import ProfileIcon from "./profile-icon";
 import SmallMenuToggle from "./small-menu";
 import ServicesNav from "./services-nav";
 import IndustryNav from "./industry-nav";
-import MenuMore from "./menu-more";
 
 function ServicesMenu() {
 
@@ -95,35 +96,23 @@ const Header = () => (
       </ul>
     </nav>
 
-    {/* medium up navigation */}
-    <nav id="menu__big">
-      <div className="menu-primary-container">{/* this should be removable */}
+    <div className="menu__wrapper">
+      <nav id="menu__big">
         <ul className="menu align-center">
-          <li key="home">
-            <Link to="/">Home</Link>
+          <li key="folding">
+            <Link to="/folding">Folding</Link>
           </li>
-          <li key="services" className="menu__big--services">
-            <ServicesMenu />
+          <li key="profile">
+            <Link to="/folding">
+              Cutting
+            </Link>
           </li>
-          <li key="industries" className="menu__big--industries">
-            <Id />
-          </li>
-          <li key="contact" className="menu__big--contact">
+          <li key="contact">
             <Link to="/contact">Contact</Link>
           </li>
-          <li key="profile" id="menu-primary-container__showcase" className="menu__big--profile">
-            <a href="https://priestprofile.co.nz/">
-              <ProfileIcon />
-              Profile Cutting and Laser
-            </a>
-          </li>
-          <li key="more" className="menu__big--more">
-
-            <MenuMore />
-          </li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
 );
 

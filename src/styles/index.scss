@@ -144,7 +144,7 @@ a:focus {
 \*------------------------------------*/
 
 .header-contact-background-wrap {
-  filter: drop-shadow(var(--drop-shadow));
+  // box-shadow: var(--drop-shadow);
 }
 
 #header-contact-background {
@@ -218,18 +218,18 @@ a:focus {
   > a {
     padding-inline-start: 1rem;
     padding-inline-end: 1rem;
-    background: $secondary-color;
-    background: linear-gradient(
+    // background: $secondary-color;
+    /*     background: linear-gradient(
       184deg,
       rgba(30, 141, 183, 1) 0%,
       rgba(0, 96, 135, 1) 50%
-    ); // gradient has to be from 50% to get a pass on wave.webaim.org
+    ); */ // gradient has to be from 50% to get a pass on wave.webaim.org
     // 5/23/21 the firefox wave plugin was calling an error on any text over a gradient background
     z-index: 1; // above the background
     display: flex;
     flex-direction: row;
-    color: var(--white);
-    clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+    // color: var(--white);
+    // clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
     // transition: var(--general-timing); // because this goes from a gradient to not it cant have a transition
   }
 
@@ -251,6 +251,7 @@ a:focus {
 
   svg {
     fill: var(--white);
+    fill: var(--priest-blue);
   }
 }
 

@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 import Header from '../components/header';
 import Footer from '../components/footer';
-import Seo from "../components/seo";
+import SEO from "../components/seo";
 import SummitContact from "../components/summit-contact";
 import Testimonials from "../components/testimonials";
 import Cross from "../components/cross";
 import MuxHome from '../components/mux-home';
+import Map from '../components/map';
 
 import IndustrialImage from '../images/industrail-image';
 import WeldingImage from '../images/welding-image';
@@ -30,7 +32,7 @@ function SummitInfo() {
   }
 
   const high = {
-    // why does this have a second and not a pix
+    // ? why does this have a second and not a pix
     height: { jump }.jump,
   }
 
@@ -127,7 +129,6 @@ const IndexPage = () => {
   return (
     <>
       <Header />
-      <Seo title="Priest Sheetmetal &amp; Plate Christchurch" />
       <div className="summit__backer--wrapper">
         <div className="summit__backer">
           <section id="summit">
@@ -270,16 +271,7 @@ const IndexPage = () => {
       <Cross />
 
       <section id="map" className="">
-        {/* // TODO check the frameBorder */}
-        <iframe
-          title="google maps"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.9573440490253!2d172.6515813562169!3d-43.544931066056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d3189f0816bfbed%3A0xc483fb0bb523cec9!2s10+Barbour+St%2C+Waltham%2C+Christchurch+8011%2C+New+Zealand!5e0!3m2!1sen!2sus!4v1473280636797"
-          width="1200"
-          height="450"
-          frameBorder="0"
-          allowFullScreen
-          className="lozad vimeo"
-        />
+        <Map />
       </section>
 
       <Testimonials />
@@ -289,3 +281,11 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const Head = () => (
+  <>
+    <SEO
+      title={`${useSiteMetadata().title} | ${useSiteMetadata().description}`}
+    />
+  </>
+);

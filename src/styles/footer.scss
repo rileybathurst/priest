@@ -5,7 +5,7 @@
 footer {
   background: var(--secondary-color);
   color: var(--white);
-  border-top: 0.5rem solid var(--primary-color);
+  border-top: 0.5rem solid var(--priest-blue);
   align-self: end;
   margin-bottom: 0; // browser reset
 
@@ -55,7 +55,13 @@ footer {
 }
 
 // needs specificity of class
-:is(.footer__backed, .footer__services, .footer__industries, .footer__copyright, .footer__contact--method)
+:is(
+    .footer__backed,
+    .footer__services,
+    .footer__industries,
+    .footer__copyright,
+    .footer__contact--method
+  )
   a:where(:hover, :focus) {
   background: hsl(
     var(--secondary-color-b),
@@ -81,29 +87,42 @@ footer .backed__svg svg:hover {
   gap: var(--global-grid-gap);
   justify-content: space-around;
 
-  > .footer__contact--method a,
-  > .footer__contact--method .no-link {
-    display: flex;
+  > a,
+  > .no-link {
+    display: flex; // TODO: this needs to become a grid
     flex-direction: column;
     align-items: center;
     padding: 0.5rem 1rem;
     transition: 0.5s ease;
-    border-radius: var(--backed-radius);
-    background: hsl(
-      var(--secondary-color-b),
-      calc(var(--secondary-color-l) - 5%)
-    );
+    // TODO: There needs to be something about a slab serif reference
+    // border-radius: var(--backed-radius);
+
+    // * lighter as it gets closer
+    background: var(--priest-blue);
+    // color: var(--lead);
+    // TODO: weight and underline
+    font-weight: 600;
+    border: 2px solid hsl(var(--priest-blue-hs), 30%);
+    text-align: center;
+
+    svg {
+      // fill: var(--lead);
+      max-width: 3rem;
+    }
 
     p {
       margin-block-end: 0;
     }
   }
 
-  > .footer__contact--method a:hover {
-    background: hsl(
-      var(--secondary-color-b),
-      calc(var(--secondary-color-l) - 20%)
-    );
+  // ! transitions are different
+  > a:hover {
+    background: hsl(var(--priest-blue-hs), 40%);
+    color: var(--magnesium); // TODO: storyboard time
+
+    > svg {
+      fill: var(--magnesium); // TODO: storyboard time
+    }
   }
 
   svg {

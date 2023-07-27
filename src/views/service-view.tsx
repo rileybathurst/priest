@@ -8,23 +8,21 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
-import Seo from "../components/seo";
 import MuxVideo from "../components/mux-video";
 import MuxCover from "../components/mux-cover";
 
 // theres a problem with the key not working here
 function Current(props) {
   const current = props.current;
-  // const lock = props.lock; // this is always service? might be a cache error
-  const slug = props.slug;
   const page = props.page;
+
   if (current === page) {
     return null;
   } else {
     return (
-      <li key={slug}>{/* key={lock} className={slug} */}
-        <Link to={`/services/${slug}`} className="backed">
-          {page}
+      <li key={props.slug}>
+        <Link to={`/services/${props.slug}`} className="backed">
+          {props.page}
         </Link>
       </li>
     );
@@ -40,14 +38,6 @@ const ServiceView = ({ service, other }) => {
     if (props.muxCover) {
       return (
         <div className="single__cover--video">
-          {/*           <iframe
-            src={"https://player.vimeo.com/video/" + video + "?background=1"}
-            title="cover video"
-            frameBorder="0"
-            allow="autoplay; fullscreen"
-            allowFullScreen
-          /> */}
-          {/* // TODO this is a */}
           <MuxCover mux={props.muxCover} />
         </div>
       );
@@ -115,12 +105,6 @@ const ServiceView = ({ service, other }) => {
 
   return (
     <>
-      <Seo
-        title={service.title}
-        description={service.excerpt}
-        ogImage={service.og_image}
-      />
-
       <Header />
       <HeaderContact />
 
@@ -167,19 +151,6 @@ const ServiceView = ({ service, other }) => {
                 wait for 2 versions of safari
                 */}
                 <div>
-                  {/*
-                  // * this was the old vimeo way saved incase we go back to it
-                  <iframe
-                    title={vids.title}
-                    src={
-                      "https://player.vimeo.com/video/" +
-                      vids.vimeo +
-                      "?title=0&byline=0&portrait=0"
-                    }
-                    frameBorder="0"
-                    allow="autoplay; fullscreen"
-                    allowFullScreen
-                  ></iframe> */}
                   <MuxVideo mux={vids.mux} />
                 </div>
               </figure>

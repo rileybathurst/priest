@@ -312,14 +312,14 @@
     padding-inline-end: 1rem;
     display: flex;
     flex-direction: row;
-    color: var(--white);
-    background: $secondary-color;
-    background: var(--black);
+    // color: var(--white);
+    // background: $secondary-color;
+    /*     background: var(--black);
     background: linear-gradient(
       184deg,
       rgba(30, 141, 183, 1) 0%,
       rgba(0, 96, 135, 1) 50%
-    );
+    ); */
 
     clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
   }
@@ -328,8 +328,10 @@
 .summit__contact--icon {
   padding: $global-padding;
   justify-self: end;
-  svg {
+
+  a svg {
     fill: currentColor;
+    fill: var(--priest-blue);
   }
 }
 

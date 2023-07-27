@@ -4,7 +4,9 @@
 
 .hero {
   // @extend .bg-primary; // this isnt working
-  background: var(--secondary-color); // needed for wide menu
+  // background: var(--secondary-color); // TODO was needed for wide menu
+  // can be moved to the new way
+  background-color: var(--mercury);
   display: flex;
   flex-direction: column;
 
@@ -31,7 +33,9 @@
   }
 
   > .hero__logo {
-    background: var(--primary-color);
+    background: var(--priest-blue);
+    padding-block-end: 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
     display: grid;
     place-items: center;
     z-index: 20; // sliding logo
@@ -39,35 +43,19 @@
 
     > a {
       display: inline-block;
-      border-radius: 5px;
       margin-block: 2rem;
       padding: 0.5rem;
+      transition: 0.5s ease;
+      border: 2px solid transparent;
 
       > svg {
-        display: block;
         max-width: 20rem;
         fill: var(--white);
-        padding: 0; // overwrite the backed svg
-        border-radius: 0; //overwrite the backed svg
-        // maybe this shouldnt be backed
-
-        @media (min-width: $breakpoint__medium) {
-          margin-block: 0;
-        }
       } // svg
     } // a
   } // .hero__logo
 }
 
 .hero__logo a:hover {
-  background: hsl(var(--primary-color-b), calc(var(--primary-color-l) - 10%));
-  transition: 0.5s ease;
-
-  svg {
-    fill: var(--mercury);
-  }
-}
-
-.hero__logo > a > svg:hover {
-  background: none; // oveerwrite the backed svg below
+  border-color: var(--mercury);
 }

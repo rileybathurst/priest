@@ -12,7 +12,7 @@ a:where(:hover, :focus) {
 
 :is(.backed, .backed__svg svg) {
   padding: 0.5rem 1rem;
-  transition: .25s ease;
+  transition: 0.25s ease;
   border-radius: var(--backed-radius);
 }
 
@@ -31,26 +31,41 @@ a:where(:hover, :focus) {
     color: var(--white);
     display: flex;
     text-decoration: none;
-    clip-path: polygon(1rem 0,100% 0,calc(100% - 1rem) 100%,0 100%);
-    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 5%));
-    border-bottom: 5px solid hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 10%));;
+    clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+    // background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 5%));
+    // border-bottom: 5px solid transparent;
+    transition: var(--general-timing);
   }
 
   a:where(:hover, :focus) {
     color: var(--mercury);
-    background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
-    border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 25%));
+    // border: ;
+    // background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
+    background: var(--priest-blue);
+    // border-color: hsl(
+    // var(--secondary-color-b),
+    // calc(var(--secondary-color-l) - 25%)
+    // );
   }
 }
 
 .cheese {
   color: var(--mercury);
-  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%)) !important;
+  background: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 15%)
+  ) !important;
   // theres some problems with ID specificity I should fix up
-  clip-path: polygon(1rem 0,100% 0,calc(100% - 1rem) 100%,0 100%);
-  border-color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 25%)) !important;
+  clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+  border-color: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 25%)
+  ) !important;
 }
 
 .current {
-  background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 7.5%));;
+  background: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 7.5%)
+  );
 }

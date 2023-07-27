@@ -2,15 +2,13 @@ import * as React from "react"
 import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
-import Seo from "../components/seo";
+import SEO from "../components/seo";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const TermsPage = () => {
   return (
     <>
       <Header />
-      <Seo
-        title="Terms and Conditions - Priest Sheetmetal &amp; Plate Christchurch"
-      />
       <HeaderContact />
       <main className="page-width">
         <h1 className="page-title">Terms and Conditions of Sale</h1>
@@ -223,3 +221,9 @@ const TermsPage = () => {
 }
 
 export default TermsPage
+
+export const Head = () => (
+  <SEO
+    title={`Terms and Conditions | ${useSiteMetadata().title}`}
+  />
+)

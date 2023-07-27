@@ -10,7 +10,7 @@ function ServicesCatchAll({ params }) {
   return (
     <>
       <Header />
-      <Seo title="404" />
+      <SEO title="404" />
       <HeaderContact />
       <main className="page-width">
         <h1>Couldn't find the service</h1>
