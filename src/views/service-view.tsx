@@ -108,7 +108,13 @@ const ServiceView = ({ service, other }) => {
       <Header />
       <HeaderContact />
 
-      <p className="breadcrumbs"><Link to="/">Home</Link> &gt; <Link to="/services">Services</Link> &gt; {service.title}</p>
+      <section className="breadcrumbs">
+        <p>
+          <Link to="/services">Services</Link>
+        </p>
+        <p className="chevron">&gt;</p>
+        <p className="current">{service.title}</p>
+      </section>
 
       <article className="single">
         <div className="single__cover">
@@ -170,15 +176,6 @@ const ServiceView = ({ service, other }) => {
         {/* I have had some problems with this */}
         {/* implemented the fix in here https://github.com/strapi/gatsby-source-strapi/issues/141 */}
       </article>
-
-      <Cross />
-
-      <h4 className="page-width"><Link to="/services" className="backed">Other Services</Link></h4>
-      <ul className="row">
-        {other.edges.map((other) => (
-          <Current current={service.title} lock={other?.node?.id} slug={other.node.slug} page={other?.node?.title} />
-        ))}
-      </ul>
 
       <Footer current={service.title} />
     </>

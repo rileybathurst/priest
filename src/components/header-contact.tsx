@@ -1,20 +1,20 @@
 import * as React from "react";
-import SummitContact from "./summit-contact";
 
 const HeaderContact = () => (
-  <div className="header-contact-background-wrap">
-    <div id="header-contact-background" className="shadow">
-      <div className="header-contact">
-        {/*         <h3>
-          SPECIALIST WELDERS, SHEETMETAL ENGINEERS &amp; GENERAL FABRICATORS IN
-          CHRISTCHURCH.
-        </h3> */}
+  <div className="header__contact--wrap">
+    <section className="header__contact">
+      <h3 className="elbrus">
+        <a href="https://goo.gl/maps/EzF5epUkFxaEihtLA">
+          Find us at 10 Barbour St. Waltham, ChCh
+        </a>
+      </h3>
+      <h3 className="elbrus">
+        <a href="tel:033669818">
+          Call us at 366 9818
+        </a>
+      </h3>
 
-        <section className="together">
-          <SummitContact />
-        </section>
-      </div>
-    </div>
+    </section>
   </div>
 );
 

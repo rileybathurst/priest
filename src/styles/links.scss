@@ -2,12 +2,8 @@
     #LINKS
 \*------------------------------------*/
 
-a {
-  text-decoration: none;
-}
-
-a:where(:hover, :focus) {
-  text-decoration: underline;
+a svg {
+  fill: var(--priest-blue);
 }
 
 :is(.backed, .backed__svg svg) {
@@ -17,7 +13,7 @@ a:where(:hover, :focus) {
 }
 
 :is(.backed, .backed__svg svg):where(:hover, :focus) {
-  background: hsla(0, 0%, 75%, 0.5);
+  background: hsla(0, 0%, 75%, 0.5); // TODO variable
 }
 
 #menu_small {
@@ -63,6 +59,7 @@ a:where(:hover, :focus) {
   ) !important;
 }
 
+// ! probably needs to be nested correct
 .current {
   background: hsl(
     var(--secondary-color-b),

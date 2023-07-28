@@ -75,23 +75,16 @@ const Header = () => (
     {/* more of this could be done in reactive ways */}
     <nav id="menu_small" className="firstload">
       <ul className="text-center">
-        <li key="small-home">
-          <Link to="/">Home</Link>
+        <li key="folding">
+          <Link to="/services/press-brake-folding/">Folding</Link>
         </li>
-        <li key="small-services">
-          <Link to="/services">Services</Link>
+        <li key="profile">
+          <Link to="/services/laser-profile-cutting/">
+            Cutting
+          </Link>
         </li>
-        <li key="small-industries">
-          <Link to="/industries">Industries</Link>
-        </li>
-        <li key="small-contact">
+        <li key="contact">
           <Link to="/contact">Contact</Link>
-        </li>
-        <li key="small-profile">
-          <a href="https://priestprofile.co.nz/">
-            <ProfileIcon />
-            Profile Cutting and Laser
-          </a>
         </li>
       </ul>
     </nav>
@@ -99,11 +92,12 @@ const Header = () => (
     <div className="menu__wrapper">
       <nav id="menu__big">
         <ul className="menu align-center">
+          {/* // TODO: these would be nicer with a query to featured services */}
           <li key="folding">
-            <Link to="/folding">Folding</Link>
+            <Link to="/services/press-brake-folding/">Folding</Link>
           </li>
           <li key="profile">
-            <Link to="/folding">
+            <Link to="/services/laser-profile-cutting/">
               Cutting
             </Link>
           </li>

@@ -4,13 +4,13 @@ import { Link } from "gatsby"
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import HeaderContact from "../../components/header-contact";
-import Seo from "../../components/seo";
+import SEO from "../../components/seo";
+import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 function ServicesCatchAll({ params }) {
   return (
     <>
       <Header />
-      <SEO title="404" />
       <HeaderContact />
       <main className="page-width">
         <h1>Couldn't find the service</h1>
@@ -23,3 +23,9 @@ function ServicesCatchAll({ params }) {
 }
 
 export default ServicesCatchAll
+
+export const Head = ({ params }) => (
+  <SEO
+    title={`404 ${params.name} | ${useSiteMetadata().title}`}
+  />
+)
