@@ -3,8 +3,8 @@
 \*------------------------------------*/
 
 .summit__backer--wrapper {
-  // var(--shadow) doesnt quite work here
   filter: drop-shadow(var(--drop-shadow));
+  margin-block-start: -2rem;
 }
 
 .summit__backer {

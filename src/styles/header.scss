@@ -6,131 +6,28 @@
   grid-row: 5;
   grid-column: 1/4;
   margin-bottom: $global-margin * 2;
-  max-width: 86rem; // guess and check so the angled box sit the same as the
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 86rem; // TODO: guess and check so the angled box sit the same as the
+  margin-inline: auto;
 
   @media (min-width: $breakpoint__medium) {
     grid-row: 4;
     grid-column: 1/6;
     margin-block-end: calc(var(--global-margin) * 4);
-    gap: 1rem;
   }
 
-  @media (min-width: $breakpoint__large) {
-    gap: 0;
-  }
-
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.summit__contact--service {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 
   > * {
     grid-row: 1;
-    grid-column: 1;
-  }
-
-  > a {
-    padding-inline-start: 1rem;
-    padding-inline-end: 1rem;
-    display: flex;
-    flex-direction: row;
+    background-color: var(--white);
+    padding-block: 1.5rem;
+    padding-inline: 2.5rem;
     clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
-  }
-}
-
-.summit__contact--icon {
-  padding: $global-padding;
-  justify-self: end;
-
-  a svg {
-    fill: currentColor;
-    fill: var(--priest-blue);
-  }
-}
-
-.summit__contact--text {
-  padding: $global-padding;
-  display: flex;
-  align-items: center;
-}
-
-// I'm not 100% this is the best way to do it but it works
-.summit-contact--skew {
-  grid-row: 1;
-  grid-column: 1/3;
-  transform: skewX(-8deg); // guess and check
-  background: $secondary-color;
-  background: linear-gradient(
-    180deg,
-    rgba(30, 141, 183, 1) 0%,
-    rgba(0, 96, 135, 1) 100%
-  ); // 📣
-
-  @media (min-width: $breakpoint__large) {
-    transform: skewX(-4deg); // guess and check
-  }
-}
-
-// this might need a child hover
-.summit__contact--service:hover .summit-contact--skew {
-  background: $primary-color;
-  background: linear-gradient(
-    180deg,
-    rgba(30, 141, 183, 0.75) 0%,
-    rgba(0, 96, 135, 0.75) 100%
-  );
-}
-
-.summit__contact--service {
-  > a {
-    padding-inline-start: 1rem;
-    padding-inline-end: 1rem;
-
-    z-index: 1; // above the background
-    display: flex;
-    flex-direction: row;
-    // color: var(--white);
-    // clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
-    // transition: var(--general-timing); // because this goes from a gradient to not it cant have a transition
-  }
-
-  a:hover {
-    background: hsl(
-      var(--secondary-color-b),
-      calc(var(--secondary-color-l) - 10%)
-    );
-  }
-}
-
-.summit__contact--icon {
-  justify-self: end;
-  padding: 0.8125rem 0.5rem;
-
-  @media (min-width: $breakpoint__medium) {
-    padding: $global-padding;
-  }
-
-  svg {
-    fill: var(--white);
-    fill: var(--priest-blue);
-  }
-}
-
-.summit__contact--text {
-  // align-self: center; // can't do this to get a block
-  display: flex;
-  align-items: center;
-
-  padding: 0.8125rem 0.5rem;
-
-  @media (min-width: $breakpoint__medium) {
-    padding: $global-padding;
+    display: grid;
+    place-items: center;
+    text-align: center;
   }
 }
 

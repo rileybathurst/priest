@@ -103,25 +103,6 @@ const IndexPage = () => {
         }
       }
     }
-
-    allStrapiIndustry(sort: {order: ASC}) {
-      nodes {
-        id
-        title
-        byline
-        slug
-        
-        cover {
-          alternativeText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-    }
-
   }
 `)
 
@@ -215,60 +196,6 @@ const IndexPage = () => {
           </div>
         ))}
       </div>
-      {/* tasks__wrapper */}
-
-      {/* // TODO: this is poor naming */}
-      <div className="page">
-        <h2 className="centered">Industry Suppliers</h2>
-      </div>
-
-      <div className="diatomic-wrapper">
-        {data.allStrapiIndustry.nodes.map((industry: {
-          id: string;
-          slug: string;
-          cover: {
-            localFile: { childImageSharp: { gatsbyImageData: IGatsbyImageData; }; };
-            alternativeText: string;
-          };
-          title: string;
-          byline: string;
-        }) => (
-          <section key={industry.id} className="diatomic-card">
-            <Link
-              to={`/industry/${industry.slug}`}
-              className="diatomic-card__image"
-            >
-              <GatsbyImage
-                image={
-                  industry.cover?.localFile?.childImageSharp
-                    ?.gatsbyImageData
-                }
-                alt={industry.cover?.alternativeText}
-                className="diatomic-card__image"
-              />
-            </Link>
-
-            <section className="diatomic-card__text">
-              <div className="diatomic-card__text--container">
-                <h3 className="">
-                  <Link to={`/industry/${industry.slug}`}>
-                    {industry.title}
-                  </Link>
-                </h3>
-                <h4 className="industry__byline">{industry.byline}</h4>
-
-                <Link
-                  to={`/industry/${industry.slug}`}
-                  className="diatomic-card__text--more"
-                >
-                  More about {industry.title}
-                </Link>
-              </div>{/* diatomic-card__text--container */}
-            </section>{/* diatomic-card__text */}
-          </section>
-        ))}
-      </div>
-      <Cross />
 
       <section id="map" className="">
         <Map />

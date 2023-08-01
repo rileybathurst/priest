@@ -1,70 +1,14 @@
 // TODO: turn the menu items into variables
 
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
-import Logo from "./logo";
-import ProfileIcon from "./profile-icon";
+import Wordmark from "./wordmark";
 import SmallMenuToggle from "./small-menu";
-import ServicesNav from "./services-nav";
-import IndustryNav from "./industry-nav";
-
-function ServicesMenu() {
-
-  function open() {
-    setWindow("open");
-  }
-
-  function close() {
-    setWindow("close");
-  }
-
-  const [window, setWindow] = useState("close");
-
-  return (
-    <>
-      <Link to="/services" className={`menu__over ${window}`}>Services</Link>
-      {/* this might solve the A11y problem <Link onMouseEnter={open} onMouseLeave={close}> */}
-      <ul
-        className="menu__hover menu__hover--multiline"
-        onMouseEnter={open}
-        onMouseLeave={close}
-      >
-        <ServicesNav />
-      </ul>
-    </>
-  );
-}
-
-function Id() {
-
-  function open() {
-    setWindow("open");
-  }
-
-  function close() {
-    setWindow("close");
-  }
-
-  const [window, setWindow] = useState("close");
-
-  return (
-    <>
-      <Link to="/industries" className={`menu__over ${window}`}>Industry Suppliers</Link>
-      <ul
-        className="menu__hover"
-        onMouseEnter={open}
-        onMouseLeave={close}
-      >
-        <IndustryNav />
-      </ul>
-    </>
-  );
-}
 
 const Header = () => (
   <header className="hero">
     <div className="hero__logo">
-      <Logo />
+      <Wordmark />
     </div>
 
     {/* this wants to be after so its over or do that with the z? */}

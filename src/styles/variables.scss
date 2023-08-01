@@ -117,13 +117,14 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
   --h6-fs: 1rem; // 16px
   --small-fs: 0.8125rem; // 13px
 
-  --everest: 3rem; /* 29,035ft Asia */
-  --aconcagua: 2.5rem; /* 22,840ft South America */
-  --denali: 2rem; /* 20,320ft North America */
-  --kilimanjaro: 1.5rem; /* 19,340ft Africa */
-  --elbrus: 1.25rem; /* 18,510ft Europe / Russia */
-  --vinson_massif: 1rem; /* 16,050ft Antartica */
-  --kosciuszko: 0.75rem; /* 7,310ft Australia */
+  // https://en.wikipedia.org/wiki/List_of_mountains_of_New_Zealand_by_height
+  --aoraki: 3rem; /* 29,035ft Asia */
+  --tasman: 2.5rem; /* 22,840ft South America */
+  --dampier: 2rem; /* 20,320ft North America */
+  --vancouver: 1.5rem; /* 19,340ft Africa */
+  --silberhorn: 1.25rem; /* 18,510ft Europe / Russia */
+  --malte_brun: 1rem; /* 16,050ft Antartica */
+  --hicks: 0.75rem; /* 7,310ft Australia */
 
   /*------------------------------------*/
   //  #borders
