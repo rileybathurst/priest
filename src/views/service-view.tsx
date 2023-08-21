@@ -12,7 +12,7 @@ import MuxVideo from "../components/mux-video";
 import MuxCover from "../components/mux-cover";
 
 function Gallery(gallery) {
-  if (gallery.images.length > 0) {
+  if (gallery.images?.length > 0) {
     return (
       <>
         <Cross />

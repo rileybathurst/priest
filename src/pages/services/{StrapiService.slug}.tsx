@@ -33,7 +33,6 @@ export const query = graphql`
         }
       }
 
-      hasGallery
       gallery {
         name
         alternativeText
