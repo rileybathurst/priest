@@ -1,26 +1,20 @@
 /*------------------------------------*\
-    #PRIEST
+  #PRIEST
 \*------------------------------------*/
-
-// TODO: 30th March 2021 running through the sheets as a lot seems pretty messy
-
-// TODO: what issue?
-/* Medium Up screens - fixes header issue
-@media only screen and (min-width: 40.063em) {
-  .full {
-    width: 100%;
-  }
-} */
 
 /*------------------------------------*\
   #ABSTRACTS
 \*------------------------------------*/
+
 @import "variables";
 @import "colors";
 @import "typography";
+@import "shadows";
+
 /*------------------------------------*\
-#BASE
+  #BASE
 \*------------------------------------*/
+
 @import "body";
 @import "links";
 @import "lists";
@@ -31,193 +25,18 @@
 @import "menu";
 
 /*------------------------------------*\
-    #BACKGROUNDS
+  #LAYOUT
 \*------------------------------------*/
-/*------------------------------------*\
-    #LAYOUT
-\*------------------------------------*/
+
+@import "layout";
 @import "hero";
 @import "page";
 @import "header";
 @import "footer";
+
 /*------------------------------------*\
-    #UTILITIES
+  #UTILITIES
 \*------------------------------------*/
+
 @import "molecules";
 @import "visibillity";
-
-/*------------------------------------*\
-  #Reset
-\*------------------------------------*/
-
-figure {
-  margin: 0; // browser reset
-}
-
-img {
-  display: block; // browser reset from inline-block
-}
-
-/*------------------------------------*/
-//  #MAIN
-/*------------------------------------*/
-
-main {
-  margin-block-start: 4rem;
-}
-
-/*------------------------------------*\
-  #Backgrounds
-\*------------------------------------*/
-
-.shadow {
-  /* offset-x | offset-y | blur-radius | spread-radius | color */
-  box-shadow: var(--shadow);
-}
-
-.shadow-darker {
-  box-shadow: var(--shadow__shape) rgba(var(--shadow__rgb), 0.32),
-    0 2px 10px 0 rgba(var(--shadow__rgb), 0.24);
-}
-
-/* 
-I think this is now out of use but check it
-.attachment-post-thumbnail {
-  box-shadow: var(--shadow), 0 2px 10px 0 rgba(var(----shadow__rgb), 0.12);
-} */
-
-.menu-primary-container {
-  // 📣 bad naming
-  // display: none; // this is breaking the footer
-  // this isnt in the footer that shouldnt be a concern anymore
-
-  @media (min-width: $header-menu-size) {
-    // never wrap
-    display: block;
-  }
-}
-
-.menu-primary-container > ul > li > a {
-  border-bottom: 5px solid var(--secondary-color); // invisibile until hovered
-  padding-inline: 1.5rem;
-}
-
-.menu-primary-container > ul > li:last-child > a {
-  border-color: hsl(197, 100%, 16.5%);
-  border-color: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 10%)
-  );
-}
-
-.menu-primary-container > ul > li > a:hover {
-  color: var(--mercury);
-  background: darken($secondary-color, 10%);
-  border-bottom: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 10%)
-  );
-  clip-path: var(--trapezoid-1);
-}
-
-// needs specificity
-#menu-primary-container__showcase > a {
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 15%)
-  );
-  border-bottom: 5px solid
-    hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
-  clip-path: var(--trapezoid-1);
-  padding-inline: 1.5rem;
-}
-
-:is(#menu-primary-container__showcase) a:hover,
-a:focus {
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 25%)
-  );
-  border-bottom: 5px solid
-    hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
-}
-
-/*------------------------------------*\
-  #Layout
-\*------------------------------------*/
-
-.header-contact-background-wrap {
-  // box-shadow: var(--drop-shadow);
-}
-
-#header-contact-background {
-  margin-block-end: 3.25rem;
-  padding-block-start: 1.625rem;
-  padding-block-end: 3.25rem;
-  padding-inline: $global-padding;
-  background: var(--mercury);
-  // z-index: -1; // this cant be here or it breaks links
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
-
-  @media (min-width: $breakpoint__medium) {
-    margin-block-end: 4.875rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    background: var(--lead);
-  }
-}
-
-.header-contact {
-  max-width: 70rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--block-spacing);
-  column-gap: var(--line-spacing);
-
-  @media (min-width: $breakpoint__large) {
-    flex-flow: row wrap;
-  }
-
-  svg {
-    max-width: 2rem;
-    fill: var(--priest-blue);
-  }
-
-  h3 {
-    margin-top: 0; // reset from type scale as we already have a break but sort this our
-    text-align: center;
-    font-size: clamp(var(--h6-fs), 1.5vm, var(--h4-fs));
-  }
-}
-
-.together {
-  // display: inline-block;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.625rem; // TODO: variable
-  margin-block-end: 1.2rem;
-}
-
-// 📣 bad old naming
-.wp-block-media-text {
-  display: grid;
-
-  grid-gap: 2rem;
-  margin-bottom: 1rem;
-
-  @media (min-width: $breakpoint__medium) {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.wp-block-media-text__media {
-  @media (min-width: $breakpoint__medium) {
-    grid-row: 1;
-    grid-column: 2;
-  }
-}

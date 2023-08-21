@@ -85,7 +85,7 @@
     } // li
   } // ul
 
-  @media (min-width: $header-menu-size) {
+  @media (min-width: $pelican) {
     display: none;
   }
 } // #menu_small
@@ -104,4 +104,89 @@
   // this just gets removed
   opacity: 0;
   height: 0; // this is needed but breaks all the things
+}
+
+.menu-primary-container {
+  // 📣 bad naming
+  // display: none; // this is breaking the footer
+  // this isnt in the footer that shouldnt be a concern anymore
+
+  @media (min-width: $pelican) {
+    // never wrap
+    display: block;
+  }
+}
+
+.menu-primary-container > ul > li > a {
+  border-bottom: 5px solid var(--secondary-color); // invisibile until hovered
+  padding-inline: 1.5rem;
+}
+
+.menu-primary-container > ul > li:last-child > a {
+  border-color: hsl(197, 100%, 16.5%);
+  border-color: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 10%)
+  );
+}
+
+.menu-primary-container > ul > li > a:hover {
+  color: var(--mercury);
+  // TODO: background: darken(var(--secondary-color), 10%);
+  border-bottom: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 10%)
+  );
+  clip-path: var(--trapezoid-1);
+}
+
+// needs specificity
+#menu-primary-container__showcase > a {
+  background: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 15%)
+  );
+  border-bottom: 5px solid
+    hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
+  clip-path: var(--trapezoid-1);
+  padding-inline: 1.5rem;
+}
+
+:is(#menu-primary-container__showcase) a:hover,
+a:focus {
+  background: hsl(
+    var(--secondary-color-b),
+    calc(var(--secondary-color-l) - 25%)
+  );
+  border-bottom: 5px solid
+    hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
+}
+
+#menu_small {
+  a {
+    color: var(--white);
+  }
+}
+
+#menu__big {
+  a {
+    color: var(--white);
+    display: flex;
+    text-decoration: none;
+    clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
+    // background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 5%));
+    // border-bottom: 5px solid transparent;
+    transition: var(--general-timing);
+  }
+
+  a:where(:hover, :focus) {
+    color: var(--mercury);
+    // border: ;
+    // background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
+    background: var(--priest-blue);
+    // border-color: hsl(
+    // var(--secondary-color-b),
+    // calc(var(--secondary-color-l) - 25%)
+    // );
+  }
 }

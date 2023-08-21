@@ -2,155 +2,19 @@
     #LISTS
 \*------------------------------------*/
 
-/**
- * 1) List base styles
- */
-
-/**
-  * Remove list styles from unordered and ordered lists
-  */
-// ol,
 ul {
-  list-style: none;
+  list-style: none; // browser reset
 }
 
 nav {
-  // font-size: 4vw; // testing
   font-size: clamp(1rem, 4vw, 1.2rem);
   font-family: var(--major-font-family);
   letter-spacing: 0.1rem;
 }
 
-/*------------------------------------*/
-//  #toggle
-/*------------------------------------*/
-
-// Im just going to put these specific variables here as I need them twice and I think only twice in context
-$header-menu-size: 70rem; // guess and check
-$header-profile-size: 60rem; // guess and check
-$header-contact-size: 50rem; // guess and check
-$header-industry-size: 40rem; // guess and check
-$header-service-size: 40rem; // guess and check
-
-#menu_toggle {
-  z-index: 2; // sliding menu
-  position: relative; // needed for z-index
-
-  display: grid;
-
-  @media (min-width: $header-service-size) {
-    display: none;
-  }
-}
-
-/*------------------------------------*/
-//  #services
-/*------------------------------------*/
-
-.menu__big--service {
-  display: none;
-  @media (min-width: $header-service-size) {
-    display: inline-block;
-  }
-}
-
-.more__service {
-  display: inline-block;
-  @media (min-width: $header-service-size) {
-    display: none;
-  }
-}
-
-/*------------------------------------*/
-//  #industry
-/*------------------------------------*/
-
-.menu__big--industry {
-  display: none;
-  @media (min-width: $header-industry-size) {
-    display: inline-block;
-  }
-}
-
-.more__industry {
-  display: inline-block;
-  @media (min-width: $header-industry-size) {
-    display: none;
-  }
-}
-
-/*------------------------------------*/
-//  #contact
-/*------------------------------------*/
-
-.menu__big--contact {
-  display: none;
-  @media (min-width: $header-contact-size) {
-    display: inline-block;
-  }
-}
-
-.more__contact {
-  display: inline-block;
-  @media (min-width: $header-contact-size) {
-    display: none;
-  }
-}
-
-/*------------------------------------*/
-//  #profile
-/*------------------------------------*/
-
-.menu__big--profile {
-  display: none;
-  @media (min-width: $header-profile-size) {
-    display: inline-block;
-  }
-}
-
-.more__profile {
-  display: inline-block;
-  @media (min-width: $header-profile-size) {
-    display: none;
-  }
-}
-
-/*------------------------------------*/
-//  #more
-/*------------------------------------*/
-
-.more__profile {
-  display: inline-block;
-  @media (min-width: $header-profile-size) {
-    display: none;
-  }
-}
-
-.menu__big--more {
-  @media (min-width: $header-profile-size) {
-    display: none;
-  }
-}
-
-#menu_toggle.toggle__active {
-  > .small_menu--icon > .small_menu--icon-topline {
-    transform: rotate(45deg);
-    grid-row: 1;
-    grid-column: 1;
-    align-self: center;
-    justify-self: center;
-    margin: 0;
-  }
-
-  > .small_menu--icon > .small_menu--icon-bottomline {
-    transform: rotate(-45deg);
-    grid-row: 1;
-    grid-column: 1;
-    align-self: center;
-    justify-self: center;
-    margin: 0;
-  }
-}
+/*------------------*/
+//  #SMALL MENUs
+/*------------------*/
 
 .small_menu--opener,
 .small_menu--icon {
@@ -215,11 +79,11 @@ $header-service-size: 40rem; // guess and check
 
 #menu__big {
   @extend nav;
-  font-family: $major-font-family; // TODO css variable
+  font-family: var(--major-font-family);
   display: none;
   z-index: 10;
 
-  @media (min-width: $header-service-size) {
+  @media (min-width: $pelican) {
     display: block;
     width: 100%;
     max-width: var(--page-width);
@@ -391,7 +255,7 @@ $header-service-size: 40rem; // guess and check
 
     padding-inline-end: 0.25rem;
 
-    @media (min-width: $breakpoint__large) {
+    @media (min-width: $albatross) {
       padding-inline-end: 0.5rem;
     }
   }
@@ -408,7 +272,7 @@ $header-service-size: 40rem; // guess and check
     margin-block-start: 0.5rem;
     padding-inline-start: 0.25rem;
 
-    @media (min-width: $breakpoint__large) {
+    @media (min-width: $albatross) {
       margin-block-start: 0.25rem;
     }
   }
@@ -419,7 +283,7 @@ $header-service-size: 40rem; // guess and check
     padding-block-start: 0.5rem;
     padding-inline-start: 0.25rem;
 
-    @media (min-width: $breakpoint__large) {
+    @media (min-width: $albatross) {
       padding-inline-start: 0.5rem;
     }
   }
@@ -455,7 +319,7 @@ $header-service-size: 40rem; // guess and check
     padding-block-start: 0.5rem;
     padding-inline-start: 1.5rem;
 
-    @media (min-width: $breakpoint__large) {
+    @media (min-width: $albatross) {
       padding-inline-start: 0.5rem;
     }
   }

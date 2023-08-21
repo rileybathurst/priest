@@ -1,68 +1,39 @@
-// Variables
-
-// custom priest
-// https://docs.google.com/spreadsheets/d/1mmnTlSNv-L8dyHRb33eE_pM3qVv-a5hz3q9WfTDlI4c/edit#gid=0
-
-/* $breakpoints: (
-	"small": "0",
-	"medium": "40em", // 640px
-	"medium__half-step": "54em", // 864px minor change 
-	"large": "90em", // 1440px // Im getting the feeling this is too small
-	"large__half-step": "120em", // 1920px minor change 
-	"full": "144em", // 2304px // this could just be large__half-step 
-	// Im doing quite a lot of work to get this to be different and nice
-	// I wonder if some of these have to be specific to the piece
-); */
-
-/* BREAKPOINTS */
-// this was a sass map but I have problems with those so I'm skipping them
-$breakpoint__small: 0; // document this?
-$breakpoint__medium: 40rem; // 640px
-$breakpoint__medium--half-step: 54rem; // 864px minor change
-$breakpoint__large: 90rem; // 1440px // Im getting the feeling this is too small
-$breakpoint__large--half-step: 120rem; // 1920px minor change
-$breakpoint__full: 139rem; // 2304px // this could just be large__half-step
-// for the px surely I need the body size above?
-// include something about measure in here
-
-$page-width: 77rem; // this should probably meet up with breakpoints
-$general-measure: 30rem; // document this somewhere
-
-$header-menu-size: 70rem; // guess and check
-
-$print-breakpoint: large; // TODO: check on print sheets
-
-$primary-color: #1e93bd;
-$secondary-color: #006087; // document if this is a darken
-// $warning-color: #ffae00; // currently not used
-
-// $black: #0a0a0a;
-// $white: #fefefe;
-// $light-gray: #e6e6e6;
-// $medium-gray: #d1d1d1; // slightly adapted so the footer ratio is passing contrast guidelines
-// $dark-gray: #8a8a8a;
-
-// 1rem should be a horizontal margin and generally not vertical
-$global-margin: 1rem;
-$global-padding: 1rem;
-$global-grid-gap: $global-margin;
-
-$body-font-family: "Open Sans", sans-serif;
-$major-font-family: "Roboto Slab", serif; // rename this it's also nav and buttons etc
+/*------------------*/
+//  #VARIABLES
+/*------------------*/
 
 :root {
+  /*------------------*/
+  //  #TYPOGRAPHY
+  /*------------------*/
+
+  // FONTS
+  --body-font-family: "Open Sans", sans-serif;
+  --major-font-family: "Roboto Slab", serif;
+
+  // SIZING
+  // https://en.wikipedia.org/wiki/List_of_mountains_of_New_Zealand_by_height
+  --aoraki: 2.488rem;
+  --tasman: 2.074rem;
+  --dampier: 1.728rem;
+  --vancouver: 1.44rem;
+  --silberhorn: 1.2rem;
+  --malte_brun: 1rem;
+  --hicks: 0.833rem;
+
   /*------------------------------------*/
-  //  #colors
+  //  #COLORS
   /*------------------------------------*/
 
+  --priest-blue: hsl(195.8, 72.6%, 42.9%); // #1e93bd
   --priest-blue-hs: 195.8, 72.6%;
   --priest-blue-l: 42.9%;
   // --priest-blue: hsl(var(--priest-blue-hs), var(--priest-blue-l));
-  --priest-blue: hsl(195.8, 72.6%, 42.9%); // #1e93bd
 
+  // TODO: remove this and use it as a variable
+  --secondary-color: hsl(197.3, 100%, 26.5%); // #006087
   --secondary-color-b: 197.3, 100%;
   --secondary-color-l: 26.5%;
-  --secondary-color: hsl(197.3, 100%, 26.5%); // #006087
 
   --priest-blend: linear-gradient(
     184deg,
@@ -71,6 +42,7 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
   );
   // gradient has to be from 50% to get a pass on wave.webaim.org
 
+  // NEUTRALS
   --black: hsl(0, 0%, 4%);
   --white: hsl(0, 0%, 96%);
 
@@ -86,69 +58,13 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
   --mercury: hsl(0, 0%, 90%);
 
   /*------------------------------------*/
-  //  #spacing
+  //  #SPACING
   /*------------------------------------*/
 
-  --global-margin: 1rem;
-  --global-padding: 1rem;
-  --global-grid-gap: var(--global-margin);
-
+  // TODO: theres a new variable for this
   --block-spacing: 1.625rem; // 26px baseline grid
   // if this is top and bottom its 3.25rem // 52px
   --inline-spacing: 0.8125rem; // half the baselines on the widths
-
-  /*------------------------------------*/
-  //  #layout
-  /*------------------------------------*/
-
-  --general-measure: 30rem;
-  --header-menu-size: 70rem;
-  --page-width: 77rem;
-
-  /*------------------------------------*/
-  //  #typography
-  /*------------------------------------*/
-
-  --h1-fs: 2.5rem; // 40px // 2.448 rounded up
-  --h2-fs: 2.065rem; // 33px // 2.074 rounded down
-  --h3-fs: 1.75rem; // 28px // 1.728 rounded up
-  --h4-fs: 1.5rem; // 24px // rounded up from 1.44
-  --h5-fs: 1.1875rem; // 19px // rounded down from 1.2
-  --h6-fs: 1rem; // 16px
-  --small-fs: 0.8125rem; // 13px
-
-  // https://en.wikipedia.org/wiki/List_of_mountains_of_New_Zealand_by_height
-  --aoraki: 3rem; /* 29,035ft Asia */
-  --tasman: 2.5rem; /* 22,840ft South America */
-  --dampier: 2rem; /* 20,320ft North America */
-  --vancouver: 1.5rem; /* 19,340ft Africa */
-  --silberhorn: 1.25rem; /* 18,510ft Europe / Russia */
-  --malte_brun: 1rem; /* 16,050ft Antartica */
-  --hicks: 0.75rem; /* 7,310ft Australia */
-
-  /*------------------------------------*/
-  //  #borders
-  /*------------------------------------*/
-  --backed-radius: 0.5rem;
-
-  /*------------------------------------*/
-  //  #SHADOW
-  /*------------------------------------*/
-
-  --shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
-
-  --shadow__shape: 0 2px 5px 0;
-  --shadow__color: rgba(0, 0, 0, 0.16);
-  --shadow__alpha: 0.16;
-  --shadow__rgb: 0, 0, 0;
-
-  --drop-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
-
-  /*------------------------------------*/
-  //  #SHAPES
-  /*------------------------------------*/
-
-  --trapezoid-1: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
 
   /*------------------------------------*/
   //  #TIMING
@@ -166,13 +82,31 @@ $major-font-family: "Roboto Slab", serif; // rename this it's also nav and butto
     0 3px 6px hsla(0, 0%, 0%, 0.14);
   --troposphere: 0 2px 3px hsla(0, 0%, 0%, 0.12),
     0 3px 6px hsla(0, 0%, 0%, 0.14);
+
+  /*------------------------------------*/
+  //  #LAYOUT
+  /*------------------------------------*/
+
+  --general-measure: 30rem;
+  --header-menu-size: 70rem;
+  --page-width: 77rem;
+
+  // BREAKPOINTS
+  --swan: 20rem;
+  --vulture: 30rem;
+  --stork: 40rem;
+  --condor: 50rem;
+  --pelican: 60rem;
+  --albatross: 80rem;
 }
 
-/*------------------------------------*/
-//	#BASELINES
-/*------------------------------------*/
+/*------------------*/
+//  #BREAKPOINTS
+/*------------------*/
 
-// block 26px
-// 3.25rem 52px
-// 4.875rem 78px
-// 6.5rem 104px
+$swan: 20rem;
+$vulture: 30rem;
+$stork: 40rem;
+$condor: 50rem;
+$pelican: 60rem;
+$albatross: 80rem;

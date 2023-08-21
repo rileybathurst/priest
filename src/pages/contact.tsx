@@ -13,35 +13,43 @@ const ContactPage = () => (
   <>
     <Header />
     <main className="page-width">
-      <h1>Contact</h1>
+      <h1>Contact Us</h1>
 
-      <p>
+      <h2 className="dampier">
         {/* // TODO: check if these need a better syntax */}
-        Phone: <a href={`tel: ${useSiteMetadata().telephone}`}>{useSiteMetadata().telephone}</a>
-        <br />
-        Fax:{useSiteMetadata().faxNumber}
-        <br />
-        Email:{" "}
-        <a href="mailto:enquiries@priestsheetmetal.co.nz">
-          enquiries@priestsheetmetal.co.nz
+        Phone us<br />
+        <a href={`tel: ${useSiteMetadata().telephone}`}>
+          {useSiteMetadata().telephone}
         </a>
-      </p>
+      </h2>
 
-      <Cross />
+      <h2 className="dampier">
+        Fax us<br />
+        {useSiteMetadata().faxNumber}
+      </h2>
 
-      <h2>Or Come In And See Us At The Factory</h2>
-
-      <address>
-        <a href="https://goo.gl/maps/oAXRnNknMU3vNg2r5">
-          10 Barbour Street,
-          <br />
-          Waltham,
-          <br />
-          Christchurch, 8011
-          <br />
-          New Zealand
+      <h2 className="dampier">
+        Email us<br />
+        <a href={`mailto:${useSiteMetadata().email}`}>
+          {useSiteMetadata().email}
         </a>
-      </address>
+      </h2>
+
+      <h2 className="dampier">
+        Find Us<br />
+        {/* // TODO: this needs address html tags */}
+        <address>
+          <a href={useSiteMetadata().mapGoogle}>
+            {useSiteMetadata().location.address.streetAddress},
+            <br />
+            {useSiteMetadata().location.address.addressLocality},
+            <br />
+            {useSiteMetadata().location.address.addressRegion}, {useSiteMetadata().location.address.postalCode}
+            <br />
+            {useSiteMetadata().location.address.addressCountry}
+          </a>
+        </address>
+      </h2>
 
       <Cross />
 

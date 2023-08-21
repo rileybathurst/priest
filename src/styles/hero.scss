@@ -14,11 +14,11 @@
     font-size: 1.728rem; // try even further down at an h3
     line-height: 1.35rem; // guess and check select some text to check its right
 
-    @media (min-width: $breakpoint__medium) {
+    @media (min-width: $stork) {
       font-size: 2.074rem; // h2 halfway back up
     }
 
-    @media (min-width: $breakpoint__large) {
+    @media (min-width: $albatross) {
       font-size: 2.448rem; // return to normal
     }
   }
@@ -27,7 +27,7 @@
     font-size: 1.728rem;
     line-height: 1.33rem; // guess and check select some text to check its right
 
-    @media (min-width: $breakpoint__medium) {
+    @media (min-width: $stork) {
       font-size: 2.074rem;
     }
   }

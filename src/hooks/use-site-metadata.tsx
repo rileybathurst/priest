@@ -13,8 +13,20 @@ export const useSiteMetadata = () => {
           openingHours
           telephone
           faxNumber
+          email
+          enquiriesEmail
           logo
           areaServed
+          location {
+            address {
+              streetAddress
+              addressLocality
+              addressRegion
+              postalCode
+              addressCountry
+            }
+          }
+          mapGoogle
         }
       }
     }

@@ -5,11 +5,11 @@
 .summit__contact {
   grid-row: 5;
   grid-column: 1/4;
-  margin-bottom: $global-margin * 2;
+  margin-bottom: 1rem * 2;
   max-width: 86rem; // TODO: guess and check so the angled box sit the same as the
   margin-inline: auto;
 
-  @media (min-width: $breakpoint__medium) {
+  @media (min-width: $stork) {
     grid-row: 4;
     grid-column: 1/6;
     margin-block-end: calc(var(--global-margin) * 4);
@@ -36,14 +36,18 @@
 /*------------------*/
 
 .header__contact--wrap {
-  background-color: var(--mercury);
   margin-block-start: -2rem;
   padding-block: 3rem;
   clip-path: polygon(0 2rem, 100% 0, 100% calc(100% - 2rem), 0 100%);
+  background-color: var(--mercury);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--lead);
+  }
 }
 
 .header__contact {
-  max-width: $page-width;
+  max-width: $albatross;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
@@ -53,5 +57,48 @@
   > * {
     padding-inline: 2rem;
     text-align: center;
+  }
+}
+
+#header-contact-background {
+  margin-block-end: 3.25rem;
+  padding-block-start: 1.625rem;
+  padding-block-end: 3.25rem;
+  padding-inline: 1rem;
+  background: var(--mercury);
+  // z-index: -1; // this cant be here or it breaks links
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
+
+  @media (min-width: $stork) {
+    margin-block-end: 4.875rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--lead);
+  }
+}
+
+.header-contact {
+  max-width: 70rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--block-spacing);
+  column-gap: var(--line-spacing);
+
+  @media (min-width: $albatross) {
+    flex-flow: row wrap;
+  }
+
+  svg {
+    max-width: 2rem;
+    fill: var(--priest-blue);
+  }
+
+  h3 {
+    margin-top: 0; // reset from type scale as we already have a break but sort this our
+    text-align: center;
+    font-size: clamp(var(--h6-fs), 1.5vm, var(--h4-fs));
   }
 }

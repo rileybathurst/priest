@@ -5,20 +5,20 @@
 // specifically not used as its on the gallery page we are not using anymore
 
 .gallerygallery {
-  margin: $global-margin;
+  margin: 1rem;
   width: 100%;
 
-  @media (min-width: $breakpoint__medium) {
+  @media (min-width: $stork) {
     width: calc(50% - 2rem);
   }
 
-  @media (min-width: $breakpoint__large) {
+  @media (min-width: $albatross) {
     width: calc(33% - 2rem);
   }
 
   li {
     // display: flex;
-    padding-bottom: $global-margin;
+    padding-bottom: 1rem;
     max-height: 100%;
   }
 }

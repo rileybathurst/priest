@@ -5,7 +5,7 @@ const Wordmark = () => {
   return (
     <Link to="/">
       <svg
-        enable-background="new 0 0 916.7 192.7"
+        enableBackground="new 0 0 916.7 192.7"
         viewBox="0 0 916.7 192.7"
         xmlns="http://www.w3.org/2000/svg"
       >

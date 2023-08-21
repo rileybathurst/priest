@@ -1,65 +1,29 @@
 /*------------------------------------*\
-    #LINKS
+  #LINKS
 \*------------------------------------*/
 
+a {
+  // contrast over --white background 6.37 AA
+  color: var(--secondary-color);
+  // contrast over --blacck background 4.94 AA
+  @media (prefers-color-scheme: dark) {
+    color: var(--priest-blue);
+  }
+}
+
+a:where(:hover, :focus) {
+  color: var(--priest-blue);
+}
+
 a svg {
-  fill: var(--priest-blue);
-}
-
-:is(.backed, .backed__svg svg) {
-  padding: 0.5rem 1rem;
-  transition: 0.25s ease;
-  border-radius: var(--backed-radius);
-}
-
-:is(.backed, .backed__svg svg):where(:hover, :focus) {
-  background: hsla(0, 0%, 75%, 0.5); // TODO variable
-}
-
-#menu_small {
-  a {
-    color: var(--white);
+  fill: var(--secondary-color);
+  @media (prefers-color-scheme: dark) {
+    color: var(--priest-blue);
   }
 }
 
-#menu__big {
-  a {
-    color: var(--white);
-    display: flex;
-    text-decoration: none;
-    clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
-    // background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 5%));
-    // border-bottom: 5px solid transparent;
-    transition: var(--general-timing);
-  }
-
-  a:where(:hover, :focus) {
-    color: var(--mercury);
-    // border: ;
-    // background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
-    background: var(--priest-blue);
-    // border-color: hsl(
-    // var(--secondary-color-b),
-    // calc(var(--secondary-color-l) - 25%)
-    // );
-  }
-}
-
-.cheese {
-  color: var(--mercury);
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 15%)
-  ) !important;
-  // theres some problems with ID specificity I should fix up
-  clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
-  border-color: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 25%)
-  ) !important;
-}
-
-// ! probably needs to be nested correct
+// gatsby programatically creates this class
+// TODO: variable
 .current {
   background: hsl(
     var(--secondary-color-b),

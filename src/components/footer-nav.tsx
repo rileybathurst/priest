@@ -21,7 +21,7 @@ export default function FooterNav() {
           title: string;
         }) => (
           <li key={document.slug}>
-            <Link to={`/services/${document.slug}`} target="_blank" rel="noreferrer" className="backed footer-lists">
+            <Link to={`/services/${document.slug}`} target="_blank" rel="noreferrer" className="footer-lists">
               {document.title}
             </Link>
           </li>

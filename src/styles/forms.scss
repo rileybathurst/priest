@@ -13,7 +13,7 @@
   background: #e3f6ff; // 📣
   display: grid;
   height: 4rem; // this maybe shouldnt be hard coded but its kinda needed for now
-  margin-bottom: $global-margin * 2;
+  margin-bottom: 1rem * 2;
   border: 2px solid lighten($primary-color, 20%);
   border-radius: 4px;
 }
@@ -79,11 +79,11 @@
 }
 
 .order-form-select {
-  margin-bottom: $global-margin * 2;
+  margin-bottom: 1rem * 2;
 }
 
 .order-form-select label {
-  padding: $global-padding;
+  padding: 1rem;
   padding-top: 0; // sort of hacky
   display: inline-block;
 }
@@ -96,7 +96,7 @@
   font-weight: 700;
   color: #444;
   line-height: 1.3;
-  padding: $global-padding;
+  padding: 1rem;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -126,11 +126,11 @@
 }
 
 .order-form-slider {
-  margin-bottom: $global-margin * 2;
+  margin-bottom: 1rem * 2;
 }
 
 .order-form-slider label {
-  padding: $global-padding;
+  padding: 1rem;
   display: inline-block;
 }
 
@@ -140,7 +140,7 @@
 }
 
 .order-form-submit input[type="submit"] {
-  margin-bottom: $global-margin * 3;
+  margin-bottom: 1rem * 3;
   border-radius: 2px; // should this be global
   -webkit-appearance: none; // reset browser defaults
   @extend button;

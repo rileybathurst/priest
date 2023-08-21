@@ -2,6 +2,18 @@
     #MEDIA
 \*------------------------------------*/
 
+/*------------------------------------*\
+  #Reset
+\*------------------------------------*/
+
+figure {
+  margin: 0; // browser reset
+}
+
+img {
+  display: block; // browser reset from inline-block
+}
+
 /**
  * Responsive image styling
  * 1) Allows for images to flex with varying screen size

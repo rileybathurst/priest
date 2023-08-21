@@ -11,28 +11,31 @@ import Cross from "../components/cross";
 import MuxVideo from "../components/mux-video";
 import MuxCover from "../components/mux-cover";
 
-// theres a problem with the key not working here
-function Current(props) {
-  const current = props.current;
-  const page = props.page;
-
-  if (current === page) {
-    return null;
-  } else {
+function Gallery(gallery) {
+  if (gallery.images.length > 0) {
     return (
-      <li key={props.slug}>
-        <Link to={`/services/${props.slug}`} className="backed">
-          {props.page}
-        </Link>
-      </li>
+      <>
+        <Cross />
+        <h3>Photo Gallery</h3>
+        <ul className="gallery">
+          {gallery.images.map((photos) => (
+            <li key={photos.hash}>
+              <GatsbyImage
+                image={photos.localFile?.childImageSharp?.gatsbyImageData}
+                alt={photos.name}
+              />
+            </li>
+          ))}
+        </ul>
+      </>
     );
+  } else {
+    return null;
   }
 }
 
-const ServiceView = ({ service, other }) => {
+const ServiceView = ({ service }) => {
   function Cover(props) {
-    var medium = props.medium; // query the cover if its has been set to video
-    // var video = props.video; // the vimeo id
     var imageAlt = props.imageAlt; // the vimeo id
 
     if (props.muxCover) {
@@ -52,7 +55,7 @@ const ServiceView = ({ service, other }) => {
     }
   }
 
-  // START OF VIDEOS
+  // TODO: rename
   function Sec(props) {
     // seperator between the secondary videos
     if (props.hasVideo === true) {
@@ -60,45 +63,8 @@ const ServiceView = ({ service, other }) => {
     }
     return null;
   }
-  // END OF VIDEOS
 
-  // START OF GALLERY
-  function Gallery(props) {
 
-    // test
-    // console.log(service.gallery);
-
-    // test
-    /* {
-      service.gallery.map((photos) => (
-        console.log(photos.hash)
-      ))
-    } */
-
-    var hasGallery = props.hasGallery;
-    if (hasGallery) {
-      return (
-        <>
-          <Cross />
-          <h3>Photo Gallery</h3>
-          <ul className="gallery">
-            {service.gallery.map((photos) => (
-              <li key={photos.hash}>
-                <GatsbyImage
-                  image={photos.localFile?.childImageSharp?.gatsbyImageData}
-                  alt={photos.name}
-                />
-              </li>
-            ))}
-          </ul>
-        </>
-      );
-    } // else return
-    return null;
-  }
-  // END OF GALLERY
-
-  // ? why is this a const not a function?
   const cover = getImage(
     service.cover?.localFile?.childImageSharp?.gatsbyImageData
   );
@@ -108,6 +74,7 @@ const ServiceView = ({ service, other }) => {
       <Header />
       <HeaderContact />
 
+      {/* // TODO: breadcrumbs aria */}
       <section className="breadcrumbs">
         <p>
           <Link to="/services">Services</Link>
@@ -129,25 +96,19 @@ const ServiceView = ({ service, other }) => {
 
         <Cross />
 
-        {/* title and content area open */}
         <div className="single__title">
           <h2>{service.title}</h2>
-          <div>
-            {/* <h3>{service.byline}</h3> // ? is this needed anymore */}
-            <div className="single__markdown">
-              <ReactMarkdown
-                children={service.content.data.content}
-                transformImageUri={uri =>
-                  uri.startsWith("http") ? uri : `${process.env.URI}${uri}`
-                }
-              />
-            </div>
+          {/* // ? is this div needed? */}
+          <div className="single__markdown">
+            <ReactMarkdown
+              children={service.content.data.content}
+            />
           </div>
         </div>
 
-        {/* // TODO this should be a function */}
         {service.videos.map((vids) => (
           <section key={vids.id}>
+            {/* // TODO: do this with a loop */}
             <Sec hasVideo={service.hasVideo} />
 
             <div className="videos">
@@ -161,23 +122,19 @@ const ServiceView = ({ service, other }) => {
                 </div>
               </figure>
 
-              <div className="">
+              <div>
                 <h3>{vids.title}</h3>
-                {vids.content}
+                <p>{vids.content}</p>
               </div>
             </div>
           </section>
         ))}
-        {/* close out the videos area */}
 
-        <Gallery hasGallery={service.hasGallery} />
+        <Gallery images={service.gallery} />
 
-        {/* this all used to be under the if gallery but it had a ridiculous double loop I can probably simplify now */}
-        {/* I have had some problems with this */}
-        {/* implemented the fix in here https://github.com/strapi/gatsby-source-strapi/issues/141 */}
       </article>
 
-      <Footer current={service.title} />
+      <Footer />
     </>
   );
 };

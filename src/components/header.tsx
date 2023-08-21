@@ -11,10 +11,8 @@ const Header = () => (
       <Wordmark />
     </div>
 
-    {/* this wants to be after so its over or do that with the z? */}
-    <div id="menu_toggle" className="shadow-darker">
-      <SmallMenuToggle />
-    </div>
+    {/* // ? this wants to be after so its over or do that with the z? */}
+    <SmallMenuToggle />
 
     {/* more of this could be done in reactive ways */}
     <nav id="menu_small" className="firstload">

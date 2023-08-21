@@ -2,95 +2,91 @@
   #Base Typography
 \*------------------------------------*/
 
-// typescale.com 1.200 Minor Third 19.2px?
-// line-height is 1.625 26px
-
 html {
-  font-family: $body-font-family;
+  font-family: var(--body-font-family);
   font-size: 100%;
 }
 
-body {
-  font-weight: 400;
-  line-height: 1.625; // 26px // this is really quite large
-}
+// TITLES
 
-p {
-  margin-block-start: 0; // browser reset
-  margin-block-end: 1.625rem;
-}
-
-// I don't love this syntax but it might be best on some way
 h1,
-.h1,
 h2,
-.h2,
 h3,
-.h3,
 h4,
-.h4,
 h5,
-.h5,
-h6,
-.h6 {
-  font-family: $major-font-family;
-  font-weight: 400;
-  margin-block-start: 0; // browser reset
-  margin-block-end: 0; // reset
-  line-height: 1.625;
-}
-
-h1 {
-  margin-block-start: 0; // browser reset
-  font-size: var(--h1-fs); // 40px // 2.448 rounded up
-  margin-block-end: 2.375rem; // 38px
-  line-height: 1; // 40px;
-  // total height 4.875 - 2.5rem = 2.375rem
-}
-
-h2 {
-  font-size: var(--h2-fs); // 33px // 2.074 rounded down
-  margin-block-end: 1.185rem;
-  // total height 3.25 - 2.065
-}
-
-h3 {
-  font-size: var(--h3-fs); // 28px // 1.728 rounded up
-}
-
-h4,
-.dampier {
-  font-size: var(--h4-fs); // 24px // rounded up from 1.44
-}
-
-h5,
-.elbrus {
-  font-size: var(--h5-fs); // 19px // rounded down from 1.2
-}
-
 h6 {
-  font-size: var(--h6-fs); // 16px
+  font-family: var(--major-font-family);
+  font-weight: 400;
+  margin-block-start: 0; // reset
+  margin-block-end: 1lh;
+}
+
+h1,
+.aoraki {
+  font-size: var(--aoraki);
+  // TODO: margin-block-end firefox
+}
+
+h2,
+.tasman {
+  font-size: var(--tasman);
+  // TODO: margin-block-end firefox
+}
+
+h3,
+.dampier {
+  font-size: var(--dampier);
+  // TODO: margin-block-end firefox
+}
+
+h4,
+.vancouver {
+  font-size: var(--vancouver);
+  // TODO: margin-block-end firefox
+}
+
+h5,
+.silberhorn {
+  font-size: var(--silberhorn);
+  // TODO: margin-block-end firefox
+}
+
+h6,
+.malte_brun {
+  font-size: var(--malte_brun);
+  // TODO: margin-block-end firefox
 }
 
 small,
-.text_small {
-  font-size: var(--small-fs); // 13px
+.hicks {
+  font-size: var(--hicks);
+  // TODO: margin-block-end firefox
 }
 
-p {
-  // margin-bottom: $global-margin;
-  line-height: 1.6;
-}
-
-address {
-  font-style: normal; // browser reset
-  margin-block-end: 1.625rem;
+.page-title {
+  font-size: clamp(var(--dampier), 1.5vw, var(--aoraki));
 }
 
 .text-center {
   text-align: center;
 }
 
-.page-title {
-  font-size: clamp(var(--h3-fs), 1.5vw, var(--h1-fs));
+// PARAGRAPHS
+
+p {
+  line-height: 1.6;
+  margin-block-start: 0; // browser reset
+  margin-block-end: 1lh;
+  // https://caniuse.com/mdn-css_types_length_lh
+  @supports not (margin: 1lh) {
+    margin-block-end: 1.6rem;
+  }
+}
+
+address {
+  font-style: normal;
+  margin-block-end: 1lh;
+  @supports not (margin: 1lh) {
+    margin-block-end: 1.6rem;
+  }
 }
