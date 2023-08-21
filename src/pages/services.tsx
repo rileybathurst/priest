@@ -56,10 +56,6 @@ const ServicesPage = () => {
                   </Link>
                 </h4>
 
-                <div className="tasks__background--upper shadow">
-                  {/* stay gold */}
-                </div>
-
                 <Link
                   to={`/services/${service.slug}`}
                   className="tasks__image shadow"
@@ -76,14 +72,6 @@ const ServicesPage = () => {
 
                 <div className="tasks__info">
                   <p>{service.excerpt}</p>
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="tasks__more"
-                  >
-                    <span>
-                      More about {service.title}
-                    </span>
-                  </Link>
                 </div>
               </section>
               <Cross />

@@ -55,16 +55,6 @@ const ServiceView = ({ service }) => {
     }
   }
 
-  // TODO: rename
-  function Sec(props) {
-    // seperator between the secondary videos
-    if (props.hasVideo === true) {
-      return <Cross />;
-    }
-    return null;
-  }
-
-
   const cover = getImage(
     service.cover?.localFile?.childImageSharp?.gatsbyImageData
   );
@@ -74,20 +64,25 @@ const ServiceView = ({ service }) => {
       <Header />
       <HeaderContact />
 
-      {/* // TODO: breadcrumbs aria */}
-      <section className="breadcrumbs">
-        <p>
-          <Link to="/services">Services</Link>
-        </p>
-        <p className="chevron">&gt;</p>
-        <p className="current">{service.title}</p>
-      </section>
+      {/* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/</> */}
+      <nav aria-label="Breadcrumb" className="breadcrumbs">
+        <ol>
+          <li>
+            <Link to="/services">Services</Link>
+          </li>
+          <li>
+            <p className="chevron">&gt;</p>
+          </li>
+          <li>
+            <p className="current" aria-current="page">{service.title}</p>
+          </li>
+        </ol>
+      </nav>
 
       <article className="single">
         <div className="single__cover">
           <Cover
             medium={service.coverMedium}
-            // video={service.coverVideo}
             muxCover={service.muxCover}
             image={service.cover?.localfile?.childImageData?.GatsbyImageData}
             imageAlt={service.cover?.alternativeText}
@@ -98,7 +93,6 @@ const ServiceView = ({ service }) => {
 
         <div className="single__title">
           <h2>{service.title}</h2>
-          {/* // ? is this div needed? */}
           <div className="single__markdown">
             <ReactMarkdown
               children={service.content.data.content}
@@ -108,8 +102,7 @@ const ServiceView = ({ service }) => {
 
         {service.videos.map((vids) => (
           <section key={vids.id}>
-            {/* // TODO: do this with a loop */}
-            <Sec hasVideo={service.hasVideo} />
+            <Cross />
 
             <div className="videos">
               <figure>

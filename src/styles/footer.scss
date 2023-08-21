@@ -2,12 +2,21 @@
   #FOOTER
 \*------------------------------------*/
 
+.footer__wrapper {
+  background-color: var(--priest-blue);
+  clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
+  padding-block-start: 1rem;
+}
+
 footer {
   background: var(--secondary-color);
   color: var(--white);
-  border-top: 0.5rem solid var(--priest-blue);
+  // border-top: 0.5rem solid var(--priest-blue);
   align-self: end;
-  margin-bottom: 0; // browser reset
+  margin-block-end: 0; // browser reset
+  font-weight: 600;
+  clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
+  padding-block-start: 1rem;
 
   svg {
     fill: var(--white);
@@ -16,6 +25,7 @@ footer {
   a {
     color: var(--white);
     text-decoration: underline;
+    transition: var(--general-timing);
   }
 
   a:where(:hover, :focus) {
@@ -28,16 +38,20 @@ footer {
   ul {
     display: flex;
     flex-flow: row wrap;
-    max-width: 75rem;
+    max-width: var(--pelican);
     margin-inline: auto;
     padding: 1rem 1rem 3rem;
     justify-content: flex-start;
-    gap: var(--global-grid-gap);
+    gap: 1rem;
 
     > li {
       flex: 1 1;
       white-space: nowrap;
       max-width: max-content;
+
+      a {
+        padding: 0.5rem 1rem;
+      }
     }
   }
 
@@ -61,59 +75,23 @@ footer {
   }
 }
 
-// this is split off as its not a nested <a> in the same way
-footer .backed__svg svg:hover {
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 20%)
-  );
-}
-
 .footer__contacts {
-  max-width: var(--page-width);
-  padding-inline: var(--global-padding);
-  margin-inline: auto;
-  margin-block: 3rem;
-  display: flex;
-  flex-flow: row wrap;
-  gap: var(--global-grid-gap);
-  justify-content: space-around;
-
-  > a,
-  > .no-link {
+  a,
+  .no-link {
     display: flex; // TODO: this needs to become a grid
     flex-direction: column;
     align-items: center;
     padding: 0.5rem 1rem;
     transition: 0.5s ease;
-    // TODO: There needs to be something about a slab serif reference
-    // border-radius: var(--backed-radius);
-
-    // * lighter as it gets closer
-    // background: var(--priest-blue);
-    // color: var(--lead);
-    // TODO: weight and underline
     font-weight: 600;
-    // border: 2px solid hsl(var(--priest-blue-hs), 30%);
     text-align: center;
 
     svg {
-      // fill: var(--lead);
       max-width: 3rem;
     }
 
     p {
       margin-block-end: 0;
-    }
-  }
-
-  // ! transitions are different
-  > a:hover {
-    background: hsl(var(--priest-blue-hs), 40%);
-    color: var(--magnesium); // TODO: storyboard time
-
-    > svg {
-      fill: var(--magnesium); // TODO: storyboard time
     }
   }
 
@@ -175,17 +153,5 @@ footer .backed__svg svg:hover {
     @media (min-width: $stork) {
       margin-block-end: 0;
     }
-  }
-}
-
-.footer__base {
-  flex-flow: column;
-
-  > * {
-    flex: 1 1;
-  }
-
-  @media (min-width: $stork) {
-    flex-flow: row wrap;
   }
 }

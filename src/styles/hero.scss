@@ -11,6 +11,7 @@
   flex-direction: column;
 
   h1 {
+    // TODO: variables
     font-size: 1.728rem; // try even further down at an h3
     line-height: 1.35rem; // guess and check select some text to check its right
 
@@ -34,25 +35,32 @@
 
   > .hero__logo {
     background: var(--priest-blue);
-    padding-block-end: 2rem;
+    padding-block-end: 0.5rem;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
+
     display: grid;
     place-items: center;
-    z-index: 20; // sliding logo
+
+    z-index: 2; // sliding logo
     position: relative; // needed for z-index
 
     > a {
       display: inline-block;
-      margin-block: 2rem;
-      padding: 0.5rem;
-      transition: 0.5s ease;
-      border: 2px solid transparent;
+      margin-block: -0.5rem;
+
+      width: 100%;
+      max-width: 30rem;
 
       > svg {
-        max-width: 20rem;
+        max-width: 30rem;
         fill: var(--white);
+        transition: var(--general-transition);
       } // svg
     } // a
+
+    a:hover svg {
+      fill: var(--mercury);
+    } // a:hover svg
   } // .hero__logo
 }
 

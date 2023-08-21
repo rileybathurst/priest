@@ -6,7 +6,6 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import SEO from "../components/seo";
-import Cross from "../components/cross";
 import Map from '../components/map';
 
 const ContactPage = () => (
@@ -51,15 +50,9 @@ const ContactPage = () => (
         </address>
       </h2>
 
-      <Cross />
-
-      <h2>Terms and Conditions</h2>
-      <p><Link to="/terms">Read our terms and conditions of purchase.</Link></p>
-
-      <Cross />
     </main>
 
-    <section id="map" className="map__back">
+    <section id="map">
       <Map />
     </section>
     <Footer />

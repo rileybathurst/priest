@@ -5,3 +5,13 @@
 main {
   margin-block-start: 4rem;
 }
+
+.split {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+
+  > * {
+    flex: 1 1 15rem; // guess and check 4 columns at max width
+  }
+}

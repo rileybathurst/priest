@@ -16,40 +16,6 @@ import IndustrialImage from '../images/industrail-image';
 import WeldingImage from '../images/welding-image';
 import CutImage from '../images/cut-image';
 
-function SummitInfo() {
-  const ref = useRef();
-
-  const [jump, setJump] = useState(0);
-
-  // trying to cleanup typescript warnings
-  if (ref.current) {
-    useEffect(() => {
-      // console.log(ref.current.clientHeight);
-      const height = ref.current.clientHeight;
-      setJump(height);
-      // adding the [] only re-renders on change
-    }, [jump]);
-  }
-
-  const high = {
-    // ? why does this have a second and not a pix
-    height: { jump }.jump,
-  }
-
-  return (
-    <div className="summit__info">
-      <div id="summit__info--shape" className="summit--shape" style={high}>{/* stay gold */}</div>
-      <div className="summit__info--text" ref={ref}>
-        {/* this has old naming and needs to be checked */}
-        <h1>Specialist Laser Cutting &amp; Steel Suppliers, Fabricators and Welders in Christchurch.</h1>
-        <p>With over 67 years running experience, Priest Sheetmetal is an
-          established name as a manufacturer and supplier of profile cut and
-          fabricated steelwork to Christchurch businesses.</p>
-      </div>
-    </div>
-  );
-}
-
 // queries the height of the text block to make the shapeoutside cut
 function SummitAbout() {
   // query the current box
@@ -113,7 +79,23 @@ const IndexPage = () => {
       <div className="summit__backer--wrapper">
         <div className="summit__backer">
           <section id="summit">
-            <SummitInfo />
+            <div className="summit__info">
+              <div
+                id="summit__info--shape"
+                className="summit--shape"
+              >
+                {/* stay gold */}
+              </div>
+              <div
+                className="summit__info--text"
+              >
+                {/* this has old naming and needs to be checked */}
+                <h1>Specialist Laser Cutting &amp; Steel Suppliers, Fabricators and Welders in Christchurch.</h1>
+                <p>With over 67 years running experience, Priest Sheetmetal is an
+                  established name as a manufacturer and supplier of profile cut and
+                  fabricated steelwork to Christchurch businesses.</p>
+              </div>
+            </div>
 
             <SummitAbout />
 
@@ -157,7 +139,7 @@ const IndexPage = () => {
                 </Link>
               </h3>
 
-              <div className="tasks__background--upper shadow">
+              <div className="tasks__background--upper">
                 {/* stay gold */}
               </div>
 
@@ -183,12 +165,6 @@ const IndexPage = () => {
                 </div>
 
                 <div className="service__more--back">{/* stay gold */}</div>
-                <Link
-                  to={`/services/${service.slug}`}
-                  className="service__more"
-                >
-                  More about {service.title}
-                </Link>
               </div>
             </section>
 

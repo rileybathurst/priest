@@ -9,39 +9,48 @@ import SEO from "../components/seo";
 import Cross from "../components/cross";
 import Map from '../components/map';
 
-const ContactPage = () => (
+const AboutPage = () => (
   <>
     <Header />
     <main className="page-width">
-      <h1>Contact Us</h1>
+      <div className="split">
+        <section>
+          <h1>About Us</h1>
 
-      <p>
-        {/* // TODO: check if these need a better syntax */}
-        Phone Us: <a href={`tel: ${useSiteMetadata().telephone}`}>{useSiteMetadata().telephone}</a>
-        <br />
-        Fax:&nbsp;{useSiteMetadata().faxNumber}
-        <br />
-        Email:&nbsp;
-        <a href="mailto:enquiries@priestsheetmetal.co.nz">
-          enquiries@priestsheetmetal.co.nz
-        </a>
-      </p>
+          <p>
+            Phone us <a href={`tel: ${useSiteMetadata().telephone}`}>{useSiteMetadata().telephone}</a>
+          </p>
 
-      <Cross />
+          <p>
+            Fax us {useSiteMetadata().faxNumber}<br />
+          </p>
 
-      <h2>Or Come In And See Us At The Factory</h2>
+          <p>
+            Email us <a href={`mailto:${useSiteMetadata().email}`}>
+              {useSiteMetadata().email}
+            </a>
+          </p>
 
-      <address>
-        <a href="https://goo.gl/maps/oAXRnNknMU3vNg2r5">
-          10 Barbour Street,
-          <br />
-          Waltham,
-          <br />
-          Christchurch, 8011
-          <br />
-          New Zealand
-        </a>
-      </address>
+          <p>Find us
+
+            <address>
+              <a href={useSiteMetadata().mapGoogle}>
+                {useSiteMetadata().location.address.streetAddress},
+                <br />
+                {useSiteMetadata().location.address.addressLocality},
+                <br />
+                {useSiteMetadata().location.address.addressRegion}, {useSiteMetadata().location.address.postalCode}
+                <br />
+                {useSiteMetadata().location.address.addressCountry}
+              </a>
+            </address>
+          </p>
+        </section>
+
+        <section id="map">
+          <Map />
+        </section>
+      </div>
 
       <Cross />
 
@@ -51,18 +60,15 @@ const ContactPage = () => (
       <Cross />
     </main>
 
-    <section id="map" className="map__back">
-      <Map />
-    </section>
     <Footer />
   </>
 );
 
-export default ContactPage;
+export default AboutPage;
 
 export const Head = () => (
   <SEO
-    title={`Contact | ${useSiteMetadata().title}`}
-    description={`Get in touch with ${useSiteMetadata().title}`}
+    title={`About Us | ${useSiteMetadata().title}`}
+    description={`Learn about us ${useSiteMetadata().title}`}
   />
 );
