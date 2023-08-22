@@ -1,0 +1,68 @@
+/*------------------*/
+//  #Card
+/*------------------*/
+
+.deck {
+  max-width: var(--albatross);
+  margin-inline: auto;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  justify-content: center;
+
+  > * {
+    flex: 0 1 20rem;
+    margin: var(--inline-spacing);
+  }
+
+  .card {
+    display: grid;
+
+    > * {
+      grid-column: 1;
+    }
+
+    .card__image {
+      grid-row: 1;
+      clip-path: var(--horizontal-clipper);
+      z-index: 2;
+      position: relative; // this is needed for the z-index to work
+
+      transition: transform 0.5s ease;
+    }
+
+    .card__image:hover {
+      transform: scale(1.1);
+    }
+
+    .card__backer {
+      grid-row: 2;
+      clip-path: var(--horizontal-clipper);
+      margin-block-start: -2rem;
+      padding: 1rem;
+      padding-block-start: 3rem;
+      padding-block-start: 0;
+      background-color: var(--mercury);
+      z-index: 1;
+      position: relative; // this is needed for the z-index to work
+      aspect-ratio: 2 / 1;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--lead);
+      }
+    }
+
+    h2 {
+      grid-row: 2;
+      // these dont match accross the cards
+      margin-block-start: -2rem;
+      padding: 2rem;
+      padding-block-start: 0;
+      z-index: 3;
+      position: relative; // this is needed for the z-index to work
+      place-self: end;
+      margin-block-end: 0;
+    }
+  }
+}

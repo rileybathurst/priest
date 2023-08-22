@@ -1,4 +1,4 @@
-import "./src/styles/index.scss";
+import "./src/styles/app.scss";
 
 import "@fontsource/roboto-slab/400.css";
 // at some point this can be a variable

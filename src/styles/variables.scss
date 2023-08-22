@@ -98,6 +98,14 @@
   --condor: 50rem;
   --pelican: 60rem;
   --albatross: 80rem;
+
+  /*------------------*/
+  //  #CLIP PATHS
+  /*------------------*/
+
+  --top-left-corner-clipper: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
+  --vertical-clipper: polygon(0 2rem, 100% 0, 100% calc(100% - 2rem), 0 100%);
+  --horizontal-clipper: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
 }
 
 /*------------------*/

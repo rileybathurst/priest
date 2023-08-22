@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 import SEO from "../components/seo";
 import SummitContact from "../components/summit-contact";
 import Testimonials from "../components/testimonials";
-import Cross from "../components/cross";
+import Card from "../components/card";
 import MuxHome from '../components/mux-home';
 import Map from '../components/map';
 
@@ -123,7 +123,7 @@ const IndexPage = () => {
         </div>
       </div>
 
-      <div className="tasks__wrapper">
+      <div className="deck">
         {data.allStrapiService.nodes.map((service: {
           id: string;
           slug: string;
@@ -131,46 +131,14 @@ const IndexPage = () => {
           cover: { localFile: { childImageSharp: { gatsbyImageData: IGatsbyImageData; }; }; alternativeText: string; };
           excerpt: string;
         }) => (
-          <div key={service.id} className="tasks--outer">
-            <section className="tasks">
-              <h3 className="tasks__title h4">
-                <Link to={`/services/${service.slug}`}>
-                  {service.title}
-                </Link>
-              </h3>
-
-              <div className="tasks__background--upper">
-                {/* stay gold */}
-              </div>
-
-              <Link
-                to={`/services/${service.slug}`}
-                className="tasks__image shadow"
-                title={service.title}
-              >
-                <GatsbyImage
-                  image={
-                    service.cover?.localFile?.childImageSharp
-                      ?.gatsbyImageData
-                  }
-                  alt={service.cover?.alternativeText}
-                  className="shadow"
-                />
-              </Link>
-
-              <div className="tasks__info">
-                <div className="clipshaper">
-                  <div className="clipper">{/* stay gold */}</div>
-                  <p>{service.excerpt}</p>
-                </div>
-
-                <div className="service__more--back">{/* stay gold */}</div>
-              </div>
-            </section>
-
-            <Cross />
+          <div key={service.id}>
+            <Card
+              content={service}
+              breadcrumb="services"
+            />
           </div>
         ))}
+        <div>{/* stay gold */}</div>
       </div>
 
       <section id="map" className="">
