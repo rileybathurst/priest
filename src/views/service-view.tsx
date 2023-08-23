@@ -100,28 +100,24 @@ const ServiceView = ({ service }) => {
           </div>
         </div>
 
-        {service.videos.map((vids) => (
-          <section key={vids.id}>
-            <Cross />
+        <section className="deck card__large">
+          {service.videos.map((vids) => (
+            <div
+              key={vids.id}
+              className="card"
+            >
+              <div className="card__video">
+                <MuxVideo mux={vids.mux} />
+              </div>
 
-            <div className="videos">
-              <figure>
-                {/*
-                // TODO this is a relic from before aspect ratio css
-                wait for 2 versions of safari
-                */}
-                <div>
-                  <MuxVideo mux={vids.mux} />
-                </div>
-              </figure>
-
-              <div>
+              <div className="card__text">
                 <h3>{vids.title}</h3>
                 <p>{vids.content}</p>
               </div>
+              <div className="card__backer">{/* stay gold*/}</div>
             </div>
-          </section>
-        ))}
+          ))}
+        </section>
 
         <Gallery images={service.gallery} />
 

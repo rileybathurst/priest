@@ -40,6 +40,11 @@ const Footer = (props: { current?: any; }) => (
               Terms &amp; Conditions
             </Link>
           </li>
+          <li key="portal">
+            <a href="http://portal.greatstuff.co.nz/" target='_blank' rel='noopener noreferrer' >
+              Client Portal
+            </a>
+          </li>
         </ul>
       </nav>
 
