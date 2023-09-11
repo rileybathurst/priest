@@ -36,15 +36,27 @@ const Header = () => (
         <ul className="menu align-center">
           {/* // TODO: these would be nicer with a query to featured services */}
           <li key="folding">
-            <Link to="/services/press-brake-folding/">Folding</Link>
+            <Link
+              to="/services/press-brake-folding/"
+              activeClassName="active"
+            >
+              Folding
+            </Link>
           </li>
           <li key="profile">
-            <Link to="/services/laser-profile-cutting/">
+            <Link
+              to="/services/laser-profile-cutting/"
+              activeClassName="active"
+            >
               Cutting
             </Link>
           </li>
           <li key="contact">
-            <Link to="/contact">Contact</Link>
+            <Link
+              to="/contact"
+              activeClassName="active"
+            >Contact
+            </Link>
           </li>
         </ul>
       </nav>

@@ -106,6 +106,12 @@
   --top-left-corner-clipper: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
   --vertical-clipper: polygon(0 2rem, 100% 0, 100% calc(100% - 2rem), 0 100%);
   --horizontal-clipper: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+
+  /*------------------*/
+  //  #BORDER RADIUS
+  /*------------------*/
+  // TODO: rename this
+  --roll: 0.25rem;
 }
 
 /*------------------*/

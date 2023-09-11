@@ -173,20 +173,16 @@ a:focus {
     color: var(--white);
     display: flex;
     text-decoration: none;
-    clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
-    // background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 5%));
-    // border-bottom: 5px solid transparent;
     transition: var(--general-timing);
+    border-radius: var(--roll);
+  }
+
+  a.active {
+    background: var(--priest-blue);
   }
 
   a:where(:hover, :focus) {
     color: var(--mercury);
-    // border: ;
-    // background: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%));
     background: var(--priest-blue);
-    // border-color: hsl(
-    // var(--secondary-color-b),
-    // calc(var(--secondary-color-l) - 25%)
-    // );
   }
 }

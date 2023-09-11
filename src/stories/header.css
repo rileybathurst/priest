@@ -30,3 +30,8 @@ button + button {
   font-size: 14px;
   margin-right: 10px;
 }
+
+.dark {
+  background: var(--white);
+  color: var(--black);
+}
