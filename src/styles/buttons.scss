@@ -24,12 +24,6 @@ button {
   background: var(--secondary-color);
   color: var(--white);
   font-size: var(--h5-fs);
-  // total height 1.1875rem + (2 * 1.625rem) = 5.125rem
-  // should be 4.875rem = 0.25rem / 2 = 0.125rem
-  // 5.125 - 4.875
-
-  // is it possible to get to 3.25rem
-  // 3.25 - 1.1875 = 2.0625 / 2 = 1.03125rem
 }
 
 button:hover {
@@ -41,13 +35,17 @@ button:hover {
 
 // why us this so different? only use once can I get rid of it?
 .button {
-  display: inline-block; // 📣
-  padding: 0.85em 1em;
-  // font-weight: bold;
-  // text-transform: uppercase;
+  display: inline-block; //
+  padding-block: var(--block-spacing);
+  padding-inline: var(--inline-spacing);
   letter-spacing: 1px;
+  transition: var(--general-timing);
+  border-radius: var(--roll);
 }
-// where are the hover styles?
+
+.button:where(:hover, :focus) {
+  background-color: var(--mercury);
+}
 
 .button.hollow {
   // font-weight: bold;

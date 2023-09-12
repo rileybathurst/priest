@@ -102,3 +102,18 @@
     font-size: clamp(var(--h6-fs), 1.5vm, var(--h4-fs));
   }
 }
+
+/*------------------*/
+//  #SUMMIT CONTACT
+/*------------------*/
+
+.summit__contact {
+  .button {
+    border: 1px solid transparent;
+  }
+
+  .button:where(:hover, :focus) {
+    background-color: var(--silver);
+    border-color: var(--magnesium);
+  }
+}

@@ -6,7 +6,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
 import SEO from "../components/seo";
-import Cross from "../components/cross";
+import Card from "../components/card";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const ServicesPage = () => {
@@ -16,7 +16,8 @@ const ServicesPage = () => {
       allStrapiService(sort: {order: ASC}) {
         nodes {
           id
-          title
+          shortname
+          byline
           excerpt
           slug
 
@@ -24,7 +25,7 @@ const ServicesPage = () => {
             alternativeText
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(aspectRatio: 1)
               }
             }
           }
@@ -40,43 +41,27 @@ const ServicesPage = () => {
 
       <main className="container">
 
-        <div className="tasks__wrapper">
+        <h1 className='page-width'>
+          Services
+        </h1>
+
+        <div className="deck">
           {data.allStrapiService.nodes.map((service: {
-            id: React.Key;
+            id: string;
             slug: string;
-            title: string;
+            shortname: string;
+            byline: string;
             cover: { localFile: { childImageSharp: { gatsbyImageData: IGatsbyImageData; }; }; alternativeText: string; };
             excerpt: string;
           }) => (
-            <div key={service.id} >
-              <section className="tasks">
-                <h4 className="tasks__title">
-                  <Link to={`/services/${service.slug}`}>
-                    {service.title}
-                  </Link>
-                </h4>
-
-                <Link
-                  to={`/services/${service.slug}`}
-                  className="tasks__image shadow"
-                >
-                  <GatsbyImage
-                    image={
-                      service.cover?.localFile?.childImageSharp
-                        ?.gatsbyImageData
-                    }
-                    alt={service.cover?.alternativeText}
-                    className="shadow"
-                  />
-                </Link>
-
-                <div className="tasks__info">
-                  <p>{service.excerpt}</p>
-                </div>
-              </section>
-              <Cross />
+            <div key={service.id}>
+              <Card
+                content={service}
+                breadcrumb="services"
+              />
             </div>
           ))}
+          <div>{/* stay gold */}</div>
         </div>
       </main>
       <Footer />

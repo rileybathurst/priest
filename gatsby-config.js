@@ -46,6 +46,9 @@ module.exports = {
           `new`,
           `image-grab`
         ],
+        singleTypes: [
+          `craftsmanship`,
+        ],
       },
     },
     `gatsby-plugin-image`,

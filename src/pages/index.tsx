@@ -55,7 +55,8 @@ const IndexPage = () => {
     allStrapiService(sort: {order: ASC}) {
       nodes {
         id
-        title
+        shortname
+        byline
         slug
         excerpt
 
@@ -123,11 +124,18 @@ const IndexPage = () => {
         </div>
       </div>
 
+      <h2 className='page-width'>
+        <Link to="/services">
+          Services
+        </Link>
+      </h2>
+
       <div className="deck">
         {data.allStrapiService.nodes.map((service: {
           id: string;
           slug: string;
-          title: string;
+          shortname: string;
+          byline: string;
           cover: { localFile: { childImageSharp: { gatsbyImageData: IGatsbyImageData; }; }; alternativeText: string; };
           excerpt: string;
         }) => (

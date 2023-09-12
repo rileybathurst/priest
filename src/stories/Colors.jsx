@@ -8,6 +8,52 @@ export const Colors = ({ primary }) => {
     : "storybook-Colors--secondary";
   return (
     <>
+      <div
+        style={{
+          backgroundColor: "var(--priest-blue)",
+          color: "var(--white)",
+          paddingBlock: "var(--block-spacing)",
+          paddingInline: "var(--inline-spacing)",
+        }}
+      >
+        --White on --Priest-blue
+        <br />
+        top header
+        <br />
+        link hover
+        <span className="contrast">1:3.23</span>
+      </div>
+
+      <div
+        style={{
+          backgroundColor: "var(--secondary-color)",
+          color: "var(--white)",
+          paddingBlock: "var(--block-spacing)",
+          paddingInline: "var(--inline-spacing)",
+        }}
+      >
+        --White on --Secondary-color
+        <br />
+        secondary header
+        <br />
+        regular links
+        <span className="contrast">1:6.37</span>
+      </div>
+
+      <div
+        style={{
+          backgroundColor: "var(--black)",
+          color: "var(--white)",
+          paddingBlock: "var(--block-spacing)",
+          paddingInline: "var(--inline-spacing)",
+        }}
+      >
+        --White on --Black
+        <br />
+        regular text
+        <span className="contrast">1:6.37</span>
+      </div>
+
       <section>
         <h1>Color Contrast</h1>
         <br />
@@ -31,29 +77,6 @@ export const Colors = ({ primary }) => {
           point (typically 24px) or larger.
         </p>
       </section>
-      <div
-        style={{
-          backgroundColor: "var(--priest-blue)",
-          color: "var(--white)",
-          paddingBlock: "var(--block-spacing)",
-          paddingInline: "var(--inline-spacing)",
-        }}
-      >
-        --White on --Priest-blue
-        <span className="contrast">1:3.23</span>
-      </div>
-
-      <div
-        style={{
-          backgroundColor: "var(--secondary-color)",
-          color: "var(--white)",
-          paddingBlock: "var(--block-spacing)",
-          paddingInline: "var(--inline-spacing)",
-        }}
-      >
-        --White on --Secondary-color
-        <span className="contrast">1:6.37</span>
-      </div>
     </>
   );
 };

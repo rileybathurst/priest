@@ -28,14 +28,26 @@
     .card__video {
       grid-row: 1;
       clip-path: var(--horizontal-clipper);
-      z-index: 2;
+      z-index: 3;
       position: relative; // this is needed for the z-index to work
-
+      mix-blend-mode: multiply;
       transition: transform 0.5s ease;
+
+      .gatsby-image-wrapper {
+        filter: grayscale(1);
+      }
     }
 
     .card__image:hover {
       transform: scale(1.1);
+    }
+
+    .card__overlay {
+      grid-row: 1;
+      z-index: 2;
+      clip-path: var(--horizontal-clipper);
+      background-color: var(--secondary-color);
+      height: 100%;
     }
 
     .card__backer {
@@ -56,6 +68,7 @@
     }
 
     h2,
+    hgroup,
     .card__text {
       grid-row: 2;
       // these dont match accross the cards
@@ -64,8 +77,29 @@
       padding-block-start: 0;
       z-index: 3;
       position: relative; // this is needed for the z-index to work
-      place-self: end;
+      justify-self: start;
+      align-self: end;
+      // place-self: end;
       margin-block-end: 0;
+    }
+
+    h2 {
+      font-size: var(--aoraki);
+      text-transform: uppercase;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    hgroup {
+      .eyebrow {
+        // z-index: 4;
+        color: var(--white);
+      }
+
+      .supra {
+      }
     }
   }
 }

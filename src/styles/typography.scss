@@ -90,3 +90,19 @@ address {
     margin-block-end: 1.6rem;
   }
 }
+
+/*------------------*/
+//  #EYEBROW
+/*------------------*/
+
+hgroup {
+  .eyebrow {
+    font-size: var(--silberhorn);
+    font-family: var(--body-font-family);
+  }
+
+  .supra {
+    font-size: var(--tasman);
+    font-family: var(--major-font-family);
+  }
+}

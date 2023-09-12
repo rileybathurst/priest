@@ -1,6 +1,7 @@
 // this is the Name.jsx file
 import React from "react";
 import PropTypes from "prop-types";
+
 import "./links.css";
 
 export const Links = ({ primary }) => {
@@ -17,13 +18,6 @@ export const Links = ({ primary }) => {
           Regular Text:hover
         </a>
       </p>
-      <div className="dark">
-        <p>
-          <a href="#" className="dark-a">
-            Regular Text:hover
-          </a>
-        </p>
-      </div>
     </>
   );
 };

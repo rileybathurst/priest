@@ -92,7 +92,10 @@ const ServiceView = ({ service }) => {
         <Cross />
 
         <div className="single__title">
-          <h2>{service.title}</h2>
+          <hgroup>
+            <h2 className="eyebrow">{service.title}</h2>
+            <p className="supra">{service.byline}</p>
+          </hgroup>
           <div className="single__markdown">
             <ReactMarkdown
               children={service.content.data.content}
