@@ -5,8 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: 'Priest Metal',
-    // TODO: description update
-    description: 'Specialist Sheetmetal Engineers, Heavy Plate Workers and Metal Fabricators',
+    description: 'Specialist Laser Cutting & Steel Suppliers, Fabricators and Welders in Christchurch, New Zealand',
     url: 'https://priestsheetmetal.co.nz/',
     siteUrl: 'https://priestsheetmetal.co.nz',
     image: 'https://priest.s3.ap-southeast-2.amazonaws.com/ogimages/priest-og-image.jpg',
@@ -14,7 +13,7 @@ module.exports = {
     telephone: '(03) 366 9818',
     faxNumber: '(03) 366 9819',
     email: 'info@priestsheetmetal.co.nz',
-    // TODO: I don't think this is usetypod
+    // TODO: I don't think this is used
     enquiriesEmail: 'enquiries@priestsheetmetal.co.nz',
     logo: 'images/PriestSheetMetal&PlateChristchurch-blue.png',
     // TODO: add a geo fence to this

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -10,6 +10,63 @@ import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
 import MuxVideo from "../components/mux-video";
 import MuxCover from "../components/mux-cover";
+
+function Carousel(images) {
+
+  // console.log(images);
+
+  // Select all slides
+  useEffect(() => {
+
+    console.log(useRef);
+
+    const slides = document.querySelectorAll(".slide");
+    console.log(slides);
+
+    // loop through slides and set each slides translateX property to index * 100% 
+    slides.forEach((slide, indx) => {
+      slide.style.transform = `translateX(${indx * 100}%)`;
+    });
+  });
+
+  if (images.images?.length > 0) {
+    return (
+      <>
+        <Cross />
+        <div className="carousel__area">
+          <div className="carousel__wrap">
+            <ul className="carousel">
+              {images.images.map((photos) => (
+                <li
+                  key={photos.hash}
+                  className="slider"
+                  ref={useRef()}
+                >
+                  <GatsbyImage
+                    image={photos.localFile?.childImageSharp?.gatsbyImageData}
+                    alt={photos.name}
+                  />
+                </li>
+              ))}
+            </ul>
+            <ul className="thumbnails">
+              {images.images.map((photos) => (
+                <li key={photos.hash} className="slider">
+                  <GatsbyImage
+                    image={photos.localFile?.childImageSharp?.gatsbyImageData}
+                    alt={photos.name}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </>
+    );
+  } else {
+    return null;
+  }
+}
 
 function Gallery(gallery) {
   if (gallery.images?.length > 0) {
@@ -122,7 +179,9 @@ const ServiceView = ({ service }) => {
           ))}
         </section>
 
-        <Gallery images={service.gallery} />
+        {/* <Gallery images={service.gallery} /> */}
+
+        <Carousel images={service.gallery} />
 
       </article>
 

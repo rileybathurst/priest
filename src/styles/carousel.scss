@@ -1,0 +1,58 @@
+/*------------------*/
+//  #CAROUSEL
+/*------------------*/
+
+.carousel__area {
+  display: grid;
+  place-items: center;
+  // height: 20rem;
+  margin-block-end: 20rem;
+}
+
+.carousel__wrap {
+  // width: 100%;
+  // max-width: 800px;
+  // height: 350px;
+  position: relative;
+}
+
+.carousel {
+  // width: 100%;
+  // max-width: 800px;
+  height: 20rem;
+  position: relative;
+  /* overflow: hidden; */
+
+  .slider {
+    display: inline-block;
+    // width: 100%;
+    // max-width: 800px;
+    // height: 350px;
+    position: absolute;
+    transition: all 0.5s;
+  }
+
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  // overflow: hidden;
+}
+
+.thumbnails .slider {
+  // height: 20rem;
+  width: 100%;
+
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  // position: absolute;
+}
