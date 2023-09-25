@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -13,77 +13,112 @@ import MuxCover from "../components/mux-cover";
 
 function Carousel(images) {
 
-  // console.log(images);
+  const galleryRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Select all slides
-  useEffect(() => {
+  const handlePrev = (currentIndex) => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
 
-    console.log(useRef);
+    if (currentIndex === 0) {
+      galleryRef.current.lastChild.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    } else {
+      galleryRef.current.children[currentIndex - 1].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+  };
 
-    const slides = document.querySelectorAll(".slide");
-    console.log(slides);
+  const handleNext = (currentIndex) => {
+    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
 
-    // loop through slides and set each slides translateX property to index * 100% 
-    slides.forEach((slide, indx) => {
-      slide.style.transform = `translateX(${indx * 100}%)`;
-    });
-  });
+    // console.log(currentIndex);
+    if (currentIndex === galleryRef.current.children.length - 1) {
+      galleryRef.current.children[0].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    } else {
+      galleryRef.current.children[currentIndex + 1].scrollIntoView({
+
+      });
+    }
+  };
+
+  const handleLabelClick = (index) => {
+    setCurrentIndex(index);
+
+    // console.log(images.images);
+    // console.log(index);
+
+    // this doesnt find it but I feel like its close?
+    // console.log(images.images.indexOf((element) => element.name === index));
+
+    // console.log(images.images.findIndex((element) => element.name === index))
+    let i = images.images.findIndex((element) => element.name === index);
+
+    galleryRef.current.children[i].scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    })
+  }
+
+  // i have an index but not a number?
+
 
   if (images.images?.length > 0) {
     return (
       <>
         <Cross />
-        <div className="carousel__area">
-          <div className="carousel__wrap">
-            <ul className="carousel">
-              {images.images.map((photos) => (
-                <li
-                  key={photos.hash}
-                  className="slider"
-                  ref={useRef()}
-                >
-                  <GatsbyImage
-                    image={photos.localFile?.childImageSharp?.gatsbyImageData}
-                    alt={photos.name}
-                  />
-                </li>
-              ))}
-            </ul>
-            <ul className="thumbnails">
-              {images.images.map((photos) => (
-                <li key={photos.hash} className="slider">
-                  <GatsbyImage
-                    image={photos.localFile?.childImageSharp?.gatsbyImageData}
-                    alt={photos.name}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </>
-    );
-  } else {
-    return null;
-  }
-}
+        <div className="carousel__wrap">
+          <section
+            className="carousel"
+            ref={galleryRef}
+          >
+            {images.images.map((photos) => (
+              <div
+                key={photos.hash}
+                className="slider"
+                ref={useRef()}
+              >
+                <GatsbyImage
+                  image={photos.localFile?.childImageSharp?.gatsbyImageData}
+                  alt={photos.name}
+                />
+              </div>
+            ))}
+          </section>
 
-function Gallery(gallery) {
-  if (gallery.images?.length > 0) {
-    return (
-      <>
-        <Cross />
-        <h3>Photo Gallery</h3>
-        <ul className="gallery">
-          {gallery.images.map((photos) => (
-            <li key={photos.hash}>
-              <GatsbyImage
-                image={photos.localFile?.childImageSharp?.gatsbyImageData}
-                alt={photos.name}
-              />
-            </li>
-          ))}
-        </ul>
+          <section className="carousel__label">
+            <button onClick={() => handlePrev(currentIndex)}>Previous</button>
+            {images.images.map((photos) => (
+              <button
+                title={photos.name}
+                key={photos.name}
+                // I can push up the index of the number I am clicking on
+                onClick={() => handleLabelClick(photos.name)}
+                className="slider"
+              >
+
+                <GatsbyImage
+                  image={photos.localFile?.childImageSharp?.gatsbyImageData}
+                  alt={photos.name}
+                />
+              </button>
+            ))}
+
+            {/* {Object.keys(images.images)} */}
+
+            <button onClick={() => handleNext(currentIndex)}>Next</button>
+          </section>
+        </div>
       </>
     );
   } else {
@@ -124,13 +159,13 @@ const ServiceView = ({ service }) => {
       {/* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/</> */}
       <nav aria-label="Breadcrumb" className="breadcrumbs">
         <ol>
-          <li>
+          <li key='services'>
             <Link to="/services">Services</Link>
           </li>
-          <li>
+          <li key='chevron'>
             <p className="chevron">&gt;</p>
           </li>
-          <li>
+          <li key='current'>
             <p className="current" aria-current="page">{service.title}</p>
           </li>
         </ol>

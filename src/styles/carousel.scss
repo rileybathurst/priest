@@ -3,56 +3,44 @@
 /*------------------*/
 
 .carousel__area {
-  display: grid;
-  place-items: center;
-  // height: 20rem;
-  margin-block-end: 20rem;
 }
 
 .carousel__wrap {
-  // width: 100%;
-  // max-width: 800px;
-  // height: 350px;
-  position: relative;
 }
 
+// control the height with the query
 .carousel {
-  // width: 100%;
-  // max-width: 800px;
-  height: 20rem;
-  position: relative;
-  /* overflow: hidden; */
+  white-space: nowrap;
+  overflow: hidden;
+  margin-block-end: 1rem;
+  clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
 
   .slider {
     display: inline-block;
-    // width: 100%;
-    // max-width: 800px;
-    // height: 350px;
-    position: absolute;
     transition: all 0.5s;
+    clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
   }
 
   .gatsby-image-wrapper {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    padding: 0.2rem;
   }
 }
 
-.thumbnails {
+.carousel__label {
+  margin-inline: auto;
+  width: fit-content;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-wrap;
   gap: 2px;
   // overflow: hidden;
 }
 
-.thumbnails .slider {
-  // height: 20rem;
-  width: 100%;
+.carousel__label .slider {
+  width: 2.5rem;
+  height: 2.5rem;
 
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
-  // position: absolute;
 }

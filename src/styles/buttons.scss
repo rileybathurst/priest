@@ -76,3 +76,8 @@ button:hover {
   clip-path: polygon(0.5rem 0, 100% 0, calc(100% - 0.5rem) 100%, 0 100%);
   padding: 0.25rem 1.5rem;
 }
+
+// needs a firefox fix
+button:has(img) {
+  padding: 0.1rem;
+}
