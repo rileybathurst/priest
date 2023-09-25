@@ -2,7 +2,6 @@
 import React, { useState, useRef } from 'react';
 
 const CarouselPage4 = () => {
-
   const catRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,15 +11,41 @@ const CarouselPage4 = () => {
     { id: 3, src: 'https://placekitten.com/g/250/200', label: 'Image 3' },
   ];
 
-  // console.log(images);
-
-  const handlePrev = () => {
+  const handlePrev = (currentIndex) => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
 
+    if (currentIndex === 0) {
+      catRef.current.lastChild.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    } else {
+      catRef.current.children[currentIndex - 1].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
   };
 
-  const handleNext = () => {
+  const handleNext = (currentIndex) => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+
+    console.log(currentIndex);
+    if (currentIndex === catRef.current.children.length - 1) {
+      catRef.current.children[0].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    } else {
+      catRef.current.children[currentIndex + 1].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
   };
 
   const handleLabelClick = (index) => {
@@ -40,7 +65,7 @@ const CarouselPage4 = () => {
   return (
     <div className='car-check'>
       <hr />
-      <button onClick={handlePrev}>Previous</button>
+      <button onClick={() => handlePrev(currentIndex)}>Previous</button>
 
       <ul ref={catRef}>
         {images.map((image) => (
@@ -53,17 +78,20 @@ const CarouselPage4 = () => {
           </li>
         ))}
       </ul>
-      <button onClick={handleNext}>Next</button>
+      <button onClick={() => handleNext(currentIndex)}>Next</button>
       <hr />
 
 
       {/* <img src={images[currentIndex].src} alt={images[currentIndex].label} /> */}
       <div className='cem'>
+        {currentIndex}
+        <button onClick={() => handlePrev(currentIndex)}>Previous</button>
         {images.map((image, index) => (
           <button key={image.id} onClick={() => handleLabelClick(index)}>
             {image.label}
           </button>
         ))}
+        <button onClick={() => handleNext(currentIndex)}>Next</button>
       </div>
     </div>
   )
