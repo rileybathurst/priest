@@ -1,7 +1,7 @@
-// this does back and forward nicely but not off an array with links to each
+// ! what if I ref the ul instead of the li
 import React, { useState, useRef } from 'react';
 
-const CarouselPage3 = () => {
+const CarouselPage4 = () => {
 
   const catRef = useRef(null);
 
@@ -27,36 +27,12 @@ const CarouselPage3 = () => {
     setCurrentIndex(index);
     console.log(index);
     console.log(catRef);
-    // console.log(catRef.current);
 
-    // close but scrolls the first one into view
-    /*  catRef.current.scrollIntoView({
-       behavior: 'smooth',
-       block: 'nearest',
-       inline: 'center'
-     }); */
-
-
-    // this works but only for the last one
-    if (index === images.length - 1) {
-      console.log('last');
-      catRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-      });
-    }
-
-    // index is the number I want to go to theres the minus 1 thing but thats later
-    // if (index === 0) {
-    //   console.log('first');
-    //   catRef.current.scrollIntoView({
-    //     behavior: 'smooth',
-    //     block: 'nearest',  
-    //     inline: 'center'
-    //   });
-    // }
-
+    catRef.current.children[index].scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
   };
 
 
@@ -66,17 +42,13 @@ const CarouselPage3 = () => {
       <hr />
       <button onClick={handlePrev}>Previous</button>
 
-      <ul>
+      <ul ref={catRef}>
         {images.map((image) => (
           <li key={image.id}>
             <img
               src={image.src}
               className={currentIndex === image.id - 1 ? 'active' : ''}
-              ref={image.id === 1 ? catRef : null} // ! this works so you can use variables here
-              // the above is returning a string but with logic before which might be why it works
-              alt={image.id}
-
-            // ref={catRef}
+              alt={`${image.id} image}`}
             />
           </li>
         ))}
@@ -97,4 +69,4 @@ const CarouselPage3 = () => {
   )
 };
 
-export default CarouselPage3;
+export default CarouselPage4;

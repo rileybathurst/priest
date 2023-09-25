@@ -15,7 +15,7 @@
   }
 
   img {
-    width: 66vw;
+    width: 50vw;
   }
 
   button {
@@ -35,5 +35,11 @@
 
   .active {
     border: 2px solid palevioletred;
+  }
+
+  .cem {
+    width: 150vw;
+    text-align: center;
+    margin-inline: auto;
   }
 }
