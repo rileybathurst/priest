@@ -96,6 +96,8 @@
       .eyebrow {
         // z-index: 4;
         color: var(--white);
+        // ! pass an A11y test
+        color: #8e8e8e;
       }
 
       .supra {
