@@ -16,6 +16,7 @@ const ServicesPage = () => {
       allStrapiService(sort: {order: ASC}) {
         nodes {
           id
+          title
           shortname
           byline
           excerpt
@@ -25,7 +26,7 @@ const ServicesPage = () => {
             alternativeText
             localFile {
               childImageSharp {
-                gatsbyImageData(aspectRatio: 1)
+                gatsbyImageData
               }
             }
           }

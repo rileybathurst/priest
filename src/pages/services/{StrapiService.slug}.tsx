@@ -6,6 +6,9 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
 // TODO ArticleQuery is a bad name
 
+//       muxCover
+//         mux
+
 export const query = graphql`
   query ArticleQuery($slug: String!) {
     strapiService(slug: { eq: $slug }) {
@@ -23,7 +26,7 @@ export const query = graphql`
 
       coverMedium
       coverVideo
-      muxCover
+
 
       cover {
         alternativeText
@@ -51,7 +54,7 @@ export const query = graphql`
         title
         content
         vimeo
-        mux
+
       }
     }
 

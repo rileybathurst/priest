@@ -55,6 +55,7 @@ const IndexPage = () => {
     allStrapiService(sort: {order: ASC}) {
       nodes {
         id
+        title
         shortname
         byline
         slug
@@ -146,7 +147,6 @@ const IndexPage = () => {
             />
           </div>
         ))}
-        <div>{/* stay gold */}</div>
       </div>
 
       <section id="map" className="">

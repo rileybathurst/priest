@@ -112,6 +112,16 @@
   /*------------------*/
   // TODO: rename this
   --roll: 0.25rem;
+
+  /*------------------*/
+  //  #LAYERS
+  // https://en.wikipedia.org/wiki/Forest
+  /*------------------*/
+  --root: -1;
+  --floor: 0;
+  --understory: 1;
+  --canopy: 2;
+  --emergent: 3;
 }
 
 /*------------------*/

@@ -10,15 +10,19 @@ function Title(props) {
   if (props.byline) {
     return (
       <hgroup>
-        <h2 className="eyebrow">
-          {props.shortname}
-        </h2>
-        <p className="supra">
+        <h2
+          className="eyebrow"
+        >
           <Link to={`/${props.breadcrumb}/${props.slug}`}>
-            {props.byline}
+            {props.shortname}
           </Link>
+        </h2>
+        <p
+          className="supra"
+        >
+          {props.byline}
         </p>
-      </hgroup>
+      </hgroup >
     )
   } else {
     return (
@@ -31,9 +35,21 @@ function Title(props) {
   }
 }
 
+function Excerpt(props) {
+
+  // let short = props.excerpt.slice(0, 60);
+
+  return (
+    <div className="card__excerpt">
+      <p>{props.excerpt}</p>
+    </div>
+  )
+}
+
 const Card = (content, breadcrumb) => {
 
-  // console.log(content.breadcrumb);
+  console.log(content);
+  console.log(content.excerpt);
 
   return (
     <div className="card">
@@ -53,6 +69,12 @@ const Card = (content, breadcrumb) => {
         slug={content.content.slug}
         breadcrumb={content.breadcrumb}
       />
+      <Excerpt excerpt={content.content.excerpt} />
+      <Link to={`${content.breadcrumb}/${content.content.slug}`}
+        className="card__more"
+      >
+        More info on {content.content.title}
+      </Link>
     </div >
   );
 };
