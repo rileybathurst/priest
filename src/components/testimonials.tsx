@@ -36,14 +36,8 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials">
-      <h3 className="text-center">Testimonials</h3>
       <div className="stars">
-        <div className="star__back">{/* stay gold */}</div>
-        <div className="svgs">
-
-          <Stars />
-
-        </div>
+        <Stars />
       </div>
       <div id="quotes">
         {data.allStrapiTestimonial.nodes.map((testimonial: {
@@ -51,9 +45,9 @@ export default function Testimonials() {
           content: string;
           author: string;
         }) => (
-          <blockquote className="quoted" key={testimonial.id}>
+          <blockquote key={testimonial.id}>
             <p>{testimonial.content}</p>
-            <footer className="text-center">{testimonial.author}</footer>
+            <footer>{testimonial.author}</footer>
           </blockquote>
         ))}
       </div>

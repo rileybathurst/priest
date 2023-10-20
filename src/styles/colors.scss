@@ -15,3 +15,38 @@ body {
     color: var(--white);
   }
 }
+
+/*------------------*/
+//  #TESTIMONIALS
+/*------------------*/
+
+#testimonials {
+  background: var(--mercury);
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--lead);
+  }
+
+  svg {
+    fill: var(--priest-blue);
+  }
+
+  blockquote {
+    background: var(--silver);
+
+    @media (prefers-color-scheme: dark) {
+      background: var(--lead);
+      color: var(--white);
+    }
+
+    footer {
+      background: var(--silver); // reset priests styles
+      color: var(--black);
+
+      @media (prefers-color-scheme: dark) {
+        background: var(--lead);
+        color: var(--white);
+      }
+    }
+  }
+}

@@ -149,11 +149,16 @@ const IndexPage = () => {
         ))}
       </div>
 
+
+
+      {/* // TODO: make these bigger and better designed not just slapped up */}
+      <Testimonials />
+
+      {/* // ! next step is move this into the footer were here to show what we do */}
       <section id="map" className="">
         <Map />
       </section>
 
-      <Testimonials />
       <Footer />
     </>
   );

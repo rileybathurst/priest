@@ -106,3 +106,18 @@ hgroup {
     font-family: var(--major-font-family);
   }
 }
+
+/*------------------*/
+//  #TESTIMONIALS
+/*------------------*/
+
+#testimonials {
+  p {
+    font-size: var(--vancouver);
+  }
+
+  p::before,
+  p::after {
+    content: "“"; // left quote
+  }
+}
