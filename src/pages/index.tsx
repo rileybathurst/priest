@@ -3,6 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
+import ReactMarkdown from 'react-markdown';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import SEO from "../components/seo";
@@ -16,8 +17,68 @@ import IndustrialImage from '../images/industrail-image';
 import WeldingImage from '../images/welding-image';
 import CutImage from '../images/cut-image';
 
+// test
+
+/* // this is fine but props is annoying
+function Nested(props) {
+  console.log(props.craftsmanship); */
+
+/*   // typescrit version
+function Nested(props: { craftsmanship: object; }) {
+  console.log(props.craftsmanship); */
+
+/* // I wonder if this doesnt work as it doesnt know which one to use
+function Nested({ craftsmanship: { craftsmanship } }) {
+  console.log(craftsmanship); */
+
+/* // this just doesnt do anything its just TS
+function Nested(craftsmanship: { craftsmanship }) {
+  console.log(craftsmanship);
+  console.log(craftsmanship.craftsmanship); */
+
+// * this is it
+type SummitAboutProps = {
+  craftsmanship: {
+    title: string;
+    body: {
+      data: {
+        body: string;
+      }
+    }
+  }
+}
+
+// * typescript nested
+/* function Nested({ craftsmanship }: SummitAboutProps) {
+  console.log(craftsmanship.title);
+  return null;
+} */
+
+/* // typescript inline
+function Nested({ craftsmanship }: { craftsmanship: { title: string } }) {
+  console.log(craftsmanship.title);
+  return (<>{craftsmanship.title}</>);
+} */
+
+// loosly typed
+function Nested({ craftsmanship }) {
+  console.log(craftsmanship.title);
+  return null;
+}
+
 // queries the height of the text block to make the shapeoutside cut
-function SummitAbout() {
+function SummitAbout({ craftsmanship }) {
+  // function SummitAbout(craftsmanship.craftmanship) {
+
+  // console.log(craftsmanship);
+  // console.log(craftsmanship.craftmanship);
+  // console.log(craftsmanship.craftmanship.title);
+
+  // maybe this
+  // its still an extra layer which sucks?
+  // let title = craftsmanship.craftsmanship.title;
+
+
   // query the current box
   const ref = useRef();
   // set the height of the slice
@@ -41,8 +102,9 @@ function SummitAbout() {
     <div className="summit__about">
       <div id="summit__about--shape" className="summit--shape" style={high}>{/* stay gold */}</div>
       <section id="summit__about--text" ref={ref} >
-        <h2>Adding value through craftsmanship.</h2>
-        <p>Our skilled team of tradesman, draftsman and general engineers offer a range of plate processing and metal fabrication services to meet your engineering needs. With the latest in CNC machinery, CAD software and one of the largest selections of steel folding press brakes in New Zealand we can be sure to assist you at every stage; from design, prototyping through to production.<br /><b>Design for manufacturing, gets products built faster.</b></p>
+        <h2>{craftsmanship.title}</h2>
+        {/* <p>Our skilled team of tradesman, draftsman and general engineers offer a range of plate processing and metal fabrication services to meet your engineering needs. With the latest in CNC machinery, CAD software and one of the largest selections of steel folding press brakes in New Zealand we can be sure to assist you at every stage; from design, prototyping through to production.<br /><b>Design for manufacturing, gets products built faster.</b></p> */}
+        <ReactMarkdown children={craftsmanship.body.data.body} />
       </section>
     </div>
   );
@@ -52,6 +114,23 @@ const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
   query IndexQuery {
+    strapiSpecialist {
+      body {
+        data {
+          body
+        }
+      }
+    }
+    
+    strapiCraftsmanship {
+      title
+      body {
+        data {
+          body
+        }
+      }
+    }
+    
     allStrapiService(sort: {order: ASC}) {
       nodes {
         id
@@ -74,6 +153,9 @@ const IndexPage = () => {
   }
 `)
 
+  let specialist = data.strapiSpecialist.body.data.body;
+  let craftsmanship = data.strapiCraftsmanship;
+  let services = data.allStrapiService.nodes;
 
   return (
     <>
@@ -88,18 +170,17 @@ const IndexPage = () => {
               >
                 {/* stay gold */}
               </div>
-              <div
-                className="summit__info--text"
-              >
+              <div className="summit__info--text">
                 {/* this has old naming and needs to be checked */}
-                <h1>Specialist Laser Cutting &amp; Steel Suppliers, Fabricators and Welders in Christchurch.</h1>
-                <p>With over 67 years running experience, Priest Sheetmetal is an
-                  established name as a manufacturer and supplier of profile cut and
-                  fabricated steelwork to Christchurch businesses.</p>
+                <h1>{useSiteMetadata().description}</h1>
+                <ReactMarkdown children={specialist} />
+                {/* <p>With over 67 years running experience, Priest Sheetmetal is an 
+                established name as a manufacturer and supplier of profile cut and
+                fabricated steelwork to Christchurch businesses.</p> */}
               </div>
             </div>
 
-            <SummitAbout />
+            <SummitAbout craftsmanship={craftsmanship} />
 
             <div className="summit__video">
               <MuxHome />
@@ -122,17 +203,18 @@ const IndexPage = () => {
               <SummitContact />
             </div>
           </section>
-        </div>
-      </div>
+        </div >
+      </div >
 
       <h2 className='page-width'>
         <Link to="/services">
           Services
         </Link>
+        <hr className='hr-aluminium' />
       </h2>
 
       <div className="deck">
-        {data.allStrapiService.nodes.map((service: {
+        {services.map((service: {
           id: string;
           slug: string;
           shortname: string;

@@ -1,6 +1,6 @@
 # Priest
 
-The website for [priestsheetmetal.co.nz](https://priestsheetmetal.co.nz)
+The website for [priestmetal.co.nz](https://priestmetal.co.nz)
 
 ## Built on
 
@@ -12,11 +12,11 @@ The website for [priestsheetmetal.co.nz](https://priestsheetmetal.co.nz)
 First get /priest-cms running this is hosted on Linode.
 Theres a difference between npm start and npm run develop. Start let's you work, develop lets you edit.
 
-``` npm run develop ```
+`npm run develop`
 
 Once strapi is running get gatsby running.
 
-``` npm start ```
+`npm start`
 
 ### Markdown Images
 

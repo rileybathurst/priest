@@ -48,8 +48,8 @@ function Excerpt(props) {
 
 const Card = (content, breadcrumb) => {
 
-  console.log(content);
-  console.log(content.excerpt);
+  // console.log(content);
+  // console.log(content.excerpt);
 
   return (
     <div className="card">
