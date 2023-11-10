@@ -64,11 +64,13 @@ ul {
 /*------------------------------------*/
 
 .menu__wrapper {
-  background-color: var(--secondary-color);
-  padding-block: 2rem;
-  margin-block-start: -2rem;
-  z-index: 222;
-  clip-path: polygon(0 2rem, 100% 0, 100% calc(100% - 2rem), 0 100%);
+  @media (min-width: $pelican) {
+    background-color: var(--secondary-color);
+    padding-block: 2rem;
+    margin-block-start: -2rem;
+    z-index: 222;
+    clip-path: polygon(0 2rem, 100% 0, 100% calc(100% - 2rem), 0 100%);
+  }
 }
 
 #menu__big {

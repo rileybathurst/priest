@@ -37,12 +37,16 @@ footer {
 
   ul {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
     max-width: var(--pelican);
     margin-inline: auto;
     padding: 1rem 1rem 3rem;
     justify-content: flex-start;
     gap: 1rem;
+
+    @media (min-width: $vulture) {
+      flex-flow: row wrap;
+    }
 
     > li {
       flex: 1 1;
@@ -79,12 +83,17 @@ footer {
   a,
   .no-link {
     display: flex; // TODO: this needs to become a grid
-    flex-direction: column;
+    flex-direction: row;
+    gap: 1rem;
     align-items: center;
     padding: 0.5rem 1rem;
     transition: 0.5s ease;
     font-weight: 600;
-    text-align: center;
+    
+    @media (min-width: $vulture) {
+      flex-direction: column;
+      text-align: center;
+    }
 
     svg {
       max-width: 3rem;

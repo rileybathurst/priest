@@ -14,3 +14,11 @@
     display: block; // not sure if this is exactly right
   }
 }
+
+.hide-for-pelican {
+  @media (min-width: $pelican) {
+    display: none !important; // does this need important?
+  }
+}
+
+// menu change size on pelican

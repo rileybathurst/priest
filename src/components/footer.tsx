@@ -12,7 +12,7 @@ import Fax from "../icons/fax";
 import Email from "../icons/email";
 import Map from "../icons/map";
 
-const Footer = (props: { current?: any; }) => (
+const Footer = () => (
   <div className="footer__wrapper">
     <footer>
 
@@ -21,7 +21,6 @@ const Footer = (props: { current?: any; }) => (
       </nav>
 
       <Cross />
-
 
       <nav>
         <ul>

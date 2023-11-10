@@ -17,27 +17,9 @@ import IndustrialImage from '../images/industrail-image';
 import WeldingImage from '../images/welding-image';
 import CutImage from '../images/cut-image';
 
-// test
+import { CardTypes } from '../types/card-types';
 
-/* // this is fine but props is annoying
-function Nested(props) {
-  console.log(props.craftsmanship); */
-
-/*   // typescrit version
-function Nested(props: { craftsmanship: object; }) {
-  console.log(props.craftsmanship); */
-
-/* // I wonder if this doesnt work as it doesnt know which one to use
-function Nested({ craftsmanship: { craftsmanship } }) {
-  console.log(craftsmanship); */
-
-/* // this just doesnt do anything its just TS
-function Nested(craftsmanship: { craftsmanship }) {
-  console.log(craftsmanship);
-  console.log(craftsmanship.craftsmanship); */
-
-// * this is it
-type SummitAboutProps = {
+type SummitTypes = {
   craftsmanship: {
     title: string;
     body: {
@@ -48,36 +30,8 @@ type SummitAboutProps = {
   }
 }
 
-// * typescript nested
-/* function Nested({ craftsmanship }: SummitAboutProps) {
-  console.log(craftsmanship.title);
-  return null;
-} */
-
-/* // typescript inline
-function Nested({ craftsmanship }: { craftsmanship: { title: string } }) {
-  console.log(craftsmanship.title);
-  return (<>{craftsmanship.title}</>);
-} */
-
-// loosly typed
-function Nested({ craftsmanship }) {
-  console.log(craftsmanship.title);
-  return null;
-}
-
 // queries the height of the text block to make the shapeoutside cut
-function SummitAbout({ craftsmanship }) {
-  // function SummitAbout(craftsmanship.craftmanship) {
-
-  // console.log(craftsmanship);
-  // console.log(craftsmanship.craftmanship);
-  // console.log(craftsmanship.craftmanship.title);
-
-  // maybe this
-  // its still an extra layer which sucks?
-  // let title = craftsmanship.craftsmanship.title;
-
+function SummitAbout({ craftsmanship }: SummitTypes) {
 
   // query the current box
   const ref = useRef();
@@ -214,14 +168,16 @@ const IndexPage = () => {
       </h2>
 
       <div className="deck">
-        {services.map((service: {
+        {/*         {services.map((service: {
           id: string;
           slug: string;
           shortname: string;
           byline: string;
           cover: { localFile: { childImageSharp: { gatsbyImageData: IGatsbyImageData; }; }; alternativeText: string; };
           excerpt: string;
-        }) => (
+        }) => ( */}
+
+        {services.map((service: CardTypes) => (
           <div key={service.id}>
             <Card
               content={service}
@@ -229,15 +185,14 @@ const IndexPage = () => {
             />
           </div>
         ))}
-      </div>
+      </div >
 
 
 
       {/* // TODO: make these bigger and better designed not just slapped up */}
-      <Testimonials />
+      < Testimonials />
 
-      {/* // ! next step is move this into the footer were here to show what we do */}
-      <section id="map" className="">
+      <section id="map">
         <Map />
       </section>
 

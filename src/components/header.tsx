@@ -5,6 +5,34 @@ import { Link } from "gatsby";
 import Wordmark from "./wordmark";
 import SmallMenuToggle from "./small-menu";
 
+const MenuList = () => (
+  <>
+    <li key="folding">
+      <Link
+        to="/services/press-brake-folding/"
+        activeClassName="active"
+      >
+        Folding
+      </Link>
+    </li>
+    <li key="profile">
+      <Link
+        to="/services/laser-profile-cutting/"
+        activeClassName="active"
+      >
+        Cutting
+      </Link>
+    </li>
+    <li key="contact">
+      <Link
+        to="/contact"
+        activeClassName="active"
+      >Contact
+      </Link>
+    </li>
+  </>
+)
+
 const Header = () => (
   <header className="hero">
     <div className="hero__logo">
@@ -17,17 +45,7 @@ const Header = () => (
     {/* more of this could be done in reactive ways */}
     <nav id="menu_small" className="firstload">
       <ul className="text-center">
-        <li key="folding">
-          <Link to="/services/press-brake-folding/">Folding</Link>
-        </li>
-        <li key="profile">
-          <Link to="/services/laser-profile-cutting/">
-            Cutting
-          </Link>
-        </li>
-        <li key="contact">
-          <Link to="/contact">Contact</Link>
-        </li>
+        <MenuList />
       </ul>
     </nav>
 
@@ -35,29 +53,7 @@ const Header = () => (
       <nav id="menu__big">
         <ul className="menu align-center">
           {/* // TODO: these would be nicer with a query to featured services */}
-          <li key="folding">
-            <Link
-              to="/services/press-brake-folding/"
-              activeClassName="active"
-            >
-              Folding
-            </Link>
-          </li>
-          <li key="profile">
-            <Link
-              to="/services/laser-profile-cutting/"
-              activeClassName="active"
-            >
-              Cutting
-            </Link>
-          </li>
-          <li key="contact">
-            <Link
-              to="/contact"
-              activeClassName="active"
-            >Contact
-            </Link>
-          </li>
+          <MenuList />
         </ul>
       </nav>
     </div>

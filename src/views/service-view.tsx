@@ -37,7 +37,6 @@ function Carousel(images) {
   const handleNext = (currentIndex) => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
 
-    // console.log(currentIndex);
     if (currentIndex === galleryRef.current.children.length - 1) {
       galleryRef.current.children[0].scrollIntoView({
         behavior: 'smooth',
@@ -54,13 +53,6 @@ function Carousel(images) {
   const handleLabelClick = (index) => {
     setCurrentIndex(index);
 
-    // console.log(images.images);
-    // console.log(index);
-
-    // this doesnt find it but I feel like its close?
-    // console.log(images.images.indexOf((element) => element.name === index));
-
-    // console.log(images.images.findIndex((element) => element.name === index))
     let i = images.images.findIndex((element) => element.name === index);
 
     galleryRef.current.children[i].scrollIntoView({
@@ -69,9 +61,6 @@ function Carousel(images) {
       inline: 'center',
     })
   }
-
-  // i have an index but not a number?
-
 
   if (images.images?.length > 0) {
     return (
@@ -114,8 +103,6 @@ function Carousel(images) {
               </button>
             ))}
 
-            {/* {Object.keys(images.images)} */}
-
             <button onClick={() => handleNext(currentIndex)}>Next</button>
           </section>
         </div>
@@ -126,26 +113,43 @@ function Carousel(images) {
   }
 }
 
-const ServiceView = ({ service }) => {
-  function Cover(props) {
-    var imageAlt = props.imageAlt; // the vimeo id
+function Cover({ muxCover, image, imageAlt }) {
 
-    if (props.muxCover) {
-      return (
-        <div className="single__cover--video">
-          <MuxCover mux={props.muxCover} />
-        </div>
-      );
-    } else {
-      return (
-        <GatsbyImage
-          image={cover}
-          alt={imageAlt}
-          className="single__cover--image"
-        />
-      );
-    }
+  var imageAlt = imageAlt;
+
+  if (muxCover) {
+    return (
+      <div className="single__cover--video">
+        <MuxCover mux={muxCover} />
+      </div>
+    );
+  } else {
+    return (
+      <GatsbyImage
+        image={image}
+        alt={imageAlt}
+        className="single__cover--image"
+      />
+    );
   }
+}
+
+function Title({ title, byline }) {
+  if (byline) {
+    return (
+      <hgroup>
+        <h2 className="eyebrow">{title}</h2>
+        <p className="supra">{byline}</p>
+      </hgroup>
+    );
+  } else {
+    return (
+      <h2>{title}</h2>
+    );
+  }
+}
+
+const ServiceView = ({ service }) => {
 
   const cover = getImage(
     service.cover?.localFile?.childImageSharp?.gatsbyImageData
@@ -174,9 +178,8 @@ const ServiceView = ({ service }) => {
       <article className="single">
         <div className="single__cover">
           <Cover
-            medium={service.coverMedium}
             muxCover={service.muxCover}
-            image={service.cover?.localfile?.childImageData?.GatsbyImageData}
+            image={cover}
             imageAlt={service.cover?.alternativeText}
           />
         </div>
@@ -184,10 +187,10 @@ const ServiceView = ({ service }) => {
         <Cross />
 
         <div className="single__title">
-          <hgroup>
-            <h2 className="eyebrow">{service.title}</h2>
-            <p className="supra">{service.byline}</p>
-          </hgroup>
+          <Title
+            title={service.title}
+            byline={service.byline}
+          />
           <div className="single__markdown">
             <ReactMarkdown
               children={service.content.data.content}

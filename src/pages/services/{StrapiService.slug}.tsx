@@ -4,13 +4,8 @@ import ServiceView from "../../views/service-view"
 import SEO from "../../components/seo"
 import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
-// TODO ArticleQuery is a bad name
-
-//       muxCover
-//         mux
-
 export const query = graphql`
-  query ArticleQuery($slug: String!) {
+  query ServicesQuery($slug: String!) {
     strapiService(slug: { eq: $slug }) {
       id
       title

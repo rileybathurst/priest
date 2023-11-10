@@ -175,6 +175,7 @@
       > * {
         max-width: var(--vulture);
         margin-inline: auto;
+        width: calc(100% - 2rem);
       }
 
       footer {
@@ -197,12 +198,14 @@
 .single__cover {
   margin-block-end: 3rem;
   display: block;
+  clip-path: var(--horizontal-clipper);
 }
 
 .single__cover--video {
   margin-block-end: 2rem;
-  clip-path: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
+  clip-path: var(--horizontal-clipper);
 
+  // TODO: do we use iframes now its mux?
   iframe {
     width: 100%;
     aspect-ratio: 16/9;

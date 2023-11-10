@@ -41,7 +41,7 @@
     display: grid;
     place-items: center;
 
-    z-index: 2; // sliding logo
+    z-index: var(--canopy); // sliding logo
     position: relative; // needed for z-index
 
     > a {
@@ -55,6 +55,9 @@
         max-width: 30rem;
         fill: var(--white);
         transition: var(--general-transition);
+        width: calc(100% - 2rem);
+        margin-inline: auto;
+        display: block;
       } // svg
     } // a
 

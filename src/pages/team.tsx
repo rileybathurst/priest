@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import type { HeadProps } from "gatsby"
 import HeaderContact from "../components/header-contact";
 import SEO from "../components/seo";
 
