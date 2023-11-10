@@ -3,9 +3,8 @@
 \*------------------------------------*/
 
 a {
-  // contrast over --white background 6.37 AA
-  color: var(--secondary-color);
-  // contrast over --blacck background 4.94 AA
+  color: var(--priest-dull);
+
   @media (prefers-color-scheme: dark) {
     color: var(--priest-blue);
   }
@@ -16,17 +15,14 @@ a:where(:hover, :focus) {
 }
 
 a svg {
-  fill: var(--secondary-color);
+  fill: var(--priest-dull);
+
   @media (prefers-color-scheme: dark) {
     color: var(--priest-blue);
   }
 }
 
 // gatsby programatically creates this class
-// TODO: variable
 .current {
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 7.5%)
-  );
+  background: var(--priest-dark);
 }

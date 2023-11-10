@@ -13,6 +13,7 @@
   button {
     clip-path: var(--vertical-clipper);
 
+    // TODO: variable
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.32),
       0 2px 10px 0 rgba(0, 0, 0, 0.24);
     padding-block: 2rem;
@@ -32,7 +33,6 @@
   place-items: space-between;
   gap: 0.5rem;
   white-space: nowrap; // don't let lines break
-  // background: var(--secondary-color);
 }
 
 .menu li {
@@ -47,7 +47,7 @@
     min-width: 1rem; // safari and edge need a width
     max-height: 2.4rem; // guess and check
 
-    fill: var(--white);
+    fill: var(--mercury);
     margin-inline-end: 0.25rem;
   }
 
@@ -60,10 +60,7 @@
 
 #menu_small {
   width: 100%;
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 15%)
-  );
+  background: var(--priest-dark);
 
   // ! theres a gap above the menu
   // margin-block-start: -10rem; // ! this might not work with the other part overwriting it
@@ -88,7 +85,7 @@
         justify-content: center;
         gap: 0.5rem;
         text-decoration: none;
-        border-bottom: 1px solid var(--secondary-color);
+        border-bottom: 1px solid var(--priest-dull);
         padding-block: 0.5rem;
 
         > svg {
@@ -99,8 +96,8 @@
       } // a
 
       > a:hover {
-        background: var(--secondary-color);
-        color: var(--white);
+        background: var(--priest-dull);
+        color: var(--mercury);
         clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
       }
     } // li
@@ -140,59 +137,44 @@
 }
 
 .menu-primary-container > ul > li > a {
-  border-bottom: 5px solid var(--secondary-color); // invisibile until hovered
+  border-bottom: 5px solid var(--priest-dull); // invisibile until hovered
   padding-inline: 1.5rem;
 }
 
 .menu-primary-container > ul > li:last-child > a {
-  border-color: hsl(197, 100%, 16.5%);
-  border-color: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 10%)
-  );
+  border-color: var(--priest-dark);
 }
 
 .menu-primary-container > ul > li > a:hover {
   color: var(--mercury);
-  // TODO: background: darken(var(--secondary-color), 10%);
-  border-bottom: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 10%)
-  );
+  border-bottom: var(--priest-dark);
   clip-path: var(--trapezoid-1);
 }
 
 // needs specificity
 #menu-primary-container__showcase > a {
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 15%)
-  );
-  border-bottom: 5px solid
-    hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
+  background: var(--priest-dark);
+  border-bottom: 5px solid var(--priest-dark);
   clip-path: var(--trapezoid-1);
   padding-inline: 1.5rem;
 }
 
 :is(#menu-primary-container__showcase) a:hover,
 a:focus {
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 25%)
-  );
-  border-bottom: 5px solid
-    hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 26.5%));
+  background: var(--priest-dark);
+  // TODO: check this its the same color
+  border-bottom: 5px solid var(--priest-dark);
 }
 
 #menu_small {
   a {
-    color: var(--white);
+    color: var(--mercury);
   }
 }
 
 #menu__big {
   a {
-    color: var(--white);
+    color: var(--mercury);
     display: flex;
     text-decoration: none;
     transition: var(--general-timing);

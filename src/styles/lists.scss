@@ -34,10 +34,7 @@ ul {
 
 .small_menu--opener:hover {
   color: var(--mercury);
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 10%)
-  );
+  background: var(--priest-dark);
 }
 
 .small_menu--icon span {
@@ -48,7 +45,7 @@ ul {
 .small_menu--icon-bottomline {
   width: 1rem;
   height: 0.25rem;
-  background: var(--white);
+  background: var(--mercury);
   display: block;
   transform: rotate(0deg);
   top: 0;
@@ -65,7 +62,7 @@ ul {
 
 .menu__wrapper {
   @media (min-width: $pelican) {
-    background-color: var(--secondary-color);
+    background-color: var(--priest-dull);
     padding-block: 2rem;
     margin-block-start: -2rem;
     z-index: 222;
@@ -110,29 +107,21 @@ ul {
   max-width: var(--page-width);
   z-index: -1;
   left: 0;
-  background: var(--secondary-color);
+  background: var(--priest-dull);
   clip-path: polygon(1em 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
   font-size: 1rem;
   transition: transform 1s ease;
 
   a {
     border-radius: 0; // backed somewhere up the line
-    background: hsl(
-      var(--secondary-color-b),
-      calc(var(--secondary-color-l) - 2.5%)
-    ) !important;
-    border-bottom: 5px solid
-      hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 5%)) !important;
+    background: var(--priest-dull);
+    border-bottom: 5px solid var(--priest-dark);
     margin: 0.25rem;
   }
 
   a:hover {
-    background: hsl(
-      var(--secondary-color-b),
-      calc(var(--secondary-color-l) - 12.5%)
-    ) !important;
-    border-bottom: 5px solid
-      hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 15%)) !important;
+    background: var(--priest-dark);
+    border-bottom: 5px solid var(--priest-dark);
   }
 }
 
@@ -204,6 +193,9 @@ ul {
 // so I don't love it but it works
 
 .terms {
+  // TODO: this has to go all the way down
+  font-family: var(--body-font-family);
+
   ol,
   ul,
   li {
@@ -360,7 +352,7 @@ ul {
 
   // TODO: add a real chevron
   .chevron {
-    color: var(--nickel);
+    color: var(--aluminium);
   }
 
   .current {

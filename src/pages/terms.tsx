@@ -1,3 +1,5 @@
+// TODO: theres way too much slab serif here
+
 import * as React from "react"
 import Header from "../components/header";
 import Footer from "../components/footer";

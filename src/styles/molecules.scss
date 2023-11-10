@@ -101,21 +101,7 @@
     margin: 2rem auto;
   }
 
-  /*   @media (min-width: $condor) {
-    grid-column: 1/8;
-    margin: 0 auto;
-  } */
-
-  /*   @media (min-width: $albatross) {
-    grid-row: 1/3;
-    grid-column: 7/12;
-  } */
-
-  /*   @media (min-width: $albatross--half-step) {
-    grid-column: 8/16;
-  } */
-
-  // 📣 this should become an aspect ratio
+  // TODO: this should become an aspect ratio
   iframe,
   mux-player {
     top: 0;
@@ -123,10 +109,6 @@
     width: 100%;
     height: 100%;
     clip-path: polygon(32px 0%, 100% 0%, calc(100% - 32px) 100%, 0% 100%);
-
-    /*     @media (min-width: $albatross) {
-      clip-path: polygon(64px 0%, 100% 0%, calc(100% - 64px) 100%, 0% 100%);
-    } */
   }
 }
 
@@ -157,30 +139,6 @@
     );
   }
 
-  /*   @media (min-width: $condor) {
-    grid-column: 3/8;
-  } */
-
-  /*   @media (min-width: $albatross) {
-    // display: none;
-    grid-row: 1/4;
-    grid-column: 7/12;
-    margin-bottom: 0;
-    clip-path: polygon(64px 0, 100% 0, 100% 100%, 0 100%);
-    height: calc(100% + 4rem);
-  } */
-
-  /*   @media (min-width: $albatross--half-step) {
-    grid-column: 8/16;
-  } */
-
-  /*   // this changes to a completley different grid
-  @media (min-width: $breakpoint__full) {
-    grid-row: 1;
-    grid-column: 2;
-    margin-bottom: 0;
-  } */
-
   display: grid;
   place-items: center;
 
@@ -196,7 +154,7 @@
 } // .summit__videobacker
 
 .blue-backer {
-  background: var(--secondary-color);
+  background: var(--priest-dull);
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -207,8 +165,9 @@
   grid-row: 2;
   grid-column: 1/4;
   z-index: -1;
+  // TODO: variable
   clip-path: polygon(32px 0, 100% 0, 100% calc(100% - 32px), 0 100%);
-  background: var(--secondary-color);
+  background: var(--priest-dull);
   mix-blend-mode: multiply;
   // margin-bottom: 1rem;
   aspect-ratio: 16 / 9;
@@ -306,7 +265,7 @@
   max-width: var(--page-width);
   margin-inline: auto;
   margin-bottom: 2rem;
-  background: white; // TODO: variable this
+  background: var(--mercury);
   clip-path: var(--horizontal-clipper);
 
   @media (min-width: $stork) {
@@ -399,8 +358,6 @@
 }
 
 .tasks__background--upper {
-  // background: var(--secondary-color);
-  // background: linear-gradient(0deg, rgb(0, 96, 135) 0%, rgb(30, 141, 183) 100%);
   grid-row: 1/3;
   grid-column: 1;
   z-index: 1;
@@ -432,7 +389,7 @@
 
 .tasks__divider {
   border: none; // we overwrite this next
-  border-bottom: 2px solid var(--secondary-color);
+  border-bottom: 2px solid var(--priest-dull);
   width: calc(100% - 2rem);
   grid-row: 5;
   grid-column: 1/4;
@@ -447,10 +404,10 @@
 }
 
 .tasks__divider--cross {
-  border-left: 2px solid var(--secondary-color);
-  border-right: 2px solid var(--secondary-color);
+  border-left: 2px solid var(--priest-dull);
+  border-right: 2px solid var(--priest-dull);
   width: 4px;
-  background: var(--white);
+  background: var(--mercury);
   grid-row: 5;
   grid-column: 1/4;
   justify-self: center;
@@ -468,7 +425,7 @@
 .tasks__cross {
   max-width: calc(var(--page-width) - 2rem);
   margin-inline: auto;
-  margin-block-end: 1.6rem; // 📣 why
+  margin-block-end: 1.6rem; // TODO:
 }
 
 .block {

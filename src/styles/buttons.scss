@@ -3,14 +3,14 @@
 \*------------------------------------*/
 
 button {
-  background: var(--secondary-color);
-  color: var(--white);
+  background: var(--priest-dull);
+  color: var(--mercury);
 }
 
 .hollow {
   background-color: transparent;
-  border-color: var(--secondary-color);
-  color: var(--secondary-color);
+  border-color: var(--priest-dull);
+  color: var(--priest-dull);
 }
 
 // I believe the only place we are currently using buttons
@@ -21,16 +21,13 @@ button {
   // padding-block: calc(var(--block-spacing) - 0.125rem);
   padding-block: 1.03125rem;
   padding-inline: var(--inline-spacing);
-  background: var(--secondary-color);
-  color: var(--white);
+  background: var(--priest-dull);
+  color: var(--mercury);
   font-size: var(--h5-fs);
 }
 
 button:hover {
-  background: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 10%)
-  );
+  background: var(--priest-dark);
 }
 
 // why us this so different? only use once can I get rid of it?
@@ -50,8 +47,8 @@ button:hover {
 .button.hollow {
   // font-weight: bold;
   background-color: transparent;
-  border: 2px solid var(--secondary-color);
-  color: var(--secondary-color);
+  border: 2px solid var(--priest-dull);
+  color: var(--priest-dull);
   transition: 0.5s ease;
   clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
 
@@ -63,16 +60,12 @@ button:hover {
 
 .button.hollow:hover {
   background: var(--silver);
-  color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
-  border-color: hsl(
-    var(--secondary-color-b),
-    calc(var(--secondary-color-l) - 20%)
-  );
+  color: var(--priest-dark);
+  border-color: var(--priest-dull);
 }
 
 .tasks__more {
   background: var(--silver);
-  // border: 2px solid var(--secondary-color);
   clip-path: polygon(0.5rem 0, 100% 0, calc(100% - 0.5rem) 100%, 0 100%);
   padding: 0.25rem 1.5rem;
 }

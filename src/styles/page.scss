@@ -39,7 +39,7 @@
 
 .service__more:where(:hover, :focus) {
   background: var(--magnesium);
-  color: hsl(var(--secondary-color-b), calc(var(--secondary-color-l) - 20%));
+  color: var(--priest-dark);
 }
 
 /* this wont work as its after
@@ -81,8 +81,8 @@
 
     > a {
       display: block;
-      background: var(--secondary-color);
-      color: var(--white);
+      background: var(--priest-dull);
+      color: var(--mercury);
       padding: 1rem;
       padding-block-end: 2rem;
       clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1rem), 0 100%);
@@ -113,7 +113,7 @@
   // margin-block-start: -2rem;
   clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
   margin-block-start: -2rem;
-  background: var(--secondary-color);
+  background: var(--priest-dull);
 
   > iframe {
     margin-block-end: -2rem;
@@ -122,7 +122,7 @@
     // max-width: var(--page-width);
     margin-inline: auto;
     display: block;
-    background: var(--secondary-color);
+    background: var(--priest-dull);
     mix-blend-mode: luminosity;
   }
 }
@@ -329,90 +329,4 @@
   gap: 1rem;
   margin-block-end: 3rem;
   padding-inline-start: 0; // ul reset
-}
-
-/*------------------------------------*/
-//  #DIATOMIC CARDS
-/*------------------------------------*/
-
-.diatomic-wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 1rem;
-  justify-content: center;
-  max-width: var(--page-width);
-  margin-inline: auto;
-
-  @media (min-width: 77rem) {
-    justify-content: flex-start;
-  }
-
-  @media (min-width: 158rem) {
-    max-width: 156rem;
-  }
-
-  > * {
-    /* flex: 1 1 var(--general-measure);
-    max-width: var(--general-measure); */
-    flex: 1 1 38rem; // guess and check
-    max-width: 38rem;
-  }
-}
-
-.diatomic-card {
-  display: grid;
-
-  > * {
-    grid-column: 1;
-  }
-}
-
-.diatomic-card__image {
-  grid-row: 1/3;
-  filter: drop-shadow(0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25)); // 📣
-
-  > .gatsby-image-wrapper {
-    clip-path: polygon(0 1rem, 100% 0, 100% calc(100% - 1rem), 0 100%);
-  }
-}
-
-.diatomic-card__text {
-  grid-row: 2/4;
-  z-index: 2; // over the image
-  margin: 1rem;
-  filter: drop-shadow(0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25)); // 📣
-
-  > .diatomic-card__text--container {
-    box-shadow: inset 0 0 0.1rem 0.1rem whitesmoke;
-    opacity: 0.9;
-    background: whitesmoke;
-    display: grid;
-    clip-path: polygon(0 1rem, 100% 0, 100% calc(100% - 1rem), 0 100%);
-
-    @media (prefers-color-scheme: dark) {
-      background: var(--lead);
-      box-shadow: inset 0 0 0.1rem 0.1rem black;
-    }
-
-    > h3 {
-      margin-block-start: 2rem;
-    }
-
-    > h4 {
-      padding-block-start: 0;
-    }
-
-    > h3,
-    h4,
-    p {
-      padding-inline: 1rem;
-    }
-  }
-}
-
-.diatomic-card__text--more {
-  background: linear-gradient(184deg, #1e8db7, #006087 50%); // 📣 var this
-  color: white;
-  padding: 1rem;
-  padding-block-end: 2rem;
 }

@@ -25,37 +25,32 @@
   //  #COLORS
   /*------------------------------------*/
 
-  --priest-blue: hsl(195.8, 72.6%, 42.9%); // #1e93bd
-  --priest-blue-hs: 195.8, 72.6%;
-  --priest-blue-l: 42.9%;
-  // --priest-blue: hsl(var(--priest-blue-hs), var(--priest-blue-l));
+  --priest-pitch: hsl(196, 98%, 2%);
+  --priest-dark: hsl(196, 86%, 16%);
+  --priest-dull: hsl(196, 86%, 30%); /* secondary color becomes this */
+  --priest-blue: hsl(196, 72%, 44%);
+  --priest-mid: hsl(196, 58%, 58%);
+  --priest-light: hsl(196, 58%, 72%);
+  --priest-bright: hsl(196, 44%, 86%);
+  --priest-brilliant: hsl(196, 44%, 98%);
 
-  // TODO: remove this and use it as a variable
-  --secondary-color: hsl(197.3, 100%, 26.5%); // #006087
-  --secondary-color-b: 197.3, 100%;
-  --secondary-color-l: 26.5%;
+  --pitch: 2%;
+  --dark: 16%;
+  --dull: 30%;
+  --dim: 44%;
+  --mid: 58%;
+  --light: 72%;
+  --bright: 86%;
+  --brilliant: 98%;
 
-  --priest-blend: linear-gradient(
-    184deg,
-    rgba(30, 141, 183, 1) 0%,
-    rgba(0, 96, 135, 1) 50%
-  );
-  // gradient has to be from 50% to get a pass on wave.webaim.org
-
-  // NEUTRALS
-  --black: hsl(0, 0%, 4%);
-  --white: hsl(0, 0%, 96%);
-
-  /* apple pencils */
-  --lead: hsl(0, 0%, 10%);
-  --tungsten: hsl(0, 0%, 20%);
+  --lead: hsl(0, 0%, 2%);
+  --tungsten: hsl(0, 0%, 16%);
   --iron: hsl(0, 0%, 30%);
-  --steel: hsl(0, 0%, 40%);
-  --nickel: hsl(0, 0%, 50%);
-  --aluminium: hsl(0, 0%, 60%);
-  --magnesium: hsl(0, 0%, 70%);
-  --silver: hsl(0, 0%, 80%);
-  --mercury: hsl(0, 0%, 90%);
+  --steel: hsl(0, 0%, 44%);
+  --aluminium: hsl(0, 0%, 58%);
+  --magnesium: hsl(0, 0%, 72%);
+  --silver: hsl(0, 0%, 86%);
+  --mercury: hsl(0, 0%, 99%);
 
   /*------------------------------------*/
   //  #SPACING

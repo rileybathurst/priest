@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 hr {
-  border-color: var(--secondary-color);
+  border-color: var(--priest-dull);
 }
 
 .cross__wrapper {
@@ -15,7 +15,6 @@ hr {
   margin-block-end: 3rem;
 
   @media (prefers-color-scheme: dark) {
-    
   }
 
   > * {
@@ -26,19 +25,19 @@ hr {
   .cross__hr {
     width: 100%; // I dont know why but I have to double this
     border: none;
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--priest-dull);
   }
 
   .cross__divider {
-    border-left: 2px solid var(--secondary-color);
-    border-right: 2px solid var(--secondary-color);
+    border-left: 2px solid var(--priest-dull);
+    border-right: 2px solid var(--priest-dull);
     width: 0.8rem;
     height: 1.6rem;
-    background: var(--white);
+    background: var(--mercury);
     transform: skewX(-15deg); // guess and check
 
     @media (prefers-color-scheme: dark) {
-      background: var(--black);
+      background: var(--lead);
     }
   }
 }

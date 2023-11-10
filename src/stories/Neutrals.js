@@ -9,12 +9,12 @@ export const Neutrals = ({ primary }) => {
       <div
         style={{
           backgroundColor: "var(--lead)",
-          color: "var(--white)",
+          color: "var(--mercury)",
           paddingBlock: "var(--block-spacing)",
           paddingInline: "var(--inline-spacing)",
         }}
       >
-        --White on --lead
+        --mercury on --lead
         <br />
         {/* regular text */}
         {/* <span className="contrast">1:6.37</span> */}
@@ -22,12 +22,12 @@ export const Neutrals = ({ primary }) => {
       <div
         style={{
           backgroundColor: "var(--tungsten)",
-          color: "var(--white)",
+          color: "var(--mercury)",
           paddingBlock: "var(--block-spacing)",
           paddingInline: "var(--inline-spacing)",
         }}
       >
-        --White on --tungsten
+        --mercury on --tungsten
         <br />
         {/* regular text */}
         {/* <span className="contrast">1:6.37</span> */}
@@ -35,12 +35,12 @@ export const Neutrals = ({ primary }) => {
       <div
         style={{
           backgroundColor: "var(--iron)",
-          color: "var(--white)",
+          color: "var(--mercury)",
           paddingBlock: "var(--block-spacing)",
           paddingInline: "var(--inline-spacing)",
         }}
       >
-        --White on --iron
+        --mercury on --iron
         <br />
         {/* regular text */}
         {/* <span className="contrast">1:6.37</span> */}
@@ -48,25 +48,12 @@ export const Neutrals = ({ primary }) => {
       <div
         style={{
           backgroundColor: "var(--steel)",
-          color: "var(--white)",
+          color: "var(--mercury)",
           paddingBlock: "var(--block-spacing)",
           paddingInline: "var(--inline-spacing)",
         }}
       >
-        --White on --steel
-        <br />
-        {/* regular text */}
-        {/* <span className="contrast">1:6.37</span> */}
-      </div>
-      <div
-        style={{
-          backgroundColor: "var(--nickel)",
-          color: "var(--white)",
-          paddingBlock: "var(--block-spacing)",
-          paddingInline: "var(--inline-spacing)",
-        }}
-      >
-        --White on --nickel
+        --mercury on --steel
         <br />
         {/* regular text */}
         {/* <span className="contrast">1:6.37</span> */}
@@ -74,12 +61,12 @@ export const Neutrals = ({ primary }) => {
       <div
         style={{
           backgroundColor: "var(--aluminium)",
-          color: "var(--white)",
+          color: "var(--mercury)",
           paddingBlock: "var(--block-spacing)",
           paddingInline: "var(--inline-spacing)",
         }}
       >
-        --White on --aluminium
+        --mercury on --aluminium
         <br />
         {/* regular text */}
         {/* <span className="contrast">1:6.37</span> */}
@@ -87,12 +74,12 @@ export const Neutrals = ({ primary }) => {
       <div
         style={{
           backgroundColor: "var(--magnesium)",
-          color: "var(--white)",
+          color: "var(--mercury)",
           paddingBlock: "var(--block-spacing)",
           paddingInline: "var(--inline-spacing)",
         }}
       >
-        --White on --magnesium
+        --mercury on --magnesium
         <br />
         {/* regular text */}
         {/* <span className="contrast">1:6.37</span> */}
@@ -100,12 +87,12 @@ export const Neutrals = ({ primary }) => {
       <div
         style={{
           backgroundColor: "var(--silver)",
-          color: "var(--white)",
+          color: "var(--mercury)",
           paddingBlock: "var(--block-spacing)",
           paddingInline: "var(--inline-spacing)",
         }}
       >
-        --White on --silver
+        --mercury on --silver
         <br />
         {/* regular text */}
         {/* <span className="contrast">1:6.37</span> */}
@@ -113,12 +100,12 @@ export const Neutrals = ({ primary }) => {
       <div
         style={{
           backgroundColor: "var(--mercury)",
-          color: "var(--white)",
+          color: "var(--mercury)",
           paddingBlock: "var(--block-spacing)",
           paddingInline: "var(--inline-spacing)",
         }}
       >
-        --White on --mercury
+        --mercury on --mercury
         <br />
         {/* regular text */}
         {/* <span className="contrast">1:6.37</span> */}

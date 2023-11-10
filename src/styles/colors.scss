@@ -5,14 +5,14 @@
 // GLOBAL TEXT COLOR
 
 body {
-  background: var(--white);
-  color: var(--black);
+  background: var(--mercury);
+  color: var(--lead);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: var(--black);
-    color: var(--white);
+    background: var(--lead);
+    color: var(--mercury);
   }
 }
 
@@ -36,16 +36,16 @@ body {
 
     @media (prefers-color-scheme: dark) {
       background: var(--lead);
-      color: var(--white);
+      color: var(--mercury);
     }
 
     footer {
       background: var(--silver); // reset priests styles
-      color: var(--black);
+      color: var(--lead);
 
       @media (prefers-color-scheme: dark) {
         background: var(--lead);
-        color: var(--white);
+        color: var(--mercury);
       }
     }
   }

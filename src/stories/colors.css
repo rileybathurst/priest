@@ -1,0 +1,111 @@
+/* storybook was not pulling through the :root variables */
+
+:root {
+  --priest-pitch: hsl(196, 98%, 2%);
+  --priest-dark: hsl(196, 86%, 16%);
+  --priest-dull: hsl(196, 86%, 30%); /* secondary color becomes this */
+  --priest-blue: hsl(196, 72%, 44%);
+  --priest-mid: hsl(196, 58%, 58%);
+  --priest-light: hsl(196, 58%, 72%);
+  --priest-bright: hsl(196, 44%, 86%);
+  --priest-brilliant: hsl(196, 44%, 98%);
+
+  --pitch: 2%;
+  --dark: 16%;
+  --dull: 30%;
+  --dim: 44%;
+  --mid: 58%;
+  --light: 72%;
+  --bright: 86%;
+  --brilliant: 98%;
+
+  --lead: hsl(0, 0%, 2%);
+  --tungsten: hsl(0, 0%,16%);
+  --iron: hsl(0, 0%, 30%);
+  --steel: hsl(0, 0%, 44%);
+  --aluminium: hsl(0, 0%, 58%);
+  --magnesium: hsl(0, 0%, 72%);
+  --silver: hsl(0, 0%, 86%);
+  --mercury: hsl(0, 0%, 99%);
+}
+
+.colors {
+  .palette {
+    display: flex;
+
+    .color {
+      min-width: 5rem;
+      min-height: 5rem;
+      padding: 0.5rem;
+    }
+  }
+
+  /* * restart */
+  .priest-pitch {
+    background-color: var(--priest-pitch);
+  }
+
+  .priest-dark {
+    background-color: var(--priest-dark);
+  }
+
+  .priest-dull {
+    background-color: var(--priest-dull);
+  }
+
+  /* this is the neutral default whatever you want to call it */
+  /* .priest-dim { */
+  .priest-blue {
+    background-color: var(--priest-blue);
+  }
+
+  .priest-mid {
+    background-color: var(--priest-mid);
+  }
+
+  .priest-light {
+    background-color: var(--priest-light);
+  }
+
+  .priest-bright {
+    background-color: var(--priest-bright);
+  }
+
+  .priest-brilliant {
+    background-color: var(--priest-brilliant);
+  }
+
+
+  /* neutrals */
+  .lead {
+    background-color: var(--lead);
+  }
+
+  .tungsten {
+    background-color: var(--tungsten);
+  }
+
+  .iron {
+    background-color: var(--iron);
+  }
+  
+  .steel {
+    background-color: var(--steel);
+  }
+  
+  .aluminium {
+    background-color: var(--aluminium);
+  }
+  
+  .magnesium {
+    background-color: var(--magnesium);
+  }
+  
+  .silver {
+    background-color: var(--silver);
+  }
+  
+  .mercury {
+    background-color: var(--mercury);
+  }
+}

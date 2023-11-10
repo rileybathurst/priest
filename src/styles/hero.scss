@@ -3,9 +3,6 @@
 \*------------------------------------*/
 
 .hero {
-  // @extend .bg-primary; // this isnt working
-  // background: var(--secondary-color); // TODO was needed for wide menu
-  // can be moved to the new way
   background-color: var(--mercury);
   display: flex;
   flex-direction: column;
@@ -53,7 +50,7 @@
 
       > svg {
         max-width: 30rem;
-        fill: var(--white);
+        fill: var(--mercury);
         transition: var(--general-transition);
         width: calc(100% - 2rem);
         margin-inline: auto;
