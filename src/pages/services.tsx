@@ -8,6 +8,7 @@ import HeaderContact from "../components/header-contact";
 import SEO from "../components/seo";
 import Card from "../components/card";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
+import { CardTypes } from "../types/card-types";
 
 const ServicesPage = () => {
 
@@ -47,20 +48,12 @@ const ServicesPage = () => {
         </h1>
 
         <div className="deck">
-          {data.allStrapiService.nodes.map((service: {
-            id: string;
-            slug: string;
-            shortname: string;
-            byline: string;
-            cover: { localFile: { childImageSharp: { gatsbyImageData: IGatsbyImageData; }; }; alternativeText: string; };
-            excerpt: string;
-          }) => (
-            <div key={service.id}>
-              <Card
-                content={service}
-                breadcrumb="services"
-              />
-            </div>
+          {data.allStrapiService.nodes.map((service: CardTypes, index: number) => (
+            <Card
+              content={service}
+              breadcrumb="services"
+              key={index}
+            />
           ))}
           <div>{/* stay gold */}</div>
         </div>

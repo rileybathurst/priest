@@ -7,20 +7,17 @@
   margin-inline: auto;
   margin-block-end: var(--tasman);
   display: grid;
+  grid-template-rows: subgrid;
   gap: 4rem;
   justify-content: space-between;
   justify-content: center;
   width: calc(100% - 2rem);
+  // ? can I fix this by taking minmax to 31?
   grid-template-columns: 1fr;
 
   @media (min-width: $vulture) {
     width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  }
-
-  > * {
-    display: grid;
-    grid-template-rows: subgrid;
   }
 
   .card {
@@ -53,13 +50,12 @@
     .card__overlay {
       aspect-ratio: 16 / 9;
       width: 100%;
-      max-height: 100%;
       grid-row: 1/4;
       grid-column: 2;
       z-index: var(--understory);
       clip-path: var(--horizontal-clipper);
       background-color: var(--priest-dull);
-      // height: 100%;
+      // max-height: 100%; // this breaks chrome dont do it
     }
 
     .card__backer {
@@ -112,6 +108,7 @@
     }
 
     .card__excerpt {
+      grid-column: 1;
       z-index: var(--emergent);
       align-self: start;
       height: max-content;
@@ -119,6 +116,7 @@
     }
 
     .card__more {
+      grid-column: 1;
       margin-block-end: 1rem;
       text-decoration: underline;
     }

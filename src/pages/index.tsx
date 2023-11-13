@@ -146,6 +146,7 @@ const IndexPage = () => {
               <div className="blue-backer">{/* stay gold */}</div>
             </div>
 
+            {/* // TODO: I bet I could make these classNames props */}
             <div className="summit__team-photo_1">
               <WeldingImage />
             </div>
@@ -164,26 +165,16 @@ const IndexPage = () => {
         <Link to="/services">
           Services
         </Link>
-        <hr className='hr-aluminium' />
       </h2>
+      <hr className='hr-aluminium' />
 
       <div className="deck">
-        {/*         {services.map((service: {
-          id: string;
-          slug: string;
-          shortname: string;
-          byline: string;
-          cover: { localFile: { childImageSharp: { gatsbyImageData: IGatsbyImageData; }; }; alternativeText: string; };
-          excerpt: string;
-        }) => ( */}
-
-        {services.map((service: CardTypes) => (
-          <div key={service.id}>
-            <Card
-              content={service}
-              breadcrumb="services"
-            />
-          </div>
+        {services.map((service: CardTypes, index: number) => (
+          <Card
+            content={service}
+            breadcrumb="services"
+            key={index}
+          />
         ))}
       </div >
 

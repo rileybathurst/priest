@@ -43,7 +43,7 @@ function Title({ shortname, byline, slug, breadcrumb }: TitleTypes) {
 function Card({ content, breadcrumb }: CardTypes) {
 
   return (
-    <div key={content.id} className="card">
+    <div className="card">
       <div className="card__overlay">{/* stay gold */}</div>
       <Link
         to={`${breadcrumb}/${content.slug}`}
