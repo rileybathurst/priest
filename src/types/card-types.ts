@@ -1,7 +1,6 @@
 import IGatsbyImageData from "gatsby-plugin-image";
 
 export type CardTypes = {
-  id: string;
   content: {
     title: string;
     shortname: string;
