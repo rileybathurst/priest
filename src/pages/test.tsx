@@ -18,31 +18,21 @@ const TestPage = () => {
             // console.log(value);
 
             const third = Object.entries(value).map(([key, value]) => {
-              // console.log(key);
-
-              // refeence for the table
-              if (key === "thickness") {
-                // console.log('🔑');
-                // i think this is too early
-                // let reference = []
-                // reference.push(value)
-                // console.log(reference);
-              }
-              // console.log(value);
 
               let fourth = Object.entries(value).map(([key, value]) => {
-                console.log(key);
-                console.log(value);
+                // console.log(key);
+                // console.log(value);
 
-                console.log(typeof key);
+                // console.log(typeof key);
 
                 // what if i build this array here and then pass it up to the third level
                 // ? why do some of these not work?
                 let reference = [1.6, 2, 3, 4, 5, 6, 10, 12, 16, 20, 25, 32, 60, 80, 100, 120]
-                console.log(reference);
+                // console.log(reference);
 
                 // ! this is checking against key not value
-                if (key in reference) {
+                // if (key in reference) {
+                if (reference.includes(key)) {
                   return (
                     <li key={key} className="yes">
                       {key}
@@ -50,7 +40,7 @@ const TestPage = () => {
                   )
                 } else {
 
-                  console.log('🦖 no ' + key + ' is not in the array')
+                  // console.log('🦖 no ' + key + ' is not in the array')
 
                   return (
                     <li key={key} className="no">
@@ -60,11 +50,36 @@ const TestPage = () => {
                 }
               });
 
+              // this is close but I might have to do it backwards to get spaces
+              let fourV2 = Object.entries(value).map((value) => {
+                // console.log(value);
+                console.log(value[0]);
+
+                // make them strings not numbers as thats what im getting from the yaml
+                let reference = ['1.6', '2', '3', '4', '5', '6', '10', '12', '16', '20', '25', '32', '60', '80', '100', '120']
+                console.log(reference);
+
+                if (reference.includes(value[0])) {
+                  return (
+                    <li key={value[0]} className="yes">
+                      {value[0]}
+                    </li>
+                  )
+                } else {
+                  return (
+                    <li key={value[0]} className="no">
+                      {value[0]}
+                    </li>
+                  )
+                }
+              });
+
               return (
                 <>
                   {key}{/* // * GR250 this seems like its nested a layer deeper than it should be */}
                   <ul className="thickness">
-                    {fourth}
+                    {/* {fourth} */}
+                    {fourV2}
                   </ul>
                 </>
               )
