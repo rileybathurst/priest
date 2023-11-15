@@ -3,7 +3,17 @@ import MaterialList from "../../content/material.yaml";
 
 function Materials() {
 
-  console.log(MaterialList.material);
+  // console.log(MaterialList.material);
+
+  MaterialList.material.map((material, index) => {
+    console.log(material);
+
+    /*     material.map((item, index) => {
+          console.log(item);
+        });
+     */
+    // console.log(index);
+  });
 
   return (
     <div className="material">

@@ -1,0 +1,28 @@
+/*------------------*/
+//  #Tables
+/*------------------*/
+
+.table {
+  display: grid;
+  border: 1px solid red;
+
+  .thickness {
+    display: flex;
+    > * {
+      flex: 0 0 1rem;
+    }
+    border: 1px solid green;
+  }
+
+  .each {
+    border: 1px solid blue;
+  }
+
+  .yes {
+    color: green;
+  }
+
+  .no {
+    color: red;
+  }
+}
