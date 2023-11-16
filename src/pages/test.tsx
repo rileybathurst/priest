@@ -38,17 +38,17 @@ const TestPage = () => {
               const keysArray = Object.keys(value);
               console.log(keysArray); // ['key1', 'key2', 'key3']
 
-              const listItems = keysArray.map((key) => {
-                if (reference.includes(key)) {
+              const listItems = reference.map((key) => {
+                if (keysArray.includes(key)) {
                   return (
                     <li key={key} className="y">
-                      ✓ {key}
+                      ✓
                     </li>
                   );
                 } else {
                   return (
                     <li key={key} className="n">
-                      ✗ {key}
+                      ✗
                     </li>
                   );
                 }

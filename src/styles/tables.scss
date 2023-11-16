@@ -28,13 +28,17 @@
 
   .y {
     background-color: peachpuff;
-    min-width: 1rem;
+    min-width: 2rem;
     min-height: 1rem;
+    display: flex;
+    flex-direction: column;
   }
 
   .n {
     background-color: lightblue;
     min-width: 1rem;
     min-height: 1rem;
+    display: flex;
+    flex-direction: column;
   }
 }
