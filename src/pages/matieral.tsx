@@ -29,7 +29,10 @@ const MaterialPage = () => {
                 if (keysArray.includes(key)) {
                   return (
                     <li key={key} className="yes">
-                      ✓
+                      <div>
+                        <span>✓</span>
+                        <span>{key}</span>
+                      </div>
                     </li>
                   );
                 } else {
