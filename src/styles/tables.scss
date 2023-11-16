@@ -3,42 +3,67 @@
 /*------------------*/
 
 .table {
-  display: grid;
-  border: 1px solid red;
-
-  .thickness {
+  .flex {
     display: flex;
+    flex-direction: row;
     > * {
       flex: 0 0 1rem;
     }
-    border: 1px solid green;
   }
 
-  .each {
-    border: 1px solid blue;
-  }
-
-  .yes {
-    color: green;
-  }
-
-  .no {
-    color: red;
-  }
-
-  .y {
-    background-color: peachpuff;
-    min-width: 2rem;
-    min-height: 1rem;
+  .third {
     display: flex;
-    flex-direction: column;
+
+    > * {
+      flex: 0 0 2rem;
+      border-inline-end: 1px solid black;
+    }
+
+    > *:first-child {
+      flex: 0 0 5.5rem;
+      text-align: right;
+    }
+
+    > *:last-child {
+      border-inline-end: none;
+    }
   }
 
-  .n {
-    background-color: lightblue;
-    min-width: 1rem;
-    min-height: 1rem;
+  .small-only {
+    // TODO: fix this size and smaller
+    // its easy to start with big tho
+    @media (min-width: 30rem) {
+      display: none;
+    }
+  }
+
+  .reference {
     display: flex;
-    flex-direction: column;
+
+    > * {
+      flex: 0 0 2rem;
+      border-inline-end: 1px solid black;
+    }
+
+    > *:last-child {
+      border-inline-end: none;
+    }
+  }
+
+  text-align: center;
+}
+
+// ! im really going to rename this well
+.layout {
+  display: grid;
+  grid-template-columns: [material] 5.25rem [title] 5.25rem [details-start] 1fr [details-end];
+  text-align: center;
+
+  .box1 {
+    grid-column-start: details-start;
+  }
+
+  .reference {
+    padding-inline-start: 0; // reset
   }
 }

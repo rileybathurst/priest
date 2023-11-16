@@ -3,25 +3,28 @@ import TestList from "../../content/test.yaml"
 
 const TestPage = () => {
 
+  // TODO: create a set from all possible options
+  let reference = ['1.6', '2', '3', '4', '5', '6', '10', '12', '16', '20', '25', '32', '60', '80', '100', '120']
+
   return (
     <>
+
       {TestList.test.map((item, key) => {
         const nested = Object.entries(item).map(([key, value]) => {
           const second = Object.entries(value).map(([key, value]) => {
             const third = Object.entries(value).map(([key, value]) => {
-              let reference = ['1.6', '2', '3', '4', '5', '6', '10', '12', '16', '20', '25', '32', '60', '80', '100', '120']
               const keysArray = Object.keys(value);
 
               const listItems = reference.map((key) => {
                 if (keysArray.includes(key)) {
                   return (
-                    <li key={key} className="y">
+                    <li key={key} className="yes">
                       ✓
                     </li>
                   );
                 } else {
                   return (
-                    <li key={key} className="n">
+                    <li key={key} className="no">
                       ✗
                     </li>
                   );
@@ -29,26 +32,38 @@ const TestPage = () => {
               });
 
               return (
-                <li key={key}>
-                  {key}
-                  <ul className="thickness">
-                    {listItems}
-                  </ul>
-                </li>
+                <ul key={key} className="third">
+                  <li>
+                    {key}
+                  </li>
+
+                  {listItems}
+                </ul>
+
               )
             });
 
             return (
-              <ul key={key}>
+              <div key={key}>
+                <ul className="third">
+                  <li key='space'>&nbsp;</li>
+                  {reference.map((item, key) => {
+                    return (
+                      <li key={key}>
+                        {item}
+                      </li>
+                    )
+                  })}
+                </ul>
                 {third}
-              </ul>
+              </div>
             )
           });
 
 
           return (
-            <ul key={key}>
-              <li key={key}>
+            <ul key={key} className="second">
+              <li key={key}> {/* this flex isnt in the right place */}
                 {key}
                 {second}
               </li>
@@ -57,12 +72,12 @@ const TestPage = () => {
         });
 
         return (
-          <div key={key} className="table">
+          <div key={key} className="table one">
             {nested}
           </div>
         )
       })}
-    </>
+    </ >
   )
 }
 
