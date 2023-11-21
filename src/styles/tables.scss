@@ -11,8 +11,12 @@
     }
   }
 
-  .second > li:first-child {
-    text-align: start;
+  .second {
+    margin: 0;
+    padding: 0;
+    > li:first-child {
+      text-align: start;
+    }
   }
 
   .third {
@@ -102,5 +106,13 @@
 
   .reference {
     padding-inline-start: 0; // reset
+    margin-inline-start: 0;
+  }
+}
+
+.material-list {
+  ul {
+    margin: 0;
+    padding: 0;
   }
 }
