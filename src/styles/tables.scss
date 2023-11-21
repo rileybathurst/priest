@@ -12,13 +12,21 @@
     margin-block-end: 3rem;
     // width: var(--albatross);
     max-width: max-content;
-    margin-inline: auto;
+
+    @media (min-width: 30rem) {
+      margin-inline: auto;
+    }
 
     ul {
       margin-block-end: 0; // reset
     }
 
     .reference {
+      @media (max-width: 30rem) {
+        display: none;
+      }
+
+      display: block;
       padding-inline-start: 0; // reset
       margin-inline-start: 8.5rem; // * all 3 have to line up
       width: max-content;
@@ -48,14 +56,19 @@
       > li:first-child {
         text-align: start;
         height: 2rem;
-        margin-block-start: -2rem;
         box-sizing: border-box;
         width: 8.5rem; // * all 3 have to line up
-        border-inline-end: 1px solid gray;
+
+        @media (min-width: 30rem) {
+          border-inline-end: 1px solid gray;
+          margin-block-start: -2rem;
+        }
       }
 
       > li:nth-child(2) {
-        border-block-start: 1px solid gray;
+        @media (min-width: 30rem) {
+          border-block-start: 1px solid gray;
+        }
       }
 
       > li:last-child {
@@ -67,13 +80,28 @@
 
     .third {
       display: flex;
-      width: max-content;
+      flex-flow: row wrap;
 
-      > * {
-        width: 2rem;
-        border-inline-end: 1px solid gray;
-        border-block-end: 1px solid gray;
-        padding-inline: 0.2rem;
+      @media (max-width: 30rem) {
+        max-width: calc(100vw - 2rem);
+        margin-block-end: 0.2rem;
+      }
+
+      @media (min-width: 30rem) {
+        > * {
+          flex-flow: row nowrap;
+          width: max-content;
+          width: 2rem;
+          border-inline-end: 1px solid gray;
+          border-block-end: 1px solid gray;
+          padding-inline: 0.2rem;
+        }
+      }
+
+      > li {
+        @media (max-width: 30rem) {
+          border-block-start: 1px solid gray;
+        }
       }
 
       > *:last-child {
@@ -84,21 +112,39 @@
       li:first-child {
         display: grid;
         align-items: center;
-        width: 8.5rem; // * all 3 have to line up
         box-sizing: border-box;
-        text-align: end;
+        text-align: start;
+
+        @media (max-width: 30rem) {
+          border-inline-end: 1px solid gray;
+          padding-inline-end: 0.5rem;
+        }
+
+        @media (min-width: 30rem) {
+          width: 8.5rem; // * all 3 have to line up
+          text-align: end;
+        }
       }
     }
 
-    .small-only {
-      // TODO: fix this size and smaller
-      // its easy to start with big tho
-      @media (min-width: 30rem) {
+    .no {
+      @media (max-width: 30rem) {
         display: none;
       }
     }
 
     .spinner {
+      @media (max-width: 30rem) {
+        .tick {
+          display: none;
+        }
+
+        .key {
+          border-inline-end: 1px solid gray;
+          padding-inline: 0.2rem;
+        }
+      }
+
       color: var(--priest-dull);
 
       div {
@@ -115,9 +161,11 @@
       }
     }
 
-    .spinner:hover {
-      span {
-        transform: translateY(-100%);
+    @media (min-width: 30rem) {
+      .spinner:hover {
+        span {
+          transform: translateY(-100%);
+        }
       }
     }
   }

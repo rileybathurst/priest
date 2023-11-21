@@ -21,7 +21,7 @@ const MaterialPage = () => {
   return (
     <>
       <Header />
-      <h1 className="albatross">Material List</h1>
+      <h1 className="text-center">Material List</h1>
       <div className="material-list">
 
         {MaterialList.material.map((item, key) => {
@@ -35,8 +35,8 @@ const MaterialPage = () => {
                     return (
                       <li key={key} className="spinner">
                         <div>
-                          <span>✓</span>
-                          <span>{key}</span>
+                          <span className="tick">✓</span>
+                          <span className="key">{key}</span>
                         </div>
                       </li>
                     );
@@ -63,17 +63,7 @@ const MaterialPage = () => {
               });
 
               return (
-                <li key={key}> {/* // ? is the key why I have this div? */}
-                  <ul className="third small-only">
-                    <li key='space'>&nbsp;</li>
-                    {stringArray.map((item, key) => {
-                      return (
-                        <li key={key}>
-                          {item}
-                        </li>
-                      )
-                    })}
-                  </ul>
+                <li key={key}>
                   {third}
                 </li>
               )
