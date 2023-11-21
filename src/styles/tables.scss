@@ -2,117 +2,123 @@
 //  #Tables
 /*------------------*/
 
-.table {
-  .flex {
-    display: flex;
-    flex-direction: row;
-    > * {
-      flex: 0 0 1rem;
-    }
-  }
-
-  .second {
-    margin: 0;
-    padding: 0;
-    > li:first-child {
-      text-align: start;
-    }
-  }
-
-  .third {
-    display: flex;
-
-    > * {
-      flex: 0 0 2rem;
-      border-inline-end: 1px solid gray;
-      border-block-end: 1px solid gray;
-
-      // height: 3rem;
-      padding-inline: 0.2rem;
-    }
-
-    > *:first-child {
-      flex: 0 0 5.5rem;
-      text-align: end;
-    }
-
-    > *:last-child {
-      border-inline-end: none;
-    }
-  }
-
-  .small-only {
-    // TODO: fix this size and smaller
-    // its easy to start with big tho
-    @media (min-width: 30rem) {
-      display: none;
-    }
-  }
-
-  .reference {
-    display: flex;
-
-    > * {
-      flex: 0 0 2rem;
-      border-inline-end: 1px solid gray;
-      border-block-end: 1px solid gray;
-      padding-inline: 0.2rem;
-    }
-
-    > *:last-child {
-      border-inline-end: none;
-    }
-  }
-
-  text-align: center;
-
-  .yes {
-    color: green;
-
-    div {
-      height: 2rem;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-
-      span {
-        transition: all 0.3s ease-in-out;
-        line-height: 2rem;
-        text-align: center;
-      }
-    }
-  }
-
-  .yes:hover {
-    span {
-      transform: translateY(-100%);
-    }
-  }
-}
-
-// ! im really going to rename this well
-.layout {
-  display: grid;
-  grid-template-columns: [material] 5.25rem [title] 5.7rem [details-start] 1fr [details-end];
-  text-align: center;
-
-  ul {
-    margin-block-end: 0; // reset
-  }
-
-  .box1 {
-    grid-column-start: details-start;
-  }
-
-  .reference {
-    padding-inline-start: 0; // reset
-    margin-inline-start: 0;
-  }
-}
-
 .material-list {
   ul {
-    margin: 0;
-    padding: 0;
+    padding: 0; // reset
+  }
+
+  .table {
+    text-align: center;
+    margin-block-end: 3rem;
+    // width: var(--albatross);
+    max-width: max-content;
+    margin-inline: auto;
+
+    ul {
+      margin-block-end: 0; // reset
+    }
+
+    .reference {
+      padding-inline-start: 0; // reset
+      margin-inline-start: 8.5rem; // * all 3 have to line up
+      width: max-content;
+
+      display: flex;
+
+      > * {
+        width: 2rem;
+        border-inline-end: 1px solid gray;
+        padding-inline: 0.2rem;
+      }
+
+      > *:last-child {
+        border-inline-end: none;
+      }
+    }
+
+    .data {
+      margin: 0;
+      padding: 0;
+      width: max-content;
+
+      > li {
+        width: max-content;
+      }
+
+      > li:first-child {
+        text-align: start;
+        height: 2rem;
+        margin-block-start: -2rem;
+        box-sizing: border-box;
+        width: 8.5rem; // * all 3 have to line up
+        border-inline-end: 1px solid gray;
+      }
+
+      > li:nth-child(2) {
+        border-block-start: 1px solid gray;
+      }
+
+      > li:last-child {
+        .third li {
+          border-block-end: none;
+        }
+      }
+    }
+
+    .third {
+      display: flex;
+      width: max-content;
+
+      > * {
+        width: 2rem;
+        border-inline-end: 1px solid gray;
+        border-block-end: 1px solid gray;
+        padding-inline: 0.2rem;
+      }
+
+      > *:last-child {
+        border-inline-end: none;
+      }
+
+      // these are all the stats
+      li:first-child {
+        display: grid;
+        align-items: center;
+        width: 8.5rem; // * all 3 have to line up
+        box-sizing: border-box;
+        text-align: end;
+      }
+    }
+
+    .small-only {
+      // TODO: fix this size and smaller
+      // its easy to start with big tho
+      @media (min-width: 30rem) {
+        display: none;
+      }
+    }
+
+    .spinner {
+      color: var(--priest-dull);
+
+      div {
+        height: 2rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        span {
+          transition: all 0.3s ease-in-out;
+          line-height: 2rem;
+          text-align: center;
+        }
+      }
+    }
+
+    .spinner:hover {
+      span {
+        transform: translateY(-100%);
+      }
+    }
   }
 }

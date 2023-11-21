@@ -21,19 +21,19 @@ const MaterialPage = () => {
   return (
     <>
       <Header />
-      <h1 className="pelican">Material List</h1>
+      <h1 className="albatross">Material List</h1>
       <div className="material-list">
 
         {MaterialList.material.map((item, key) => {
           const nested = Object.entries(item).map(([key, value]) => {
-            const second = Object.entries(value).map(([key, value]) => {
+            const data = Object.entries(value).map(([key, value]) => {
               const third = Object.entries(value).map(([key, value]) => {
                 const keysArray = Object.keys(value);
 
                 const listItems = stringArray.map((key) => {
                   if (keysArray.includes(key)) {
                     return (
-                      <li key={key} className="yes">
+                      <li key={key} className="spinner">
                         <div>
                           <span>✓</span>
                           <span>{key}</span>
@@ -63,7 +63,7 @@ const MaterialPage = () => {
               });
 
               return (
-                <div key={key}>
+                <li key={key}> {/* // ? is the key why I have this div? */}
                   <ul className="third small-only">
                     <li key='space'>&nbsp;</li>
                     {stringArray.map((item, key) => {
@@ -75,24 +75,24 @@ const MaterialPage = () => {
                     })}
                   </ul>
                   {third}
-                </div>
+                </li>
               )
             });
 
 
             return (
-              <ul key={key} className="second">
+              <ul key={key} className="data">
                 <li key={key}> {/* this flex isnt in the right place */}
                   {key}
-                  {second}
                 </li>
+                {data}
               </ul>
             )
           });
 
           return (
-            <div key={key} className="table layout">
-              <ul className="reference box1">
+            <div key={key} className="table">
+              <ul className="reference">
                 {stringArray.map((item, key) => {
                   return (
                     <li key={key}>
