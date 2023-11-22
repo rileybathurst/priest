@@ -10,10 +10,9 @@
   .table {
     text-align: center;
     margin-block-end: 3rem;
-    // width: var(--albatross);
     max-width: max-content;
 
-    @media (min-width: 30rem) {
+    @media (min-width: 70rem) {
       margin-inline: auto;
     }
 
@@ -22,13 +21,13 @@
     }
 
     .reference {
-      @media (max-width: 30rem) {
+      @media (max-width: 70rem) {
         display: none;
       }
 
       display: block;
       padding-inline-start: 0; // reset
-      margin-inline-start: 8.5rem; // * all 3 have to line up
+      margin-inline-start: 8.5rem; // * all 6 have to line up
       width: max-content;
 
       display: flex;
@@ -49,6 +48,10 @@
       padding: 0;
       width: max-content;
 
+      @media (max-width: 70rem) {
+        margin-inline-start: 8.5rem; // * all 6 have to line up
+      }
+
       > li {
         width: max-content;
       }
@@ -57,16 +60,20 @@
         text-align: start;
         height: 2rem;
         box-sizing: border-box;
-        width: 8.5rem; // * all 3 have to line up
+        width: 8.5rem; // * all 6 have to line up
 
-        @media (min-width: 30rem) {
+        @media (max-width: 70rem) {
+          margin-inline-start: -8.5rem; // * all 6 have to line up
+        }
+
+        @media (min-width: 70rem) {
           border-inline-end: 1px solid gray;
           margin-block-start: -2rem;
         }
       }
 
       > li:nth-child(2) {
-        @media (min-width: 30rem) {
+        @media (min-width: 70rem) {
           border-block-start: 1px solid gray;
         }
       }
@@ -82,25 +89,21 @@
       display: flex;
       flex-flow: row wrap;
 
-      @media (max-width: 30rem) {
+      @media (max-width: 70rem) {
         max-width: calc(100vw - 2rem);
-        margin-block-end: 0.2rem;
+        max-width: calc(100vw - 10.5rem);
+        margin-block-end: 0.5rem;
+        > * {
+          width: 3rem;
+        }
       }
 
-      @media (min-width: 30rem) {
+      @media (min-width: 70rem) {
         > * {
-          flex-flow: row nowrap;
-          width: max-content;
           width: 2rem;
           border-inline-end: 1px solid gray;
           border-block-end: 1px solid gray;
           padding-inline: 0.2rem;
-        }
-      }
-
-      > li {
-        @media (max-width: 30rem) {
-          border-block-start: 1px solid gray;
         }
       }
 
@@ -110,37 +113,36 @@
 
       // these are all the stats
       li:first-child {
-        display: grid;
-        align-items: center;
         box-sizing: border-box;
         text-align: start;
+        width: 8.5rem; // * all 6 have to line up
 
-        @media (max-width: 30rem) {
-          border-inline-end: 1px solid gray;
+        @media (max-width: 70rem) {
+          margin-inline-start: -8.5rem; // * all 6 have to line up
           padding-inline-end: 0.5rem;
+          border-block-end: 1px solid gray;
         }
 
-        @media (min-width: 30rem) {
-          width: 8.5rem; // * all 3 have to line up
+        @media (min-width: 70rem) {
           text-align: end;
         }
       }
     }
 
     .no {
-      @media (max-width: 30rem) {
+      @media (max-width: 70rem) {
         display: none;
       }
     }
 
     .spinner {
-      @media (max-width: 30rem) {
+      @media (max-width: 70rem) {
         .tick {
           display: none;
         }
 
         .key {
-          border-inline-end: 1px solid gray;
+          border-block-end: 1px solid gray; // ! test
           padding-inline: 0.2rem;
         }
       }
@@ -148,20 +150,23 @@
       color: var(--priest-dull);
 
       div {
-        height: 2rem;
         overflow: hidden;
         display: flex;
         flex-direction: column;
 
+        @media (min-width: 70rem) {
+          height: 2rem;
+        }
+
         span {
           transition: all 0.3s ease-in-out;
-          line-height: 2rem;
           text-align: center;
+          line-height: 2rem;
         }
       }
     }
 
-    @media (min-width: 30rem) {
+    @media (min-width: 70rem) {
       .spinner:hover {
         span {
           transform: translateY(-100%);
