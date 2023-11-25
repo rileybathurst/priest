@@ -37,13 +37,14 @@ module.exports = {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: [
-          "service",
+          `service`,
           `videos`,
           `testimonial`,
           `industry`,
           `industry-aspect`,
           `new`,
-          `image-grab`
+          `image-grab`,
+          `process`
         ],
         singleTypes: [
           `craftsmanship`,

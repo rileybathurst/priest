@@ -1,3 +1,5 @@
+// * search disallowed by robots.txt
+
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
