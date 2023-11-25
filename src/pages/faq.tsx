@@ -1,5 +1,7 @@
+// disallowed on robots.txt
+// waiting on content from client
+
 import * as React from "react"
-import { Link } from "gatsby"
 import HeaderContact from "../components/header-contact";
 import SEO from "../components/seo";
 
@@ -13,10 +15,8 @@ const FAQPage = () => {
     <>
       <Header />
       <HeaderContact />
-      <main className="page-width">
-        <h1>COMING SOON</h1>
-        <p>Sorry, You just hit a route that doesn&#39;t exist....<br />
-          Let's try take this back to the <Link to="/">home page</Link> and start again.</p>
+      <main className="stork">
+        <h1>Frequently Asked Questions</h1>
       </main>
       <Footer />
     </>

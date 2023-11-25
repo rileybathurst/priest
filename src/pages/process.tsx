@@ -1,4 +1,5 @@
 // * search disallowed by robots.txt
+// Waiting on content from client
 
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
@@ -6,36 +7,22 @@ import { useStaticQuery, graphql } from "gatsby";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
-import SEO from "../components/seo";
-import Card from "../components/card";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
-import { CardTypes } from "../types/card-types";
 
-const ServicesPage = () => {
+const ProcessPage = () => {
 
-  const data = useStaticQuery(graphql`
-    query ServiceQuery {
-      allStrapiService(sort: {order: ASC}) {
+  const { allStrapiProcess } = useStaticQuery(graphql`
+    query ProcessQuery {
+      allStrapiProcess {
         nodes {
           id
-          title
-          shortname
-          byline
-          excerpt
-          slug
-
-          cover {
-            alternativeText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
+          name
         }
       }
     }
   `)
+
+  console.log(allStrapiProcess);
+  console.log(allStrapiProcess.nodes);
 
   return (
     <>
@@ -45,29 +32,22 @@ const ServicesPage = () => {
       <main className="container">
 
         <h1 className='page-width'>
-          Services
+          Process
         </h1>
+        {allStrapiProcess.nodes.map((document: {
+          id: string;
+          name: string;
+        }) => (
+          <div key={document.id} className='page-width'>
+            <h2>{document.name}</h2>
+          </div>
+        ))}
 
-        <div className="deck">
-          {data.allStrapiService.nodes.map((service: CardTypes, index: number) => (
-            <Card
-              content={service}
-              breadcrumb="services"
-              key={index}
-            />
-          ))}
-          <div>{/* stay gold */}</div>
-        </div>
+
       </main>
       <Footer />
     </>
   );
 };
 
-export default ServicesPage;
-
-export const Head = () => (
-  <SEO
-    title={`Services | ${useSiteMetadata().title}`}
-  />
-)
+export default ProcessPage;

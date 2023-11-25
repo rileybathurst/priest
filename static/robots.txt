@@ -2,3 +2,8 @@ User-agent: *
 
 Allow: /
 Disallow: /process
+Disallow: /craftmanship
+Disallow: /material
+Disallow: /portal
+Disallow: /faq
+Disallow: /team

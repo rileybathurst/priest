@@ -1,22 +1,59 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import HeaderContact from "../../components/header-contact";
+import Card from "../../components/card";
 import SEO from "../../components/seo";
 import { useSiteMetadata } from "../../hooks/use-site-metadata"
+import { CardTypes } from "../../types/card-types";
 
 function ServicesCatchAll({ params }) {
+
+  const { allStrapiService } = useStaticQuery(graphql`
+    query ServiceCatchQuery {
+      allStrapiService(sort: {order: ASC}) {
+        nodes {
+          id
+          title
+          shortname
+          byline
+          excerpt
+          slug
+
+          cover {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <>
       <Header />
       <HeaderContact />
-      <main className="page-width">
-        <h1>Couldn't find the service</h1>
-        <p>We couldn't locate the service "{params.name}"</p>
-        <p><Link to="/">Go back to "Home"</Link></p>
+      <main className="stork">
+        <h1>We couldn't find the service "{params.name}"</h1>
+        <p>Explore our other services</p>
       </main>
+
+      <div className="deck">
+        {allStrapiService.nodes.map((service: CardTypes, index: number) => (
+          <Card
+            content={service}
+            breadcrumb="services"
+            key={index}
+          />
+        ))}
+        <div>{/* stay gold */}</div>
+      </div>
       <Footer />
     </>
   )

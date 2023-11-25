@@ -1,3 +1,6 @@
+// disallowed on robots.txt
+// waiting on content from client
+
 import * as React from "react"
 import MaterialList from "../../content/material.yaml"
 import Header from "../components/header";

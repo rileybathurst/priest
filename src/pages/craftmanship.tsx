@@ -1,3 +1,6 @@
+// disallowed on robots.txt
+// waiting on content from client
+
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
@@ -28,9 +31,10 @@ const CraftsmanshipPage = () => {
       <Header />
       <HeaderContact />
 
-      <main className="page-width">
+      <main className="stork">
         <h1>{strapiCraftsmanship.title}</h1>
         <ReactMarkdown children={strapiCraftsmanship.body.data.body} />
+        {/* Porche style why the old was good and where the future is going */}
       </main>
       <Footer />
     </>

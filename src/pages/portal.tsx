@@ -1,3 +1,6 @@
+// disallowed on robots.txt
+// waiting on content from client
+
 import * as React from "react"
 import { Link } from "gatsby"
 import HeaderContact from "../components/header-contact";

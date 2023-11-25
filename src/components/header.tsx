@@ -34,30 +34,36 @@ const MenuList = () => (
 )
 
 const Header = () => (
-  <header className="hero">
-    <div className="hero__logo">
-      <Wordmark />
+  <>
+    <div className="top-bar">
+      NEW 12kW Fibre - South Islands Most Powerful Laser
     </div>
 
-    {/* // ? this wants to be after so its over or do that with the z? */}
-    <SmallMenuToggle />
+    <header className="hero">
+      <div className="hero__logo">
+        <Wordmark />
+      </div>
 
-    {/* more of this could be done in reactive ways */}
-    <nav id="menu_small" className="firstload">
-      <ul className="text-center">
-        <MenuList />
-      </ul>
-    </nav>
+      {/* // ? this wants to be after so its over or do that with the z? */}
+      <SmallMenuToggle />
 
-    <div className="menu__wrapper">
-      <nav id="menu__big">
-        <ul className="menu align-center">
-          {/* // TODO: these would be nicer with a query to featured services */}
+      {/* more of this could be done in reactive ways */}
+      <nav id="menu_small" className="firstload">
+        <ul className="text-center">
           <MenuList />
         </ul>
       </nav>
-    </div>
-  </header>
+
+      <div className="menu__wrapper">
+        <nav id="menu__big">
+          <ul className="menu align-center">
+            {/* // TODO: these would be nicer with a query to featured services */}
+            <MenuList />
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </>
 );
 
 export default Header;

@@ -11,7 +11,7 @@ import { CardTypes } from "../types/card-types";
 
 const ServicesPage = () => {
 
-  const data = useStaticQuery(graphql`
+  const { allStrapiService } = useStaticQuery(graphql`
     query ServiceQuery {
       allStrapiService(sort: {order: ASC}) {
         nodes {
@@ -47,7 +47,7 @@ const ServicesPage = () => {
         </h1>
 
         <div className="deck">
-          {data.allStrapiService.nodes.map((service: CardTypes, index: number) => (
+          {allStrapiService.nodes.map((service: CardTypes, index: number) => (
             <Card
               content={service}
               breadcrumb="services"

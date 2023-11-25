@@ -6,6 +6,8 @@
   max-width: var(--albatross);
   margin-inline: auto;
   margin-block-end: var(--tasman);
+  padding-inline: 1rem;
+  width: calc(100% - 2rem);
   display: grid;
   grid-template-rows: subgrid;
   gap: 4rem;

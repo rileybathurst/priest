@@ -50,7 +50,7 @@ const Footer = () => (
       <Cross />
 
       <ul className="footer__contacts">
-        <li>
+        <li key="phone">
           <a href={`tel: ${useSiteMetadata().telephone}`}>
             <Phone />
             <p>
@@ -60,7 +60,7 @@ const Footer = () => (
           </a>
         </li>
 
-        <li>
+        <li key="email">
           <a href={`mailto:${useSiteMetadata().email}`}>
             <Email />
             <p>
@@ -70,17 +70,7 @@ const Footer = () => (
           </a>
         </li>
 
-        <li>
-          <div className="no-link">
-            <Fax />
-            <p>
-              Fax us<br />
-              {useSiteMetadata().faxNumber}
-            </p>
-          </div>
-        </li>
-
-        <li>
+        <li key="map">
           <a href={useSiteMetadata().mapGoogle}>
             <Map />
             <p>
@@ -88,6 +78,17 @@ const Footer = () => (
               {useSiteMetadata().location.address.streetAddress}
             </p>
           </a>
+        </li>
+
+        {/* this should be last as its the only not linked */}
+        <li key="fax">
+          <div className="no-link">
+            <Fax />
+            <p>
+              Fax us<br />
+              {useSiteMetadata().faxNumber}
+            </p>
+          </div>
         </li>
 
       </ul>
