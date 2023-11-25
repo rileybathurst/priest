@@ -72,7 +72,6 @@ const Service = ({ data }) => {
   return (
     <ServiceView
       service={service}
-      // next={next}
       other={other}
     />
   );
@@ -85,7 +84,6 @@ export const Head = ({ data }) => (
   <SEO
     title={`${data.strapiService.title} | ${useSiteMetadata().title}`}
     description={data.strapiService.excerpt}
-    // TODO: this probably needs regular image as well
     ogImage={data.strapiService.og_image}
   />
 );

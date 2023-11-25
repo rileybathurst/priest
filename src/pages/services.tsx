@@ -8,7 +8,7 @@ import SEO from "../components/seo";
 import Card from "../components/card";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { CardTypes } from "../types/card-types";
-
+import SeoShowcase from "../components/seo-showcase";
 const ServicesPage = () => {
 
   const { allStrapiService } = useStaticQuery(graphql`
@@ -58,6 +58,9 @@ const ServicesPage = () => {
         </div>
       </main>
       <Footer />
+      <SeoShowcase
+        title={`Services | ${useSiteMetadata().title}`}
+      />
     </>
   );
 };

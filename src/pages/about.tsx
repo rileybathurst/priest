@@ -8,6 +8,7 @@ import Footer from "../components/footer";
 import SEO from "../components/seo";
 import Cross from "../components/cross";
 import Map from '../components/map';
+import SeoShowcase from "../components/seo-showcase";
 
 const AboutPage = () => (
   <>
@@ -61,6 +62,10 @@ const AboutPage = () => (
     </main>
 
     <Footer />
+    <SeoShowcase
+      title={`About Us | ${useSiteMetadata().title}`}
+      description={`Learn about ${useSiteMetadata().title}`}
+    />
   </>
 );
 
@@ -69,6 +74,6 @@ export default AboutPage;
 export const Head = () => (
   <SEO
     title={`About Us | ${useSiteMetadata().title}`}
-    description={`Learn about us ${useSiteMetadata().title}`}
+    description={`Learn about ${useSiteMetadata().title}`}
   />
 );

@@ -7,6 +7,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import SEO from "../components/seo";
 import Map from '../components/map';
+import SeoShowcase from "../components/seo-showcase";
 
 const ContactPage = () => (
   <>
@@ -56,6 +57,10 @@ const ContactPage = () => (
       <Map />
     </section>
     <Footer />
+    <SeoShowcase
+      title={`Contact | ${useSiteMetadata().title}`}
+      description={`Get in touch with ${useSiteMetadata().title}`}
+    />
   </>
 );
 

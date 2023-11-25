@@ -18,6 +18,7 @@ import WeldingImage from '../images/welding-image';
 import CutImage from '../images/cut-image';
 
 import { CardTypes } from '../types/card-types';
+import SeoShowcase from '../components/seo-showcase';
 
 type SummitTypes = {
   craftsmanship: {
@@ -188,6 +189,9 @@ const IndexPage = () => {
       </section>
 
       <Footer />
+      <SeoShowcase
+        title={`${useSiteMetadata().title} | ${useSiteMetadata().description}`}
+      />
     </>
   );
 };

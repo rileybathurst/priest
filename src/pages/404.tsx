@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import HeaderContact from "../components/header-contact";
 import SEO from "../components/seo";
-
+import SeoShowcase from "../components/seo-showcase";
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 import Header from "../components/header";
@@ -19,6 +19,9 @@ const NotFoundPage = () => {
           Let's try take this back to the <Link to="/">home page</Link> and start again.</p>
       </main>
       <Footer />
+      <SeoShowcase
+        title={`404 | ${useSiteMetadata().title}`}
+      />
     </>
   )
 }

@@ -1,0 +1,19 @@
+.seo-showcase {
+  z-index: var(--emergent);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: white;
+  padding: 1rem;
+  opacity: 0.9;
+  border-radius: 1rem;
+  font-family: monospace;
+  backdrop-filter: blur(1rem);
+  width: calc(100% - 4rem);
+
+  > * {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+  }
+}

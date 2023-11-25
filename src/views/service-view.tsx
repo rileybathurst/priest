@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 import ReactMarkdown from "react-markdown";
 
 import Header from "../components/header";
@@ -10,6 +10,7 @@ import HeaderContact from "../components/header-contact";
 import Cross from "../components/cross";
 import MuxVideo from "../components/mux-video";
 import MuxCover from "../components/mux-cover";
+import SeoShowcase from "../components/seo-showcase";
 
 function Carousel(images) {
 
@@ -224,6 +225,11 @@ const ServiceView = ({ service }) => {
       </article>
 
       <Footer />
+      <SeoShowcase
+        title={`${service.title} | ${useSiteMetadata().title}`}
+        description={service.excerpt}
+      // ogImage={data.strapiService.og_image}
+      />
     </>
   );
 };

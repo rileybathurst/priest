@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 import HeaderContact from "../components/header-contact";
 import SEO from "../components/seo";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
+import SeoShowcase from "../components/seo-showcase";
 
 const TermsPage = () => {
   return (
@@ -218,6 +219,9 @@ const TermsPage = () => {
         </ol>
       </main>
       <Footer />
+      <SeoShowcase
+        title={`Terms and Conditions | ${useSiteMetadata().title}`}
+      />
     </>
   )
 }
