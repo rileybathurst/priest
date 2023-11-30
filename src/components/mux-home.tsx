@@ -10,7 +10,7 @@ export default function MuxHome() {
 
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState !== "visible") {
-        vid.removeAttribute('loop');
+        // vid.removeAttribute('loop');
         vid.classList.remove("noco");
       }
     })
@@ -46,7 +46,7 @@ export default function MuxHome() {
       streamType="on-demand"
       playbackId="OeY1FO2ABcb02H5RE01FmKPE7TLddWmv3yBOOx025PcV800"
       autoPlay="muted"
-      // loop
+      // loop // loop doesn't work with iOS safari
       noHotKeys
       ref={ref}
       className="noco"

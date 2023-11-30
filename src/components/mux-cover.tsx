@@ -10,7 +10,7 @@ export default function MuxCover(props) {
 
     document.addEventListener("visibilitychange", () => {
       if (document.visibilityState !== "visible") {
-        vid.removeAttribute('loop');
+        // vid.removeAttribute('loop');
         vid.classList.remove("noco");
       }
     })
@@ -31,14 +31,10 @@ export default function MuxCover(props) {
     function handleIntersect(entries) {
       entries.forEach((entry) => {
         if (entry.intersectionRatio > 0.1) {
-          // console.log("🐱");
-          // console.log(entry.intersectionRatio);
-          vid.setAttribute('loop', '');
+          // vid.setAttribute('loop', '');
           vid.classList.add("noco");
         } else {
-          // console.log("🐶");
-          // console.log(entry.intersectionRatio);
-          vid.removeAttribute('loop');
+          // vid.removeAttribute('loop');
           vid.classList.remove("noco");
         }
       });
@@ -50,7 +46,7 @@ export default function MuxCover(props) {
       streamType="on-demand"
       playbackId={props.mux}
       autoPlay="muted"
-      loop
+      // loop
       noHotKeys
       ref={ref}
       className="noco"
