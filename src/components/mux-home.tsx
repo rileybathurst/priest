@@ -31,14 +31,10 @@ export default function MuxHome() {
     function handleIntersect(entries) {
       entries.forEach((entry) => {
         if (entry.intersectionRatio > 0.1) {
-          // console.log("🐱");
-          // console.log(entry.intersectionRatio);
-          vid.setAttribute('loop', '');
+          // vid.setAttribute('loop', '');
           vid.classList.add("noco");
         } else {
-          // console.log("🐶");
-          // console.log(entry.intersectionRatio);
-          vid.removeAttribute('loop');
+          // vid.removeAttribute('loop');
           vid.classList.remove("noco");
         }
       });
@@ -50,7 +46,7 @@ export default function MuxHome() {
       streamType="on-demand"
       playbackId="OeY1FO2ABcb02H5RE01FmKPE7TLddWmv3yBOOx025PcV800"
       autoPlay="muted"
-      loop
+      // loop
       noHotKeys
       ref={ref}
       className="noco"
