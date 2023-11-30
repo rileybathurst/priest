@@ -42,7 +42,7 @@ const ServicesPage = () => {
 
       <main className="container">
 
-        <h1 className='page-width'>
+        <h1 className='albatross'>
           Services
         </h1>
 

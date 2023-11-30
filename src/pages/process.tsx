@@ -31,14 +31,14 @@ const ProcessPage = () => {
 
       <main className="container">
 
-        <h1 className='page-width'>
+        <h1 className='albatross'>
           Process
         </h1>
         {allStrapiProcess.nodes.map((document: {
           id: string;
           name: string;
         }) => (
-          <div key={document.id} className='page-width'>
+          <div key={document.id} className='albatross'>
             <h2>{document.name}</h2>
           </div>
         ))}

@@ -1,5 +1,5 @@
 .seo-showcase {
-  z-index: var(--emergent);
+  z-index: 4;
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -8,7 +8,6 @@
   opacity: 0.9;
   border-radius: 1rem;
   font-family: monospace;
-  backdrop-filter: blur(1rem);
   width: calc(100% - 4rem);
 
   > * {

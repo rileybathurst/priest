@@ -13,7 +13,7 @@ import SeoShowcase from "../components/seo-showcase";
 const AboutPage = () => (
   <>
     <Header />
-    <main className="page-width">
+    <main className="albatross">
       <div className="split">
         <section>
           <h1>About Us</h1>

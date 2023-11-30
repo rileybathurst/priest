@@ -16,7 +16,7 @@ const PortalPage = () => {
     <>
       <Header />
       <HeaderContact />
-      <main className="page-width">
+      <main className="albatross">
         <h1>COMING SOON</h1>
         <p>Sorry, You just hit a route that doesn&#39;t exist....<br />
           Let's try take this back to the <Link to="/">home page</Link> and start again.</p>

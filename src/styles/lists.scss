@@ -80,7 +80,7 @@ ul {
   @media (min-width: $pelican) {
     display: block;
     width: 100%;
-    max-width: var(--page-width);
+    max-width: var(--albatross);
     margin-inline: auto;
   }
 
@@ -104,7 +104,7 @@ ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: start;
-  max-width: var(--page-width);
+  max-width: var(--albatross);
   z-index: -1;
   left: 0;
   background: var(--priest-dull);
@@ -173,7 +173,7 @@ ul {
   display: flex;
   flex-flow: row wrap;
   width: calc(100% - 2rem);
-  max-width: var(--page-width);
+  max-width: var(--albatross);
   margin-inline: auto;
   padding-inline-start: 0;
   line-height: 3rem;
@@ -336,7 +336,7 @@ ul {
   list-style: none;
   margin-block-start: 3rem;
   width: calc(100% - 2rem);
-  max-width: var(--page-width);
+  max-width: var(--albatross);
   margin-inline: auto;
   display: flex;
   flex-flow: row wrap;

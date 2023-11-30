@@ -13,7 +13,7 @@ const TermsPage = () => {
     <>
       <Header />
       <HeaderContact />
-      <main className="page-width">
+      <main className="albatross">
         <h1 className="page-title">Terms and Conditions of Sale</h1>
         <ol className="terms">
           <li id="interpretation">

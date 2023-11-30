@@ -1,158 +1,3 @@
-/*------------------------------------*\
-  #SUMMIT
-\*------------------------------------*/
-
-.summit__backer--wrapper {
-  filter: drop-shadow(var(--drop-shadow));
-  margin-block-start: -2rem;
-}
-
-.summit__backer {
-  // this is all under full so I remember it only displays at this size
-  background: var(--mercury);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 2rem),
-    0 100%
-  ); // guess and check
-  margin-block-end: 3rem;
-
-  @media (prefers-color-scheme: dark) {
-    background: var(--lead);
-  }
-}
-
-#summit {
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  grid-row: 1;
-  grid-column: 1/3; // float in the center
-  display: grid;
-  justify-self: center;
-  grid-template-columns: 1fr 2rem 1fr;
-  row-gap: 1rem;
-  max-width: var(--page-width);
-
-  @media (min-width: $stork) {
-    grid-template-columns: 1fr 2rem 1fr 2rem 1fr;
-    row-gap: 2rem;
-    margin-block-end: calc(var(--global-margin) * 4);
-    // 3 col - 2 gap
-  }
-}
-
-.summit__info {
-  grid-row: 1;
-  grid-column: 1/4;
-  padding: 1rem;
-  max-width: 33rem;
-  justify-self: center;
-  margin-block-start: 2.75rem; // back to type-scale
-
-  h1 {
-    margin-top: 0; // back to type-scale
-    font-size: clamp(1.728rem, 4.5vw, 2.074rem);
-    line-height: 1.35em;
-  } // p
-} // .summit__info
-
-// this is messy it uses svg and clip-path at different sizes
-.summit__about {
-  grid-row: 3;
-  grid-column: 1/4;
-  margin-bottom: 1rem;
-  justify-self: center;
-  padding-inline: var(--global-padding);
-  max-width: 33rem; // guess and check to fit to one lane
-  margin-inline: auto;
-
-  @supports not (padding-inline: 1rem) {
-    padding-left: var(--global-padding);
-    padding-right: var(--global-padding);
-  }
-
-  @media (min-width: $stork) {
-    width: calc(100% - 2rem);
-    grid-column: 2/6;
-    grid-template-columns: 2em 1fr 2em;
-    clip-path: polygon(2em 0, 100% 0, 100% 100%, 0 100%);
-    margin-bottom: 1rem * 2;
-  }
-
-  // still in .summit__about
-  h2 {
-    font-size: 1.728rem;
-    line-height: 1.33em; // guess and check select some text to check its right
-    margin-block-end: 1rem;
-  }
-} // .summit__about
-
-.summit__video {
-  grid-row: 2;
-  grid-column: 1/4;
-  margin: 1rem;
-  max-width: 40rem; // double the measure guess and check
-  aspect-ratio: 16 / 9;
-
-  @media (min-width: $stork) {
-    grid-column: 1/6;
-    width: calc(100% - 2rem);
-    margin: 2rem auto;
-  }
-
-  // TODO: this should become an aspect ratio
-  iframe,
-  mux-player {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(32px 0%, 100% 0%, calc(100% - 32px) 100%, 0% 100%);
-  }
-}
-
-// .summit__videobacker & .summit__videobacker--color should have something for both
-
-.summit__videobacker {
-  grid-row: 2;
-  grid-column: 1/4;
-  z-index: -1;
-  clip-path: polygon(2rem 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
-  // mix-blend-mode: luminosity;
-  // margin-bottom: 1rem;
-  max-width: 40rem; // same as the video
-  justify-self: start;
-  aspect-ratio: 16 / 9;
-
-  @media (min-width: $stork) {
-    grid-column: 2/6;
-    // margin-bottom: 3rem;
-  }
-
-  @media (min-width: 60rem) {
-    clip-path: polygon(
-      2rem 0,
-      100% 0,
-      calc(100% - 2rem) calc(100% - 2rem),
-      0 100%
-    );
-  }
-
-  display: grid;
-  place-items: center;
-
-  // this controls the blue overlay
-  > * {
-    grid-row: 1;
-    grid-column: 1;
-  }
-
-  .gatsby-image-wrapper {
-    height: 100%;
-  } // .gatsby-image-wrapper
-} // .summit__videobacker
-
 .blue-backer {
   background: var(--priest-dull);
   width: 100%;
@@ -179,60 +24,6 @@
   }
 }
 
-.summit__team-photo_1 {
-  grid-row: 4;
-  grid-column: 1/3;
-  clip-path: polygon(0 0, calc(100% - 1rem) 0, calc(100% - 3rem) 100%, 0 100%);
-  margin-right: 0.5rem;
-  margin-bottom: 1rem;
-  max-width: var(--measure);
-
-  @media (min-width: $stork) {
-    grid-row: 3;
-    grid-column: 1/3;
-    margin-bottom: 1rem * 2;
-  }
-
-  @media (min-width: 70rem) {
-    clip-path: var(--horizontal-clipper);
-  }
-
-  > .gatsby-image-wrapper {
-    @media (min-width: $stork) {
-      height: 100%; // match the box
-      margin-bottom: -5em; // guess and check
-    }
-  } // .gatsby-image-wrapper
-} // .summit__team-photo_1
-
-.summit__team-photo_2 {
-  grid-row: 4;
-  grid-column: 2/4;
-  clip-path: polygon(2rem 0, 100% 0, 100% 100%, 0 100%);
-  margin-left: 0.5rem;
-  margin-bottom: 1rem;
-  max-width: var(--measure);
-  justify-self: end;
-
-  @media (min-width: $stork) {
-    grid-row: 1;
-    grid-column: 5;
-    margin-bottom: 1rem * 2;
-  }
-
-  @media (min-width: 70rem) {
-    clip-path: var(--horizontal-clipper);
-  }
-
-  > .gatsby-image-wrapper {
-    // start at medium when its beside text
-    @media (min-width: $stork) {
-      height: calc(100% - 5.75rem);
-      margin-top: 3.75rem; // match the h1 tag then guess and check
-    }
-  } // .gatsby-image-wrapper
-} // .summit__team-photo_2
-
 /*------------------------------------*\
   TASKS // TODO change the name
 \*------------------------------------*/
@@ -251,7 +42,7 @@
   }
 
   > * {
-    flex: 0 1 var(--page-width);
+    flex: 0 1 var(--albatross);
   }
 }
 
@@ -262,7 +53,7 @@
 .tasks {
   display: grid;
   // overlays so it has to be a grid
-  max-width: var(--page-width);
+  max-width: var(--albatross);
   margin-inline: auto;
   margin-bottom: 2rem;
   background: var(--mercury);
@@ -423,7 +214,7 @@
 }
 
 .tasks__cross {
-  max-width: calc(var(--page-width) - 2rem);
+  max-width: calc(var(--albatross) - 2rem);
   margin-inline: auto;
   margin-block-end: 1.6rem; // TODO:
 }

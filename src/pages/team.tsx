@@ -15,7 +15,7 @@ const TeamPage = () => {
     <>
       <Header />
       <HeaderContact />
-      <main className="page-width">
+      <main className="albatross">
         <h1>Team</h1>
       </main>
       <Footer />

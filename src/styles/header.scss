@@ -2,29 +2,6 @@
 //  #HEADER
 /*------------------*/
 
-.summit__contact {
-  grid-row: 5;
-  grid-column: 1/4;
-  margin-bottom: 1rem * 2;
-  max-width: 86rem; // TODO: guess and check so the angled box sit the same as the
-  margin-inline: auto;
-
-  @media (min-width: $stork) {
-    grid-row: 4;
-    grid-column: 1/6;
-    margin-block-end: calc(var(--global-margin) * 4);
-  }
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-
-  > * {
-    grid-row: 1;
-    padding-block: 1.5rem;
-  }
-}
-
 /*------------------*/
 //  #HEADER CONTACT
 /*------------------*/
@@ -100,20 +77,5 @@
     margin-top: 0; // reset from type scale as we already have a break but sort this our
     text-align: center;
     font-size: clamp(var(--h6-fs), 1.5vm, var(--h4-fs));
-  }
-}
-
-/*------------------*/
-//  #SUMMIT CONTACT
-/*------------------*/
-
-.summit__contact {
-  .button {
-    border: 1px solid transparent;
-  }
-
-  .button:where(:hover, :focus) {
-    background-color: var(--silver);
-    border-color: var(--magnesium);
   }
 }

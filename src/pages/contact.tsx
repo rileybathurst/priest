@@ -12,7 +12,7 @@ import SeoShowcase from "../components/seo-showcase";
 const ContactPage = () => (
   <>
     <Header />
-    <main className="page-width">
+    <main className="albatross">
       <h1>Contact Us</h1>
 
       <h2 className="dampier">

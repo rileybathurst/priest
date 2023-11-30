@@ -6,6 +6,11 @@
   background-color: var(--mercury);
   display: flex;
   flex-direction: column;
+  z-index: var(--understory);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--lead);
+  }
 
   h1 {
     // TODO: variables

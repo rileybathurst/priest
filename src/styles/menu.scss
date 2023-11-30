@@ -12,10 +12,6 @@
 
   button {
     clip-path: var(--vertical-clipper);
-
-    // TODO: variable
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.32),
-      0 2px 10px 0 rgba(0, 0, 0, 0.24);
     padding-block: 2rem;
   }
 }
@@ -80,13 +76,11 @@
       padding-inline: 0.5rem;
 
       > a {
-        display: flex;
-        place-items: center; // vertical align
-        justify-content: center;
-        gap: 0.5rem;
+        display: block;
         text-decoration: none;
         border-bottom: 1px solid var(--priest-dull);
-        padding-block: 0.5rem;
+        padding-block: 1rem;
+        color: var(--mercury);
 
         > svg {
           max-width: 2rem; // guess and check
@@ -123,6 +117,10 @@
   opacity: 0;
   height: 0; // this is needed but breaks all the things
   padding: 0 !important; // TODO: I might be able to remove this but it gets removed so its not too big of a deal
+
+  > * {
+    display: none;
+  }
 }
 
 .menu-primary-container {
@@ -164,12 +162,6 @@ a:focus {
   background: var(--priest-dark);
   // TODO: check this its the same color
   border-bottom: 5px solid var(--priest-dark);
-}
-
-#menu_small {
-  a {
-    color: var(--mercury);
-  }
 }
 
 #menu__big {

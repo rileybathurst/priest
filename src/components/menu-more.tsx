@@ -54,7 +54,9 @@ function MenuMore() {
         onClick={moreToggle}
         onMouseOver={moreToggle}
         onMouseLeave={moreRise}
-      >More</button>
+      >
+        More
+      </button>
       {/* onMouseOver={moreDrop} onMouseLeave={moreRise} */}
       <ul className="menu__more" ref={refMore} style={moreMargin} onMouseOver={moreDrop} >
         <li key="more-services" className="more__service">
