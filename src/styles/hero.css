@@ -13,24 +13,24 @@
   }
 
   h1 {
-    // TODO: variables
-    font-size: 1.728rem; // try even further down at an h3
-    line-height: 1.35rem; // guess and check select some text to check its right
+    /*  TODO: variables */
+    font-size: 1.728rem; /*  try even further down at an h3 */
+    line-height: 1.35rem; /*  guess and check select some text to check its right */
 
-    @media (min-width: $stork) {
-      font-size: 2.074rem; // h2 halfway back up
+    @media (min-width: 40rem) {
+      font-size: 2.074rem; /*  h2 halfway back up */
     }
 
-    @media (min-width: $albatross) {
-      font-size: 2.448rem; // return to normal
+    @media (min-width: 80rem) {
+      font-size: 2.448rem; /*  return to normal */
     }
   }
 
   h2 {
     font-size: 1.728rem;
-    line-height: 1.33rem; // guess and check select some text to check its right
+    line-height: 1.33rem; /*  guess and check select some text to check its right */
 
-    @media (min-width: $stork) {
+    @media (min-width: 40rem) {
       font-size: 2.074rem;
     }
   }
@@ -43,8 +43,8 @@
     display: grid;
     place-items: center;
 
-    z-index: var(--canopy); // sliding logo
-    position: relative; // needed for z-index
+    z-index: var(--canopy); /*  sliding logo */
+    position: relative; /*  needed for z-index */
 
     > a {
       display: inline-block;
@@ -60,13 +60,13 @@
         width: calc(100% - 2rem);
         margin-inline: auto;
         display: block;
-      } // svg
-    } // a
+      } /*  svg */
+    } /*  a */
 
     a:hover svg {
       fill: var(--mercury);
-    } // a:hover svg
-  } // .hero__logo
+    } /*  a:hover svg */
+  } /*  .hero__logo */
 }
 
 .hero__logo a:hover {

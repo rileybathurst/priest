@@ -3,11 +3,11 @@
 \*------------------------------------*/
 
 ul {
-  list-style: none; // browser reset
+  list-style: none; /*  browser reset */
 }
 
 /*------------------*/
-//  #SMALL MENUs
+/*   #SMALL MENUs */
 /*------------------*/
 
 .small_menu--opener,
@@ -20,8 +20,8 @@ ul {
 .small_menu--icon {
   justify-self: end;
   margin-right: var(--global-margin);
-  transition: 2s ease; // the slide in on load is kinda nice but maybe overkill
-  cursor: pointer; // match the link
+  transition: 2s ease; /*  the slide in on load is kinda nice but maybe overkill */
+  cursor: pointer; /*  match the link */
   display: grid;
 }
 
@@ -29,7 +29,7 @@ ul {
   width: 100%;
   cursor: pointer;
   transition: 1s ease;
-  margin-block: 0; // safari fix
+  margin-block: 0; /*  safari fix */
 }
 
 .small_menu--opener:hover {
@@ -38,7 +38,7 @@ ul {
 }
 
 .small_menu--icon span {
-  transition: 0.5s ease; // the slide in on load is kinda nice but maybe overkill
+  transition: 0.5s ease; /*  the slide in on load is kinda nice but maybe overkill */
 }
 
 .small_menu--icon-topline,
@@ -57,11 +57,11 @@ ul {
 }
 
 /*------------------------------------*/
-//  #larger menu
+/*   #larger menu */
 /*------------------------------------*/
 
 .menu__wrapper {
-  @media (min-width: $pelican) {
+  @media (min-width: 60rem) {
     background-color: var(--priest-dull);
     padding-block: 2rem;
     margin-block-start: -2rem;
@@ -77,7 +77,7 @@ ul {
   display: none;
   z-index: 10;
 
-  @media (min-width: $pelican) {
+  @media (min-width: 60rem) {
     display: block;
     width: 100%;
     max-width: var(--albatross);
@@ -89,13 +89,13 @@ ul {
   }
 
   svg {
-    max-height: 1.65rem; // line height of the text
-    max-width: 3rem; // safari needs this
+    max-height: 1.65rem; /*  line height of the text */
+    max-width: 3rem; /*  safari needs this */
   }
-} // .menu-primary-container
+} /*  .menu-primary-container */
 
 /*------------------------------------*/
-//  #HOVER MENU
+/*   #HOVER MENU */
 /*------------------------------------*/
 
 .menu__hover {
@@ -113,7 +113,7 @@ ul {
   transition: transform 1s ease;
 
   a {
-    border-radius: 0; // backed somewhere up the line
+    border-radius: 0; /*  backed somewhere up the line */
     background: var(--priest-dull);
     border-bottom: 5px solid var(--priest-dark);
     margin: 0.25rem;
@@ -130,14 +130,14 @@ ul {
   transform: translate3d(0, 0, 0);
 }
 
-// this is kinda manual but it works
+/*  this is kinda manual but it works */
 .menu__hover--multiline {
   transition: transform 1s ease;
   clip-path: polygon(2em 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
 }
 
 /*------------------------------------*/
-//  #menu more
+/*   #menu more */
 /*------------------------------------*/
 
 .more-button {
@@ -148,25 +148,25 @@ ul {
 }
 
 .menu__more {
-  // height: 0;
+  /*  height: 0; */
   position: relative;
   transition: 1s ease;
   z-index: 0;
   margin-block: 1rem;
-  margin-inline-start: -100%; // guess and check
+  margin-inline-start: -100%; /*  guess and check */
 
   > li > a {
     margin-block: 1rem;
   }
 }
 
-// this is set inline so it doesnt work here
+/*  this is set inline so it doesnt work here */
 /* .menu__big--more:hover .menu__more {
   margin-top: 0;
 } */
 
 /*------------------------------------*/
-//  #SIMPLE
+/*   #SIMPLE */
 /*------------------------------------*/
 
 .row {
@@ -185,27 +185,27 @@ ul {
 }
 
 /*------------------------------------*/
-//  #OL
+/*   #OL */
 /*------------------------------------*/
 
-// https://stackoverflow.com/questions/4098195/can-ordered-list-produce-result-that-looks-like-1-1-1-2-1-3-instead-of-just-1
-// this is working on tables to get the alignment "correct"
-// so I don't love it but it works
+/*  https://stackoverflow.com/questions/4098195/can-ordered-list-produce-result-that-looks-like-1-1-1-2-1-3-instead-of-just-1 */
+/*  this is working on tables to get the alignment "correct" */
+/*  so I don't love it but it works */
 
 .terms {
-  // TODO: this has to go all the way down
+  /*  TODO: this has to go all the way down */
   font-family: var(--body-font-family);
 
   ol,
   ul,
   li {
-    // use both to deal with the borders
+    /*  use both to deal with the borders */
     margin-block-end: 0.25rem;
     padding-block-end: 0.25rem;
   }
 
   h2 {
-    font-size: 1.44rem; // h4
+    font-size: 1.44rem; /*  h4 */
   }
 
   list-style-type: none;
@@ -213,7 +213,7 @@ ul {
   margin: 0;
   padding: 0;
   max-width: 45rem;
-  // margin-inline: auto;
+  /*  margin-inline: auto; */
 
   > li {
     display: table;
@@ -234,7 +234,7 @@ ul {
 
     padding-inline-end: 0.25rem;
 
-    @media (min-width: $albatross) {
+    @media (min-width: 80rem) {
       padding-inline-end: 0.5rem;
     }
   }
@@ -251,7 +251,7 @@ ul {
     margin-block-start: 0.5rem;
     padding-inline-start: 0.25rem;
 
-    @media (min-width: $albatross) {
+    @media (min-width: 80rem) {
       margin-block-start: 0.25rem;
     }
   }
@@ -262,7 +262,7 @@ ul {
     padding-block-start: 0.5rem;
     padding-inline-start: 0.25rem;
 
-    @media (min-width: $albatross) {
+    @media (min-width: 80rem) {
       padding-inline-start: 0.5rem;
     }
   }
@@ -298,7 +298,7 @@ ul {
     padding-block-start: 0.5rem;
     padding-inline-start: 1.5rem;
 
-    @media (min-width: $albatross) {
+    @media (min-width: 80rem) {
       padding-inline-start: 0.5rem;
     }
   }
@@ -329,7 +329,7 @@ ul {
 }
 
 /*------------------------------------*/
-//  #Breadcrumbs
+/*   #Breadcrumbs */
 /*------------------------------------*/
 
 .breadcrumbs ol {
@@ -350,7 +350,7 @@ ul {
     margin-block-end: 0;
   }
 
-  // TODO: add a real chevron
+  /*  TODO: add a real chevron */
   .chevron {
     color: var(--aluminium);
   }

@@ -2,7 +2,7 @@
   #COLORS
 \*------------------------------------*/
 
-// GLOBAL TEXT COLOR
+/*  GLOBAL TEXT COLOR */
 
 body {
   background: var(--mercury);
@@ -17,7 +17,7 @@ body {
 }
 
 /*------------------*/
-//  #TESTIMONIALS
+/*   #TESTIMONIALS */
 /*------------------*/
 
 #testimonials {
@@ -40,7 +40,7 @@ body {
     }
 
     footer {
-      background: var(--silver); // reset priests styles
+      background: var(--silver); /*  reset priests styles */
       color: var(--lead);
 
       @media (prefers-color-scheme: dark) {
@@ -56,7 +56,7 @@ body {
 }
 
 /*------------------*/
-//  #TOPBAR
+/*   #TOPBAR */
 /*------------------*/
 
 .top-bar {

@@ -7,7 +7,7 @@ button,
   background: var(--priest-dull);
   color: var(--mercury);
   font-size: var(--silberhorn);
-  border: none; // browser rest
+  border: none; /*  browser rest */
   padding-block: 1rem;
   padding-inline: var(--inline-spacing);
   border-radius: var(--roll);
@@ -22,18 +22,18 @@ button:hover,
 button:focus,
 .button:focus {
   background-color: var(--priest-pitch);
-  border: none; // a reset
+  border: none; /*  a reset */
 }
 
 /*------------------*/
-//  HOLLOW
+/*   HOLLOW */
 /*------------------*/
 
 .button.hollow {
   background-color: transparent;
   border-color: var(--priest-dull);
   color: var(--priest-dull);
-  // font-weight: bold;
+  /*  font-weight: bold; */
   background-color: transparent;
   border: 2px solid var(--priest-dull);
   color: var(--priest-dull);
@@ -53,7 +53,7 @@ button:focus,
 }
 
 /*------------------*/
-//  MORE
+/*   MORE */
 /*------------------*/
 
 .tasks__more {
@@ -63,7 +63,7 @@ button:focus,
 }
 
 .summit__contact .button {
-  border-radius: 0; // reset
+  border-radius: 0; /*  reset */
   clip-path: var(--horizontal-clipper);
   padding-inline: 2rem;
 }

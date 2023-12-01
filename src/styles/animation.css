@@ -17,23 +17,23 @@
   /* Just do the link I dont understand the math */
   @keyframes FadeInOut {
     0% {
-      // always
+      /*  always */
       opacity: 1;
     }
     18.75% {
-      // 3/16*100
+      /*  3/16*100 */
       opacity: 1;
     }
     25% {
-      // (3+1)/16*100 = 1/4*100
+      /*  (3+1)/16*100 = 1/4*100 */
       opacity: 0;
     }
     93.75% {
-      // 100-(1/16*100)
+      /*  100-(1/16*100) */
       opacity: 0;
     }
     100% {
-      // always
+      /*  always */
       opacity: 1;
     }
   }

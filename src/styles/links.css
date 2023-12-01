@@ -22,7 +22,7 @@ a svg {
   }
 }
 
-// gatsby programatically creates this class
+/*  gatsby programatically creates this class */
 .current {
   background: var(--priest-dark);
 }

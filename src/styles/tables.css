@@ -1,10 +1,10 @@
 /*------------------*/
-//  #Tables
+/*   #Tables */
 /*------------------*/
 
 .material-list {
   ul {
-    padding: 0; // reset
+    padding: 0; /*  reset */
   }
 
   .table {
@@ -17,7 +17,7 @@
     }
 
     ul {
-      margin-block-end: 0; // reset
+      margin-block-end: 0; /*  reset */
     }
 
     .reference {
@@ -26,8 +26,8 @@
       }
 
       display: block;
-      padding-inline-start: 0; // reset
-      margin-inline-start: 8.5rem; // * all 6 have to line up
+      padding-inline-start: 0; /*  reset */
+      margin-inline-start: 8.5rem; /*  * all 6 have to line up */
       width: max-content;
 
       display: flex;
@@ -49,7 +49,7 @@
       width: max-content;
 
       @media (max-width: 70rem) {
-        margin-inline-start: 8.5rem; // * all 6 have to line up
+        margin-inline-start: 8.5rem; /*  * all 6 have to line up */
       }
 
       > li {
@@ -60,10 +60,10 @@
         text-align: start;
         height: 2rem;
         box-sizing: border-box;
-        width: 8.5rem; // * all 6 have to line up
+        width: 8.5rem; /*  * all 6 have to line up */
 
         @media (max-width: 70rem) {
-          margin-inline-start: -8.5rem; // * all 6 have to line up
+          margin-inline-start: -8.5rem; /*  * all 6 have to line up */
         }
 
         @media (min-width: 70rem) {
@@ -111,14 +111,14 @@
         border-inline-end: none;
       }
 
-      // these are all the stats
+      /*  these are all the stats */
       li:first-child {
         box-sizing: border-box;
         text-align: start;
-        width: 8.5rem; // * all 6 have to line up
+        width: 8.5rem; /*  * all 6 have to line up */
 
         @media (max-width: 70rem) {
-          margin-inline-start: -8.5rem; // * all 6 have to line up
+          margin-inline-start: -8.5rem; /*  * all 6 have to line up */
           padding-inline-end: 0.5rem;
           border-block-end: 1px solid gray;
         }
@@ -142,7 +142,7 @@
         }
 
         .key {
-          border-block-end: 1px solid gray; // ! test
+          border-block-end: 1px solid gray; /*  ! test */
           padding-inline: 0.2rem;
         }
       }

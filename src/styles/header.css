@@ -1,9 +1,9 @@
 /*------------------*/
-//  #HEADER
+/*   #HEADER */
 /*------------------*/
 
 /*------------------*/
-//  #HEADER CONTACT
+/*   #HEADER CONTACT */
 /*------------------*/
 
 .header__contact--wrap {
@@ -28,7 +28,7 @@
   > * {
     padding-inline: 2rem;
     font-size: var(--silberhorn);
-    margin-block-end: 0; // reset to use the flex gap
+    margin-block-end: 0; /*  reset to use the flex gap */
     text-align: center;
 
     a {
@@ -43,11 +43,11 @@
   padding-block-end: 3.25rem;
   padding-inline: 1rem;
   background: var(--mercury);
-  // z-index: -1; // this cant be here or it breaks links
+  /*  z-index: -1; // this cant be here or it breaks links */
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
 
-  @media (min-width: $stork) {
+  @media (min-width: 40rem) {
     margin-block-end: 4.875rem;
   }
 
@@ -64,7 +64,7 @@
   row-gap: var(--block-spacing);
   column-gap: var(--line-spacing);
 
-  @media (min-width: $albatross) {
+  @media (min-width: 80rem) {
     flex-flow: row wrap;
   }
 
@@ -74,7 +74,7 @@
   }
 
   h3 {
-    margin-top: 0; // reset from type scale as we already have a break but sort this our
+    margin-top: 0; /*  reset from type scale as we already have a break but sort this our */
     text-align: center;
     font-size: clamp(var(--h6-fs), 1.5vm, var(--h4-fs));
   }

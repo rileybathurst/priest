@@ -8,7 +8,7 @@ body {
   font-size: 16px;
 }
 
-// TITLES
+/*  TITLES */
 
 h1,
 h2,
@@ -18,50 +18,50 @@ h5,
 h6 {
   font-family: var(--major-font-family);
   font-weight: 400;
-  margin-block-start: 0; // reset
+  margin-block-start: 0; /*  reset */
   margin-block-end: 1lh;
 }
 
 h1,
 .aoraki {
   font-size: var(--aoraki);
-  // TODO: margin-block-end firefox
+  /*  TODO: margin-block-end firefox */
 }
 
 h2,
 .tasman {
   font-size: var(--tasman);
-  // TODO: margin-block-end firefox
+  /*  TODO: margin-block-end firefox */
 }
 
 h3,
 .dampier {
   font-size: var(--dampier);
-  // TODO: margin-block-end firefox
+  /*  TODO: margin-block-end firefox */
 }
 
 h4,
 .vancouver {
   font-size: var(--vancouver);
-  // TODO: margin-block-end firefox
+  /*  TODO: margin-block-end firefox */
 }
 
 h5,
 .silberhorn {
   font-size: var(--silberhorn);
-  // TODO: margin-block-end firefox
+  /*  TODO: margin-block-end firefox */
 }
 
 h6,
 .malte_brun {
   font-size: var(--malte_brun);
-  // TODO: margin-block-end firefox
+  /*  TODO: margin-block-end firefox */
 }
 
 small,
 .hicks {
   font-size: var(--hicks);
-  // TODO: margin-block-end firefox
+  /*  TODO: margin-block-end firefox */
 }
 
 .page-title {
@@ -72,13 +72,13 @@ small,
   text-align: center;
 }
 
-// PARAGRAPHS
+/*  PARAGRAPHS */
 
 p {
   line-height: 1.6;
-  margin-block-start: 0; // browser reset
+  margin-block-start: 0; /*  browser reset */
   margin-block-end: 1lh;
-  // https://caniuse.com/mdn-css_types_length_lh
+  /*  https://caniuse.com/mdn-css_types_length_lh */
   @supports not (margin: 1lh) {
     margin-block-end: 1.6rem;
   }
@@ -93,7 +93,7 @@ address {
 }
 
 /*------------------*/
-//  #EYEBROW
+/*   #EYEBROW */
 /*------------------*/
 
 hgroup {
@@ -109,7 +109,7 @@ hgroup {
 }
 
 /*------------------*/
-//  #TESTIMONIALS
+/*   #TESTIMONIALS */
 /*------------------*/
 
 #testimonials {
@@ -119,6 +119,6 @@ hgroup {
 
   p::before,
   p::after {
-    content: "“"; // left quote
+    content: "“"; /*  left quote */
   }
 }

@@ -7,7 +7,7 @@
 }
 
 .albatross {
-  // min-width: (calc(100% - 2rem), var(--albatross));
+  /*  min-width: (calc(100% - 2rem), var(--albatross)); */
   width: min(calc(100% - 2rem), var(--albatross));
   margin-inline: auto;
 }

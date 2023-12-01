@@ -11,9 +11,9 @@
 footer {
   background: var(--priest-dull);
   color: var(--mercury);
-  // border-top: 0.5rem solid var(--priest-blue);
+  /*  border-top: 0.5rem solid var(--priest-blue); */
   align-self: end;
-  margin-block-end: 0; // browser reset
+  margin-block-end: 0; /*  browser reset */
   font-weight: 600;
   clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
   padding-block-start: 1rem;
@@ -41,7 +41,7 @@ footer {
     justify-content: flex-start;
     gap: 1rem;
 
-    @media (min-width: $vulture) {
+    @media (min-width: 30rem) {
       flex-flow: row wrap;
     }
 
@@ -56,7 +56,7 @@ footer {
     }
   }
 
-  // cross this is as clean as I can get it so far
+  /*  cross this is as clean as I can get it so far */
   .cross__wrapper {
     .cross__hr {
       border-color: var(--mercury);
@@ -70,16 +70,16 @@ footer {
 
 .footer-lists {
   @media (max-width: $stork) {
-    padding: 0 !important; // overwrites :is(.backed, .backed__svg svg) {
-    // normally it should have the padding but at this size its small enough its not needed
-    // cant be a # as its needed twice
+    padding: 0 !important; /*  overwrites :is(.backed, .backed__svg svg) { */
+    /*  normally it should have the padding but at this size its small enough its not needed */
+    /*  cant be a # as its needed twice */
   }
 }
 
 .footer__contacts {
   a,
   .no-link {
-    display: flex; // TODO: this needs to become a grid
+    display: flex; /*  TODO: this needs to become a grid */
     flex-direction: row;
     gap: 1rem;
     align-items: center;
@@ -87,7 +87,7 @@ footer {
     transition: 0.5s ease;
     font-weight: 600;
 
-    @media (min-width: $vulture) {
+    @media (min-width: 30rem) {
       flex-direction: column;
       text-align: center;
     }
@@ -106,7 +106,7 @@ footer {
     grid-row: 1;
     align-self: center;
 
-    @media (min-width: $albatross) {
+    @media (min-width: 80rem) {
       justify-self: end;
     }
   }
@@ -116,7 +116,7 @@ footer {
     grid-row: 2;
     align-self: center;
 
-    @media (min-width: $albatross) {
+    @media (min-width: 80rem) {
       grid-column: 2;
       grid-row: 1;
       justify-self: start;
@@ -125,7 +125,7 @@ footer {
 }
 
 .footer__logo {
-  // max-width: 50%;
+  /*  max-width: 50%; */
   margin-inline: auto;
 
   svg {
@@ -136,7 +136,7 @@ footer {
     max-width: 10rem;
     margin-block-end: var(--block-spacing);
 
-    @media (min-width: $stork) {
+    @media (min-width: 40rem) {
       margin-block-end: 3rem;
     }
   }
@@ -149,14 +149,14 @@ footer {
   margin-block-end: var(block-spacing);
   width: 100%;
 
-  @media (min-width: $stork) {
+  @media (min-width: 40rem) {
     margin-block-end: 3rem;
   }
 
   p {
     margin-block-start: var(--inline-spacing);
 
-    @media (min-width: $stork) {
+    @media (min-width: 40rem) {
       margin-block-end: 0;
     }
   }

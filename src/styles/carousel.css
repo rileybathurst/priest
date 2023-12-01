@@ -1,14 +1,8 @@
 /*------------------*/
-//  #CAROUSEL
+/*   #CAROUSEL */
 /*------------------*/
 
-.carousel__area {
-}
-
-.carousel__wrap {
-}
-
-// control the height with the query
+/*  control the height with the query */
 .carousel {
   white-space: nowrap;
   overflow: hidden;
@@ -34,25 +28,19 @@
   flex-flow: row;
   flex-wrap: wrap;
   gap: 2px;
-  // overflow: hidden;
 
-  /*   // TODO: not baseline yet so should have a supports thats confusing with :has
-  button:has(.gatsby-image-wrapper) {
-    padding: 1px;
-  } */
-}
-
-.carousel__label .slider {
-  width: 2.5rem;
-  height: 2.5rem;
+  .carousel__label .slider {
+    width: 2.5rem;
+    height: 2.5rem;
 
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
 }
+}
 
-// TODO: needs a firefox fix
+/*  TODO: needs a firefox fix */
 button:has(img) {
   padding: 0.1rem;
 }

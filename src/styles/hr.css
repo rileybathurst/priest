@@ -23,7 +23,7 @@ hr {
   }
 
   .cross__hr {
-    width: 100%; // I dont know why but I have to double this
+    width: 100%; /*  I dont know why but I have to double this */
     border: none;
     border-bottom: 2px solid var(--priest-dull);
   }
@@ -34,7 +34,7 @@ hr {
     width: 0.8rem;
     height: 1.6rem;
     background: var(--mercury);
-    transform: skewX(-15deg); // guess and check
+    transform: skewX(-15deg); /*  guess and check */
 
     @media (prefers-color-scheme: dark) {
       background: var(--lead);

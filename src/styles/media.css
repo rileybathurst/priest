@@ -7,11 +7,11 @@
 \*------------------------------------*/
 
 figure {
-  margin: 0; // browser reset
+  margin: 0; /*  browser reset */
 }
 
 img {
-  display: block; // browser reset from inline-block
+  display: block; /*  browser reset from inline-block */
 }
 
 /**
@@ -19,7 +19,7 @@ img {
  * 1) Allows for images to flex with varying screen size
  */
 img {
-  vertical-align: middle; // stupid bottom border reset
+  vertical-align: middle; /*  stupid bottom border reset */
   max-width: 100%;
   height: auto;
 }
@@ -33,7 +33,7 @@ img {
   overflow-x: hidden;
 }
 
-// sets the height cuts the side
+/*  sets the height cuts the side */
 .img-100-high img {
   height: 100%;
 }
@@ -54,9 +54,9 @@ svg {
   #SHADOWS
 \*------------------------------------*/
 
-// TODO: needs love and variables
+/*  TODO: needs love and variables */
 .shadow {
-  // box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); // current, Im not sure why I was doing 2 shadows seems overly complicated
+  /*  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); // current, Im not sure why I was doing 2 shadows seems overly complicated */
   /* offset-x | offset-y | blur-radius | spread-radius | color */
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
 }
@@ -82,10 +82,10 @@ model-viewer {
 }
 
 /*------------------*/
-//  #MUX
+/*   #MUX */
 /*------------------*/
 
-// https://docs.mux.com/guides/player/customize-look-and-feel
+/*  https://docs.mux.com/guides/player/customize-look-and-feel */
 
 .noco {
   --controls: none;

@@ -1,13 +1,13 @@
 /*------------------------------------*/
-//  #MENU
+/*   #MENU */
 /*------------------------------------*/
 
 #menu_toggle {
-  margin-block-start: -2rem; // ? this number changes should it be a clamp
+  margin-block-start: -2rem; /*  ? this number changes should it be a clamp */
   z-index: var(--emergent);
 
-  @media (min-width: $pelican) {
-    display: none !important; // does this need important?
+  @media (min-width: 60rem) {
+    display: none !important; /*  does this need important? */
   }
 
   button {
@@ -25,54 +25,54 @@
   list-style: none;
   position: relative;
   display: flex;
-  // place-items: flex-end;
+  /*  place-items: flex-end; */
   place-items: space-between;
   gap: 0.5rem;
-  white-space: nowrap; // don't let lines break
+  white-space: nowrap; /*  don't let lines break */
 }
 
 .menu li {
   > a {
-    padding: var(--global-padding); // lets start setting a vertical rythm
-    display: flex; // the only one using this is with the icon but it doesnt hurt the rest
+    padding: var(--global-padding); /*  lets start setting a vertical rythm */
+    display: flex; /*  the only one using this is with the icon but it doesnt hurt the rest */
     place-items: flex-end;
     gap: 0.5rem;
   }
 
   svg {
-    min-width: 1rem; // safari and edge need a width
-    max-height: 2.4rem; // guess and check
+    min-width: 1rem; /*  safari and edge need a width */
+    max-height: 2.4rem; /*  guess and check */
 
     fill: var(--mercury);
     margin-inline-end: 0.25rem;
   }
 
-  // can I do something with is to get the svg and display it as a flex?
+  /*  can I do something with is to get the svg and display it as a flex? */
 }
 
 /*------------------------------------*/
-//  #small menu
+/*   #small menu */
 /*------------------------------------*/
 
 #menu_small {
   width: 100%;
   background: var(--priest-dark);
 
-  // ! theres a gap above the menu
-  // margin-block-start: -10rem; // ! this might not work with the other part overwriting it
+  /*  ! theres a gap above the menu */
+  /*  margin-block-start: -10rem; // ! this might not work with the other part overwriting it */
   padding-block-start: 2rem;
 
   position: relative;
-  z-index: 1; // check its above the gallery on the front page
+  z-index: 1; /*  check its above the gallery on the front page */
   margin-bottom: 0;
 
   > ul {
-    padding-left: 0; // browser reset
+    padding-left: 0; /*  browser reset */
     margin: 0;
 
     > li {
       list-style: none;
-      // margin-left: 0;
+      /*  margin-left: 0; */
       padding-inline: 0.5rem;
 
       > a {
@@ -83,40 +83,40 @@
         color: var(--mercury);
 
         > svg {
-          max-width: 2rem; // guess and check
-          max-height: 2rem; // guess and check
+          max-width: 2rem; /*  guess and check */
+          max-height: 2rem; /*  guess and check */
           fill: currentColor;
-        } // svg
-      } // a
+        } /*  svg */
+      } /*  a */
 
       > a:hover {
         background: var(--priest-dull);
         color: var(--mercury);
         clip-path: polygon(1rem 0, 100% 0, calc(100% - 1rem) 100%, 0 100%);
       }
-    } // li
-  } // ul
+    } /*  li */
+  } /*  ul */
 
-  @media (min-width: $pelican) {
+  @media (min-width: 60rem) {
     display: none;
   }
 }
-// TODO: inception only 3 deep
+/*  TODO: inception only 3 deep */
 
 .active {
   height: 100%;
-  transition: top 2s ease; // sliding menu
+  transition: top 2s ease; /*  sliding menu */
 }
 
 .inactive {
-  transition: top 2s ease; // sliding menu
+  transition: top 2s ease; /*  sliding menu */
 }
 
 .firstload {
-  // this just gets removed
+  /*  this just gets removed */
   opacity: 0;
-  height: 0; // this is needed but breaks all the things
-  padding: 0 !important; // TODO: I might be able to remove this but it gets removed so its not too big of a deal
+  height: 0; /*  this is needed but breaks all the things */
+  padding: 0 !important; /*  TODO: I might be able to remove this but it gets removed so its not too big of a deal */
 
   > * {
     display: none;
@@ -124,18 +124,18 @@
 }
 
 .menu-primary-container {
-  // 📣 bad naming
-  // display: none; // this is breaking the footer
-  // this isnt in the footer that shouldnt be a concern anymore
+  /*  📣 bad naming */
+  /*  display: none; // this is breaking the footer */
+  /*  this isnt in the footer that shouldnt be a concern anymore */
 
-  @media (min-width: $pelican) {
-    // never wrap
+  @media (min-width: 60rem) {
+    /*  never wrap */
     display: block;
   }
 }
 
 .menu-primary-container > ul > li > a {
-  border-bottom: 5px solid var(--priest-dull); // invisibile until hovered
+  border-bottom: 5px solid var(--priest-dull); /*  invisibile until hovered */
   padding-inline: 1.5rem;
 }
 
@@ -149,7 +149,7 @@
   clip-path: var(--trapezoid-1);
 }
 
-// needs specificity
+/*  needs specificity */
 #menu-primary-container__showcase > a {
   background: var(--priest-dark);
   border-bottom: 5px solid var(--priest-dark);
@@ -160,7 +160,7 @@
 :is(#menu-primary-container__showcase) a:hover,
 a:focus {
   background: var(--priest-dark);
-  // TODO: check this its the same color
+  /*  TODO: check this its the same color */
   border-bottom: 5px solid var(--priest-dark);
 }
 

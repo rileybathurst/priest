@@ -1,5 +1,5 @@
 /*------------------------------------*/
-//  #SERVICES
+/*   #SERVICES */
 /*------------------------------------*/
 
 .service__more--back {
@@ -12,7 +12,7 @@
     background: var(--tungsten);
   }
 
-  @media (min-width: $stork) {
+  @media (min-width: 40rem) {
     grid-row: 3;
     grid-column: 1/3;
   }
@@ -30,7 +30,7 @@
   border-radius: var(--backed-radius);
   transition: var(--general-timing);
 
-  @media (min-width: $stork) {
+  @media (min-width: 40rem) {
     grid-row: 3;
     grid-column: 2;
     margin-inline-start: 1rem;
@@ -99,7 +99,7 @@
   }
 }
 
-// weird code seems to work
+/*  weird code seems to work */
 #IndustryView .single section:last-child .cross__wrapper:last-child {
   display: none;
 }
@@ -109,8 +109,8 @@
 \*------------------------------------*/
 
 #map {
-  // padding: var(--global-padding);
-  // margin-block-start: -2rem;
+  /*  padding: var(--global-padding); */
+  /*  margin-block-start: -2rem; */
   clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
   margin-block-start: -2rem;
   background: var(--priest-dull);
@@ -119,7 +119,7 @@
     margin-block-end: -2rem;
     margin-inline: var(--global-margin);
     width: 100%;
-    // max-width: var(--albatross);
+    /*  max-width: var(--albatross); */
     margin-inline: auto;
     display: block;
     background: var(--priest-dull);
@@ -127,8 +127,8 @@
   }
 }
 
-// * ajust google maps iframe
-// TODO I might need the API for this but thats more than I want to do right now
+/*  * ajust google maps iframe */
+/*  TODO I might need the API for this but thats more than I want to do right now */
 .place-card {
   margin-block-start: 2rem !important;
 }
@@ -144,7 +144,7 @@
 
   > .stars {
     display: grid;
-    grid-template-rows: 1fr 1.55fr; // guess and check
+    grid-template-rows: 1fr 1.55fr; /*  guess and check */
     padding-block-start: 2rem;
     max-width: var(--stork);
     margin-inline: auto;
@@ -167,10 +167,10 @@
       grid-row: 1;
       grid-column: 1;
       clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
-      margin: 0; // reset
+      margin: 0; /*  reset */
       padding-block: 5rem;
       display: grid;
-      grid-template-rows: subgrid; // keep the footer consistent
+      grid-template-rows: subgrid; /*  keep the footer consistent */
 
       > * {
         max-width: var(--vulture);
@@ -179,14 +179,14 @@
       }
 
       footer {
-        clip-path: none; // overwrite priest style
+        clip-path: none; /*  overwrite priest style */
       }
     }
   }
 }
 
 /*------------------------------------*/
-//  #single
+/*   #single */
 /*------------------------------------*/
 
 .single {
@@ -205,7 +205,7 @@
   margin-block-end: 2rem;
   clip-path: var(--horizontal-clipper);
 
-  // TODO: do we use iframes now its mux?
+  /*  TODO: do we use iframes now its mux? */
   iframe {
     width: 100%;
     aspect-ratio: 16/9;
@@ -226,7 +226,7 @@
     flex: 1 1 20rem;
   }
 
-  // TODO add a clamp to the type here
+  /*  TODO add a clamp to the type here */
   /* h2 {
 
   } */
@@ -253,7 +253,7 @@
 }
 
 /*------------------------------------*/
-//  #SUMMIT
+/*   #SUMMIT */
 /*------------------------------------*/
 
 #summit__about--shape {
@@ -266,7 +266,7 @@
 .summit--shape {
   position: absolute;
 
-  @media (min-width: $stork) {
+  @media (min-width: 40rem) {
     position: relative;
     shape-outside: polygon(0 0, 100% 0, 0 100%);
     clip-path: polygon(0 0, 100% 0, 0 100%);
@@ -276,7 +276,7 @@
 }
 
 /*------------------------------------*/
-//  #VIDEOS
+/*   #VIDEOS */
 /*------------------------------------*/
 
 .videos {
@@ -315,18 +315,18 @@
 }
 
 /*------------------------------------*/
-//  #GALLERY
+/*   #GALLERY */
 /*------------------------------------*/
 
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  // experimental
+  /*  experimental */
   @supports not (grid-template-rows: masonry) {
     grid-template-rows: masonry;
   }
   grid-template-rows: masonry;
   gap: 1rem;
   margin-block-end: 3rem;
-  padding-inline-start: 0; // ul reset
+  padding-inline-start: 0; /*  ul reset */
 }

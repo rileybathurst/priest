@@ -1,5 +1,5 @@
 /*------------------*/
-//  #Card
+/*   #Card */
 /*------------------*/
 
 .deck {
@@ -14,10 +14,10 @@
   justify-content: space-between;
   justify-content: center;
   width: calc(100% - 2rem);
-  // ? can I fix this by taking minmax to 31?
+  /*  ? can I fix this by taking minmax to 31? */
   grid-template-columns: 1fr;
 
-  @media (min-width: $vulture) {
+  @media (min-width: 30rem) {
     width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   }
@@ -36,7 +36,7 @@
       aspect-ratio: 16 / 9;
       clip-path: var(--horizontal-clipper);
       z-index: var(--canopy);
-      position: relative; // this is needed for the z-index to work
+      position: relative; /*  this is needed for the z-index to work */
       mix-blend-mode: multiply;
       transition: transform 0.5s ease;
 
@@ -57,7 +57,7 @@
       z-index: var(--understory);
       clip-path: var(--horizontal-clipper);
       background-color: var(--priest-dull);
-      // max-height: 100%; // this breaks chrome dont do it
+      /*  max-height: 100%; // this breaks chrome dont do it */
     }
 
     .card__backer {
@@ -71,7 +71,7 @@
       padding-block-start: 0;
       background-color: var(--mercury);
       z-index: var(--floor);
-      position: relative; // this is needed for the z-index to work
+      position: relative; /*  this is needed for the z-index to work */
       aspect-ratio: 2 / 1;
 
       @media (prefers-color-scheme: dark) {
@@ -84,7 +84,7 @@
     .card__text {
       grid-row: 1;
       grid-column: 1;
-      height: min-content; /* // ! not working */
+      height: min-content; /* ! not working */
     }
 
     h2 {

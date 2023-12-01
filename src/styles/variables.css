@@ -1,18 +1,18 @@
 /*------------------*/
-//  #VARIABLES
+/*   #VARIABLES */
 /*------------------*/
 
 :root {
   /*------------------*/
-  //  #TYPOGRAPHY
+  /*   #TYPOGRAPHY */
   /*------------------*/
 
-  // FONTS
+  /*  FONTS */
   --body-font-family: "Open Sans", sans-serif;
   --major-font-family: "Roboto Slab", serif;
 
-  // SIZING
-  // https://en.wikipedia.org/wiki/List_of_mountains_of_New_Zealand_by_height
+  /*  SIZING */
+  /*  https://en.wikipedia.org/wiki/List_of_mountains_of_New_Zealand_by_height */
   --aoraki: 2.488rem;
   --tasman: 2.074rem;
   --dampier: 1.728rem;
@@ -22,7 +22,7 @@
   --hicks: 0.833rem;
 
   /*------------------------------------*/
-  //  #COLORS
+  /*   #COLORS */
   /*------------------------------------*/
 
   --priest-pitch: hsl(196, 98%, 2%);
@@ -52,25 +52,25 @@
   --silver: hsl(0, 0%, 86%);
   --mercury: hsl(0, 0%, 99%);
 
-  // --pb_complementary: hsl(31, 79%, 62%);
+  /*  --pb_complementary: hsl(31, 79%, 62%); */
 
   /*------------------------------------*/
-  //  #SPACING
+  /*   #SPACING */
   /*------------------------------------*/
 
-  // TODO: theres a new variable for this
-  --block-spacing: 1.625rem; // 26px baseline grid
-  // if this is top and bottom its 3.25rem // 52px
-  --inline-spacing: 0.8125rem; // half the baselines on the widths
+  /*  TODO: theres a new variable for this */
+  --block-spacing: 1.625rem; /*  26px baseline grid */
+  /*  if this is top and bottom its 3.25rem // 52px */
+  --inline-spacing: 0.8125rem; /*  half the baselines on the widths */
 
   /*------------------------------------*/
-  //  #TIMING
+  /*   #TIMING */
   /*------------------------------------*/
 
   --general-timing: 0.5s ease;
 
   /*------------------*/
-  //  #SHADOWS
+  /*   #SHADOWS */
   /*------------------*/
 
   --mesosphere: 0 5px 12px hsla(0, 0%, 0%, 0.4),
@@ -81,14 +81,14 @@
     0 3px 6px hsla(0, 0%, 0%, 0.14);
 
   /*------------------------------------*/
-  //  #LAYOUT
+  /*   #LAYOUT */
   /*------------------------------------*/
 
   --general-measure: 30rem;
   --header-menu-size: 70rem;
   --albatross: 77rem;
 
-  // BREAKPOINTS
+  /*  BREAKPOINTS */
   --swan: 20rem;
   --vulture: 30rem;
   --stork: 40rem;
@@ -97,7 +97,7 @@
   --albatross: 80rem;
 
   /*------------------*/
-  //  #CLIP PATHS
+  /*   #CLIP PATHS */
   /*------------------*/
 
   --top-left-corner-clipper: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
@@ -105,14 +105,14 @@
   --horizontal-clipper: polygon(2rem 0, 100% 0, calc(100% - 2rem) 100%, 0 100%);
 
   /*------------------*/
-  //  #BORDER RADIUS
+  /*   #BORDER RADIUS */
   /*------------------*/
-  // TODO: rename this
+  /*  TODO: rename this */
   --roll: 0.25rem;
 
   /*------------------*/
-  //  #LAYERS
-  // https://en.wikipedia.org/wiki/Forest
+  /*   #LAYERS */
+  /*  https://en.wikipedia.org/wiki/Forest */
   /*------------------*/
   --root: -1;
   --floor: 0;
@@ -122,7 +122,7 @@
 }
 
 /*------------------*/
-//  #BREAKPOINTS
+/*   #BREAKPOINTS */
 /*------------------*/
 
 $swan: 20rem;
