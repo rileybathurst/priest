@@ -1,0 +1,13 @@
+.stories-button {
+  background: red;
+  padding: 1rem;
+  /* deg, rad, grad, turn */
+  transform: skew(-5deg);
+  
+}
+
+.stories-hr {
+  /* deg, rad, grad, turn */
+  transform: skew(0, -1deg);
+  
+}

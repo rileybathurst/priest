@@ -17,7 +17,7 @@ h4,
 h5,
 h6 {
   font-family: var(--major-font-family);
-  font-weight: 400;
+  font-weight: var(--welterweight);
   margin-block-start: 0; /*  reset */
   margin-block-end: 1lh;
 }
@@ -92,6 +92,18 @@ address {
   }
 }
 
+/*------------------------------------*/
+  /* #SINGLES */
+/*------------------------------------*/
+
+.major-font-family {
+  font-family: var(--major-font-family);
+}
+
+.flyweight {
+  font-weight: 200;
+}
+
 /*------------------*/
 /*   #EYEBROW */
 /*------------------*/
@@ -104,6 +116,17 @@ hgroup {
 
   .supra {
     font-size: var(--tasman);
+    font-family: var(--major-font-family);
+  }
+}
+
+/*------------------------------------*/
+  /* .BANNER */
+/*------------------------------------*/
+
+.banner {
+  display: block;
+  .spec {
     font-family: var(--major-font-family);
   }
 }
@@ -122,3 +145,33 @@ hgroup {
     content: "“"; /*  left quote */
   }
 }
+
+/*------------------------------------*/
+  /* #SUMMIT */
+/*------------------------------------*/
+
+#summit {
+  h1 {
+    font-size: var(--tasman);
+    font-family: var(--body-font-family);
+    font-weight: var(--flyweight);
+  }
+
+  .banner {
+    text-decoration: none;
+    margin-block-end: 1.5rem;
+    width: max-content;
+
+    .spec {
+      font-size: var(--aoraki);
+      font-size: 6rem;
+      display: block;
+      border-block-end: 1px solid var(--priest-dull);
+    }
+
+    .story {
+      font-size: var(--tasman);
+    }
+  }
+}
+

@@ -2,6 +2,8 @@
   #PRIEST
 \*------------------------------------*/
 
+
+
 /*------------------------------------*\
   #ABSTRACTS
 \*------------------------------------*/
@@ -10,6 +12,7 @@
 @import "colors";
 @import "typography";
 @import "shadows";
+
 
 /*------------------------------------*\
   #BASE
@@ -44,7 +47,5 @@
 @import "visibillity";
 @import "carousel";
 @import "animation";
-
-/*  @import "car-check"; */
 
 @import "showcase";

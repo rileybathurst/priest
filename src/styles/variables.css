@@ -21,6 +21,13 @@
   --malte_brun: 1rem;
   --hicks: 0.833rem;
 
+  /* WEIGHTS */
+  /* https://en.wikipedia.org/wiki/Weight_class_(boxing) */
+  --cruiserweight: 700;
+  --welterweight: 400;
+  --flyweight: 200;
+  /* --atomweight: 100; */
+
   /*------------------------------------*/
   /*   #COLORS */
   /*------------------------------------*/
@@ -34,6 +41,7 @@
   --priest-bright: hsl(196, 44%, 86%);
   --priest-brilliant: hsl(196, 44%, 98%);
 
+  /* LUMINANCE */
   --pitch: 2%;
   --dark: 16%;
   --dull: 30%;
@@ -43,6 +51,7 @@
   --bright: 86%;
   --brilliant: 98%;
 
+  /* NEUTRALS */
   --lead: hsl(0, 0%, 2%);
   --tungsten: hsl(0, 0%, 16%);
   --iron: hsl(0, 0%, 30%);
@@ -84,10 +93,6 @@
   /*   #LAYOUT */
   /*------------------------------------*/
 
-  --general-measure: 30rem;
-  --header-menu-size: 70rem;
-  --albatross: 77rem;
-
   /*  BREAKPOINTS */
   --swan: 20rem;
   --vulture: 30rem;
@@ -114,20 +119,9 @@
   /*   #LAYERS */
   /*  https://en.wikipedia.org/wiki/Forest */
   /*------------------*/
-  --root: -1;
-  --floor: 0;
-  --understory: 1;
-  --canopy: 2;
   --emergent: 3;
+  --canopy: 2;
+  --understory: 1;
+  --floor: 0;
+  --root: -1;
 }
-
-/*------------------*/
-/*   #BREAKPOINTS */
-/*------------------*/
-
-$swan: 20rem;
-$vulture: 30rem;
-$stork: 40rem;
-$condor: 50rem;
-$pelican: 60rem;
-$albatross: 80rem;

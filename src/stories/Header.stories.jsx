@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Header } from "./Header";
-import "../styles/styles.scss";
+import "../styles/app.css";
 
 export default {
   title: "Example/Header",

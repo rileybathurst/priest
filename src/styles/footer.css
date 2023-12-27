@@ -14,7 +14,7 @@ footer {
   /*  border-top: 0.5rem solid var(--priest-blue); */
   align-self: end;
   margin-block-end: 0; /*  browser reset */
-  font-weight: 600;
+  font-weight: var(--cruiserweight);
   clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
   padding-block-start: 1rem;
 
@@ -85,7 +85,7 @@ footer {
     align-items: center;
     padding: 0.5rem 1rem;
     transition: 0.5s ease;
-    font-weight: 600;
+    font-weight: var(--cruiserweight);
 
     @media (min-width: 30rem) {
       flex-direction: column;

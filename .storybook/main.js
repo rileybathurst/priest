@@ -5,13 +5,27 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     {
-      name: '@storybook/addon-styling',
+      name: '@storybook/addon-styling-webpack',
       options: {
-        sass: {
-          // Require your Sass preprocessor here
-          implementation: require('sass'),
-        },
-      },
+        rules: [
+          // Replaces existing CSS rules with given rule
+          {
+            test: /\.css$/,
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: { importLoaders: 1 }
+              },
+              {
+                // Gets options from `postcss.config.js` in your project root
+                loader: 'postcss-loader',
+                options: { implementation: require.resolve('postcss') }
+              }
+            ],
+          }
+        ]
+      }
     },
   ],
   "framework": {

@@ -60,6 +60,18 @@ body {
 /*------------------*/
 
 .top-bar {
-  background-color: var(--priest-light);
-  color: var(--lead);
+  background-color: var(--priest-dull);
+  color: var(--mercury);
+
+  a {
+    color: var(--mercury);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--general-timing);
+  }
+
+  a:hover {
+    background-color: var(--priest-blue);
+  }
+  /* ? am I doing a specific dark mode for this? */
 }

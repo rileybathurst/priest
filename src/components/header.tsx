@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "gatsby";
 import Wordmark from "./wordmark";
 import SmallMenuToggle from "./small-menu";
+import Banner from "./banner";
 
 const MenuList = () => (
   <>
@@ -36,7 +37,7 @@ const MenuList = () => (
 const Header = () => (
   <>
     <div className="top-bar">
-      NEW 12kW Fibre - South Islands Most Powerful Laser
+      <Banner />
     </div>
 
     <header className="hero">

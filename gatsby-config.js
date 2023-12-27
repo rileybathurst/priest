@@ -30,7 +30,6 @@ module.exports = {
     mapGoogle: 'https://goo.gl/maps/DLWcUSz5iroPwhbb9',
   },
   plugins: [
-    'gatsby-plugin-sass',
     {
       resolve: "gatsby-source-strapi",
       options: {
@@ -49,6 +48,16 @@ module.exports = {
         singleTypes: [
           `craftsmanship`,
           `specialist`,
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require(`postcss-import`),
+          require(`autoprefixer`),
+          require(`postcss-nested`),
         ],
       },
     },

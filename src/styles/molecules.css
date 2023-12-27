@@ -25,8 +25,8 @@
 }
 
 /*------------------------------------*\
-  TASKS /*  TODO change the name */
-\*------------------------------------*/ .tasks__wrapper {
+  TASKS  TODO change the name
+/*------------------------------------*/ .tasks__wrapper {
   display: flex;
   flex-flow: row wrap;
   margin-inline: auto;
