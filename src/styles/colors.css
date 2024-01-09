@@ -21,35 +21,14 @@ body {
 /*------------------*/
 
 #testimonials {
-  background: var(--mercury);
-
-  @media (prefers-color-scheme: dark) {
-    background: var(--lead);
-  }
-
   svg {
     fill: var(--priest-blue);
   }
-
-  blockquote {
-    background: var(--silver);
-
-    @media (prefers-color-scheme: dark) {
-      background: var(--lead);
-      color: var(--mercury);
-    }
-
-    footer {
-      background: var(--silver); /*  reset priests styles */
-      color: var(--lead);
-
-      @media (prefers-color-scheme: dark) {
-        background: var(--lead);
-        color: var(--mercury);
-      }
-    }
-  }
 }
+
+/*------------------------------------*/
+  /* #HR */
+/*------------------------------------*/
 
 .hr-aluminium {
   border-block-end: 1px soild var(--aluminium);

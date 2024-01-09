@@ -8,7 +8,8 @@
   padding-block-start: 1rem;
 }
 
-footer {
+/* footer was too broad and hitting other elements */
+.page-footer {
   background: var(--priest-dull);
   color: var(--mercury);
   /*  border-top: 0.5rem solid var(--priest-blue); */

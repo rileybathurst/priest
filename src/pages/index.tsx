@@ -14,6 +14,7 @@ import Map from '../components/map';
 
 import { CardTypes } from '../types/card-types';
 import SeoShowcase from '../components/seo-showcase';
+import Material from '../components/material';
 import Banner from '../components/banner';
 
 const IndexPage = () => {
@@ -70,7 +71,7 @@ const IndexPage = () => {
       <section id="summit">
         <div className="summit__info">
           <Banner />
-          <h1>{useSiteMetadata().description}</h1>
+          <h1 className='font-weight-300'>{useSiteMetadata().description}</h1>
           <ReactMarkdown children={specialist} />
           <ReactMarkdown children={craftsmanship.body.data.body} />
           <SummitContact />
@@ -81,13 +82,10 @@ const IndexPage = () => {
         </div>
       </section>
 
-      <h2 className='albatross'>
-        <Link to="/services">
-          Services
-          <h2>{craftsmanship.title}</h2>
-        </Link>
-      </h2>
-      <hr className='hr-aluminium' />
+      <Link to="/services" className='eyebrow albatross'>
+        <h2 className='title'>Services</h2>
+        <h2 className='supra'>{craftsmanship.title}</h2>
+      </Link>
 
       <div className="deck">
         {services.map((service: CardTypes, index: number) => (
@@ -99,10 +97,15 @@ const IndexPage = () => {
         ))}
       </div >
 
+      <Link to="/materials" className='eyebrow albatross'>
+        <h2 className='title'>Materials</h2>
+        <h2 className='supra'>Thickness and Options</h2>
+      </Link>
+      <Material />
 
-
-      {/* // TODO: make these bigger and better designed not just slapped up */}
-      < Testimonials />
+      <div className='index-testimonials'>
+        <Testimonials />
+      </div>
 
       <section id="map">
         <Map />

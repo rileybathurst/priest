@@ -24,21 +24,56 @@
 
   .card {
     display: grid;
-    grid-template-columns: 1.67fr 1fr;
-    grid-template-rows: min-content min-content;
-    grid-column-gap: 1rem;
-    border-block-end: 1px solid var(--aluminium);
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+    padding: 1rem;
+    gap: 1rem;
+  
+    > * {
+      grid-column: 1;
+    }
+
+    .card__background {
+      grid-row: 1/6;
+      transform: skew(0, -2deg); /* guess check */
+      z-index: var(--root);
+      margin: -1rem; /* bleed over card padding */
+      
+      background-color: hsl(196, 6%, 92.5%); /* halfway between silver and mercury */
+      @media (prefers-color-scheme: dark) {
+        background-color: hsl(196, 6%, 9%); /* halfway between lead and tungsten */
+      }
+    }
+
+    .card__top-line {
+      grid-row: 1;
+      height: 0px;
+    }
+
+    .card__title {
+      grid-row: 2 !important;
+      margin-block-end: 0;
+    }
 
     .card__image,
     .card__video {
-      grid-row: 1/4;
+      grid-row: 1/3;
       grid-column: 2;
       aspect-ratio: 16 / 9;
       clip-path: var(--horizontal-clipper);
       z-index: var(--canopy);
       position: relative; /*  this is needed for the z-index to work */
-      mix-blend-mode: multiply;
       transition: transform 0.5s ease;
+
+      grid-column: 1 !important;
+      width: 50%;
+      min-height: 2rem;
+      justify-self: end;
+      z-index: var(--canopy);
+      transform: skew(0, -2deg); /* guess check */
+      margin-block-start: -2rem;
+      clip-path: none !important;
+      mix-blend-mode: normal;
 
       .gatsby-image-wrapper {
         filter: grayscale(1);
@@ -46,7 +81,7 @@
     }
 
     .card__image:hover {
-      transform: scale(1.1);
+      /* transform: scale(1.1); */
     }
 
     .card__overlay {
@@ -115,18 +150,44 @@
       align-self: start;
       height: max-content;
       height: 100%;
+      grid-row: 3;
     }
 
     .card__more {
       grid-column: 1;
       margin-block-end: 1rem;
       text-decoration: underline;
+      grid-row: 4;
+
+      span {
+        font-weight: var(--cruiserweight);
+      }
+    }
+
+    .card__top-line,
+    .card__base-line {
+      width: 100%;
+      transform: skew(0, -2deg); /* guess check */
+      z-index: var(--floor);
+      align-self: start;
+    }
+  
+    .card__base-line {
+      grid-row: 5;
     }
   }
 }
 
 .deck > *:last-child .card {
   border-block-end: none;
+}
+
+.deck .card {
+  align-self: start;
+}
+
+.deck .card:nth-child(even) {
+  margin-block-start: 50%; /* guess and check */
 }
 
 .card__large > * {

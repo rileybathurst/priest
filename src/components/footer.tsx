@@ -14,7 +14,7 @@ import Map from "../icons/map";
 
 const Footer = () => (
   <div className="footer__wrapper">
-    <footer>
+    <footer className="page-footer">
 
       <nav>
         <ServicesNav />

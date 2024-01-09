@@ -31,7 +31,7 @@ function Title({ shortname, byline, slug, breadcrumb }: TitleTypes) {
     )
   } else {
     return (
-      <h2>
+      <h2 className="card__title">
         <Link to={`/${breadcrumb}/${slug}`}>
           {shortname}
         </Link>
@@ -44,10 +44,11 @@ function Card({ content, breadcrumb }: CardTypes) {
 
   return (
     <div className="card">
-      <div className="card__overlay">{/* stay gold */}</div>
+      <hr className="card__top-line" />
+      <div className="card__background">{/* stay gold */}</div>
       <Link
         to={`${breadcrumb}/${content.slug}`}
-        className="card__image shadow"
+        className="card__image"
       >
         <GatsbyImage
           image={content.cover.localFile.childImageSharp.gatsbyImageData}
@@ -70,6 +71,7 @@ function Card({ content, breadcrumb }: CardTypes) {
       >
         More info on {content.title}
       </Link>
+      <hr className="card__base-line" />
     </div >
   );
 };

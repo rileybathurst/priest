@@ -67,3 +67,79 @@ button:focus,
   clip-path: var(--horizontal-clipper);
   padding-inline: 2rem;
 }
+
+/*------------------------------------*/
+  /* #LAYERED_BUTTON */
+/*------------------------------------*/
+
+.chain {
+  display: flex;
+}
+
+.layered_button {
+  display: grid;
+  
+  /* dont use these it breaks safari */
+  /* @supports (width: fit-content) {
+    width: fit-content;
+  }
+
+  @supports (width: -moz-fit-content) {
+    width: -moz-fit-content;
+  } */
+
+  /* yes this works on firefox */
+  width: fit-content;
+
+  text-decoration: none; /* reset */
+  margin-block-end: 1rem;
+
+  > * {
+    /* grid-row: 1; */
+    grid-column: 1;
+  }
+
+  .background,
+  .word {
+    grid-row: 2;
+  }
+
+  button {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .background {
+    transition: var(--general-timing);
+    background: var(--priest-dull);
+    padding-block: 1rem;
+    /* deg, rad, grad, turn */
+    transform: skew(-10deg); /* match robotto italic */
+    border-radius: 0;
+    font-style: italic;
+    margin-inline-end: 0.5rem;
+  }
+
+  .word {
+    z-index: var(--understory);
+    font-family: var(--body-font-family);
+    font-style: italic;
+    color: var(--mercury);
+    font-size: var(--silberhorn);
+    padding-block: 1rem;
+    padding-inline: var(--inline-spacing);
+    padding-inline-end: calc(var(--inline-spacing) * 2); /* weird fix */
+  }
+
+  .supra {
+    grid-row: 1;
+    margin-block-end: 0.75rem;
+  }
+}
+
+.layered_button:hover .background {
+  background: var(--priest-dark);
+  box-shadow: var(--troposphere);
+}

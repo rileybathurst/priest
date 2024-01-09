@@ -4,6 +4,8 @@
 
 hr {
   border-color: var(--priest-dull);
+  max-width: var(--albatross);
+  margin-inline: auto;
 }
 
 .cross__wrapper {

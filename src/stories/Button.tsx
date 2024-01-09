@@ -32,7 +32,6 @@ export const Button = ({ primary }) => {
 
       <hr />
 
-      {/* <a href="#" className='stories-button_2'> */}
       <a href="#" className='stories-button_2'>
         <button className='sr-only'>
           layered button
@@ -45,7 +44,19 @@ export const Button = ({ primary }) => {
           layered button
         </div>
       </a>
-      {/* </a> */}
+
+      <a href="#" className='stories-button_2'>
+        <button className='sr-only'>
+          layered button
+        </button>
+        <div className='background'>
+          {/* stay gold */}
+        </div>
+
+        <div className='word'>
+          layered button
+        </div>
+      </a>
     </>
   );
 };
