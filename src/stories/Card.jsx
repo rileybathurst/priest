@@ -2,7 +2,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./card.css";
+import "../styles/app.css";
+import "./card-stories.css";
 
 export const Card = ({ primary }) => {
   const mode = primary
@@ -12,25 +13,27 @@ export const Card = ({ primary }) => {
     <div className="deck">
       <div>
         <div className="card">
-          <div className="card__overlay">{/* stay gold */}</div>
-          <a href="#" className="card__image shadow">
+          <hr className="card__top-line" />
+          <div className="card__background">{/* stay gold */}</div>
+          {/* <div className="card__overlay">stay gold</div> */}
+          <div className="card__image">
             {/* // TODO: add image */}
             {/* <GatsbyImage
               image={content.cover.localFile.childImageSharp.gatsbyImageData}
               alt={content.cover.alternativeText}
             /> */}
-          </a>
-          <div className="card__backer">{/* stay gold */}</div>
+          </div>
           {/* // TODO: make the title function a story */}
-          <h2>
+          <h2 className="card__title">
             <a href="/breadcrumbslug">shortname</a>
           </h2>
           <div className="card__excerpt">
             <p>excerpt // TODO: make this longer</p>
           </div>
           <a href="breadcrumb/slug" className="card__more">
-            More info on title
+            More info on <span>title</span>
           </a>
+          <hr className="card__base-line" />
         </div>
       </div>
     </div>

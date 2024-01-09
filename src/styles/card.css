@@ -89,7 +89,7 @@
 
     h2 {
       font-size: var(--aoraki);
-      text-transform: uppercase;
+      /* text-transform: uppercase; */
       margin-block-end: 1rem;
     }
 

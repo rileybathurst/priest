@@ -2,29 +2,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import "../styles/buttons.css";
+import "../styles/app.css";
 import "./buttons-stories.css";
 
 export const Button = ({ primary }) => {
   const mode = primary ? 'storybook-Button--primary' : 'storybook-Button--secondary';
   return (
     <>
-      hello
+
+      <button className='button'>
+        Button test
+      </button>
+
+      <hr className='stories-hr' />
+      <p>Im not sure about this yet</p>
+
+      <button className='stories-button'>
+        Button test
+      </button>
+      <button className='stories-button'>
+        lorem ipsum dolor sit amen
+      </button>
 
       <hr />
 
-      <button class='button'>
+      <button className='stories-button stories-button_hover'>
         Button test
       </button>
 
-      <hr class='stories-hr' />
+      <hr />
 
-      <button class='stories-button'>
-        Button test
-      </button>
-      <button class='stories-button'>
-        lorem ipsum dolor sit amen
-      </button>
+      {/* <a href="#" className='stories-button_2'> */}
+      <a href="#" className='stories-button_2'>
+        <button className='sr-only'>
+          layered button
+        </button>
+        <div className='background'>
+          {/* stay gold */}
+        </div>
+
+        <div className='word'>
+          layered button
+        </div>
+      </a>
+      {/* </a> */}
     </>
   );
 };

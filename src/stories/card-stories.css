@@ -1,0 +1,69 @@
+/* lots of important as Im testing */
+
+.card {
+  padding: 1rem;
+  grid-template-columns: 1fr !important;
+  gap: 1rem;
+
+  > * {
+    grid-column: 1;
+  }
+
+  .card__background {
+    grid-row: 1/6;
+    background-color: hsl(196, 6%, 92.5%); /* halfway between silver and mercury */
+    transform: skew(0, -2deg); /* guess check */
+    z-index: var(--root);
+    margin: -1rem; /* bleed over card padding */
+  }
+
+  .card__top-line {
+    grid-row: 1;
+    height: 0px;
+  }
+
+  .card__title {
+    grid-row: 2 !important;
+    margin-block-end: 0;
+  }
+
+  .card__excerpt {
+    grid-row: 3;
+  }
+
+  .card__more {
+    grid-row: 4;
+
+    span {
+      font-weight: var(--cruiserweight);
+    }
+  }
+
+  .card__top-line,
+  .card__base-line {
+    width: 100%;
+    transform: skew(0, -2deg); /* guess check */
+    z-index: var(--floor);
+  }
+
+  .card__base-line {
+    grid-row: 5;
+  }
+
+  .card__image {
+    grid-column: 1 !important;
+    width: 50%;
+    min-height: 2rem;
+    justify-self: end;
+    background-color: red; /* ! debug */
+    z-index: var(--canopy);
+    transform: skew(0, -2deg); /* guess check */
+    margin-block-start: -2rem;
+    clip-path: none !important;
+    mix-blend-mode: normal;
+  }
+
+  .card__image:hover {
+    /* TODO: needs fixing */
+  }
+}

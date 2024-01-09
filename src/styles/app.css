@@ -9,6 +9,7 @@
 \*------------------------------------*/
 
 @import "variables";
+@import "a11y";
 @import "colors";
 @import "typography";
 @import "shadows";
