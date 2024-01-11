@@ -119,14 +119,16 @@ button:focus,
   }
 
   .word {
+    background-color: var(--priest-dull);
     z-index: var(--understory);
     font-family: var(--body-font-family);
     font-style: italic;
     color: var(--mercury);
     font-size: var(--silberhorn);
-    padding-block: 1rem;
-    padding-inline: var(--inline-spacing);
-    padding-inline-end: calc(var(--inline-spacing) * 2); /* weird fix */
+    margin-block: 1rem;
+    margin-inline-start: var(--inline-spacing);
+    margin-inline-end: calc(var(--inline-spacing) * 2); /* weird fix */
+    background-color: var(--priest-dull); /* a11y fix even tho its over */
   }
 
   .supra {
