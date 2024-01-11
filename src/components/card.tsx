@@ -4,26 +4,39 @@ import * as React from "react";
 import { CardTypes } from "../types/card-types";
 
 type TitleTypes = {
+  title: string;
   shortname: string;
   byline: string;
   slug: string;
   breadcrumb: string;
 }
 
-function Title({ shortname, byline, slug, breadcrumb }: TitleTypes) {
+function Spanner({ title, shortname }: { title: string, shortname: string }) {
+  // take the title and if the shortname is nested inside wrap it in a span
+  const titleWithSpan = title.replace(shortname, `<span class="cruiserweight">${shortname}</span>`);
+
+  return (
+    <div dangerouslySetInnerHTML={{ __html: titleWithSpan }} className="spanner" />
+  )
+}
+
+function Title({ title, shortname, byline, slug, breadcrumb }: TitleTypes) {
 
   if (byline) {
     return (
-      <hgroup>
+      <hgroup className="eyebrow card__title">
         <h2
-          className="eyebrow"
+          className="title"
         >
           <Link to={`/${breadcrumb}/${slug}`}>
-            {shortname}
+            <Spanner
+              title={title}
+              shortname={shortname}
+            />
           </Link>
         </h2>
         <p
-          className="supra"
+          className="supra font-weight-300"
         >
           {byline}
         </p>
@@ -33,7 +46,10 @@ function Title({ shortname, byline, slug, breadcrumb }: TitleTypes) {
     return (
       <h2 className="card__title">
         <Link to={`/${breadcrumb}/${slug}`}>
-          {shortname}
+          <Spanner
+            title={title}
+            shortname={shortname}
+          />
         </Link>
       </h2>
     )
@@ -57,6 +73,7 @@ function Card({ content, breadcrumb }: CardTypes) {
       </Link>
       <div className="card__backer">{/* stay gold */}</div>
       <Title
+        title={content.title}
         shortname={content.shortname}
         byline={content.byline}
         slug={content.slug}

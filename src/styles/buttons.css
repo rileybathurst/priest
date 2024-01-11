@@ -72,10 +72,6 @@ button:focus,
   /* #LAYERED_BUTTON */
 /*------------------------------------*/
 
-.chain {
-  display: flex;
-}
-
 .layered_button {
   display: grid;
   

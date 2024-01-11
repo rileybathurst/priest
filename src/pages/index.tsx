@@ -83,8 +83,8 @@ const IndexPage = () => {
       </section>
 
       <Link to="/services" className='eyebrow albatross'>
-        <h2 className='title'>Services</h2>
-        <h2 className='supra'>{craftsmanship.title}</h2>
+        <h2 className='supra'>Services</h2>
+        <h2 className='title'>{craftsmanship.title}</h2>
       </Link>
 
       <div className="deck">
@@ -103,9 +103,11 @@ const IndexPage = () => {
       </Link>
       <Material />
 
-      <div className='index-testimonials'>
+      {/*
+I want good testimonials
+<div className='index-testimonials'>
         <Testimonials />
-      </div>
+      </div> */}
 
       <section id="map">
         <Map />
