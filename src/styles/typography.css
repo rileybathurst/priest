@@ -92,6 +92,10 @@ address {
   }
 }
 
+::selection {
+  background-color: var(--priest-bright);
+}
+
 /*------------------------------------*/
   /* #SINGLES */
 /*------------------------------------*/
@@ -100,20 +104,20 @@ address {
   font-family: var(--major-font-family);
 }
 
-.spanner {
-  font-weight: 300;
-}
-
 .cruiserweight {
   font-weight: var(--cruiserweight);
 }
 
 .flyweight {
-  font-weight: 200;
+  font-weight: var(--flyweight);
 }
 
-.font-weight-300 {
-  font-weight: 300 !important;
+.atomweight {
+  font-weight: var(--atomweight);
+}
+
+.title-weight {
+  font-weight: var(--flyweight);
 }
 
 /*------------------*/

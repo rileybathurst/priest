@@ -60,7 +60,7 @@ ul {
 /*   #larger menu */
 /*------------------------------------*/
 
-.menu__wrapper {
+.menu__big__wrapper {
   @media (min-width: 60rem) {
     background-color: var(--priest-dull);
     padding-block: 2rem;

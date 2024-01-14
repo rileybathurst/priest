@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-import HeaderContact from "../../components/header-contact";
+import SummitContact from "../../components/summit-contact";
 import Card from "../../components/card";
 import SEO from "../../components/seo";
 import { useSiteMetadata } from "../../hooks/use-site-metadata"
@@ -38,7 +38,9 @@ function ServicesCatchAll({ params }) {
   return (
     <>
       <Header />
-      <HeaderContact />
+      <div className="albatross summit__info">
+        <SummitContact />
+      </div>
       <main className="stork">
         <h1>We couldn't find the service "{params.name}"</h1>
         <p>Explore our other services</p>

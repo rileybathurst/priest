@@ -17,7 +17,7 @@
   margin-block-end: 0; /*  browser reset */
   font-weight: var(--cruiserweight);
   clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
-  padding-block-start: 1rem;
+  padding-block-start: 3rem;
 
   svg {
     fill: var(--mercury);

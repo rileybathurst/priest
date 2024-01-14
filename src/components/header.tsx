@@ -48,14 +48,7 @@ const Header = () => (
       {/* // ? this wants to be after so its over or do that with the z? */}
       <SmallMenuToggle />
 
-      {/* more of this could be done in reactive ways */}
-      <nav id="menu_small" className="firstload">
-        <ul className="text-center">
-          <MenuList />
-        </ul>
-      </nav>
-
-      <div className="menu__wrapper">
+      <div className="menu__big__wrapper">
         <nav id="menu__big">
           <ul className="menu align-center">
             {/* // TODO: these would be nicer with a query to featured services */}
@@ -64,6 +57,13 @@ const Header = () => (
         </nav>
       </div>
     </header>
+
+    {/* more of this could be done in reactive ways */}
+    <nav id="menu_small" className="firstload">
+      <ul className="text-center">
+        <MenuList />
+      </ul>
+    </nav>
   </>
 );
 

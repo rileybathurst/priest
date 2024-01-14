@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
-import HeaderContact from "../components/header-contact";
+import SummitContact from "../components/summit-contact";
 import SEO from "../components/seo";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 import ReactMarkdown from 'react-markdown'
@@ -29,7 +29,9 @@ const CraftsmanshipPage = () => {
   return (
     <>
       <Header />
-      <HeaderContact />
+      <div className="albatross summit__info">
+        <SummitContact />
+      </div>
 
       <main className="stork">
         <h1>{strapiCraftsmanship.title}</h1>

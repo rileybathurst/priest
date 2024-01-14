@@ -114,6 +114,7 @@
   clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
   margin-block-start: -2rem;
   background: var(--priest-dull);
+  transition: var(--general-timing);
 
   > iframe {
     margin-block-end: -2rem;
@@ -125,6 +126,11 @@
     background: var(--priest-dull);
     mix-blend-mode: luminosity;
   }
+}
+
+#map:hover {
+  background: transparent;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 /*  * ajust google maps iframe */

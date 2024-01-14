@@ -10,53 +10,30 @@ export const Button = ({ primary }) => {
   return (
     <>
 
-      <button className='button'>
-        Button test
-      </button>
+      <button>
+        <span className='background'>
+          {/* stay gold */}
+        </span>
 
-      <hr className='stories-hr' />
-      <p>Im not sure about this yet</p>
-
-      <button className='stories-button'>
-        Button test
-      </button>
-      <button className='stories-button'>
-        lorem ipsum dolor sit amen
+        <span className='foreground'>
+          Button
+        </span>
       </button>
 
       <hr />
 
-      <button className='stories-button stories-button_hover'>
-        Button test
-      </button>
+      <div className='button_eyebrow'>
+        <p className="supra">Eyebrow</p>
+        <button>
+          <span className='background'>
+            {/* stay gold */}
+          </span>
 
-      <hr />
-
-      <a href="#" className='stories-button_2'>
-        <button className='sr-only'>
-          layered button
+          <span className='foreground'>
+            Button
+          </span>
         </button>
-        <div className='background'>
-          {/* stay gold */}
-        </div>
-
-        <div className='word'>
-          layered button
-        </div>
-      </a>
-
-      <a href="#" className='stories-button_2'>
-        <button className='sr-only'>
-          layered button
-        </button>
-        <div className='background'>
-          {/* stay gold */}
-        </div>
-
-        <div className='word'>
-          layered button
-        </div>
-      </a>
+      </div>
     </>
   );
 };

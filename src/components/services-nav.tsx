@@ -8,7 +8,7 @@ export default function ServicesNav() {
         nodes {
           id
           slug
-          title
+          shortname
         }
       }
     }
@@ -18,11 +18,11 @@ export default function ServicesNav() {
     <ul>
       {data.allStrapiService.nodes.map((service: {
         slug: string;
-        title: string;
+        shortname: string;
       }) => (
         <li key={service.id}>
           <Link to={`/services/${service.slug}`}>
-            {service.title}
+            {service.shortname}
           </Link>
         </li>
       ))}

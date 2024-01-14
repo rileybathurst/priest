@@ -3,33 +3,35 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const SummitContact = () => (
   <div className="chain">
-    <a href={`tel: ${useSiteMetadata().telephone}`} className='layered_button'>
-      <button className='sr-only'>
-        Call us {useSiteMetadata().telephone}
-      </button>
-      <div className='background'>
-        {/* stay gold */}
-      </div>
-
+    <div className='button_eyebrow'>
       <p className="supra">Call us</p>
-      <div className='word'>
-        {useSiteMetadata().telephone}
-      </div>
-    </a>
+      <a
+        href={`tel: ${useSiteMetadata().telephone}`}
+        className='button'
+      >
+        <span className='background'>
+          {/* stay gold */}
+        </span>
+        <span className="foreground">
+          {useSiteMetadata().telephone}
+        </span>
+      </a>
+    </div>
 
-    <a href={useSiteMetadata().mapGoogle} className='layered_button'>
-      <button className='sr-only'>
-        Find us {useSiteMetadata().location.address.streetAddress}
-      </button>
-      <div className='background'>
-        {/* stay gold */}
-      </div>
-
+    <div className='button_eyebrow'>
       <p className="supra">Find us</p>
-      <div className='word'>
-        {useSiteMetadata().location.address.streetAddress}
-      </div>
-    </a>
+      <a
+        href={`tel: ${useSiteMetadata().mapGoogle}`}
+        className='button'
+      >
+        <span className='background'>
+          {/* stay gold */}
+        </span>
+        <span className="foreground">
+          {useSiteMetadata().location.address.streetAddress}
+        </span>
+      </a>
+    </div>
   </div>
 );
 

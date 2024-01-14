@@ -9,6 +9,7 @@ export const query = graphql`
     strapiService(slug: { eq: $slug }) {
       id
       title
+      shortname
       byline
       slug
 

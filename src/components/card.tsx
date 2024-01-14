@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import * as React from "react";
 import { CardTypes } from "../types/card-types";
+import TitleWeight from "./title-weight";
 
 type TitleTypes = {
   title: string;
@@ -9,15 +10,6 @@ type TitleTypes = {
   byline: string;
   slug: string;
   breadcrumb: string;
-}
-
-function Spanner({ title, shortname }: { title: string, shortname: string }) {
-  // take the title and if the shortname is nested inside wrap it in a span
-  const titleWithSpan = title.replace(shortname, `<span class="cruiserweight">${shortname}</span>`);
-
-  return (
-    <div dangerouslySetInnerHTML={{ __html: titleWithSpan }} className="spanner" />
-  )
 }
 
 function Title({ title, shortname, byline, slug, breadcrumb }: TitleTypes) {
@@ -29,15 +21,14 @@ function Title({ title, shortname, byline, slug, breadcrumb }: TitleTypes) {
           className="title"
         >
           <Link to={`/${breadcrumb}/${slug}`}>
-            <Spanner
+            <TitleWeight
               title={title}
               shortname={shortname}
+              wrap="div"
             />
           </Link>
         </h2>
-        <p
-          className="supra font-weight-300"
-        >
+        <p className="supra flyweight">
           {byline}
         </p>
       </hgroup >
@@ -46,7 +37,7 @@ function Title({ title, shortname, byline, slug, breadcrumb }: TitleTypes) {
     return (
       <h2 className="card__title">
         <Link to={`/${breadcrumb}/${slug}`}>
-          <Spanner
+          <TitleWeight
             title={title}
             shortname={shortname}
           />

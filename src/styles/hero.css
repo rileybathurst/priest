@@ -8,7 +8,8 @@
   margin-block-end: 1rem;
   display: flex;
   flex-direction: column;
-  z-index: var(--understory);
+  z-index: var(--canopy);
+  position: relative;
 
   h1 {
     /*  TODO: variables */
@@ -35,14 +36,18 @@
 
   > .hero__logo {
     background: var(--priest-dull);
-    padding-block-end: 0.5rem;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
-
+    
     display: grid;
     place-items: center;
-
+    
     z-index: var(--canopy); /*  sliding logo */
     position: relative; /*  needed for z-index */
+    padding-block-end: 1.5rem;
+
+    @media (min-width: 30rem) {
+      padding-block-end: 0.5rem;
+    }
 
     > a {
       display: inline-block;

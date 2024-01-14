@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
-import HeaderContact from "../components/header-contact";
+import SummitContact from "../components/summit-contact";
 
 const ProcessPage = () => {
 
@@ -27,7 +27,9 @@ const ProcessPage = () => {
   return (
     <>
       <Header />
-      <HeaderContact />
+      <div className="albatross summit__info">
+        <SummitContact />
+      </div>
 
       <main className="container">
 

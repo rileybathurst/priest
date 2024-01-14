@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import HeaderContact from "../components/header-contact";
+import SummitContact from "../components/summit-contact";
 import SEO from "../components/seo";
 import SeoShowcase from "../components/seo-showcase";
 import { useSiteMetadata } from "../hooks/use-site-metadata"
@@ -12,7 +12,9 @@ const NotFoundPage = () => {
   return (
     <>
       <Header />
-      <HeaderContact />
+      <div className="albatross summit__info">
+        <SummitContact />
+      </div>
       <main className="albatross">
         <h1>NOT FOUND</h1>
         <p>Sorry, You just hit a route that doesn&#39;t exist....<br />

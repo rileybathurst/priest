@@ -29,15 +29,15 @@
   flex-wrap: wrap;
   gap: 2px;
 
-  .carousel__label .slider {
+  .slider {
     width: 2.5rem;
     height: 2.5rem;
 
-  .gatsby-image-wrapper {
-    width: 100%;
-    height: 100%;
+    .gatsby-image-wrapper {
+      width: 100%;
+      height: 100%;
+    }
   }
-}
 }
 
 /*  TODO: needs a firefox fix */

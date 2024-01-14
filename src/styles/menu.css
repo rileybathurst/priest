@@ -63,7 +63,7 @@
   padding-block-start: 2rem;
 
   position: relative;
-  z-index: 1; /*  check its above the gallery on the front page */
+  z-index: var(--understory); /*  check its above the gallery on the front page */
   margin-bottom: 0;
 
   > ul {
@@ -160,8 +160,6 @@
 :is(#menu-primary-container__showcase) a:hover,
 a:focus {
   background: var(--priest-dark);
-  /*  TODO: check this its the same color */
-  border-bottom: 5px solid var(--priest-dark);
 }
 
 #menu__big {
@@ -170,7 +168,6 @@ a:focus {
     display: flex;
     text-decoration: none;
     transition: var(--general-timing);
-    border-radius: var(--roll);
   }
 
   a.active {

@@ -1,17 +1,19 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
-import HeaderContact from "../components/header-contact";
+import SummitContact from "../components/summit-contact";
 import SEO from "../components/seo";
 import Card from "../components/card";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { CardTypes } from "../types/card-types";
 import SeoShowcase from "../components/seo-showcase";
+import Cross from "../components/cross";
+
 const ServicesPage = () => {
 
-  const { allStrapiService } = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query ServiceQuery {
       allStrapiService(sort: {order: ASC}) {
         nodes {
@@ -32,19 +34,31 @@ const ServicesPage = () => {
           }
         }
       }
+
+      strapiCraftsmanship {
+        title
+      }
     }
   `)
+
+  let allStrapiService = data.allStrapiService;
+  let craftsmanship = data.strapiCraftsmanship;
 
   return (
     <>
       <Header />
-      <HeaderContact />
+      <div className="albatross summit__info">
+        <SummitContact />
+      </div>
 
       <main className="container">
 
-        <h1 className='albatross'>
-          Services
-        </h1>
+        <div className='eyebrow albatross'>
+          <h1 className='supra'>Services</h1>
+          <h2 className='title'>{craftsmanship.title}</h2>
+        </div>
+
+        <Cross />
 
         <div className="deck">
           {allStrapiService.nodes.map((service: CardTypes, index: number) => (
@@ -58,9 +72,9 @@ const ServicesPage = () => {
         </div>
       </main>
       <Footer />
-      <SeoShowcase
+      {/*       <SeoShowcase
         title={`Services | ${useSiteMetadata().title}`}
-      />
+      /> */}
     </>
   );
 };

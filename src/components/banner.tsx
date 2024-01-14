@@ -7,7 +7,7 @@ const Banner = () => {
       to="/services/laser-profile-cutting/"
       className="banner"
     >
-      <span className="spec">12kW <span className="flyweight">Fibre</span></span>
+      <span className="spec">12kW <span className="atomweight">Fibre</span></span>
       &nbsp;
       <span className="story">South Islands Most Powerful Laser</span>
     </Link>

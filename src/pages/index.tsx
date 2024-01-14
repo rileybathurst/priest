@@ -71,7 +71,7 @@ const IndexPage = () => {
       <section id="summit">
         <div className="summit__info">
           <Banner />
-          <h1 className='font-weight-300'>{useSiteMetadata().description}</h1>
+          <h1 className='flyweight'>{useSiteMetadata().description}</h1>
           <ReactMarkdown children={specialist} />
           <ReactMarkdown children={craftsmanship.body.data.body} />
           <SummitContact />

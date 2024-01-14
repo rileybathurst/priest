@@ -6,11 +6,12 @@ import ReactMarkdown from "react-markdown";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
-import HeaderContact from "../components/header-contact";
+import SummitContact from "../components/summit-contact";
 import Cross from "../components/cross";
 import MuxVideo from "../components/mux-video";
 import MuxCover from "../components/mux-cover";
 import SeoShowcase from "../components/seo-showcase";
+import TitleWeight from "../components/title-weight";
 
 function Carousel(images) {
 
@@ -87,7 +88,14 @@ function Carousel(images) {
           </section>
 
           <section className="carousel__label">
-            <button onClick={() => handlePrev(currentIndex)}>Previous</button>
+            <button onClick={() => handlePrev(currentIndex)}>
+              <span className="background">
+                {/* stay gold */}
+              </span>
+              <span className="foreground">
+                Previous
+              </span>
+            </button>
             {images.images.map((photos) => (
               <button
                 title={photos.name}
@@ -104,7 +112,14 @@ function Carousel(images) {
               </button>
             ))}
 
-            <button onClick={() => handleNext(currentIndex)}>Next</button>
+            <button onClick={() => handleNext(currentIndex)}>
+              <span className="background">
+                {/* stay gold */}
+              </span>
+              <span className="foreground">
+                Next
+              </span>
+            </button>
           </section>
         </div>
       </>
@@ -159,7 +174,9 @@ const ServiceView = ({ service }) => {
   return (
     <>
       <Header />
-      <HeaderContact />
+      <div className="albatross summit__info">
+        <SummitContact />
+      </div>
 
       {/* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/</> */}
       <nav aria-label="Breadcrumb" className="breadcrumbs">
@@ -171,7 +188,11 @@ const ServiceView = ({ service }) => {
             <p className="chevron">&gt;</p>
           </li>
           <li key='current'>
-            <p className="current" aria-current="page">{service.title}</p>
+            <p className="current" aria-current="page"><TitleWeight
+              title={service.title}
+              shortname={service.shortname}
+              wrap="div"
+            /></p>
           </li>
         </ol>
       </nav>
@@ -188,9 +209,11 @@ const ServiceView = ({ service }) => {
         <Cross />
 
         <div className="single__title">
-          <Title
+          <TitleWeight
             title={service.title}
-            byline={service.byline}
+            shortname={service.shortname}
+            wrap="h1"
+          // byline={service.byline}
           />
           <div className="single__markdown">
             <ReactMarkdown
@@ -199,37 +222,37 @@ const ServiceView = ({ service }) => {
           </div>
         </div>
 
-        <section className="deck card__large">
+        {/* <Cross /> */}
+
+        <section className="deck">
           {service.videos.map((vids) => (
             <div
               key={vids.id}
-              className="card"
+              className=""
             >
-              <div className="card__video">
+              <div className="">
                 <MuxVideo mux={vids.mux} />
               </div>
 
-              <div className="card__text">
+              <div className="">
                 <h3>{vids.title}</h3>
                 <p>{vids.content}</p>
               </div>
-              <div className="card__backer">{/* stay gold*/}</div>
+              <div className="">{/* stay gold*/}</div>
             </div>
           ))}
         </section>
-
-        {/* <Gallery images={service.gallery} /> */}
 
         <Carousel images={service.gallery} />
 
       </article>
 
       <Footer />
-      <SeoShowcase
+      {/*       <SeoShowcase
         title={`${service.title} | ${useSiteMetadata().title}`}
         description={service.excerpt}
       // ogImage={data.strapiService.og_image}
-      />
+      /> */}
     </>
   );
 };
