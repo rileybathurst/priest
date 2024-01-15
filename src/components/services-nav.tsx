@@ -21,7 +21,10 @@ export default function ServicesNav() {
         shortname: string;
       }) => (
         <li key={service.id}>
-          <Link to={`/services/${service.slug}`}>
+          <Link
+            to={`/services/${service.slug}`}
+            activeClassName="active"
+          >
             {service.shortname}
           </Link>
         </li>

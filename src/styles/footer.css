@@ -29,7 +29,7 @@
     transition: var(--general-timing);
   }
 
-  a:where(:hover, :focus) {
+  a:where(:hover, :focus), .active {
     background: var(--priest-dark);
   }
 
@@ -94,7 +94,7 @@
     }
 
     svg {
-      max-width: 3rem;
+      max-width: 2rem;
     }
 
     p {

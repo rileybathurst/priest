@@ -5,6 +5,7 @@
 .deck {
   max-width: var(--albatross);
   margin-inline: auto;
+  margin-block-start: 4rem;
   margin-block-end: var(--tasman);
   padding-inline: 1rem;
   width: calc(100% - 2rem);
@@ -78,12 +79,15 @@
       mix-blend-mode: normal;
 
       .gatsby-image-wrapper {
+        transition: var(--general-timing);
         filter: grayscale(1);
       }
     }
 
     .card__image:hover {
-      /* transform: scale(1.1); */
+      .gatsby-image-wrapper {
+        filter: grayscale(0);
+      }
     }
 
     .card__overlay {

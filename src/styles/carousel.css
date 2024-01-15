@@ -30,8 +30,8 @@
   gap: 2px;
 
   .slider {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3.5rem;
+    height: 3.5rem; /* match the button */
 
     .gatsby-image-wrapper {
       width: 100%;

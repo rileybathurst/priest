@@ -29,12 +29,16 @@ const Footer = () => (
           </Link>
         </li>
         <li key="team">
-          <Link to="/team">
+          <Link to="/team"
+            activeClassName="active"
+          >
             Team
           </Link>
         </li>
         <li key="terms">
-          <Link to="/terms">
+          <Link to="/terms"
+            activeClassName="active"
+          >
             Terms &amp; Conditions
           </Link>
         </li>

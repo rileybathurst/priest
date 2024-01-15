@@ -12,6 +12,7 @@ import MuxVideo from "../components/mux-video";
 import MuxCover from "../components/mux-cover";
 import SeoShowcase from "../components/seo-showcase";
 import TitleWeight from "../components/title-weight";
+import Material from "../components/material";
 
 function Carousel(images) {
 
@@ -165,6 +166,38 @@ function Title({ title, byline }) {
   }
 }
 
+function Vids({ vids }) {
+  if (!vids.mux) {
+    return null;
+  } else {
+    return (
+      <>
+        <Cross />
+        <div
+          key={vids.id}
+        >
+          <MuxVideo mux={vids.mux} />
+          <h3>{vids.title}</h3>
+          <p>{vids.content}</p>
+        </div>
+      </>
+    )
+  }
+}
+
+function Supply({ title }) {
+  if (title === 'Steel Supply and Plate Processing') {
+    return (
+      <>
+        <Material />
+        <Cross />
+      </>
+    )
+  } else {
+    return null;
+  }
+}
+
 const ServiceView = ({ service }) => {
 
   const cover = getImage(
@@ -177,25 +210,6 @@ const ServiceView = ({ service }) => {
       <div className="albatross summit__info">
         <SummitContact />
       </div>
-
-      {/* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/</> */}
-      <nav aria-label="Breadcrumb" className="breadcrumbs">
-        <ol>
-          <li key='services'>
-            <Link to="/services">Services</Link>
-          </li>
-          <li key='chevron'>
-            <p className="chevron">&gt;</p>
-          </li>
-          <li key='current'>
-            <p className="current" aria-current="page"><TitleWeight
-              title={service.title}
-              shortname={service.shortname}
-              wrap="div"
-            /></p>
-          </li>
-        </ol>
-      </nav>
 
       <article className="single">
         <div className="single__cover">
@@ -226,24 +240,35 @@ const ServiceView = ({ service }) => {
 
         <section className="deck">
           {service.videos.map((vids) => (
-            <div
-              key={vids.id}
-              className=""
-            >
-              <div className="">
-                <MuxVideo mux={vids.mux} />
-              </div>
-
-              <div className="">
-                <h3>{vids.title}</h3>
-                <p>{vids.content}</p>
-              </div>
-              <div className="">{/* stay gold*/}</div>
-            </div>
+            <Vids vids={vids} />
           ))}
         </section>
 
         <Carousel images={service.gallery} />
+
+        <Cross />
+
+        <Supply title={service.title} />
+
+
+        {/* https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/examples/breadcrumb/</> */}
+        <nav aria-label="Breadcrumb" className="breadcrumbs">
+          <ol>
+            <li key='services'>
+              <Link to="/services">Services</Link>
+            </li>
+            <li key='chevron'>
+              <p className="chevron">&gt;</p>
+            </li>
+            <li key='current'>
+              <p className="current" aria-current="page"><TitleWeight
+                title={service.title}
+                shortname={service.shortname}
+                wrap="div"
+              /></p>
+            </li>
+          </ol>
+        </nav>
 
       </article>
 

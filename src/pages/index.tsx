@@ -11,6 +11,7 @@ import Testimonials from "../components/testimonials";
 import Card from "../components/card";
 import MuxHome from '../components/mux-home';
 import Map from '../components/map';
+import Cross from '../components/cross';
 
 import { CardTypes } from '../types/card-types';
 import SeoShowcase from '../components/seo-showcase';
@@ -82,6 +83,8 @@ const IndexPage = () => {
         </div>
       </section>
 
+      <Cross />
+
       <Link to="/services" className='eyebrow albatross'>
         <h2 className='supra'>Services</h2>
         <h2 className='title'>{craftsmanship.title}</h2>
@@ -97,7 +100,9 @@ const IndexPage = () => {
         ))}
       </div >
 
-      <Link to="/materials" className='eyebrow albatross'>
+      <Cross />
+
+      <Link to="/services/steel-supply-plateprocessing/" className='eyebrow albatross'>
         <h2 className='title'>Materials</h2>
         <h2 className='supra'>Thickness and Options</h2>
       </Link>
@@ -108,6 +113,8 @@ I want good testimonials
 <div className='index-testimonials'>
         <Testimonials />
       </div> */}
+
+      <Cross />
 
       <section id="map">
         <Map />
