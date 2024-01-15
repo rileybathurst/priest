@@ -30,6 +30,8 @@ button,
     transform: skew(-10deg); /* match robotto italic */
     font-style: italic;
     margin-inline-end: 0.5rem;
+    place-self: stretch;
+    z-index: var(--floor);
   }
 
   .foreground {
@@ -40,6 +42,8 @@ button,
     padding-block: 1rem;
     padding-inline-start: var(--inline-spacing);
     padding-inline-end: calc(var(--inline-spacing) * 2); /* weird fix */
+    background-color: var(--priest-dull); /* fix a11y contrast that shouldnt be a problem */
+    clip-path: polygon(0.75rem 0, 100% 0, calc(100% - 0.75rem) 100%, 0 100%);
   }
 }
 
@@ -49,6 +53,10 @@ button:hover,
     background-color: var(--priest-dark);
     box-shadow: var(--troposphere);
   }
+
+  .foreground {
+    background-color: var(--priest-dark);
+  }
 }
 
 button:focus,
@@ -56,6 +64,10 @@ button:focus,
   .background {
     background-color: var(--priest-pitch);
     box-shadow: var(--stratosphere);
+  }
+
+  .foreground {
+    background-color: var(--priest-pitch);
   }
 }
 
